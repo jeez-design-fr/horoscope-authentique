@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "belier",
+    "name": "Bélier",
+    "date": "21 mars - 19 avril",
+    "element": "Feu",
+    "color_theme": "from-red-600 to-orange-500",
+    "image": "belier.webp"
+  },
+  {
+    "slug": "taureau",
+    "name": "Taureau",
+    "date": "20 avril - 20 mai",
+    "element": "Terre",
+    "color_theme": "from-green-600 to-emerald-500",
+    "image": "taureau.webp"
+  },
+  {
+    "slug": "gemeaux",
+    "name": "Gémeaux",
+    "date": "21 mai - 20 juin",
+    "element": "Air",
+    "color_theme": "from-yellow-400 to-orange-300",
+    "image": "gemeaux.webp"
+  },
+  {
+    "slug": "cancer",
+    "name": "Cancer",
+    "date": "21 juin - 22 juillet",
+    "element": "Eau",
+    "color_theme": "from-gray-200 to-gray-400",
+    "image": "cancer.webp"
+  },
+  {
+    "slug": "lion",
+    "name": "Lion",
+    "date": "23 juillet - 22 août",
+    "element": "Feu",
+    "color_theme": "from-yellow-500 to-amber-600",
+    "image": "lion.webp"
+  },
+  {
+    "slug": "vierge",
+    "name": "Vierge",
+    "date": "23 août - 22 septembre",
+    "element": "Terre",
+    "color_theme": "from-green-700 to-green-900",
+    "image": "vierge.webp"
+  },
+  {
+    "slug": "balance",
+    "name": "Balance",
+    "date": "23 septembre - 22 octobre",
+    "element": "Air",
+    "color_theme": "from-pink-300 to-rose-400",
+    "image": "balance.webp"
+  },
+  {
+    "slug": "scorpion",
+    "name": "Scorpion",
+    "date": "23 octobre - 21 novembre",
+    "element": "Eau",
+    "color_theme": "from-slate-800 to-black",
+    "image": "scorpion.webp"
+  },
+  {
+    "slug": "sagittaire",
+    "name": "Sagittaire",
+    "date": "22 novembre - 21 décembre",
+    "element": "Feu",
+    "color_theme": "from-purple-600 to-indigo-600",
+    "image": "sagittaire.webp"
+  },
+  {
+    "slug": "capricorne",
+    "name": "Capricorne",
+    "date": "22 décembre - 19 janvier",
+    "element": "Terre",
+    "color_theme": "from-stone-600 to-stone-800",
+    "image": "capricorne.webp"
+  },
+  {
+    "slug": "verseau",
+    "name": "Verseau",
+    "date": "20 janvier - 18 février",
+    "element": "Air",
+    "color_theme": "from-sky-400 to-blue-500",
+    "image": "verseau.webp"
+  },
+  {
+    "slug": "poissons",
+    "name": "Poissons",
+    "date": "19 février - 20 mars",
+    "element": "Eau",
+    "color_theme": "from-cyan-500 to-blue-600",
+    "image": "poissons.webp"
+  }
+]
