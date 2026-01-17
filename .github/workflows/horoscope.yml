@@ -1,0 +1,38 @@
+name: Horoscope Quotidien
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+
+    steps:
+    - name: Récupérer le code
+      uses: actions/checkout@v4
+
+    - name: Installer Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Installer les dépendances
+      run: npm install
+
+    - name: Générer les Horoscopes
+      env:
+        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+      run: node generator.js
+
+    - name: Sauvegarder et Publier
+      run: |
+        git config --global user.name "Oracle Automatique"
+        git config --global user.email "oracle@horoscope-authentique.fr"
+        git add public/*.html
+        git commit -m "🔮 Mise à jour quotidienne des astres" || echo "Pas de changement"
+        git push
