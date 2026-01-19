@@ -14,7 +14,7 @@ if (!process.env.GOOGLE_API_KEY) {
     process.exit(1);
 }
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Vérifications
 if (!fs.existsSync('./signs.json')) { console.error("❌ ERREUR : signs.json manquant"); process.exit(1); }
