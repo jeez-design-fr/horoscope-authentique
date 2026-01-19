@@ -6,33 +6,45 @@ const path = require('path');
 const outputDir = './public';
 const assetsSrc = './assets';
 const assetsDest = path.join(outputDir, 'assets');
+
+// On récupère la clé depuis les Secrets (GitHub) ou l'environnement
 const API_KEY = process.env.GOOGLE_API_KEY ? process.env.GOOGLE_API_KEY.trim() : "";
 
-if (!API_KEY) { console.error("❌ ERREUR : Clé manquante !"); process.exit(1); }
+// Sécurité : Si pas de clé, on arrête tout
+if (!API_KEY) { 
+    console.error("❌ ERREUR : Clé manquante ! (Vérifie tes Secrets GitHub)"); 
+    process.exit(1); 
+}
 
 const signs = require('./signs.json');
 const templateSign = fs.readFileSync('./template.html', 'utf-8');
 if (!fs.existsSync(outputDir)) { fs.mkdirSync(outputDir); }
 
-// --- FONCTION DE GÉNÉRATION AVEC MOUCHARD ---
+// --- FONCTION DE GÉNÉRATION (Style EvoZen) ---
 async function generateHoroscopeWithRetry(signName) {
-    let lastError = ""; // Pour mémoriser l'erreur
+    let success = false;
     let attempts = 0;
     
-    while (attempts < 3) {
-        console.log(`✨ Tentative ${attempts + 1} pour : ${signName}...`);
+    while (!success && attempts < 3) {
+        console.log(`✨ Rédaction pour : ${signName} (Essai ${attempts + 1})...`);
         
-        // ESSAI AVEC LE MODÈLE "LATEST" (Souvent le plus stable)
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${API_KEY}`;
+        // Utilisation du modèle LITE (Rapide, quotas élevés, stable)
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${API_KEY}`;
         
         const prompt = `
-        Rédige l'horoscope pour : ${signName}.
-        Style : Astrologie professionnelle (type Elle/EvoZen). 
-        Format JSON UNIQUEMENT :
+        Tu es une astrologue renommée (style EvoZen/Elle).
+        Rédige l'horoscope du jour pour : ${signName}.
+        
+        Consignes :
+        - Ton : Mystique, bienveillant mais direct.
+        - Vocabulaire : Parle de planètes, d'énergies, de conjonctions.
+        - Longueur : 3 belles phrases par catégorie (minimum 40 mots par catégorie).
+        
+        Format JSON STRICT :
         {
-            "amour": "Texte amour (environ 40 mots)",
-            "travail": "Texte travail (environ 40 mots)",
-            "sante": "Texte bien-être (environ 40 mots)"
+            "amour": "Texte...",
+            "travail": "Texte...",
+            "sante": "Texte..."
         }
         `;
 
@@ -43,55 +55,46 @@ async function generateHoroscopeWithRetry(signName) {
                 body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
             });
 
-            // Si erreur 429 (Trop vite), on attend et on réessaie
             if (response.status === 429) {
-                console.log("⏳ 429 detected. Waiting 20s...");
-                await new Promise(r => setTimeout(r, 20000));
+                console.log("⏳ Pause trafic... Attente 15s...");
+                await new Promise(r => setTimeout(r, 15000));
                 attempts++;
-                lastError = "Erreur 429 (Trop de requêtes)";
                 continue;
             }
 
-            // Si autre erreur, on capture le message précis de Google
-            if (!response.ok) {
-                const errorBody = await response.text();
-                // On essaie d'extraire le message d'erreur du JSON de Google
-                try {
-                    const errorJson = JSON.parse(errorBody);
-                    lastError = `Erreur ${response.status}: ${errorJson.error.message}`;
-                } catch (e) {
-                    lastError = `Erreur HTTP ${response.status}`;
-                }
-                throw new Error(lastError);
-            }
+            if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
 
             const data = await response.json();
-            if(!data.candidates) throw new Error("Réponse vide (Pas de candidats)");
+            if(!data.candidates) throw new Error("Réponse vide");
 
             let text = data.candidates[0].content.parts[0].text;
             text = text.replace(/```json/g, '').replace(/```/g, '').trim();
             
-            return JSON.parse(text); // SUCCÈS !
+            const jsonResult = JSON.parse(text);
+            
+            // Vérification qualité (si texte trop court, on refuse)
+            if (jsonResult.amour.length < 20) throw new Error("Texte trop court");
+
+            success = true;
+            return jsonResult;
 
         } catch (error) {
-            console.error(`⚠️ Échec :`, error.message);
-            lastError = error.message; // On garde l'erreur en mémoire
+            console.error(`⚠️ Erreur :`, error.message);
             await new Promise(r => setTimeout(r, 5000));
             attempts++;
         }
     }
     
-    // --- LE MOUCHARD : AFFICHER L'ERREUR SUR LE SITE ---
-    // Au lieu du texte "Patience", on affiche l'erreur technique pour comprendre
+    // Fallback de secours (si tout échoue)
     return { 
-        amour: `⚠️ DIAGNOSTIC : ${lastError}`, 
-        travail: "L'IA n'a pas pu générer ce texte.", 
-        sante: "Veuillez vérifier les logs ou me donner ce message d'erreur." 
+        amour: "Les configurations planétaires sont complexes. Prenez du recul.", 
+        travail: "Ne forcez pas le destin aujourd'hui, observez.", 
+        sante: "Reposez-vous, votre énergie reviendra demain." 
     };
 }
 
 async function main() {
-    console.log("1️⃣  Démarrage Mode Diagnostic...");
+    console.log("1️⃣  Démarrage Production (Version Sécurisée)...");
     
     for (const sign of signs) {
         const prediction = await generateHoroscopeWithRetry(sign.name);
@@ -107,8 +110,8 @@ async function main() {
 
         fs.writeFileSync(path.join(outputDir, `${sign.slug}.html`), content);
         
-        // Pause de sécurité
-        console.log("☕ Pause (10s)...");
+        // Pause de sécurité anti-blocage
+        console.log("☕ Pause de sécurité (10s)...");
         await new Promise(r => setTimeout(r, 10000));
     }
 
@@ -125,7 +128,7 @@ async function main() {
     console.log("3️⃣  Copie des images...");
     if (!fs.existsSync(assetsDest)){ fs.mkdirSync(assetsDest); }
     if (fs.existsSync(assetsSrc)) { fs.readdirSync(assetsSrc).forEach(file => { fs.copyFileSync(path.join(assetsSrc, file), path.join(assetsDest, file)); }); }
-    console.log("🎉 SUCCESS : Diagnostic prêt !");
+    console.log("🎉 SUCCESS : Prêt à envoyer !");
 }
 
 main();
