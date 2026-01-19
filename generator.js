@@ -1,22 +1,18 @@
-require('dotenv').config(); // Charge le coffre-fort .env
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
-const { GoogleGenerativeAI } = require("@google/generative-ai"); // L'outil Google
 
 // --- CONFIGURATION ---
 const outputDir = './public';
 const assetsSrc = './assets';
 const assetsDest = path.join(outputDir, 'assets');
+const API_KEY = process.env.GOOGLE_API_KEY;
 
-// 1. Connexion à Gemini
-if (!process.env.GOOGLE_API_KEY) {
-    console.error("❌ ERREUR : Clé GOOGLE_API_KEY manquante dans le fichier .env !");
+// Vérifications de sécurité
+if (!API_KEY) {
+    console.error("❌ ERREUR : Clé GOOGLE_API_KEY manquante !");
     process.exit(1);
 }
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-// Vérifications
 if (!fs.existsSync('./signs.json')) { console.error("❌ ERREUR : signs.json manquant"); process.exit(1); }
 if (!fs.existsSync('./template.html')) { console.error("❌ ERREUR : template.html manquant"); process.exit(1); }
 
@@ -25,28 +21,42 @@ const templateSign = fs.readFileSync('./template.html', 'utf-8');
 
 if (!fs.existsSync(outputDir)) { fs.mkdirSync(outputDir); }
 
-// --- FONCTION MAGIQUE : Parler à Gemini ---
+// --- FONCTION MAGIQUE : Parler à Gemini DIRECTEMENT (Sans SDK) ---
 async function generateHoroscope(signName) {
     console.log(`✨ Gemini consulte les astres pour : ${signName}...`);
     
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+    
+    const prompt = `
+    Tu es une astrologue mystique. Rédige un horoscope pour le signe : ${signName}.
+    Réponds UNIQUEMENT avec un objet JSON valide suivant ce format exact :
+    {
+        "amour": "Phrase sur l'amour.",
+        "travail": "Phrase sur le travail.",
+        "sante": "Phrase sur la santé."
+    }
+    `;
+
     try {
-        const prompt = `
-        Tu es une astrologue mystique. Rédige un horoscope pour le signe : ${signName}.
-        Réponds UNIQUEMENT avec un objet JSON (sans balises markdown) suivant ce format exact :
-        {
-            "amour": "Une phrase mystique et élégante sur l'amour.",
-            "travail": "Un conseil professionnel perspicace.",
-            "sante": "Un conseil bien-être apaisant."
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{ text: prompt }]
+                }]
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
         }
-        `;
 
-        const result = await model.generateContent(prompt);
-        const response = await result.response;
-        let text = response.text();
+        const data = await response.json();
+        let text = data.candidates[0].content.parts[0].text;
 
-        // Nettoyage : Gemini ajoute parfois des ```json ... ``` autour, on les enlève
+        // Nettoyage du JSON
         text = text.replace(/```json/g, '').replace(/```/g, '').trim();
-
         return JSON.parse(text);
 
     } catch (error) {
@@ -61,11 +71,9 @@ async function generateHoroscope(signName) {
 
 // --- FONCTION PRINCIPALE ---
 async function main() {
-    
-    console.log("1️⃣  Démarrage de la génération avec Google Gemini...");
+    console.log("1️⃣  Démarrage de la génération (Mode Direct)...");
     
     for (const sign of signs) {
-        // Petite pause pour être poli avec l'API Google
         const prediction = await generateHoroscope(sign.name);
         
         let content = templateSign
@@ -78,8 +86,11 @@ async function main() {
             .replace(/{{horoscope_sante}}/g, prediction.sante);
 
         fs.writeFileSync(path.join(outputDir, `${sign.slug}.html`), content);
+        // Petite pause pour ne pas spammer Google
+        await new Promise(r => setTimeout(r, 1000));
     }
 
+    // Génération de l'index (Identique à avant)
     console.log("2️⃣  Génération de la Vitrine...");
     let cardsHtml = '';
     signs.forEach((sign) => {
@@ -93,8 +104,7 @@ async function main() {
                     <p class="text-[9px] text-gray-400 uppercase tracking-widest mt-1">${sign.date}</p>
                 </div>
             </div>
-        </a>
-        `;
+        </a>`;
     });
 
     const indexHtml = `
@@ -134,8 +144,7 @@ async function main() {
         <p>© 2026 Maison Horoscope Authentique</p>
     </footer>
 </body>
-</html>
-    `;
+</html>`;
 
     fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtml);
 
@@ -146,7 +155,7 @@ async function main() {
             fs.copyFileSync(path.join(assetsSrc, file), path.join(assetsDest, file));
         });
     }
-    console.log("🎉 SUCCESS ! Horoscopes générés par Gemini !");
+    console.log("🎉 SUCCESS ! Horoscopes générés sans intermédiaire !");
 }
 
 main();
