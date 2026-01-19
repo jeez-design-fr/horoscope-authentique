@@ -6,98 +6,101 @@ const path = require('path');
 const outputDir = './public';
 const assetsSrc = './assets';
 const assetsDest = path.join(outputDir, 'assets');
-
-// On récupère la clé depuis les Secrets (GitHub) ou l'environnement
 const API_KEY = process.env.GOOGLE_API_KEY ? process.env.GOOGLE_API_KEY.trim() : "";
 
-// Sécurité : Si pas de clé, on arrête tout
-if (!API_KEY) { 
-    console.error("❌ ERREUR : Clé manquante ! (Vérifie tes Secrets GitHub)"); 
-    process.exit(1); 
-}
+if (!API_KEY) { console.error("❌ CLÉ MANQUANTE"); process.exit(1); }
 
 const signs = require('./signs.json');
 const templateSign = fs.readFileSync('./template.html', 'utf-8');
 if (!fs.existsSync(outputDir)) { fs.mkdirSync(outputDir); }
 
-// --- FONCTION DE GÉNÉRATION (Style EvoZen) ---
-async function generateHoroscopeWithRetry(signName) {
-    let success = false;
-    let attempts = 0;
+// --- FONCTION MAGIQUE : TOUT EN UN ---
+async function generateAllHoroscopesAtOnce() {
+    console.log("✨ Lancement de la SUPER-REQUÊTE (12 signes d'un coup)...");
+
+    // On utilise le modèle 2.0 Lite qui est dans ta liste
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${API_KEY}`;
+
+    // On prépare la liste des signes pour le prompt
+    const signsList = signs.map(s => s.name).join(", ");
+
+    const prompt = `
+    Tu es l'astrologue en chef d'un grand média (style EvoZen/Elle).
+    Ta mission : Rédiger l'horoscope complet du jour pour ces 12 signes : ${signsList}.
+
+    CONSIGNES DE RÉDACTION :
+    - Ton : Mystique, bienveillant, concret. Parle des mouvements planétaires actuels.
+    - Longueur : Pour CHAQUE signe, rédige environ 3 phrases par catégorie (Amour, Travail, Santé).
     
-    while (!success && attempts < 3) {
-        console.log(`✨ Rédaction pour : ${signName} (Essai ${attempts + 1})...`);
-        
-        // Utilisation du modèle LITE (Rapide, quotas élevés, stable)
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${API_KEY}`;
-        
-        const prompt = `
-        Tu es une astrologue renommée (style EvoZen/Elle).
-        Rédige l'horoscope du jour pour : ${signName}.
-        
-        Consignes :
-        - Ton : Mystique, bienveillant mais direct.
-        - Vocabulaire : Parle de planètes, d'énergies, de conjonctions.
-        - Longueur : 3 belles phrases par catégorie (minimum 40 mots par catégorie).
-        
-        Format JSON STRICT :
-        {
-            "amour": "Texte...",
-            "travail": "Texte...",
-            "sante": "Texte..."
-        }
-        `;
-
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-            });
-
-            if (response.status === 429) {
-                console.log("⏳ Pause trafic... Attente 15s...");
-                await new Promise(r => setTimeout(r, 15000));
-                attempts++;
-                continue;
-            }
-
-            if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
-
-            const data = await response.json();
-            if(!data.candidates) throw new Error("Réponse vide");
-
-            let text = data.candidates[0].content.parts[0].text;
-            text = text.replace(/```json/g, '').replace(/```/g, '').trim();
-            
-            const jsonResult = JSON.parse(text);
-            
-            // Vérification qualité (si texte trop court, on refuse)
-            if (jsonResult.amour.length < 20) throw new Error("Texte trop court");
-
-            success = true;
-            return jsonResult;
-
-        } catch (error) {
-            console.error(`⚠️ Erreur :`, error.message);
-            await new Promise(r => setTimeout(r, 5000));
-            attempts++;
-        }
+    FORMAT DE RÉPONSE ATTENDU (JSON STRICT) :
+    Tu dois renvoyer un seul objet JSON où les clés sont les noms des signes (exactement comme écrit ci-dessous) :
+    
+    {
+        "Bélier": { "amour": "...", "travail": "...", "sante": "..." },
+        "Taureau": { "amour": "...", "travail": "...", "sante": "..." },
+        "Gémeaux": { "amour": "...", "travail": "...", "sante": "..." },
+        "Cancer": { "amour": "...", "travail": "...", "sante": "..." },
+        "Lion": { "amour": "...", "travail": "...", "sante": "..." },
+        "Vierge": { "amour": "...", "travail": "...", "sante": "..." },
+        "Balance": { "amour": "...", "travail": "...", "sante": "..." },
+        "Scorpion": { "amour": "...", "travail": "...", "sante": "..." },
+        "Sagittaire": { "amour": "...", "travail": "...", "sante": "..." },
+        "Capricorne": { "amour": "...", "travail": "...", "sante": "..." },
+        "Verseau": { "amour": "...", "travail": "...", "sante": "..." },
+        "Poissons": { "amour": "...", "travail": "...", "sante": "..." }
     }
     
-    // Fallback de secours (si tout échoue)
-    return { 
-        amour: "Les configurations planétaires sont complexes. Prenez du recul.", 
-        travail: "Ne forcez pas le destin aujourd'hui, observez.", 
-        sante: "Reposez-vous, votre énergie reviendra demain." 
-    };
+    Réponds uniquement avec le JSON. Rien d'autre.
+    `;
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+        });
+
+        if (!response.ok) {
+            const errText = await response.text();
+            throw new Error(`Erreur Google ${response.status}: ${errText}`);
+        }
+
+        const data = await response.json();
+        let text = data.candidates[0].content.parts[0].text;
+        
+        // Nettoyage du Markdown json
+        text = text.replace(/```json/g, '').replace(/```/g, '').trim();
+        
+        const allHoroscopes = JSON.parse(text);
+        console.log("✅ SUCCÈS ! J'ai reçu tous les horoscopes !");
+        return allHoroscopes;
+
+    } catch (error) {
+        console.error("❌ Erreur critique lors de la génération globale :", error.message);
+        return null;
+    }
 }
 
 async function main() {
-    console.log("1️⃣  Démarrage Production (Version Sécurisée)...");
+    // 1. On récupère tout le contenu en UNE SEULE fois
+    const allPredictions = await generateAllHoroscopesAtOnce();
+
+    // 2. On génère les pages
+    console.log("📄 Génération des pages HTML...");
     
     for (const sign of signs) {
-        const prediction = await generateHoroscopeWithRetry(sign.name);
+        let prediction = null;
+
+        if (allPredictions && allPredictions[sign.name]) {
+            prediction = allPredictions[sign.name];
+        } else {
+            // Fallback si ça a échoué (ne devrait pas arriver avec la méthode One Shot)
+            prediction = {
+                amour: "Les astres gardent le silence pour le moment.",
+                travail: "Revenez plus tard pour vos prévisions.",
+                sante: "Prenez soin de vous en attendant la mise à jour."
+            };
+        }
         
         let content = templateSign
             .replace(/{{name}}/g, sign.name)
@@ -109,14 +112,10 @@ async function main() {
             .replace(/{{horoscope_sante}}/g, prediction.sante);
 
         fs.writeFileSync(path.join(outputDir, `${sign.slug}.html`), content);
-        
-        // Pause de sécurité anti-blocage
-        console.log("☕ Pause de sécurité (10s)...");
-        await new Promise(r => setTimeout(r, 10000));
     }
 
-    // Génération Vitrine
-    console.log("2️⃣  Génération de la Vitrine...");
+    // 3. Génération Vitrine
+    console.log("🏠 Génération de la Vitrine...");
     let cardsHtml = '';
     signs.forEach((sign) => {
         const delay = (Math.random() * 2).toFixed(2);
@@ -128,7 +127,7 @@ async function main() {
     console.log("3️⃣  Copie des images...");
     if (!fs.existsSync(assetsDest)){ fs.mkdirSync(assetsDest); }
     if (fs.existsSync(assetsSrc)) { fs.readdirSync(assetsSrc).forEach(file => { fs.copyFileSync(path.join(assetsSrc, file), path.join(assetsDest, file)); }); }
-    console.log("🎉 SUCCESS : Prêt à envoyer !");
+    console.log("🎉 SUCCESS ! Site mis à jour.");
 }
 
 main();
