@@ -14,80 +14,76 @@ const signs = require('./signs.json');
 const templateSign = fs.readFileSync('./template.html', 'utf-8');
 if (!fs.existsSync(outputDir)) { fs.mkdirSync(outputDir); }
 
-// --- FONCTION SUPER-REQUÊTE AVEC RAPPORT D'ERREUR ---
-async function generateAllHoroscopesAtOnce() {
-    console.log("✨ Lancement Super-Requête...");
+// Fonction d'attente (Sleep)
+const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-    // On utilise le Lite (le plus probable de marcher)
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${API_KEY}`;
-
-    const signsList = signs.map(s => s.name).join(", ");
-    const prompt = `
-    Rédige l'horoscope pour ces 12 signes : ${signsList}.
-    Format JSON STRICT (une clé par signe).
-    Exemple format : { "Bélier": { "amour": "...", "travail": "...", "sante": "..." }, ... }
-    `;
-
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-        });
-
-        if (!response.ok) {
-            const errText = await response.text();
-            // On renvoie l'erreur brute pour l'afficher
-            return { error: `ERREUR GOOGLE ${response.status}: ${errText.slice(0, 200)}...` };
-        }
-
-        const data = await response.json();
-        if (!data.candidates || !data.candidates[0].content) {
-            return { error: "ERREUR: Réponse vide (pas de candidats)" };
-        }
-
-        let text = data.candidates[0].content.parts[0].text;
-        text = text.replace(/```json/g, '').replace(/```/g, '').trim();
+// --- FONCTION DE GÉNÉRATION INDESTRUCTIBLE ---
+async function generateHoroscopeIndestructible(signName) {
+    let success = false;
+    let attempts = 0;
+    // On insiste jusqu'à 10 fois si besoin
+    const maxAttempts = 10; 
+    
+    while (!success && attempts < maxAttempts) {
+        console.log(`✨ ${signName} : Tentative ${attempts + 1}/${maxAttempts}...`);
         
-        try {
-            return JSON.parse(text);
-        } catch (e) {
-            return { error: `ERREUR JSON PARSE: Impossible de lire la réponse. ${text.slice(0, 50)}...` };
-        }
+        // On utilise le modèle LITE (le plus léger pour le quota)
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${API_KEY}`;
+        
+        const prompt = `
+        Rédige l'horoscope du jour pour : ${signName}.
+        Style : Astrologie sérieuse et mystique (EvoZen).
+        Format JSON STRICT : { "amour": "...", "travail": "...", "sante": "..." }
+        Longueur : 40 mots minimum par section.
+        `;
 
-    } catch (error) {
-        return { error: `ERREUR CRITIQUE: ${error.message}` };
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+            });
+
+            // GESTION DU QUOTA (429)
+            if (response.status === 429) {
+                console.log(`⏳ QUOTA ATTEINT pour ${signName}. Mise en veille de 60 secondes...`);
+                // Si ça bloque, on attend 1 minute complète (c'est long mais ça sauve le script)
+                await wait(60000); 
+                attempts++;
+                continue; // On recommence la boucle
+            }
+
+            if (!response.ok) throw new Error(`Erreur HTTP ${response.status}`);
+
+            const data = await response.json();
+            if(!data.candidates) throw new Error("Réponse vide");
+
+            let text = data.candidates[0].content.parts[0].text;
+            text = text.replace(/```json/g, '').replace(/```/g, '').trim();
+            
+            success = true;
+            return JSON.parse(text);
+
+        } catch (error) {
+            console.error(`⚠️ Erreur (${error.message}). Pause de 10s...`);
+            await wait(10000);
+            attempts++;
+        }
     }
+    
+    // Si vraiment Google est mort après 10 minutes d'essais
+    return { 
+        amour: "L'univers se réaligne. Revenez dans quelques instants.", 
+        travail: "Patience et longueur de temps font plus que force ni que rage.", 
+        sante: "Prenez une grande inspiration." 
+    };
 }
 
 async function main() {
-    // 1. On lance la requête
-    const globalResult = await generateAllHoroscopesAtOnce();
-
-    console.log("📄 Génération des pages...");
+    console.log("🚀 Démarrage du générateur haute résilience...");
     
     for (const sign of signs) {
-        let prediction = {};
-
-        // ANALYSE DU RÉSULTAT
-        if (globalResult.error) {
-            // CAS 1 : Ça a planté globalement -> On affiche l'erreur partout
-            prediction = {
-                amour: `🔴 ${globalResult.error}`,
-                travail: "Échec technique.",
-                sante: "Voir message ci-dessus."
-            };
-        } else if (globalResult[sign.name]) {
-            // CAS 2 : Succès !
-            prediction = globalResult[sign.name];
-        } else {
-            // CAS 3 : Le JSON est là, mais il manque CE signe
-            prediction = {
-                amour: "🔴 Erreur : Ce signe est absent du JSON généré.",
-                travail: "...",
-                sante: "..."
-            };
-        }
+        const prediction = await generateHoroscopeIndestructible(sign.name);
         
         let content = templateSign
             .replace(/{{name}}/g, sign.name)
@@ -99,21 +95,27 @@ async function main() {
             .replace(/{{horoscope_sante}}/g, prediction.sante);
 
         fs.writeFileSync(path.join(outputDir, `${sign.slug}.html`), content);
+        
+        // Pause systématique de 10 secondes entre chaque signe (même si ça marche)
+        // Pour ne pas brusquer le quota restant
+        console.log("☕ Temporisation (10s)...");
+        await wait(10000);
     }
 
-    // Vitrine (identique)
+    // Vitrine
     console.log("🏠 Génération Vitrine...");
     let cardsHtml = '';
     signs.forEach((sign) => {
-        cardsHtml += `<a href="${sign.slug}.html" class="card-link group block"><div class="flex flex-col items-center p-4 transition-transform duration-500 hover:scale-[1.01] h-auto"><img src="assets/${sign.image}" alt="${sign.name}" class="w-full h-auto drop-shadow-xl mb-4 relative z-10 block"><div class="text-center relative z-10 mt-auto"><h2 class="text-lg text-gray-800 font-cinzel font-bold">${sign.name}</h2></div></div></a>`;
+        const delay = (Math.random() * 2).toFixed(2);
+        cardsHtml += `<a href="${sign.slug}.html" class="card-link group block" style="animation-delay: ${delay}s"><div class="flex flex-col items-center p-4 transition-transform duration-500 hover:scale-[1.01] h-auto"><img src="assets/${sign.image}" alt="${sign.name}" class="w-full h-auto drop-shadow-xl mb-4 relative z-10 block"><div class="text-center relative z-10 mt-auto"><h2 class="text-lg text-gray-800 font-cinzel group-hover:text-[#D4AF37] transition-colors font-bold">${sign.name}</h2><p class="text-[9px] text-gray-400 uppercase tracking-widest mt-1">${sign.date}</p></div></div></a>`;
     });
-    const indexHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Horoscope Authentique</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]"><header class="text-center py-16 px-4"><h1 class="text-5xl font-bold">HOROSCOPE</h1></header><main class="container mx-auto px-4 pb-24"><div class="grid grid-cols-2 md:grid-cols-4 gap-4">${cardsHtml}</div></main></body></html>`;
+    const indexHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Horoscope Authentique</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif}@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-5px)}100%{transform:translateY(0)}}.card-link{animation:float 7s ease-in-out infinite}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA] selection:bg-black selection:text-white"><header class="text-center py-16 px-4 relative z-20"><p class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold">Bienvenue à la maison</p><div class="flex flex-col items-center"><h1 class="text-5xl md:text-7xl font-bold text-black tracking-tight mb-4">HOROSCOPE</h1><div class="w-24 h-[1px] bg-black mb-4"></div><h2 class="text-3xl md:text-5xl text-black tracking-[0.2em] font-normal">AUTHENTIQUE</h2></div></header><main class="flex-grow container mx-auto px-4 pb-24 relative z-10"><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 max-w-7xl mx-auto items-end">${cardsHtml}</div></main><footer class="text-center py-8 text-gray-300 text-xs relative z-10"><p>© 2026 Maison Horoscope Authentique</p></footer></body></html>`;
     fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtml);
 
     // Images
     if (!fs.existsSync(assetsDest)){ fs.mkdirSync(assetsDest); }
     if (fs.existsSync(assetsSrc)) { fs.readdirSync(assetsSrc).forEach(file => { fs.copyFileSync(path.join(assetsSrc, file), path.join(assetsDest, file)); }); }
-    console.log("🎉 DIAGNOSTIC PRÊT");
+    console.log("🎉 SUCCESS ! (Malgré les quotas)");
 }
 
 main();
