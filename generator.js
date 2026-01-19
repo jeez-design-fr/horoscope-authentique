@@ -6,7 +6,6 @@ const path = require('path');
 const outputDir = './public';
 const assetsSrc = './assets';
 const assetsDest = path.join(outputDir, 'assets');
-// Nettoyage de la clé (enlève les espaces)
 const API_KEY = process.env.GOOGLE_API_KEY ? process.env.GOOGLE_API_KEY.trim() : "";
 
 if (!API_KEY) { console.error("❌ ERREUR : Clé manquante !"); process.exit(1); }
@@ -15,21 +14,34 @@ const signs = require('./signs.json');
 const templateSign = fs.readFileSync('./template.html', 'utf-8');
 if (!fs.existsSync(outputDir)) { fs.mkdirSync(outputDir); }
 
-// --- FONCTION DE GÉNÉRATION ---
+// --- FONCTION DE GÉNÉRATION PREMIUM ---
 async function generateHoroscopeWithRetry(signName) {
     let success = false;
     let attempts = 0;
     
     while (!success && attempts < 3) {
-        console.log(`✨ Tentative ${attempts + 1} pour : ${signName}...`);
+        console.log(`✨ Rédaction style 'EvoZen' pour : ${signName} (Essai ${attempts + 1})...`);
         
-        // ON UTILISE GEMINI 2.0 FLASH (Robuste)
+        // On utilise le modèle 2.0 Flash standard (présent dans ta liste)
         const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
         
+        // LE SECRET EST DANS CE PROMPT 👇
         const prompt = `
-        Rédige un horoscope pour le signe : ${signName}.
-        Réponds UNIQUEMENT avec un objet JSON valide :
-        { "amour": "...", "travail": "...", "sante": "..." }
+        Tu es une astrologue renommée, rédactrice pour un grand média comme EvoZen ou Elle.
+        Rédige l'horoscope du jour pour le signe : ${signName}.
+        
+        Consignes de style :
+        - Ton ton doit être chaleureux, mystique mais concret.
+        - Utilise du vocabulaire astrologique (ex: "La Lune en dissonance", "Vénus vous sourit", "Climat astral", "Conjonction").
+        - Fais environ 3 à 4 phrases riches par catégorie (environ 40-50 mots par rubrique).
+        - Sois précis, donne des conseils.
+        
+        Format de réponse OBLIGATOIRE (JSON pur) :
+        {
+            "amour": "Ton texte ici...",
+            "travail": "Ton texte ici...",
+            "sante": "Ton texte ici..."
+        }
         `;
 
         try {
@@ -40,7 +52,7 @@ async function generateHoroscopeWithRetry(signName) {
             });
 
             if (response.status === 429) {
-                console.log("⏳ Trop vite... Pause de 20 secondes...");
+                console.log("⏳ Pause trafic (Google sature)... Attente 20s...");
                 await new Promise(r => setTimeout(r, 20000));
                 attempts++;
                 continue;
@@ -49,24 +61,38 @@ async function generateHoroscopeWithRetry(signName) {
             if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
 
             const data = await response.json();
-            if(!data.candidates) throw new Error("Réponse vide");
+            if(!data.candidates) throw new Error("Réponse vide de l'IA");
 
-            let text = data.candidates[0].content.parts[0].text.replace(/```json/g, '').replace(/```/g, '').trim();
+            // Nettoyage agressif du JSON (Gemini met souvent des ```json autour)
+            let text = data.candidates[0].content.parts[0].text;
+            text = text.replace(/```json/g, '').replace(/```/g, '').trim();
+            
+            // Vérification que c'est bien du JSON
+            const jsonResult = JSON.parse(text);
+            
+            // Si les textes sont trop courts, on considère que c'est un échec
+            if (jsonResult.amour.length < 20) throw new Error("Texte généré trop court");
+
             success = true;
-            return JSON.parse(text);
+            return jsonResult;
 
         } catch (error) {
-            console.error(`⚠️ Erreur :`, error.message);
+            console.error(`⚠️ Erreur (${signName}) :`, error.message);
             await new Promise(r => setTimeout(r, 5000));
             attempts++;
         }
     }
     
-    return { amour: "Patience et repos.", travail: "Persévérance.", sante: "Calme." };
+    // Fallback amélioré (au cas où, mais on espère ne pas le voir)
+    return { 
+        amour: "Les astres sont discrets aujourd'hui. Prenez le temps d'écouter votre cœur et ne brusquez rien.", 
+        travail: "La persévérance est la clé. Une opportunité inattendue pourrait surgir si vous restez attentif.", 
+        sante: "Accordez-vous un moment de détente. Votre énergie remonte doucement, préservez-la." 
+    };
 }
 
 async function main() {
-    console.log("1️⃣  Démarrage (Nouvelle Clé + Mode Tortue)...");
+    console.log("1️⃣  Démarrage de la Rédaction Premium...");
     
     for (const sign of signs) {
         const prediction = await generateHoroscopeWithRetry(sign.name);
@@ -82,13 +108,12 @@ async function main() {
 
         fs.writeFileSync(path.join(outputDir, `${sign.slug}.html`), content);
         
-        // PAUSE OBLIGATOIRE DE 15 SECONDES ENTRE CHAQUE SIGNE
-        // C'est ça qui garantit le succès avec une clé gratuite
-        console.log("☕ Pause de sécurité (15s)...");
+        // Pause de 15 secondes INDISPENSABLE pour éviter le blocage
+        console.log("☕ Pause café (15s) pour laisser refroidir le moteur...");
         await new Promise(r => setTimeout(r, 15000));
     }
 
-    // Génération de l'index (Version courte)
+    // Génération Vitrine
     console.log("2️⃣  Génération de la Vitrine...");
     let cardsHtml = '';
     signs.forEach((sign) => {
@@ -101,7 +126,7 @@ async function main() {
     console.log("3️⃣  Copie des images...");
     if (!fs.existsSync(assetsDest)){ fs.mkdirSync(assetsDest); }
     if (fs.existsSync(assetsSrc)) { fs.readdirSync(assetsSrc).forEach(file => { fs.copyFileSync(path.join(assetsSrc, file), path.join(assetsDest, file)); }); }
-    console.log("🎉 SUCCESS FINAL !");
+    console.log("🎉 SUCCESS : Contenu Premium Généré !");
 }
 
 main();
