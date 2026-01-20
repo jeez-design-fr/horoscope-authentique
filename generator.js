@@ -19,7 +19,7 @@ const templateSign = fs.readFileSync('./template.html', 'utf-8');
 async function main() {
     console.log("🚀 DÉMARRAGE DU DIAGNOSTIC...");
 
-    // 1. VÉRIFICATION DE L'IMAGE D'ENTRÉE (CRUCIAL)
+    // 1. VÉRIFICATION IMAGE (On garde ta logique)
     console.log("📂 Vérification des images...");
     let entreeImageName = null;
     if (fs.existsSync('./assets/entree.webp')) entreeImageName = 'entree.webp';
@@ -29,12 +29,11 @@ async function main() {
     if (entreeImageName) {
         console.log(`✅ Image trouvée : ${entreeImageName}`);
     } else {
-        console.error("❌ ALERTE : Aucune image 'entree' (webp/jpg/png) trouvée dans le dossier assets !");
-        console.log("contenu du dossier assets : ", fs.readdirSync('./assets'));
+        console.error("❌ ALERTE : Aucune image 'entree' trouvée !");
         entreeImageName = 'belier.jpg'; // Fallback
     }
 
-    // 2. APPEL API GEMINI 2.5 (AVEC LOG D'ERREUR PRÉCIS)
+    // 2. APPEL API GEMINI (CORRECTIF TEXTE)
     const now = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Europe/Paris' };
     const dateDuJour = now.toLocaleDateString('fr-FR', options);
@@ -43,39 +42,71 @@ async function main() {
 
     if (API_KEY) {
         try {
-            console.log(`✨ Appel Gemini 2.5 pour le ${dateDuJour}...`);
-            const requiredKeys = signs.map(s => `"${s.name}"`).join(", ");
-            // ON GARDE LE MODELE 2.5 FLASH QUE TU VEUX
+            console.log(`✨ Appel Gemini 2.5 (Mode Gitane) pour le ${dateDuJour}...`);
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
             
             const prompt = `
-            RÔLE : Astrologue charismatique (style gitane mystique). DATE : ${dateDuJour}.
-            OBJECTIF : Horoscope du jour 12 signes. JSON STRICT.
-            CONSIGNES : Varie les aspects planétaires. Tutuie le lecteur.
-            FORMAT JSON OBLIGATOIRE : { "Bélier": { "amour": "...", "travail": "...", "sante": "..." }, ... }
+            RÔLE : Astrologue charismatique (style gitane mystique).
+            DATE : ${dateDuJour}.
+            
+            CONSIGNES :
+            1. Rédige l'horoscope du jour pour les 12 signes.
+            2. Utilise les aspects planétaires réels de la date d'aujourd'hui.
+            3. TUTOIE le lecteur. Sois mystérieuse et bienveillante.
+            
+            FORMAT JSON STRICT (Sans markdown, sans texte avant/après) :
+            {
+                "Bélier": { "amour": "...", "travail": "...", "sante": "..." },
+                "Taureau": { "amour": "...", "travail": "...", "sante": "..." },
+                ... (et ainsi de suite pour les 12 signes)
+            }
             `;
             
+            // --- AJOUT CRUCIAL : DÉSACTIVATION DES FILTRES DE SÉCURITÉ ---
+            // C'est souvent ça qui bloque le texte "Amour" ou "Mystique"
+            const safetySettings = [
+                { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
+                { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" },
+                { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
+                { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
+            ];
+
             const response = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                body: JSON.stringify({ 
+                    contents: [{ parts: [{ text: prompt }] }],
+                    safetySettings: safetySettings // On injecte les réglages ici
+                })
             });
 
             if (!response.ok) {
-                // ICI ON CAPTURE LE VRAI MESSAGE D'ERREUR DE GOOGLE
                 const errorBody = await response.text();
-                console.error(`❌ ERREUR API GOOGLE (${response.status}) :`);
-                console.error(errorBody); // <--- C'EST ÇA QU'IL ME FAUDRA
+                console.error(`❌ ERREUR API GOOGLE (${response.status}) :`, errorBody);
             } else {
                 const data = await response.json();
-                let text = data.candidates[0].content.parts[0].text;
-                const firstBrace = text.indexOf('{');
-                const lastBrace = text.lastIndexOf('}');
-                if (firstBrace !== -1 && lastBrace !== -1) {
-                    text = text.substring(firstBrace, lastBrace + 1);
+                
+                // Vérification si Gemini a répondu ou s'il a bloqué
+                if (data.candidates && data.candidates[0].content) {
+                    let text = data.candidates[0].content.parts[0].text;
+                    
+                    // Nettoyage JSON (au cas où il mettrait des ```json)
+                    const firstBrace = text.indexOf('{');
+                    const lastBrace = text.lastIndexOf('}');
+                    if (firstBrace !== -1 && lastBrace !== -1) {
+                        text = text.substring(firstBrace, lastBrace + 1);
+                    }
+                    
+                    try {
+                        jsonResult = JSON.parse(text);
+                        console.log("✅ Horoscope reçu et décodé avec succès !");
+                    } catch (e) {
+                        console.error("❌ Erreur de formatage JSON reçu :", e.message);
+                        console.log("Texte reçu brut :", text);
+                    }
+                } else {
+                    console.error("❌ GEMINI A BLOQUÉ LA RÉPONSE (FinishReason) :", data.candidates[0].finishReason);
                 }
-                jsonResult = JSON.parse(text);
-                console.log("✅ Horoscope reçu et décodé !");
             }
         } catch (error) {
             console.error("❌ CRASH TECHNIQUE :", error.message);
@@ -87,7 +118,7 @@ async function main() {
     for (const sign of signs) {
         let prediction = jsonResult && jsonResult[sign.name] ? jsonResult[sign.name] : null;
         
-        // Sauvetage accents
+        // Sauvetage accents (Bélier vs Belier)
         if (!prediction && jsonResult) {
             const normalized = sign.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
             const foundKey = Object.keys(jsonResult).find(k => k.normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalized);
@@ -95,6 +126,7 @@ async function main() {
         }
 
         if (!prediction) {
+            // C'est ce texte qui s'affiche quand ça plante
             prediction = { amour: "Les astres murmurent...", travail: "Patience et observation.", sante: "Prenez soin de vous." };
         }
 
@@ -123,7 +155,7 @@ async function main() {
     const grilleHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Les 12 Signes</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]"><header class="text-center py-12 px-4"><a href="index.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">Retour Accueil</a><h1 class="text-4xl font-bold">LES 12 MAISONS</h1></header><main class="container mx-auto px-4 pb-24"><div class="grid grid-cols-2 md:grid-cols-4 gap-4">${cardsHtml}</div></main><footer class="text-center py-8 text-gray-300 text-xs"><p>© 2026 Maison Horoscope Authentique</p></footer></body></html>`;
     fs.writeFileSync(path.join(outputDir, 'horoscope.html'), grilleHtml);
 
-    // Page Accueil
+    // Page Accueil (On garde ta structure Index)
     const indexHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Maison Authentique</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA] justify-between"><header class="text-center pt-16 px-4"><a href="apropos.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">Bienvenue à la maison</a><div class="flex flex-col items-center"><h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4">HOROSCOPE</h1><div class="w-24 h-[1px] bg-black mb-4"></div><h2 class="text-3xl md:text-5xl tracking-[0.2em] font-normal">AUTHENTIQUE</h2></div></header><main class="flex-grow flex items-center justify-center px-4"><div class="relative w-full max-w-md mx-auto group cursor-pointer"><a href="horoscope.html"><img src="assets/${entreeImageName}" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700"></a></div></main><footer class="text-center py-8 text-gray-300 text-xs"><p>© 2026 Maison Horoscope Authentique</p></footer></body></html>`;
     fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtml);
 
