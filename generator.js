@@ -136,6 +136,11 @@ async function main() {
 
     if (!fs.existsSync(assetsDest)){ fs.mkdirSync(assetsDest); }
     if (fs.existsSync(assetsSrc)) { fs.readdirSync(assetsSrc).forEach(file => { fs.copyFileSync(path.join(assetsSrc, file), path.join(assetsDest, file)); }); }
+    // Copie de la page À Propos vers le dossier public
+    if (fs.existsSync('./apropos.html')) {
+        fs.copyFileSync('./apropos.html', path.join(outputDir, 'apropos.html'));
+        console.log("✅ Page 'À Propos' copiée.");
+    }
     console.log("🎉 TERMINÉ !");
 }
 
