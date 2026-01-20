@@ -14,42 +14,47 @@ const signs = require('./signs.json');
 const templateSign = fs.readFileSync('./template.html', 'utf-8');
 if (!fs.existsSync(outputDir)) { fs.mkdirSync(outputDir); }
 
-// --- FONCTION SUPRÊME (Date Réelle + Clés Robustes) ---
+// --- FONCTION SUPRÊME (Date Réelle + Personnalité Gitane/Taquine) ---
 async function generateAllHoroscopes() {
     
-    // 1. Calcul de la date du jour (Heure de Paris)
     const now = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Europe/Paris' };
     const dateDuJour = now.toLocaleDateString('fr-FR', options);
     
-    console.log(`✨ Génération Astrologique pour le : ${dateDuJour}`);
+    console.log(`✨ Génération Astrologique (Mode Gitane) pour le : ${dateDuJour}`);
 
-    // Liste stricte des clés pour guider Gemini
+    // Liste stricte des clés
     const requiredKeys = signs.map(s => `"${s.name}"`).join(", ");
 
-    // On utilise le modèle 2.5 Flash
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
     
-    // LE PROMPT "BEST OF BOTH WORLDS"
+    // --- LE PROMPT "MADAME IRMA 2.0" ---
     const prompt = `
-    RÔLE : Tu es un astrologue expert et un spécialiste des éphémérides.
-    DATE ACTUELLE : ${dateDuJour}.
+    RÔLE : Tu es une astrologue charismatique, un mélange de "sage gitane ancienne" (mystique, imagée) et de "meilleure amie taquine" (bienveillante, directe, un peu piquante).
+    DATE : ${dateDuJour}.
     
-    PHASE 1 : ANALYSE ASTRONOMIQUE (Mentale)
-    - Calcule la position réelle des planètes aujourd'hui (Soleil, Lune, Mercure, Vénus, Mars...).
-    - Identifie les aspects majeurs (Carrés, Trigones, Oppositions) actifs à cette date.
-    - Utilise ces vraies données pour rédiger les horoscopes.
+    TON OBJECTIF :
+    Rédiger l'horoscope du jour pour les 12 signes en utilisant les vrais transits planétaires actuels, mais en les rendant ultra-personnels et funs.
     
-    PHASE 2 : RÉDACTION & FORMATTAGE (JSON STRICT)
-    - Tu dois renvoyer un objet JSON unique contenant les 12 signes.
-    - IMPORTANT : Les clés de l'objet doivent être EXACTEMENT : ${requiredKeys}.
-    - Ne supprime pas les accents ("Bélier" est obligatoire, "Belier" est interdit).
+    RÈGLES D'OR ANTI-RÉPÉTITION (TRES IMPORTANT) :
+    1. Ne cite PAS le même aspect technique pour tous les signes ! (Si tu parles du Soleil en Verseau pour le Lion, parle de la Lune ou de Vénus pour le Cancer). Varie les plaisirs !
+    2. Adapte l'effet : Le Soleil en Verseau "embête" le Lion (opposition) mais "excite" le Gémeaux (trigone). Ne dis pas la même chose à chacun.
+    3. Tutuie le lecteur ("Tu", "Ton"). Interpelle-le directement.
     
-    STRUCTURE DU CONTENU PAR SIGNE :
+    LE TON (STYLE) :
+    - Amour : Passionné, un peu dramatique ou coquin.
+    - Travail : Direct, coach de vie, "bouge-toi" ou "calme-toi".
+    - Santé : Bienveillant, focus sur les énergies, tisanes et repos.
+    
+    FORMAT JSON STRICT (Clés exactes : ${requiredKeys}) :
+    Structure attendue :
     {
-        "amour": "Texte de 40 mots. Cite une influence planétaire réelle si possible.",
-        "travail": "Texte de 40 mots. Ton visionnaire et concret.",
-        "sante": "Texte de 40 mots. Bienveillant."
+        "Bélier": { 
+            "amour": "Texte (40 mots). Ton taquin/mystique.", 
+            "travail": "Texte (40 mots). Conseil cash.", 
+            "sante": "Texte (40 mots). Douceur." 
+        },
+        ...
     }
     `;
 
@@ -70,7 +75,7 @@ async function generateAllHoroscopes() {
         text = text.replace(/```json/g, '').replace(/```/g, '').trim();
         
         const jsonResult = JSON.parse(text);
-        console.log("✅ JSON reçu. Clés détectées :", Object.keys(jsonResult));
+        console.log("✅ JSON reçu avec succès.");
         return jsonResult;
 
     } catch (error) {
@@ -87,32 +92,24 @@ async function main() {
     for (const sign of signs) {
         let prediction = null;
 
-        // --- LOGIQUE DE SAUVETAGE (Anti-Bug accents) ---
+        // Logique de sauvetage (Accents)
         if (allPredictions) {
-            // 1. Essai direct (Match parfait)
             if (allPredictions[sign.name]) {
                 prediction = allPredictions[sign.name];
-            } 
-            // 2. Essai "Sans accent" (Si Gemini a écrit "Belier" au lieu de "Bélier")
-            else {
+            } else {
                 const normalizedSignName = sign.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
                 const foundKey = Object.keys(allPredictions).find(k => 
                     k.normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalizedSignName
                 );
-                if (foundKey) {
-                    console.log(`🔧 Correction auto : "${foundKey}" -> "${sign.name}"`);
-                    prediction = allPredictions[foundKey];
-                }
+                if (foundKey) prediction = allPredictions[foundKey];
             }
         }
 
-        // Fallback si vraiment tout a échoué
         if (!prediction) {
-            console.log(`🔴 ECHEC TOTAL pour : ${sign.name}`);
             prediction = {
-                amour: "Les énergies cosmiques se reforment. Revenez demain.",
-                travail: "Patience et observation.",
-                sante: "Reposez-vous."
+                amour: "Ma boule de cristal est embrumée... Revenez plus tard, mon enfant.",
+                travail: "Les astres gardent le silence, prudence est mère de sûreté.",
+                sante: "Reposez votre âme en attendant que le ciel s'éclaircisse."
             };
         }
         
