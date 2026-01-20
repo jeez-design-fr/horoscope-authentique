@@ -14,34 +14,42 @@ const signs = require('./signs.json');
 const templateSign = fs.readFileSync('./template.html', 'utf-8');
 if (!fs.existsSync(outputDir)) { fs.mkdirSync(outputDir); }
 
-// --- FONCTION ONE-SHOT (1 Requête pour 12 Signes) ---
+// --- FONCTION ONE-SHOT (INTELLIGENTE & ASTRONOMIQUE) ---
 async function generateAllHoroscopes() {
-    console.log("✨ Lancement de la génération groupée (Modèle 2.5 Flash)...");
+    
+    // 1. On calcule la date précise (Heure de Paris)
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Europe/Paris' };
+    const dateDuJour = now.toLocaleDateString('fr-FR', options);
+    
+    console.log(`✨ Lancement de l'horoscope "Légitime" pour le : ${dateDuJour}`);
 
-    // On tape sur le modèle 2.5 (le plus récent et performant)
-    // Coût : 1 requête sur ton quota de 20/jour
+    // On utilise le modèle 2.5 Flash (rapide et intelligent)
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
     const signsList = signs.map(s => s.name).join(", ");
     
+    // LE PROMPT "ASTRONOMIE RÉELLE" 👇
     const prompt = `
-    Rôle : Astrologue professionnel pour un média premium.
-    Tâche : Rédiger l'horoscope complet du jour pour ces 12 signes : ${signsList}.
+    Tu es un expert en astrologie et en calcul d'éphémérides.
+    
+    CONTEXTE TEMPOREL :
+    Nous sommes aujourd'hui le : ${dateDuJour}.
+    
+    TA MISSION :
+    1. Calcule mentalement la carte du ciel pour cette date précise (Position du Soleil, de la Lune, de Mercure, Vénus, Mars, etc.).
+    2. Utilise ces vrais transits planétaires pour rédiger l'horoscope des 12 signes : ${signsList}.
+    
+    CONSIGNES DE RÉDACTION :
+    - Pour chaque signe, cite brièvement une influence planétaire réelle (ex: "Avec la Lune en Verseau...", "Mars vous donne de l'énergie...").
+    - Style : Sérieux, mystique, premium (Type EvoZen).
+    - Format : 3 paragraphes (Amour, Travail, Santé) d'environ 40 mots chacun.
 
-    Consignes de rédaction :
-    - Style : Fluide, mystique mais concret, bienveillant.
-    - Structure : 3 paragraphes distincts par signe (Amour, Travail, Santé).
-    - Volume : Environ 40 mots par paragraphe.
-
-    FORMAT DE SORTIE (JSON UNIQUEMENT) :
+    FORMAT DE SORTIE (JSON STRICT) :
     {
-        "Bélier": { 
-            "amour": "...", 
-            "travail": "...", 
-            "sante": "..." 
-        },
+        "Bélier": { "amour": "...", "travail": "...", "sante": "..." },
         "Taureau": { ... },
-        ... (et ainsi de suite pour les 12 signes)
+        ...
     }
     `;
 
@@ -59,11 +67,9 @@ async function generateAllHoroscopes() {
 
         const data = await response.json();
         let text = data.candidates[0].content.parts[0].text;
-        
-        // Nettoyage Markdown
         text = text.replace(/```json/g, '').replace(/```/g, '').trim();
         
-        console.log("✅ SUCCÈS : Réception des 12 horoscopes !");
+        console.log("✅ SUCCÈS : Horoscope astronomique généré !");
         return JSON.parse(text);
 
     } catch (error) {
@@ -73,11 +79,10 @@ async function generateAllHoroscopes() {
 }
 
 async function main() {
-    // 1. Exécution de la requête unique
+    // 1. Génération
     const allPredictions = await generateAllHoroscopes();
 
-    // 2. Génération des pages
-    console.log("📄 Création des pages...");
+    console.log("📄 Mise à jour des pages...");
     
     for (const sign of signs) {
         let prediction = null;
@@ -85,11 +90,11 @@ async function main() {
         if (allPredictions && allPredictions[sign.name]) {
             prediction = allPredictions[sign.name];
         } else {
-            // Fallback (Message de secours si l'IA échoue)
+            // Fallback
             prediction = {
-                amour: "Les astres sont silencieux pour le moment. Réessayez plus tard.",
-                travail: "Patience et observation sont recommandées.",
-                sante: "Prenez un moment pour respirer calmement."
+                amour: "Les configurations célestes sont en mouvement. Patience.",
+                travail: "L'influence des astres est subtile aujourd'hui.",
+                sante: "Prenez soin de votre équilibre intérieur."
             };
         }
         
@@ -105,8 +110,8 @@ async function main() {
         fs.writeFileSync(path.join(outputDir, `${sign.slug}.html`), content);
     }
 
-    // 3. Vitrine & Images
-    console.log("🏠 Finitions...");
+    // Vitrine
+    console.log("🏠 Génération Accueil...");
     let cardsHtml = '';
     signs.forEach((sign) => {
         cardsHtml += `<a href="${sign.slug}.html" class="card-link group block"><div class="flex flex-col items-center p-4 transition-transform duration-500 hover:scale-[1.01] h-auto"><img src="assets/${sign.image}" alt="${sign.name}" class="w-full h-auto drop-shadow-xl mb-4 relative z-10 block"><div class="text-center relative z-10 mt-auto"><h2 class="text-lg text-gray-800 font-cinzel font-bold">${sign.name}</h2></div></div></a>`;
