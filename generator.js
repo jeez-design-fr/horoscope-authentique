@@ -14,42 +14,42 @@ const signs = require('./signs.json');
 const templateSign = fs.readFileSync('./template.html', 'utf-8');
 if (!fs.existsSync(outputDir)) { fs.mkdirSync(outputDir); }
 
-// --- FONCTION ONE-SHOT (INTELLIGENTE & ASTRONOMIQUE) ---
+// --- FONCTION SUPRÊME (Date Réelle + Clés Robustes) ---
 async function generateAllHoroscopes() {
     
-    // 1. On calcule la date précise (Heure de Paris)
+    // 1. Calcul de la date du jour (Heure de Paris)
     const now = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Europe/Paris' };
     const dateDuJour = now.toLocaleDateString('fr-FR', options);
     
-    console.log(`✨ Lancement de l'horoscope "Légitime" pour le : ${dateDuJour}`);
+    console.log(`✨ Génération Astrologique pour le : ${dateDuJour}`);
 
-    // On utilise le modèle 2.5 Flash (rapide et intelligent)
+    // Liste stricte des clés pour guider Gemini
+    const requiredKeys = signs.map(s => `"${s.name}"`).join(", ");
+
+    // On utilise le modèle 2.5 Flash
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
-
-    const signsList = signs.map(s => s.name).join(", ");
     
-    // LE PROMPT "ASTRONOMIE RÉELLE" 👇
+    // LE PROMPT "BEST OF BOTH WORLDS"
     const prompt = `
-    Tu es un expert en astrologie et en calcul d'éphémérides.
+    RÔLE : Tu es un astrologue expert et un spécialiste des éphémérides.
+    DATE ACTUELLE : ${dateDuJour}.
     
-    CONTEXTE TEMPOREL :
-    Nous sommes aujourd'hui le : ${dateDuJour}.
+    PHASE 1 : ANALYSE ASTRONOMIQUE (Mentale)
+    - Calcule la position réelle des planètes aujourd'hui (Soleil, Lune, Mercure, Vénus, Mars...).
+    - Identifie les aspects majeurs (Carrés, Trigones, Oppositions) actifs à cette date.
+    - Utilise ces vraies données pour rédiger les horoscopes.
     
-    TA MISSION :
-    1. Calcule mentalement la carte du ciel pour cette date précise (Position du Soleil, de la Lune, de Mercure, Vénus, Mars, etc.).
-    2. Utilise ces vrais transits planétaires pour rédiger l'horoscope des 12 signes : ${signsList}.
+    PHASE 2 : RÉDACTION & FORMATTAGE (JSON STRICT)
+    - Tu dois renvoyer un objet JSON unique contenant les 12 signes.
+    - IMPORTANT : Les clés de l'objet doivent être EXACTEMENT : ${requiredKeys}.
+    - Ne supprime pas les accents ("Bélier" est obligatoire, "Belier" est interdit).
     
-    CONSIGNES DE RÉDACTION :
-    - Pour chaque signe, cite brièvement une influence planétaire réelle (ex: "Avec la Lune en Verseau...", "Mars vous donne de l'énergie...").
-    - Style : Sérieux, mystique, premium (Type EvoZen).
-    - Format : 3 paragraphes (Amour, Travail, Santé) d'environ 40 mots chacun.
-
-    FORMAT DE SORTIE (JSON STRICT) :
+    STRUCTURE DU CONTENU PAR SIGNE :
     {
-        "Bélier": { "amour": "...", "travail": "...", "sante": "..." },
-        "Taureau": { ... },
-        ...
+        "amour": "Texte de 40 mots. Cite une influence planétaire réelle si possible.",
+        "travail": "Texte de 40 mots. Ton visionnaire et concret.",
+        "sante": "Texte de 40 mots. Bienveillant."
     }
     `;
 
@@ -69,8 +69,9 @@ async function generateAllHoroscopes() {
         let text = data.candidates[0].content.parts[0].text;
         text = text.replace(/```json/g, '').replace(/```/g, '').trim();
         
-        console.log("✅ SUCCÈS : Horoscope astronomique généré !");
-        return JSON.parse(text);
+        const jsonResult = JSON.parse(text);
+        console.log("✅ JSON reçu. Clés détectées :", Object.keys(jsonResult));
+        return jsonResult;
 
     } catch (error) {
         console.error("❌ ÉCHEC :", error.message);
@@ -79,7 +80,6 @@ async function generateAllHoroscopes() {
 }
 
 async function main() {
-    // 1. Génération
     const allPredictions = await generateAllHoroscopes();
 
     console.log("📄 Mise à jour des pages...");
@@ -87,14 +87,32 @@ async function main() {
     for (const sign of signs) {
         let prediction = null;
 
-        if (allPredictions && allPredictions[sign.name]) {
-            prediction = allPredictions[sign.name];
-        } else {
-            // Fallback
+        // --- LOGIQUE DE SAUVETAGE (Anti-Bug accents) ---
+        if (allPredictions) {
+            // 1. Essai direct (Match parfait)
+            if (allPredictions[sign.name]) {
+                prediction = allPredictions[sign.name];
+            } 
+            // 2. Essai "Sans accent" (Si Gemini a écrit "Belier" au lieu de "Bélier")
+            else {
+                const normalizedSignName = sign.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
+                const foundKey = Object.keys(allPredictions).find(k => 
+                    k.normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalizedSignName
+                );
+                if (foundKey) {
+                    console.log(`🔧 Correction auto : "${foundKey}" -> "${sign.name}"`);
+                    prediction = allPredictions[foundKey];
+                }
+            }
+        }
+
+        // Fallback si vraiment tout a échoué
+        if (!prediction) {
+            console.log(`🔴 ECHEC TOTAL pour : ${sign.name}`);
             prediction = {
-                amour: "Les configurations célestes sont en mouvement. Patience.",
-                travail: "L'influence des astres est subtile aujourd'hui.",
-                sante: "Prenez soin de votre équilibre intérieur."
+                amour: "Les énergies cosmiques se reforment. Revenez demain.",
+                travail: "Patience et observation.",
+                sante: "Reposez-vous."
             };
         }
         
