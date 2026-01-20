@@ -45,20 +45,23 @@ async function main() {
             console.log(`✨ Appel Gemini 2.5 (Mode Gitane) pour le ${dateDuJour}...`);
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
             
-            const prompt = `
-            RÔLE : Astrologue charismatique (style gitane mystique).
+           const prompt = `
+            RÔLE : Tu es une astrologue complice et un brin taquine (comme une meilleure amie qui sait tout).
             DATE : ${dateDuJour}.
             
-            CONSIGNES :
-            1. Rédige l'horoscope du jour pour les 12 signes.
-            2. Utilise les aspects planétaires réels de la date d'aujourd'hui.
-            3. TUTOIE le lecteur. Sois mystérieuse et bienveillante.
+            OBJECTIF :
+            Rédiger l'horoscope du jour pour les 12 signes en te basant sur la carte du ciel EXACTE de cette date.
             
-            FORMAT JSON STRICT (Sans markdown, sans texte avant/après) :
+            CONSIGNES CRUCIALES :
+            1. CITE LES PLANÈTES : Pour chaque signe, mentionne un vrai transit planétaire du jour (ex: "La Lune taquine Mars aujourd'hui", "Vénus te boude un peu", "Mercure rétrograde te joue des tours").
+            2. TON : Tutoie le lecteur ("Tu"). Sois piquante, drôle mais encourageante. Pas de phrases plates !
+            3. PRÉCISION : Utilise les vrais aspects (Carré, Opposition, Conjonction) pour justifier tes prédictions.
+            
+            FORMAT JSON STRICT (Ne renvoie QUE le JSON, rien d'autre) :
             {
                 "Bélier": { "amour": "...", "travail": "...", "sante": "..." },
                 "Taureau": { "amour": "...", "travail": "...", "sante": "..." },
-                ... (et ainsi de suite pour les 12 signes)
+                ... (pour les 12 signes)
             }
             `;
             
