@@ -50,12 +50,13 @@ async function main() {
             DATE : ${dateDuJour}.
             
             OBJECTIF :
-            Rédiger l'horoscope du jour pour les 12 signes en te basant sur la carte du ciel EXACTE de cette date.
+            Rédiger l'horoscope du jour pour les 12 signes en te basant sur la carte du ciel de cette date.
             
             CONSIGNES CRUCIALES :
             1. CITE LES PLANÈTES : Pour chaque signe, mentionne un vrai transit planétaire du jour (ex: "La Lune taquine Mars aujourd'hui", "Vénus te boude un peu", "Mercure rétrograde te joue des tours").
-            2. TON : Tutoie le lecteur ("Tu"). Sois piquante, drôle mais encourageante. Pas de phrases plates !
-            3. PRÉCISION : Utilise les vrais aspects (Carré, Opposition, Conjonction) pour justifier tes prédictions.
+            2. TON : Tutoie le lecteur, pas de genre, ("Tu"). Sois piquante, drôle mais encourageante. Pas de phrases plates !
+            3. TRADUIS EN RESSENTI : Au lieu de dire "Mars est en opposition", dis plutôt "L'énergie de Mars te rend électrique" ou "Vénus adoucit l'ambiance". On veut de l'émotion, pas des maths !
+            
             
             FORMAT JSON STRICT (Ne renvoie QUE le JSON, rien d'autre) :
             {
