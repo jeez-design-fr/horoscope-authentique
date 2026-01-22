@@ -20,11 +20,8 @@ async function main() {
     console.log("🚀 DÉMARRAGE DU DIAGNOSTIC...");
 
     // 1. VÉRIFICATION IMAGE (On garde ta logique)
-    console.log("📂 Vérification des images...");
-    let entreeImageName = null;
-    if (fs.existsSync('./assets/entree.webp')) entreeImageName = 'entree.webp';
-    else if (fs.existsSync('./assets/entree.jpg')) entreeImageName = 'entree.jpg';
-    else if (fs.existsSync('./assets/entree.png')) entreeImageName = 'entree.png';
+  console.log("📂 Image forcée sur entree.webp");
+    const entreeImageName = 'entree.webp';
 
     if (entreeImageName) {
         console.log(`✅ Image trouvée : ${entreeImageName}`);
