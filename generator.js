@@ -67,7 +67,7 @@ async function main() {
             
             CONSIGNES CRUCIALES :
             1. CITE LES PLANÈTES : Pour chaque signe, mentionne un vrai transit planétaire du jour (ex: "La Lune taquine Mars aujourd'hui", "Vénus te boude un peu", "Mercure rétrograde te joue des tours").
-            2. TON : Tutoie le lecteur, pas de genre, ("Tu"). Sois piquante, drôle mais encourageante. Pas de phrases plates !
+            2. TON : Tutoie le lecteur, pas de genre, ("Tu"). Sois piquante, drôle mais encourageante. Pas de phrases plates ! Pas de "**".
             3. TRADUIS EN RESSENTI : Au lieu de dire "Mars est en opposition", dis plutôt "L'énergie de Mars te rend électrique" ou "Vénus adoucit l'ambiance". On veut de l'émotion, pas des maths !
             
             
