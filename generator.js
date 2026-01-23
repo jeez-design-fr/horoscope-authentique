@@ -19,15 +19,30 @@ const templateSign = fs.readFileSync('./template.html', 'utf-8');
 async function main() {
     console.log("🚀 DÉMARRAGE DU DIAGNOSTIC...");
 
-    // 1. VÉRIFICATION IMAGE (On garde ta logique)
-  console.log("📂 Image forcée sur entree.webp");
-    const entreeImageName = 'entree.webp';
+    // 1. VÉRIFICATION IMAGE (Version Corrigée)
+    console.log("📂 Vérification de l'image d'accueil...");
+    
+    // On définit l'image par défaut
+    let entreeImageName = 'entree.webp';
+    
+    // On vérifie si elle existe physiquement dans le dossier assets source
+    const cheminImage = path.join(assetsSrc, entreeImageName);
 
-    if (entreeImageName) {
+    if (fs.existsSync(cheminImage)) {
         console.log(`✅ Image trouvée : ${entreeImageName}`);
     } else {
-        console.error("❌ ALERTE : Aucune image 'entree' trouvée !");
-        entreeImageName = 'belier.jpg'; // Fallback
+        console.warn(`⚠️ ALERTE : Le fichier '${entreeImageName}' est introuvable dans ${assetsSrc} !`);
+        console.log("🔄 Bascule automatique sur 'belier.webp' (Fallback)");
+        
+        // On s'assure que le fallback existe aussi, sinon on prend le premier signe dispo
+        if (fs.existsSync(path.join(assetsSrc, 'belier.webp'))) {
+            entreeImageName = 'belier.webp';
+        } else {
+            // Si même le bélier n'est pas là, on cherche n'importe quelle image .webp ou .jpg
+            const fichiers = fs.readdirSync(assetsSrc);
+            const imageDispo = fichiers.find(f => f.endsWith('.webp') || f.endsWith('.jpg') || f.endsWith('.png'));
+            entreeImageName = imageDispo || 'aucune_image_trouvee.jpg';
+        }
     }
 
     // 2. APPEL API GEMINI (CORRECTIF TEXTE)
