@@ -173,8 +173,12 @@ async function main() {
     const grilleHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Les 12 Signes</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]"><header class="text-center py-12 px-4"><a href="index.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">Retour Accueil</a><h1 class="text-4xl font-bold">HOROSCOPE DU JOUR</h1></header><main class="container mx-auto px-4 pb-24"><div class="grid grid-cols-2 md:grid-cols-4 gap-4">${cardsHtml}</div></main><footer class="text-center py-8 text-gray-300 text-xs"><p>© Horoscope Authentique</p></footer></body></html>`;
     fs.writeFileSync(path.join(outputDir, 'horoscope.html'), grilleHtml);
 
-   // Page Accueil (VERSION CORRIGÉE : Header Original + 2 Choix)
-    const indexHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Maison Authentique</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA] justify-between">
+  // Page Accueil (VERSION SLIDER MOBILE - En-tête Intact)
+    const indexHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Maison Authentique</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}
+    /* AJOUT : Cache la barre de scroll tout en permettant le défilement */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA] justify-between">
     
     <header class="text-center pt-16 px-4">
         <a href="apropos.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">
@@ -190,9 +194,9 @@ async function main() {
         </div>
     </header>
 
-    <main class="flex-grow flex flex-col md:flex-row items-center justify-center gap-12 px-4 max-w-6xl mx-auto w-full py-10">
+    <main class="flex-grow w-full flex flex-row items-center overflow-x-auto snap-x snap-mandatory md:snap-none md:overflow-visible md:justify-center gap-6 px-4 md:gap-12 max-w-6xl mx-auto py-10 no-scrollbar">
         
-        <div class="w-full max-w-md text-center group cursor-pointer">
+        <div class="w-[85vw] md:w-full max-w-md flex-shrink-0 snap-center text-center group cursor-pointer">
             <a href="horoscope.html" class="block">
                 <div class="relative overflow-hidden mb-6">
                     <img src="./assets/${entreeImageName}" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700">
@@ -202,9 +206,9 @@ async function main() {
             </a>
         </div>
 
-        <div class="hidden md:block w-[1px] h-32 bg-gray-200"></div>
+        <div class="hidden md:block w-[1px] h-32 bg-gray-200 flex-shrink-0"></div>
 
-        <div class="w-full max-w-md text-center group cursor-pointer">
+        <div class="w-[85vw] md:w-full max-w-md flex-shrink-0 snap-center text-center group cursor-pointer">
             <a href="signification.html" class="block">
                 <div class="relative overflow-hidden mb-6">
                     <img src="./assets/livre.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 2s;">
@@ -216,7 +220,7 @@ async function main() {
 
     </main>
 
-    <footer class="text-center py-8 text-gray-300 text-xs"><p>© Horoscope Authentique</p></footer></body></html>`;
+    <footer class="text-center py-8 text-gray-300 text-xs"><p>© 2026 Maison Horoscope Authentique</p></footer></body></html>`;
     
     fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtml);
 
