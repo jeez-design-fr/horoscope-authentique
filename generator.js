@@ -196,7 +196,7 @@ async function main() {
 
     <main class="flex-grow w-full flex flex-row items-center overflow-x-auto snap-x snap-mandatory md:snap-none md:overflow-visible md:justify-center gap-6 px-4 md:gap-12 max-w-6xl mx-auto py-10 no-scrollbar">
         
-        <div class="w-[85vw] md:w-full max-w-md flex-shrink-0 snap-center text-center group cursor-pointer">
+        <div class="w-[60vw] md:w-full max-w-md flex-shrink-0 snap-center text-center group cursor-pointer">
             <a href="horoscope.html" class="block">
                 <div class="relative overflow-hidden mb-6">
                     <img src="./assets/${entreeImageName}" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700">
@@ -208,7 +208,7 @@ async function main() {
 
         <div class="hidden md:block w-[1px] h-32 bg-gray-200 flex-shrink-0"></div>
 
-        <div class="w-[85vw] md:w-full max-w-md flex-shrink-0 snap-center text-center group cursor-pointer">
+        <div class="w-[60vw] md:w-full max-w-md flex-shrink-0 snap-center text-center group cursor-pointer">
             <a href="signification.html" class="block">
                 <div class="relative overflow-hidden mb-6">
                     <img src="./assets/livre.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 2s;">
