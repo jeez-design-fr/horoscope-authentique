@@ -170,20 +170,23 @@ async function main() {
         // NOTE: J'ai bien laissé le point devant ./assets/ pour que l'image s'affiche en ligne
         cardsHtml += `<a href="${sign.slug}.html" class="card-link group block"><div class="flex flex-col items-center p-4 transition-transform duration-500 hover:scale-[1.01] h-auto"><img src="./assets/${sign.image}" alt="${sign.name}" class="w-full h-auto drop-shadow-xl mb-4 relative z-10 block"><div class="text-center relative z-10 mt-auto"><h2 class="text-lg text-gray-800 font-cinzel font-bold group-hover:text-[#D4AF37] transition-colors">${sign.name}</h2></div></div></a>`;
     });
-    const grilleHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Les 12 Signes</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]"><header class="text-center py-12 px-4"><a href="index.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">Retour Accueil</a><h1 class="text-4xl font-bold">L'HOROSCOPE DU JOUR'</h1></header><main class="container mx-auto px-4 pb-24"><div class="grid grid-cols-2 md:grid-cols-4 gap-4">${cardsHtml}</div></main><footer class="text-center py-8 text-gray-300 text-xs"><p>© Horoscope Authentique</p></footer></body></html>`;
+    const grilleHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Les 12 Signes</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]"><header class="text-center py-12 px-4"><a href="index.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">Retour Accueil</a><h1 class="text-4xl font-bold">HOROSCOPE DU JOUR</h1></header><main class="container mx-auto px-4 pb-24"><div class="grid grid-cols-2 md:grid-cols-4 gap-4">${cardsHtml}</div></main><footer class="text-center py-8 text-gray-300 text-xs"><p>© Horoscope Authentique</p></footer></body></html>`;
     fs.writeFileSync(path.join(outputDir, 'horoscope.html'), grilleHtml);
 
-   // Page Accueil (NOUVELLE VERSION : 2 CHOIX)
-    // On suppose que tu as ajouté une image 'livre.webp' dans tes assets pour la signification
-    // Si tu n'as pas l'image, le code mettra une image par défaut, mais c'est mieux d'en avoir une.
+   // Page Accueil (VERSION CORRIGÉE : Header Original + 2 Choix)
     const indexHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Maison Authentique</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA] justify-between">
     
-    <header class="text-center pt-12 px-4">
+    <header class="text-center pt-16 px-4">
+        <a href="apropos.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">
+            Bienvenue à la maison
+        </a>
+        
         <div class="flex flex-col items-center">
-            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-2">MAISON</h1>
-            <h2 class="text-2xl md:text-3xl tracking-[0.3em] font-normal text-gray-600">AUTHENTIQUE</h2>
-            <div class="w-16 h-[1px] bg-black mt-6 mb-2"></div>
-            <a href="apropos.html" class="text-xs tracking-[0.2em] uppercase text-gray-400 hover:text-black transition-colors">L'Esprit de la Maison</a>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4">HOROSCOPE</h1>
+            
+            <div class="w-24 h-[1px] bg-black mb-4"></div>
+            
+            <h2 class="text-3xl md:text-5xl tracking-[0.2em] font-normal">AUTHENTIQUE</h2>
         </div>
     </header>
 
@@ -206,14 +209,14 @@ async function main() {
                 <div class="relative overflow-hidden mb-6">
                     <img src="./assets/livre.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 2s;">
                 </div>
-                <h3 class="text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">L'ALCHIMIE</h3>
-                <p class="text-xs tracking-widest text-gray-500 mt-2 uppercase">Signification des Signes</p>
+                <h3 class="text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">SIGNIFICATION</h3>
+                <p class="text-xs tracking-widest text-gray-500 mt-2 uppercase">L'Encyclopédie des Signes</p>
             </a>
         </div>
 
     </main>
 
-    <footer class="text-center py-8 text-gray-300 text-xs"><p>© 2026 Maison Horoscope Authentique</p></footer></body></html>`;
+    <footer class="text-center py-8 text-gray-300 text-xs"><p>© Horoscope Authentique</p></footer></body></html>`;
     
     fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtml);
 
