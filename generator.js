@@ -192,7 +192,9 @@ async function main() {
         </div>
     </main>
 
-    <footer class="text-center py-8 text-gray-300 text-xs"><p>© Maison Horoscope Authentique</p></footer>
+    <footer class="text-center py-8 text-gray-300 text-xs">
+    <p>© Horoscope Authentique | <a href="mentions-legales.html" class="hover:text-gray-500 underline decoration-1 underline-offset-2 transition-colors">Mentions Légales</a></p>
+</footer>
 
     <script>
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -288,7 +290,9 @@ async function main() {
 
     </main>
 
-    <footer class="text-center py-6 text-gray-300 text-xs"><p>© Horoscope Authentique</p></footer></body></html>`;
+    <footer class="text-center py-6 text-gray-300 text-xs">
+        <p>© Horoscope Authentique | <a href="mentions-legales.html" class="hover:text-gray-500 underline decoration-1 underline-offset-2 transition-colors">Mentions Légales</a></p>
+    </footer></body></html>`;
     
     fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtml);
 
@@ -300,6 +304,7 @@ if (fs.existsSync('./comprendre-astrologie.html')) fs.copyFileSync('./comprendre
 if (fs.existsSync('./pierres-protectrices.html')) fs.copyFileSync('./pierres-protectrices.html', path.join(outputDir, 'pierres-protectrices.html'));
 if (fs.existsSync('./le-cosmos.html')) fs.copyFileSync('./le-cosmos.html', path.join(outputDir, 'le-cosmos.html'));
 if (fs.existsSync('./compatibilite-amoureuse.html')) fs.copyFileSync('./compatibilite-amoureuse.html', path.join(outputDir, 'compatibilite-amoureuse.html'));
+if (fs.existsSync('./mentions-legales.html')) fs.copyFileSync('./mentions-legales.html', path.join(outputDir, 'mentions-legales.html'));
 
     console.log("✅ FIN DU SCRIPT !");
 }
