@@ -305,6 +305,56 @@ if (fs.existsSync('./pierres-protectrices.html')) fs.copyFileSync('./pierres-pro
 if (fs.existsSync('./le-cosmos.html')) fs.copyFileSync('./le-cosmos.html', path.join(outputDir, 'le-cosmos.html'));
 if (fs.existsSync('./compatibilite-amoureuse.html')) fs.copyFileSync('./compatibilite-amoureuse.html', path.join(outputDir, 'compatibilite-amoureuse.html'));
 if (fs.existsSync('./mentions-legales.html')) fs.copyFileSync('./mentions-legales.html', path.join(outputDir, 'mentions-legales.html'));
+// --- SEO : GÉNÉRATION SITEMAP & ROBOTS.TXT ---
+    console.log("🔍 Génération du Sitemap et Robots.txt...");
+
+    // ⚠️ IMPORTANT : Mets ici la VRAIE adresse de ton site (sans le slash à la fin)
+    const SITE_URL = "https://www.horoscope-authentique.fr/"; 
+
+    // Liste manuelle des pages principales
+    const pagesToMap = [
+        '', // Pour la racine (index.html)
+        'horoscope.html',
+        'compatibilite-amoureuse.html',
+        'signification.html',
+        'comprendre-astrologie.html',
+        'pierres-protectrices.html',
+        'le-cosmos.html',
+        'apropos.html',
+        'mentions-legales.html'
+    ];
+
+    // On ajoute automatiquement les 12 pages des signes
+    signs.forEach(sign => pagesToMap.push(`${sign.slug}.html`));
+
+    // Date du jour pour dire à Google que c'est frais
+    const dateModif = new Date().toISOString().split('T')[0];
+    
+    // Création du contenu XML
+    let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+
+    pagesToMap.forEach(page => {
+        // Si c'est la racine (''), on met juste l'URL du site, sinon URL/page
+        const urlPage = page === '' ? SITE_URL : `${SITE_URL}/${page}`;
+        
+        sitemapContent += `  <url>
+    <loc>${urlPage}</loc>
+    <lastmod>${dateModif}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>${page === '' ? '1.0' : '0.8'}</priority>
+  </url>\n`;
+    });
+
+    sitemapContent += `</urlset>`;
+    
+    // Écriture du fichier sitemap.xml
+    fs.writeFileSync(path.join(outputDir, 'sitemap.xml'), sitemapContent);
+    console.log("✅ sitemap.xml généré !");
+
+    // Écriture du fichier robots.txt
+    const robotsContent = `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml`;
+    fs.writeFileSync(path.join(outputDir, 'robots.txt'), robotsContent);
+    console.log("✅ robots.txt généré !");
 
     console.log("✅ FIN DU SCRIPT !");
 }
