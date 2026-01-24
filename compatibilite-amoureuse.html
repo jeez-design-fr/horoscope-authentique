@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculateur de Compatibilité Amoureuse - Maison Authentique</title>
-    <meta name="description" content="Testez votre compatibilité amoureuse. Sélectionnez vos signes et découvrez le pourcentage d'affinité de votre couple selon l'astrologie authentique.">
+    <meta name="description" content="Testez votre compatibilité amoureuse. Analyse détaillée : quotidien, sentiments, défis et avenir de votre couple selon l'astrologie authentique.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
@@ -12,7 +12,7 @@
         h1, h2, h3, h4, label, button { font-family: 'Cinzel', serif; }
         .gold-border { border-left: 2px solid #D4AF37; padding-left: 1rem; }
         
-        /* Personnalisation des Select pour faire "Classe" */
+        /* Personnalisation des Select */
         select {
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -38,7 +38,7 @@
             <div class="w-24 h-[1px] bg-black mx-auto mt-6"></div>
         </div>
 
-        <div class="bg-white border border-[#D4AF37] p-8 md:p-12 shadow-xl max-w-2xl mx-auto mb-16 relative overflow-hidden">
+        <div class="bg-white border border-[#D4AF37] p-8 md:p-12 shadow-xl max-w-3xl mx-auto mb-16 relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-1 bg-[#D4AF37]"></div>
             
             <h3 class="text-center text-xl font-bold mb-8 uppercase tracking-widest">Entrez vos Signes</h3>
@@ -91,11 +91,13 @@
                 </button>
             </div>
 
-            <div id="resultat" class="hidden mt-10 text-center border-t border-gray-100 pt-8 animate-fade-in">
+            <div id="resultat" class="hidden mt-12 text-center border-t border-gray-100 pt-8 animate-fade-in">
                 <p class="text-xs uppercase tracking-widest text-gray-400 mb-2">Taux d'Harmonie Astrale</p>
-                <div class="text-5xl font-bold text-[#D4AF37] mb-4" id="score">0%</div>
-                <h4 class="text-xl font-bold mb-2" id="titreResultat">...</h4>
-                <p class="text-gray-600 italic leading-relaxed px-4" id="descResultat">...</p>
+                <div class="text-5xl font-bold text-[#D4AF37] mb-6" id="score">0%</div>
+                <h4 class="text-2xl font-bold mb-8" id="titreResultat">...</h4>
+                
+                <div id="descResultat" class="text-left space-y-6 px-2 md:px-8">
+                    </div>
             </div>
 
         </div>
@@ -117,137 +119,10 @@
         </div>
 
         <div class="space-y-16">
-
             <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Bélier <span class="text-sm font-normal text-gray-500">(21 mars - 19 avril)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Le Bélier, premier signe du zodiaque, est gouverné par Mars. En amour, il recherche la passion, la conquête et la spontanéité. Il a besoin d'un partenaire capable de suivre son rythme effréné et de stimuler son besoin d'aventure.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> L'entente est idéale avec le Lion et le Sagittaire, deux autres signes de Feu qui partagent son enthousiasme et son optimisme. La relation avec le Verseau ou les Gémeaux est également excellente, car ces signes d'Air attisent la flamme du Bélier sans l'étouffer.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'attraction opposée</strong> Avec la Balance, son signe opposé, l'attraction est souvent magnétique. La Balance apporte la diplomatie qui manque parfois au Bélier, créant un équilibre dynamique.</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> La relation avec le Cancer ou le Capricorne peut être source de tensions. Le besoin de sécurité du Cancer et la rigueur du Capricorne peuvent heurter l'impulsivité naturelle du Bélier.</li>
-                </ul>
+                <h3 class="text-2xl font-bold mb-2 text-gray-800">Le Guide Complet</h3>
+                <p class="text-gray-700 italic">Utilisez le calculateur ci-dessus pour obtenir une analyse précise de votre couple.</p>
             </section>
-
-            <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Taureau <span class="text-sm font-normal text-gray-500">(20 avril - 20 mai)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Gouverné par Vénus, le Taureau est un signe de Terre sensuel, fidèle et attaché à la stabilité. En amour, il ne cherche pas l'aventure éphémère mais la construction solide, la sécurité matérielle et les plaisirs partagés.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> La Vierge et le Capricorne sont des partenaires de choix. Ces signes de Terre partagent avec le Taureau le sens des réalités, la prudence et le désir de bâtir un foyer stable.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'alliance Terre-Eau</strong> Le Cancer et les Poissons offrent au Taureau la douceur émotionnelle dont il a besoin. Le Cancer, en particulier, partage son attachement aux valeurs familiales et au confort domestique.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'attraction opposée</strong> Le Scorpion, signe opposé polaire, fascine le Taureau. Leur relation est souvent marquée par une sensualité dévorante et une possessivité mutuelle intense.</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> L'entente avec le Lion ou le Verseau est plus complexe. L'orgueil du Lion et le besoin d'indépendance du Verseau peuvent entrer en conflit avec l'obstination et le besoin de contrôle du Taureau.</li>
-                </ul>
-            </section>
-
-            <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Gémeaux <span class="text-sm font-normal text-gray-500">(21 mai - 20 juin)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Signe d'Air gouverné par Mercure, les Gémeaux envisagent l'amour comme un échange intellectuel. Ils fuient l'ennui et la routine, cherchant un partenaire qui soit avant tout un complice mental, curieux et bavard.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> La Balance et le Verseau sont les meilleurs alliés des Gémeaux. Ensemble, ils refont le monde, partagent des idéaux et respectent leur besoin mutuel de liberté et de vie sociale.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'alliance Air-Feu</strong> Le Bélier, le Lion et le Sagittaire stimulent l'esprit vif des Gémeaux. Le Sagittaire, en particulier, est son signe opposé et complémentaire : l'un cherche la connaissance (Gémeaux), l'autre la sagesse (Sagittaire).</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> La relation avec la Vierge ou les Poissons demande des efforts. La Vierge peut sembler trop critique pour le Gémeaux insouciant, tandis que l'émotivité des Poissons peut le dérouter, lui qui rationalise ses sentiments.</li>
-                </ul>
-            </section>
-
-            <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Cancer <span class="text-sm font-normal text-gray-500">(21 juin - 22 juillet)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Gouverné par la Lune, le Cancer est le signe le plus émotionnel et protecteur du zodiaque. Il cherche la fusion, la tendresse et la sécurité absolue. Pour lui, aimer signifie fonder une famille et protéger son clan.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> Le Scorpion et les Poissons, signes d'Eau, comprennent instinctivement le langage non-verbal et la sensibilité du Cancer. La connexion est souvent psychique et profonde.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'alliance Eau-Terre</strong> Le Taureau et la Vierge apportent au Cancer la structure et la sécurité rassurante dont il a besoin pour s'épanouir. Le Taureau, en particulier, partage son amour du foyer.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'attraction opposée</strong> Le Capricorne représente le père, la structure, tandis que le Cancer représente la mère, le foyer. Ensemble, ils forment une équipe traditionnelle et solide, bien que le Capricorne puisse parfois paraître froid.</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> Le Bélier et la Balance peuvent blesser la susceptibilité du Cancer. L'agressivité du Bélier et la mondanité de la Balance sont souvent mal vécues par ce signe casanier.</li>
-                </ul>
-            </section>
-
-            <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Lion <span class="text-sm font-normal text-gray-500">(23 juillet - 22 août)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Le Lion, gouverné par le Soleil, aime avec grandeur, générosité et passion. Il a besoin d'admirer son partenaire et d'être admiré en retour. L'amour est pour lui une scène où se joue une pièce romantique et loyale.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> Le Bélier et le Sagittaire partagent avec le Lion le goût de l'aventure, l'optimisme et une vision grandiose de la vie. Ensemble, ils forment des couples dynamiques et charismatiques.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'alliance Feu-Air</strong> Les Gémeaux et la Balance savent flatter l'ego du Lion tout en lui apportant l'intelligence et le raffinement qu'il apprécie.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'attraction opposée</strong> Le Verseau intrigue le Lion. Le Verseau aime l'humanité, le Lion aime sa cour. S'ils surmontent leurs ego, ils peuvent s'enrichir mutuellement : le Lion apprend l'altruisme, le Verseau apprend à briller.</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> La relation avec le Taureau ou le Scorpion est un bras de fer. Ce sont des signes fixes, tout comme le Lion. L'entêtement de chacun peut mener à des conflits de pouvoir insolubles sans compromis majeurs.</li>
-                </ul>
-            </section>
-
-            <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Vierge <span class="text-sm font-normal text-gray-500">(23 août - 22 septembre)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Gouvernée par Mercure, la Vierge aborde l'amour avec prudence, analyse et dévouement. Elle cherche moins la passion destructrice que la perfection du quotidien. Elle a besoin d'ordre, de clarté et d'honnêteté intellectuelle.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> Le Taureau et le Capricorne sont des partenaires idéaux. Ils partagent les mêmes valeurs de travail, de fidélité et de réalisme. La sécurité matérielle et affective est assurée.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'alliance Terre-Eau</strong> Le Cancer et le Scorpion peuvent aider la Vierge à lâcher prise. Le Cancer la rassure, tandis que le Scorpion l'aide à explorer ses émotions refoulées.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'attraction opposée</strong> Les Poissons fascinent la Vierge. Elle est l'ordre, ils sont le chaos. Elle est le détail, ils sont l'infini. Cette complémentarité peut être magique si la Vierge accepte de ne pas tout contrôler.</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> Les Gémeaux et le Sagittaire sont souvent trop instables pour la Vierge. L'insouciance des Gémeaux l'inquiète, et le besoin d'aventure désorganisé du Sagittaire perturbe sa routine rassurante.</li>
-                </ul>
-            </section>
-
-            <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Balance <span class="text-sm font-normal text-gray-500">(23 septembre - 22 octobre)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Gouvernée par Vénus, la Balance est le signe du couple par excellence. Elle ne conçoit pas la vie sans l'autre. Elle recherche l'harmonie, la beauté, le raffinement et fuit le conflit à tout prix.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> Les Gémeaux et le Verseau, signes d'Air, offrent à la Balance la stimulation intellectuelle et la vie sociale riche qu'elle adore. La communication est fluide et légère.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'alliance Air-Feu</strong> Le Lion et le Sagittaire apportent à la Balance le dynamisme et la capacité de décision qui lui manquent parfois. Le Lion, en particulier, comble son besoin de prestige et d'élégance.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'attraction opposée</strong> Le Bélier est son opposé polaire. C'est la rencontre de Mars (guerre) et Vénus (paix). L'attraction est immédiate et charnelle, le Bélier poussant la Balance à s'affirmer.</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> Le Cancer et le Capricorne peuvent être difficiles à vivre pour une Balance. Le Cancer est trop émotionnellement envahissant pour sa nature aérienne, et le Capricorne souvent trop austère et solitaire pour ce signe sociable.</li>
-                </ul>
-            </section>
-
-            <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Scorpion <span class="text-sm font-normal text-gray-500">(23 octobre - 21 novembre)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Gouverné par Pluton et Mars, le Scorpion vit l'amour sur un mode intense, fusionnel et absolu. Il cherche la vérité des sentiments, la transformation par l'autre et une sexualité transcendante.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> Le Cancer et les Poissons sont les seuls à pouvoir naviguer dans les eaux profondes du Scorpion sans se noyer. La compréhension est instinctive, silencieuse et totale.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'alliance Eau-Terre</strong> La Vierge et le Capricorne offrent au Scorpion un cadre stable qui apaise ses angoisses intérieures. Le Capricorne, ambitieux et résistant, gagne souvent le respect profond du Scorpion.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'attraction opposée</strong> Le Taureau est son complémentaire. C'est l'axe de la possession : "j'ai" (Taureau) face à "je désire" (Scorpion). La relation est charnelle, possessive et souvent indestructible.</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> Le Lion et le Verseau entrent souvent en conflit avec le Scorpion. Le Lion veut dominer (ce que le Scorpion refuse), et le Verseau est trop détaché émotionnellement pour satisfaire le besoin de fusion du Scorpion.</li>
-                </ul>
-            </section>
-
-            <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Sagittaire <span class="text-sm font-normal text-gray-500">(22 novembre - 21 décembre)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Gouverné par Jupiter, le Sagittaire est un aventurier optimiste qui a besoin de liberté. En amour, il cherche un partenaire de voyage, physique ou spirituel, avec qui partager sa soif de découverte.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> Le Bélier et le Lion sont ses meilleurs compagnons de route. Ces signes de Feu partagent son énergie inépuisable et son enthousiasme pour la vie.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'alliance Feu-Air</strong> La Balance et le Verseau s'entendent à merveille avec le Sagittaire. Ils respectent son indépendance tout en partageant ses idéaux humanistes et sociaux.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'attraction opposée</strong> Les Gémeaux, signe opposé, stimulent l'intellect du Sagittaire. Ensemble, ils peuvent discuter des heures et apprendre l'un de l'autre, bien que la dispersion soit un risque.</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> La Vierge et les Poissons ont des modes de fonctionnement très différents. La Vierge est trop focalisée sur les détails pour le Sagittaire qui voit grand, et les Poissons peuvent sembler trop dépendants ou flous pour ce signe franc et direct.</li>
-                </ul>
-            </section>
-
-            <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Capricorne <span class="text-sm font-normal text-gray-500">(22 décembre - 19 janvier)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Gouverné par Saturne, le Capricorne est ambitieux, patient et réservé. En amour, il est lent à s'engager mais d'une fidélité absolue une fois sa confiance accordée. Il cherche un partenaire solide pour construire un empire.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> Le Taureau et la Vierge comprennent parfaitement le besoin de sécurité et l'éthique de travail du Capricorne. Ensemble, ils construisent une vie confortable et organisée.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'alliance Terre-Eau</strong> Le Scorpion et les Poissons apportent la profondeur émotionnelle qui manque parfois au Capricorne. Le Scorpion respecte sa force, tandis que les Poissons adoucissent sa rigueur.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'attraction opposée</strong> Le Cancer représente le foyer chaleureux que le Capricorne, tourné vers sa carrière, oublie parfois de construire. Le Cancer nourrit l'enfant intérieur caché sous l'armure du Capricorne.</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> Le Bélier et la Balance sont souvent sources de frustration. L'impulsivité du Bélier effraie le prudent Capricorne, et l'indécision apparente de la Balance peut l'agacer profondément.</li>
-                </ul>
-            </section>
-
-            <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Verseau <span class="text-sm font-normal text-gray-500">(20 janvier - 18 février)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Gouverné par Uranus, le Verseau est le signe de la liberté, de l'originalité et de l'amitié. Il réinvente les codes de l'amour. Il a besoin d'une connexion intellectuelle forte et d'un partenaire qui ne cherche pas à l'enfermer.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> Les Gémeaux et la Balance sont sur la même longueur d'onde. La communication est la clé de voûte de ces relations aériennes, légères et stimulantes.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'alliance Air-Feu</strong> Le Bélier et le Sagittaire sont fascinés par l'indépendance d'esprit du Verseau. Ils partagent le goût de l'aventure et du futur, sans tomber dans la routine.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'attraction opposée</strong> Le Lion est son complémentaire. Le Lion règne sur le cœur, le Verseau sur l'esprit. Si le Lion accepte de ne pas être le seul centre d'intérêt du Verseau, leur union est puissante et créative.</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> Le Taureau et le Scorpion, signes possessifs et ancrés, ont beaucoup de mal avec le détachement émotionnel et le besoin de liberté absolue du Verseau. Ces relations demandent beaucoup de tolérance.</li>
-                </ul>
-            </section>
-
-            <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Poissons <span class="text-sm font-normal text-gray-500">(19 février - 20 mars)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Gouvernés par Neptune, les Poissons sont les romantiques du zodiaque. Ils cherchent la fusion des âmes, l'amour inconditionnel et la magie. Hypersensibles, ils ont besoin d'un partenaire qui respecte leur monde intérieur.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> Le Cancer et le Scorpion sont les âmes sœurs naturelles des Poissons. La communication se passe de mots, la compréhension émotionnelle est totale et l'empathie est réciproque.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'alliance Eau-Terre</strong> Le Taureau et le Capricorne offrent aux Poissons l'ancrage nécessaire pour ne pas se perdre dans leurs rêves. Ils apportent le réalisme et la protection que les Poissons recherchent secrètement.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'attraction opposée</strong> La Vierge est le signe opposé. Elle analyse, il ressent. Elle range, il rêve. La Vierge aide les Poissons à concrétiser leurs visions artistiques ou spirituelles dans la réalité.</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> Les Gémeaux et le Sagittaire peuvent blesser les Poissons. Les Gémeaux sont trop cérébraux et ironiques pour la sensibilité des Poissons, tandis que le Sagittaire peut manquer de la délicatesse nécessaire pour ne pas heurter ce signe vulnérable.</li>
-                </ul>
-            </section>
-
         </div>
 
     </main>
@@ -263,38 +138,79 @@
             const resBox = document.getElementById('resultat');
             const scoreTxt = document.getElementById('score');
             const titreTxt = document.getElementById('titreResultat');
-            const descTxt = document.getElementById('descResultat');
+            const descBox = document.getElementById('descResultat');
 
-            // Logique simplifiée basée sur les éléments pour l'effet "Wow"
             let score = 50;
             let titre = "";
-            let desc = "";
+            let details = {};
 
-            // MEME ELEMENT (Feu-Feu, Terre-Terre...)
+            // --- SCÉNARIO 1 : MÊME ÉLÉMENT (Fusion) ---
             if (s1 === s2) {
                 score = 85;
-                titre = "FUSION MIROIR";
-                desc = "Vous parlez le même langage. La compréhension est instinctive, presque télépathique. Attention toutefois à ne pas vous enfermer dans une bulle.";
+                titre = "L'EFFET MIROIR";
+                details = {
+                    quotidien: "Votre quotidien est une danse fluide. Vous fonctionnez sur le même rythme biologique et mental. Pas besoin de longues explications : un regard suffit pour comprendre que l'autre a besoin d'action (Feu), de calme (Terre), de discussion (Air) ou de silence (Eau). C'est reposant, mais attention à ne pas vous enfermer dans une bulle autarcique.",
+                    amour: "C'est une reconnaissance d'âme à âme. Vous aimez chez l'autre ce que vous aimez (ou détestez parfois) chez vous-même. La passion est narcissique dans le bon sens du terme : on se valide mutuellement. La complicité est immédiate, charnelle et instinctive.",
+                    duree: "Sur le long terme, c'est une alliance solide. Vous avancez dans la même direction avec les mêmes méthodes. Le risque ? L'ennui pour les signes de Terre, ou l'épuisement mutuel pour les signes de Feu. Il faudra parfois inviter des énergies extérieures pour renouveler l'air de votre couple.",
+                    rapproche: "Cette sensation rare d'être 'à la maison' avec l'autre. Une validation constante de vos valeurs profondes et une absence totale de jugement sur votre mode de fonctionnement.",
+                    epineux: "Le manque de perspective. Comme vous avez les mêmes défauts, personne n'est là pour tempérer l'autre. Deux anxieux s'affolent, deux colériques explosent. Il faudra apprendre à prendre du recul."
+                };
             }
-            // ELEMENTS COMPATIBLES (Feu-Air ou Terre-Eau)
+            // --- SCÉNARIO 2 : ÉLÉMENTS COMPATIBLES (Feu/Air ou Terre/Eau) ---
             else if ((s1 === 'feu' && s2 === 'air') || (s1 === 'air' && s2 === 'feu') || 
                      (s1 === 'terre' && s2 === 'eau') || (s1 === 'eau' && s2 === 'terre')) {
                 score = 95;
-                titre = "HARMONIE CÉLESTE";
-                desc = "L'alliance parfaite. Vos énergies se nourrissent mutuellement sans s'étouffer. C'est le terrain fertile pour une relation durable et épanouissante.";
+                titre = "L'HARMONIE NATURELLE";
+                details = {
+                    quotidien: "C'est la complémentarité parfaite. L'un apporte ce qui manque à l'autre sans jamais l'imposer. Au quotidien, c'est une mécanique bien huilée où les rôles se distribuent naturellement. L'un propose, l'autre dispose ; l'un rêve, l'autre construit.",
+                    amour: "Une relation douce, évidente, qui semble couler de source. Il y a beaucoup d'inspiration mutuelle. L'Air attise le Feu, l'Eau nourrit la Terre. C'est un amour fertile où chacun permet à l'autre de grandir et de devenir une meilleure version de lui-même.",
+                    duree: "C'est le couple qui dure par excellence. Vous avez trouvé un équilibre dynamique qui résiste aux tempêtes. Votre duo est constructif : vous ne vous contentez pas de vous aimer, vous bâtissez quelque chose ensemble (famille, projets, empire).",
+                    rapproche: "La fluidité. Tout semble simple avec vous. Les conflits se résolvent par la communication ou l'empathie, sans drames inutiles. Vous êtes les meilleurs amis du monde en plus d'être amants.",
+                    epineux: "La facilité, paradoxalement. À force de s'entendre si bien, on peut finir par prendre l'autre pour acquis. Gardez toujours une part de mystère et de séduction pour ne pas glisser vers une simple amitié fraternelle."
+                };
             }
-            // ELEMENTS OPPOSÉS (Feu-Eau ou Terre-Air -> Pas idéal selon la tradition classique, mais intense)
+            // --- SCÉNARIO 3 : ÉLÉMENTS OPPOSÉS/DIFFÉRENTS (Le Défi) ---
             else {
                 score = 60;
-                titre = "DÉFI PASSIONNANT";
-                desc = "Vos différences sont votre force, mais aussi votre challenge. Si vous acceptez d'apprendre de l'autre, cette relation vous fera grandir comme aucune autre.";
+                titre = "LE DÉFI MAGNÉTIQUE";
+                details = {
+                    quotidien: "Il faudra des ajustements. Vous ne parlez pas la même langue maternelle astrale. L'un est peut-être trop lent pour l'autre, ou trop émotif pour le cérébral. Le quotidien demande de la tolérance et une volonté réelle de comprendre un fonctionnement qui vous est étranger.",
+                    amour: "C'est souvent une attraction fatale, irrationnelle et magnétique. L'autre vous fascine précisément parce qu'il est une énigme. La passion naît de cette friction, de cette différence fondamentale. C'est intense, parfois orageux, mais jamais tiède.",
+                    duree: "C'est une école de vie. Si vous passez le cap des premiers mois, vous deviendrez un couple indestructible car vous aurez appris la tolérance. C'est une relation qui vous force à évoluer et à sortir de votre zone de confort. Rien n'est jamais acquis.",
+                    rapproche: "La fascination pour l'inconnu. L'autre vous ouvre des portes sur des mondes que vous n'auriez jamais explorés seul. Il vous complète en vous apportant une énergie radicalement nouvelle.",
+                    epineux: "L'incompréhension. Parfois, vous aurez l'impression de venir de deux planètes différentes. Il ne faudra jamais essayer de changer l'autre, mais accepter sa différence comme une richesse et non comme un défaut."
+                };
             }
+
+            // Génération du HTML
+            const htmlContent = `
+                <div class="mb-6">
+                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">Au quotidien</h5>
+                    <p class="text-gray-700 text-justify italic">${details.quotidien}</p>
+                </div>
+                <div class="mb-6">
+                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">Amoureusement</h5>
+                    <p class="text-gray-700 text-justify italic">${details.amour}</p>
+                </div>
+                <div class="mb-6">
+                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">Dans la durée</h5>
+                    <p class="text-gray-700 text-justify italic">${details.duree}</p>
+                </div>
+                <div class="mb-6">
+                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">Ce qui vous rapproche</h5>
+                    <p class="text-gray-700 text-justify italic">${details.rapproche}</p>
+                </div>
+                <div class="mb-0">
+                    <h5 class="font-bold text-gray-400 uppercase text-xs tracking-widest mb-1">Le point épineux</h5>
+                    <p class="text-gray-600 text-justify italic">${details.epineux}</p>
+                </div>
+            `;
 
             // Animation d'affichage
             resBox.classList.remove('hidden');
             scoreTxt.innerText = score + "%";
             titreTxt.innerText = titre;
-            descTxt.innerText = desc;
+            descBox.innerHTML = htmlContent;
         }
     </script>
 
