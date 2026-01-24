@@ -43,67 +43,49 @@
             
             <h3 class="text-center text-xl font-bold mb-8 uppercase tracking-widest">Entrez vos Signes</h3>
 
-            <div class="flex flex-col md:flex-row gap-8 items-start justify-center">
+            <div class="flex flex-col md:flex-row gap-6 items-center justify-center">
                 
-                <div class="w-full space-y-4">
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2 text-center">Votre Signe</label>
-                        <select id="sign1" class="w-full border-b-2 border-gray-200 bg-transparent py-3 text-center font-serif text-lg focus:border-[#D4AF37] focus:outline-none transition-colors cursor-pointer">
-                            <option value="feu">Bélier</option>
-                            <option value="terre">Taureau</option>
-                            <option value="air">Gémeaux</option>
-                            <option value="eau">Cancer</option>
-                            <option value="feu">Lion</option>
-                            <option value="terre">Vierge</option>
-                            <option value="air">Balance</option>
-                            <option value="eau">Scorpion</option>
-                            <option value="feu">Sagittaire</option>
-                            <option value="terre">Capricorne</option>
-                            <option value="air">Verseau</option>
-                            <option value="eau">Poissons</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2 text-center">Votre Genre</label>
-                        <select id="genre1" class="w-full border-b-2 border-gray-200 bg-transparent py-3 text-center font-serif text-base text-gray-600 focus:border-[#D4AF37] focus:outline-none transition-colors cursor-pointer">
-                            <option value="F">Femme</option>
-                            <option value="H">Homme</option>
-                        </select>
-                    </div>
+                <div class="w-full">
+                    <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2 text-center">Votre Signe</label>
+                    <select id="sign1" class="w-full border-b-2 border-gray-200 bg-transparent py-3 text-center font-serif text-lg focus:border-[#D4AF37] focus:outline-none transition-colors cursor-pointer">
+                        <option value="feu">Bélier</option>
+                        <option value="terre">Taureau</option>
+                        <option value="air">Gémeaux</option>
+                        <option value="eau">Cancer</option>
+                        <option value="feu">Lion</option>
+                        <option value="terre">Vierge</option>
+                        <option value="air">Balance</option>
+                        <option value="eau">Scorpion</option>
+                        <option value="feu">Sagittaire</option>
+                        <option value="terre">Capricorne</option>
+                        <option value="air">Verseau</option>
+                        <option value="eau">Poissons</option>
+                    </select>
                 </div>
 
-                <div class="text-2xl text-[#D4AF37] font-serif italic self-center pt-6">&</div>
+                <div class="text-2xl text-[#D4AF37] font-serif italic">&</div>
 
-                <div class="w-full space-y-4">
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2 text-center">Son Signe</label>
-                        <select id="sign2" class="w-full border-b-2 border-gray-200 bg-transparent py-3 text-center font-serif text-lg focus:border-[#D4AF37] focus:outline-none transition-colors cursor-pointer">
-                            <option value="feu">Bélier</option>
-                            <option value="terre">Taureau</option>
-                            <option value="air">Gémeaux</option>
-                            <option value="eau">Cancer</option>
-                            <option value="feu">Lion</option>
-                            <option value="terre">Vierge</option>
-                            <option value="air">Balance</option>
-                            <option value="eau">Scorpion</option>
-                            <option value="feu">Sagittaire</option>
-                            <option value="terre">Capricorne</option>
-                            <option value="air">Verseau</option>
-                            <option value="eau">Poissons</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2 text-center">Son Genre</label>
-                        <select id="genre2" class="w-full border-b-2 border-gray-200 bg-transparent py-3 text-center font-serif text-base text-gray-600 focus:border-[#D4AF37] focus:outline-none transition-colors cursor-pointer">
-                            <option value="H">Homme</option>
-                            <option value="F">Femme</option>
-                        </select>
-                    </div>
+                <div class="w-full">
+                    <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2 text-center">Son Signe</label>
+                    <select id="sign2" class="w-full border-b-2 border-gray-200 bg-transparent py-3 text-center font-serif text-lg focus:border-[#D4AF37] focus:outline-none transition-colors cursor-pointer">
+                        <option value="feu">Bélier</option>
+                        <option value="terre">Taureau</option>
+                        <option value="air">Gémeaux</option>
+                        <option value="eau">Cancer</option>
+                        <option value="feu">Lion</option>
+                        <option value="terre">Vierge</option>
+                        <option value="air">Balance</option>
+                        <option value="eau">Scorpion</option>
+                        <option value="feu">Sagittaire</option>
+                        <option value="terre">Capricorne</option>
+                        <option value="air">Verseau</option>
+                        <option value="eau">Poissons</option>
+                    </select>
                 </div>
 
             </div>
 
-            <div class="text-center mt-12">
+            <div class="text-center mt-10">
                 <button onclick="calculerCompatibilite()" class="bg-black text-white px-8 py-3 uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#D4AF37] hover:text-black transition-colors duration-500">
                     Révéler l'Alliance
                 </button>
@@ -138,17 +120,8 @@
 
         <div class="space-y-16">
             <section class="gold-border">
-                <h3 class="text-2xl font-bold mb-2 text-gray-800">Bélier <span class="text-sm font-normal text-gray-500">(21 mars - 19 avril)</span></h3>
-                <p class="text-gray-700 mb-4 italic">Le Bélier, premier signe du zodiaque, est gouverné par Mars. En amour, il recherche la passion, la conquête et la spontanéité.</p>
-                <ul class="space-y-3 text-gray-700 text-justify">
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">Accords parfaits</strong> L'entente est idéale avec le Lion et le Sagittaire, deux autres signes de Feu.</li>
-                    <li><strong class="text-[#D4AF37] uppercase tracking-wider text-xs block mb-1">L'attraction opposée</strong> Avec la Balance, son signe opposé, l'attraction est souvent magnétique.</li>
-                    <li><strong class="text-gray-500 uppercase tracking-wider text-xs block mb-1">Les défis</strong> La relation avec le Cancer ou le Capricorne peut être source de tensions.</li>
-                </ul>
-            </section>
-            
-            <section class="text-center italic text-gray-400 mt-8">
-                ... (Le reste du guide complet est préservé ici) ...
+                <h3 class="text-2xl font-bold mb-2 text-gray-800">Le Guide Complet</h3>
+                <p class="text-gray-700 italic">Utilisez le calculateur ci-dessus pour obtenir une analyse précise de votre couple.</p>
             </section>
         </div>
 
@@ -160,94 +133,52 @@
 
     <script>
         function calculerCompatibilite() {
-            const s1 = document.getElementById('sign1').value; // Element signe 1
-            const s2 = document.getElementById('sign2').value; // Element signe 2
-            const g1 = document.getElementById('genre1').value; // Genre 1
-            const g2 = document.getElementById('genre2').value; // Genre 2
-            
+            const s1 = document.getElementById('sign1').value;
+            const s2 = document.getElementById('sign2').value;
             const resBox = document.getElementById('resultat');
             const scoreTxt = document.getElementById('score');
             const titreTxt = document.getElementById('titreResultat');
             const descBox = document.getElementById('descResultat');
 
-            // Détection du type de couple pour adapter le texte
-            let typeCouple = "hetero"; // Par défaut
-            if (g1 === "F" && g2 === "F") typeCouple = "femme_femme";
-            if (g1 === "H" && g2 === "H") typeCouple = "homme_homme";
-
             let score = 50;
             let titre = "";
             let details = {};
 
-            // --- 1. MÊME ÉLÉMENT (FUSION) ---
+            // --- SCÉNARIO 1 : MÊME ÉLÉMENT (Fusion) ---
             if (s1 === s2) {
                 score = 85;
                 titre = "L'EFFET MIROIR";
-                
-                // Textes de base
-                let amourTxt = "Une reconnaissance d'âme à âme. La passion est narcissique dans le bon sens : on se valide mutuellement.";
-                let dureeTxt = "Une alliance solide car vous avancez avec les mêmes méthodes. Attention à l'ennui.";
-
-                // Nuances selon le genre
-                if (typeCouple === "femme_femme") {
-                    amourTxt = "Une sororité astrale puissante. Votre intuition féminine commune crée un lien presque télépathique, une fusion émotionnelle rare.";
-                    dureeTxt = "Vous bâtissez un cocon protecteur impénétrable. Votre force réside dans cette compréhension silencieuse et maternelle.";
-                } else if (typeCouple === "homme_homme") {
-                    amourTxt = "Une fraternité solaire. Vous partagez les mêmes codes d'action et de loyauté. C'est une relation franche, directe, sans jeux de devinettes.";
-                    dureeTxt = "Un duo de conquérants. Ensemble, vous formez une équipe redoutable pour affronter le monde extérieur.";
-                }
-
                 details = {
-                    quotidien: "Votre quotidien est une danse fluide. Pas besoin de longues explications : un regard suffit pour comprendre que l'autre a besoin d'action ou de silence.",
-                    amour: amourTxt,
-                    duree: dureeTxt,
-                    rapproche: "Cette sensation rare d'être 'à la maison' avec l'autre. Une absence totale de jugement sur votre mode de fonctionnement.",
-                    epineux: "Le manque de perspective. Comme vous avez les mêmes défauts, personne n'est là pour tempérer l'autre. Il faudra apprendre à prendre du recul."
+                    quotidien: "Votre quotidien est une danse fluide. Vous fonctionnez sur le même rythme biologique et mental. Pas besoin de longues explications : un regard suffit pour comprendre que l'autre a besoin d'action (Feu), de calme (Terre), de discussion (Air) ou de silence (Eau). C'est reposant, mais attention à ne pas vous enfermer dans une bulle autarcique.",
+                    amour: "C'est une reconnaissance d'âme à âme. Vous aimez chez l'autre ce que vous aimez (ou détestez parfois) chez vous-même. La passion est narcissique dans le bon sens du terme : on se valide mutuellement. La complicité est immédiate, charnelle et instinctive.",
+                    duree: "Sur le long terme, c'est une alliance solide. Vous avancez dans la même direction avec les mêmes méthodes. Le risque ? L'ennui pour les signes de Terre, ou l'épuisement mutuel pour les signes de Feu. Il faudra parfois inviter des énergies extérieures pour renouveler l'air de votre couple.",
+                    rapproche: "Cette sensation rare d'être 'à la maison' avec l'autre. Une validation constante de vos valeurs profondes et une absence totale de jugement sur votre mode de fonctionnement.",
+                    epineux: "Le manque de perspective. Comme vous avez les mêmes défauts, personne n'est là pour tempérer l'autre. Deux anxieux s'affolent, deux colériques explosent. Il faudra apprendre à prendre du recul."
                 };
             }
-            
-            // --- 2. ÉLÉMENTS COMPATIBLES (FLUIDITÉ) ---
+            // --- SCÉNARIO 2 : ÉLÉMENTS COMPATIBLES (Feu/Air ou Terre/Eau) ---
             else if ((s1 === 'feu' && s2 === 'air') || (s1 === 'air' && s2 === 'feu') || 
                      (s1 === 'terre' && s2 === 'eau') || (s1 === 'eau' && s2 === 'terre')) {
                 score = 95;
                 titre = "L'HARMONIE NATURELLE";
-
-                let amourTxt = "Une relation douce qui coule de source. L'un inspire, l'autre réalise.";
-                
-                if (typeCouple === "hetero") {
-                    amourTxt = "L'équilibre parfait du Yin et du Yang. Vos énergies masculines et féminines s'épousent sans heurt, créant une complétude apaisante.";
-                } else if (typeCouple === "femme_femme") {
-                    amourTxt = "Une fluidité magique. Vos sensibilités s'accordent comme une mélodie. L'une apporte le rêve, l'autre l'ancrage, dans une douceur infinie.";
-                }
-
                 details = {
-                    quotidien: "C'est la complémentarité idéale. L'un apporte ce qui manque à l'autre sans jamais l'imposer. Une mécanique bien huilée.",
-                    amour: amourTxt,
-                    duree: "C'est le couple qui dure par excellence. Vous ne vous contentez pas de vous aimer, vous bâtissez quelque chose ensemble.",
-                    rapproche: "La facilité. Tout semble simple. Les conflits se résolvent par la communication ou l'empathie, sans drames inutiles.",
-                    epineux: "Le risque de prendre l'autre pour acquis. Gardez toujours une part de mystère pour ne pas glisser vers une simple amitié."
+                    quotidien: "C'est la complémentarité parfaite. L'un apporte ce qui manque à l'autre sans jamais l'imposer. Au quotidien, c'est une mécanique bien huilée où les rôles se distribuent naturellement. L'un propose, l'autre dispose ; l'un rêve, l'autre construit.",
+                    amour: "Une relation douce, évidente, qui semble couler de source. Il y a beaucoup d'inspiration mutuelle. L'Air attise le Feu, l'Eau nourrit la Terre. C'est un amour fertile où chacun permet à l'autre de grandir et de devenir une meilleure version de lui-même.",
+                    duree: "C'est le couple qui dure par excellence. Vous avez trouvé un équilibre dynamique qui résiste aux tempêtes. Votre duo est constructif : vous ne vous contentez pas de vous aimer, vous bâtissez quelque chose ensemble (famille, projets, empire).",
+                    rapproche: "La fluidité. Tout semble simple avec vous. Les conflits se résolvent par la communication ou l'empathie, sans drames inutiles. Vous êtes les meilleurs amis du monde en plus d'être amants.",
+                    epineux: "La facilité, paradoxalement. À force de s'entendre si bien, on peut finir par prendre l'autre pour acquis. Gardez toujours une part de mystère et de séduction pour ne pas glisser vers une simple amitié fraternelle."
                 };
             }
-            
-            // --- 3. ÉLÉMENTS OPPOSÉS (DÉFI) ---
+            // --- SCÉNARIO 3 : ÉLÉMENTS OPPOSÉS/DIFFÉRENTS (Le Défi) ---
             else {
                 score = 60;
                 titre = "LE DÉFI MAGNÉTIQUE";
-
-                let quotidienTxt = "Il faudra des ajustements. Vous ne parlez pas la même langue astrale.";
-                
-                if (typeCouple === "homme_homme") {
-                    quotidienTxt = "Un choc de titans au quotidien. Deux volontés fortes qui s'affrontent. C'est stimulant mais épuisant si aucun ne lâche prise.";
-                } else if (typeCouple === "hetero") {
-                    quotidienTxt = "Vénus et Mars en duel. L'incompréhension règne parfois : 'Pourquoi ne réagit-il/elle pas comme moi ?'. Il faut beaucoup de tolérance.";
-                }
-
                 details = {
-                    quotidien: quotidienTxt,
-                    amour: "C'est souvent une attraction fatale, irrationnelle. L'autre vous fascine précisément parce qu'il est une énigme indéchiffrable.",
-                    duree: "C'est une école de vie. Si vous passez le cap des débuts, vous deviendrez indestructibles car vous aurez appris la vraie tolérance.",
-                    rapproche: "La fascination pour l'inconnu. L'autre vous ouvre des portes sur des mondes que vous n'auriez jamais explorés seul.",
-                    epineux: "L'incompréhension fondamentale. Ne cherchez jamais à changer l'autre, mais acceptez sa différence comme une richesse."
+                    quotidien: "Il faudra des ajustements. Vous ne parlez pas la même langue maternelle astrale. L'un est peut-être trop lent pour l'autre, ou trop émotif pour le cérébral. Le quotidien demande de la tolérance et une volonté réelle de comprendre un fonctionnement qui vous est étranger.",
+                    amour: "C'est souvent une attraction fatale, irrationnelle et magnétique. L'autre vous fascine précisément parce qu'il est une énigme. La passion naît de cette friction, de cette différence fondamentale. C'est intense, parfois orageux, mais jamais tiède.",
+                    duree: "C'est une école de vie. Si vous passez le cap des premiers mois, vous deviendrez un couple indestructible car vous aurez appris la tolérance. C'est une relation qui vous force à évoluer et à sortir de votre zone de confort. Rien n'est jamais acquis.",
+                    rapproche: "La fascination pour l'inconnu. L'autre vous ouvre des portes sur des mondes que vous n'auriez jamais explorés seul. Il vous complète en vous apportant une énergie radicalement nouvelle.",
+                    epineux: "L'incompréhension. Parfois, vous aurez l'impression de venir de deux planètes différentes. Il ne faudra jamais essayer de changer l'autre, mais accepter sa différence comme une richesse et non comme un défaut."
                 };
             }
 
@@ -275,6 +206,7 @@
                 </div>
             `;
 
+            // Animation d'affichage
             resBox.classList.remove('hidden');
             scoreTxt.innerText = score + "%";
             titreTxt.innerText = titre;
