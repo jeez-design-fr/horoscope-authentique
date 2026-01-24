@@ -129,7 +129,7 @@
     </footer>
 
     <script>
-        // Dictionnaire des éléments pour les combinaisons croisées
+        // Dictionnaire des éléments
         const elements = {
             belier: 'feu', lion: 'feu', sagittaire: 'feu',
             taureau: 'terre', vierge: 'terre', capricorne: 'terre',
@@ -271,7 +271,7 @@
                 const data = sameSignData[s1];
                 score = data.score;
                 titre = data.titre;
-                details = data; // On prend directement l'objet data qui a les bonnes clés
+                details = data;
             }
             // CAS 2 : ÉLÉMENTS COMPATIBLES (Feu/Air ou Terre/Eau)
             else if ((e1 === 'feu' && e2 === 'air') || (e1 === 'air' && e2 === 'feu') || 
@@ -299,26 +299,26 @@
                 };
             }
 
-            // Génération du HTML
+            // Génération du HTML avec les nouveaux titres thématiques
             const htmlContent = `
                 <div class="mb-6">
-                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">Au quotidien</h5>
+                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">L'Alchimie du Quotidien</h5>
                     <p class="text-gray-700 text-justify italic">${details.quotidien}</p>
                 </div>
                 <div class="mb-6">
-                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">Amoureusement</h5>
+                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">La Vibration du Cœur</h5>
                     <p class="text-gray-700 text-justify italic">${details.amour}</p>
                 </div>
                 <div class="mb-6">
-                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">Dans la durée</h5>
+                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">Votre Destinée Commune</h5>
                     <p class="text-gray-700 text-justify italic">${details.duree}</p>
                 </div>
                 <div class="mb-6">
-                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">Ce qui vous rapproche</h5>
+                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">Votre Pacte Céleste</h5>
                     <p class="text-gray-700 text-justify italic">${details.rapproche}</p>
                 </div>
                 <div class="mb-0">
-                    <h5 class="font-bold text-gray-400 uppercase text-xs tracking-widest mb-1">Le point épineux</h5>
+                    <h5 class="font-bold text-gray-400 uppercase text-xs tracking-widest mb-1">Le Défi Karmique</h5>
                     <p class="text-gray-600 text-justify italic">${details.epineux}</p>
                 </div>
             `;
