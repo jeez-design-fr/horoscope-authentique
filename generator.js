@@ -173,7 +173,7 @@ async function main() {
     const grilleHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Les 12 Signes</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]"><header class="text-center py-12 px-4"><a href="index.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">Retour Accueil</a><h1 class="text-4xl font-bold">HOROSCOPE DU JOUR</h1></header><main class="container mx-auto px-4 pb-24"><div class="grid grid-cols-2 md:grid-cols-4 gap-4">${cardsHtml}</div></main><footer class="text-center py-8 text-gray-300 text-xs"><p>© Horoscope Authentique</p></footer></body></html>`;
     fs.writeFileSync(path.join(outputDir, 'horoscope.html'), grilleHtml);
 
-// Page Accueil (VERSION PYRAMIDE : 1 Top + 4 Bases)
+// Page Accueil (VERSION DOUBLE-TÊTE + 4 BASES)
     const indexHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Maison Authentique</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA] justify-between">
     
     <header class="text-center pt-12 px-4">
@@ -187,14 +187,28 @@ async function main() {
 
     <main class="flex-grow w-full flex flex-col items-center justify-center py-6 gap-8 md:gap-12">
         
-        <div class="w-64 md:w-80 text-center group cursor-pointer z-10">
-            <a href="horoscope.html" class="block">
-                <div class="relative overflow-hidden mb-4">
-                    <img src="./assets/${entreeImageName}" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700">
-                </div>
-                <h3 class="text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">L'ORACLE</h3>
-                <p class="text-xs tracking-widest text-gray-500 mt-1 uppercase">Votre Horoscope</p>
-            </a>
+        <div class="flex flex-row flex-wrap justify-center gap-6 w-full px-4">
+            
+            <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
+                <a href="horoscope.html" class="block">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="./assets/${entreeImageName}" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">L'ORACLE</h3>
+                    <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Votre Horoscope</p>
+                </a>
+            </div>
+
+            <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
+                <a href="compatibilite-amoureuse.html" class="block">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="./assets/compatibilite.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.5s;">
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">AMOUR</h3>
+                    <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Compatibilité</p>
+                </a>
+            </div>
+
         </div>
 
         <div class="flex flex-row flex-wrap justify-center gap-4 md:gap-8 w-full px-2 max-w-6xl">
@@ -202,7 +216,7 @@ async function main() {
             <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
                 <a href="signification.html" class="block">
                     <div class="relative overflow-hidden mb-4">
-                        <img src="./assets/livre.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.5s;">
+                        <img src="./assets/livre.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1s;">
                     </div>
                     <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">ENCYCLOPÉDIE</h3>
                     <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Signification</p>
@@ -212,7 +226,7 @@ async function main() {
             <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
                 <a href="comprendre-astrologie.html" class="block">
                     <div class="relative overflow-hidden mb-4">
-                        <img src="./assets/elements.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1s;">
+                        <img src="./assets/elements.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.2s;">
                     </div>
                     <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">ÉLÉMENTS</h3>
                     <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Feu, Terre, Air, Eau</p>
@@ -222,7 +236,7 @@ async function main() {
             <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
                 <a href="pierres-protectrices.html" class="block">
                     <div class="relative overflow-hidden mb-4">
-                        <img src="./assets/pierres.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.5s;">
+                        <img src="./assets/pierres.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.4s;">
                     </div>
                     <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">CRISTAUX</h3>
                     <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Lithothérapie</p>
@@ -232,7 +246,7 @@ async function main() {
             <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
                 <a href="le-cosmos.html" class="block">
                     <div class="relative overflow-hidden mb-4">
-                        <img src="./assets/cosmos.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 2s;">
+                        <img src="./assets/cosmos.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.6s;">
                     </div>
                     <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">COSMOS</h3>
                     <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Astronomie & Âme</p>
@@ -254,6 +268,7 @@ if (fs.existsSync('./signification.html')) fs.copyFileSync('./signification.html
 if (fs.existsSync('./comprendre-astrologie.html')) fs.copyFileSync('./comprendre-astrologie.html', path.join(outputDir, 'comprendre-astrologie.html'));
 if (fs.existsSync('./pierres-protectrices.html')) fs.copyFileSync('./pierres-protectrices.html', path.join(outputDir, 'pierres-protectrices.html'));
 if (fs.existsSync('./le-cosmos.html')) fs.copyFileSync('./le-cosmos.html', path.join(outputDir, 'le-cosmos.html'));
+if (fs.existsSync('./compatibilite-amoureuse.html')) fs.copyFileSync('./compatibilite-amoureuse.html', path.join(outputDir, 'compatibilite-amoureuse.html'));
 
     console.log("✅ FIN DU SCRIPT !");
 }
