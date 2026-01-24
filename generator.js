@@ -164,7 +164,7 @@ async function main() {
         fs.writeFileSync(path.join(outputDir, `${sign.slug}.html`), content);
     }
 
-    // Page Grille (AVEC DATE AUTOMATIQUE)
+   // Page Grille (AVEC DATE + IMAGES SPÉCIALES "-carte")
     const horoscopeHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Horoscope du Jour - Maison Authentique</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]">
     
     <header class="text-center pt-10 px-4 mb-8">
@@ -183,7 +183,7 @@ async function main() {
             <a href="${sign.slug}.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/${sign.image}" alt="${sign.name}" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/${sign.slug}-carte.webp" onerror="this.src='./assets/${sign.image}'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">${sign.name.toUpperCase()}</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
