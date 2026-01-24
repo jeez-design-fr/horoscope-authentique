@@ -48,18 +48,18 @@
                 <div class="w-full">
                     <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2 text-center">Votre Signe</label>
                     <select id="sign1" class="w-full border-b-2 border-gray-200 bg-transparent py-3 text-center font-serif text-lg focus:border-[#D4AF37] focus:outline-none transition-colors cursor-pointer">
-                        <option value="feu">Bélier</option>
-                        <option value="terre">Taureau</option>
-                        <option value="air">Gémeaux</option>
-                        <option value="eau">Cancer</option>
-                        <option value="feu">Lion</option>
-                        <option value="terre">Vierge</option>
-                        <option value="air">Balance</option>
-                        <option value="eau">Scorpion</option>
-                        <option value="feu">Sagittaire</option>
-                        <option value="terre">Capricorne</option>
-                        <option value="air">Verseau</option>
-                        <option value="eau">Poissons</option>
+                        <option value="belier">Bélier</option>
+                        <option value="taureau">Taureau</option>
+                        <option value="gemeaux">Gémeaux</option>
+                        <option value="cancer">Cancer</option>
+                        <option value="lion">Lion</option>
+                        <option value="vierge">Vierge</option>
+                        <option value="balance">Balance</option>
+                        <option value="scorpion">Scorpion</option>
+                        <option value="sagittaire">Sagittaire</option>
+                        <option value="capricorne">Capricorne</option>
+                        <option value="verseau">Verseau</option>
+                        <option value="poissons">Poissons</option>
                     </select>
                 </div>
 
@@ -68,18 +68,18 @@
                 <div class="w-full">
                     <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2 text-center">Son Signe</label>
                     <select id="sign2" class="w-full border-b-2 border-gray-200 bg-transparent py-3 text-center font-serif text-lg focus:border-[#D4AF37] focus:outline-none transition-colors cursor-pointer">
-                        <option value="feu">Bélier</option>
-                        <option value="terre">Taureau</option>
-                        <option value="air">Gémeaux</option>
-                        <option value="eau">Cancer</option>
-                        <option value="feu">Lion</option>
-                        <option value="terre">Vierge</option>
-                        <option value="air">Balance</option>
-                        <option value="eau">Scorpion</option>
-                        <option value="feu">Sagittaire</option>
-                        <option value="terre">Capricorne</option>
-                        <option value="air">Verseau</option>
-                        <option value="eau">Poissons</option>
+                        <option value="belier">Bélier</option>
+                        <option value="taureau">Taureau</option>
+                        <option value="gemeaux">Gémeaux</option>
+                        <option value="cancer">Cancer</option>
+                        <option value="lion">Lion</option>
+                        <option value="vierge">Vierge</option>
+                        <option value="balance">Balance</option>
+                        <option value="scorpion">Scorpion</option>
+                        <option value="sagittaire">Sagittaire</option>
+                        <option value="capricorne">Capricorne</option>
+                        <option value="verseau">Verseau</option>
+                        <option value="poissons">Poissons</option>
                     </select>
                 </div>
 
@@ -112,9 +112,6 @@
                 <p class="mb-4">
                     La compatibilité entre deux individus ne repose pas uniquement sur leur signe solaire (le signe de naissance). Une analyse astrologique complète prend en compte la position de la Lune (les émotions), de Vénus (l'amour et les valeurs), de Mars (le désir et l'action) ainsi que l'Ascendant. Cependant, l'étude des éléments (Feu, Terre, Air, Eau) constitue la première étape essentielle pour évaluer le potentiel d'entente amoureuse.
                 </p>
-                <p>
-                    Les signes de même élément se comprennent instinctivement, tandis que les signes d'éléments complémentaires (Feu et Air, Terre et Eau) se nourrissent mutuellement. Les combinaisons plus complexes, comme le Feu et l'Eau, nécessitent souvent plus d'ajustements mais peuvent générer une passion intense.
-                </p>
             </div>
         </div>
 
@@ -132,9 +129,134 @@
     </footer>
 
     <script>
+        // Dictionnaire des éléments pour les combinaisons croisées
+        const elements = {
+            belier: 'feu', lion: 'feu', sagittaire: 'feu',
+            taureau: 'terre', vierge: 'terre', capricorne: 'terre',
+            gemeaux: 'air', balance: 'air', verseau: 'air',
+            cancer: 'eau', scorpion: 'eau', poissons: 'eau'
+        };
+
+        // Textes UNIQUES pour les duos de même signe
+        const sameSignData = {
+            belier: {
+                titre: "LE CHOC DES TITANS",
+                score: 75,
+                quotidien: "C’est une course de Formule 1 permanente. Vous vous stimulez, vous vous challengez. Ça crie, ça rit, ça vit. Mais attention : deux chefs sous le même toit, c'est un de trop pour sortir les poubelles.",
+                amour: "Passionnel et explosif. La conquête est mutuelle et permanente. On ne s’ennuie jamais, mais la température monte vite. C’est l’amour vache ou l’amour fou.",
+                duree: "Ça passe ou ça casse. Si vous apprenez à déposer les armes et à ne pas tout transformer en compétition, vous pouvez déplacer des montagnes ensemble.",
+                rapproche: "Votre énergie brute. Vous êtes les seuls à pouvoir suivre le rythme effréné de l’autre sans vous essouffler.",
+                epineux: "L'impulsivité. Vous démarrez tous les deux au quart de tour. Apprenez à compter jusqu'à dix avant de parler."
+            },
+            taureau: {
+                titre: "LA FORTERESSE SENSUELLE",
+                score: 90,
+                quotidien: "Un cocon douillet et gourmand. Vous aimez les mêmes plaisirs : bien manger, dormir dans de beaux draps, la sécurité financière. C’est un rythme lent mais incroyablement apaisant.",
+                amour: "C’est tactile, charnel, possessif. Vous avez besoin de toucher pour croire. La fidélité est votre socle commun.",
+                duree: "Indestructible. Une fois que vous avez décidé de construire quelque chose, rien ne peut vous arrêter. Vous êtes des bâtisseurs.",
+                rapproche: "L'épicurisme. Cette capacité à jouir des plaisirs simples de la vie sans culpabilité.",
+                epineux: "L'entêtement. Si vous n'êtes pas d'accord, c'est le duel de deux murs. Aucun ne cède. Il faudra apprendre la souplesse."
+            },
+            gemeaux: {
+                titre: "LE PING-PONG MENTAL",
+                score: 80,
+                quotidien: "Vous ne vivez pas ensemble, vous cohabitez dans un tourbillon d'idées. Ça parle, ça débat, ça change d'avis toutes les 5 minutes. On ne s'ennuie jamais, mais où sont les clés de la maison ?",
+                amour: "Cérébral et ludique. Vous êtes avant tout des meilleurs amis qui s'adorent. La séduction passe par l'humour et les mots.",
+                duree: "Tant que c'est drôle, ça dure. Votre défi sera de construire du solide sans avoir l'impression de vous faire piéger par la routine.",
+                rapproche: "La curiosité. Vous avez cette soif commune de découvrir le monde et de ne jamais vous prendre au sérieux.",
+                epineux: "L'instabilité. À force de papillonner, vous risquez de survoler votre relation. Il faut parfois savoir se poser."
+            },
+            cancer: {
+                titre: "LA BULLE ÉMOTIONNELLE",
+                score: 85,
+                quotidien: "C'est un vase clos, protégé du monde extérieur. Vous créez un foyer hyper-sécurisant. On se comprend sans parler, on ressent les humeurs de l'autre instantanément.",
+                amour: "Fusionnel et tendre. Vous avez un immense besoin de câlins et de réassurance. Vous êtes l'un pour l'autre un refuge.",
+                duree: "Très forte, si vous ne vous noyez pas dans vos émotions communes. Vous avez vocation à fonder une famille, réelle ou symbolique.",
+                rapproche: "L'empathie. Vous savez instinctivement ce qui blesse ou fait plaisir à l'autre.",
+                epineux: "Les bouderies. Deux crabes qui se renferment dans leur coquille en même temps, ça peut créer des silences interminables."
+            },
+            lion: {
+                titre: "LE COUPLE ROYAL",
+                score: 70,
+                quotidien: "C'est brillant, c'est théâtral. Vous aimez recevoir, briller, être admirés. Vous vous soutenez mutuellement pour réussir, à condition de ne pas vous faire d'ombre.",
+                amour: "Passionné et généreux. Vous vous couvrez de cadeaux et d'attentions. Vous voulez que votre couple soit 'le plus beau'.",
+                duree: "Solide, tant que le respect mutuel est là. Si l'un blesse l'ego de l'autre, la guerre est déclarée.",
+                rapproche: "La loyauté. Vous avez un code d'honneur très strict et vous défendez votre partenaire envers et contre tous.",
+                epineux: "L'orgueil. Apprendre à dire 'pardon' ou 'tu as raison' est un défi titanesque pour vous deux."
+            },
+            vierge: {
+                titre: "L'ORDRE PARFAIT",
+                score: 88,
+                quotidien: "Tout est réglé comme du papier à musique. Vous anticipez les problèmes avant qu'ils n'arrivent. C'est propre, c'est sain, c'est efficace. L'angoisse n'a pas sa place ici.",
+                amour: "Pudique mais dévoué. Pas de grandes déclarations enflammées, mais des petits gestes quotidiens qui prouvent que l'on tient à l'autre.",
+                duree: "Rassurante. Vous construisez pierre après pierre, sans prise de risque inutile. C'est du solide.",
+                rapproche: "L'honnêteté intellectuelle. Vous aimez analyser les choses avec lucidité, sans faux-semblants.",
+                epineux: "La critique. À force de vouloir tout perfectionner, vous risquez de passer votre temps à vous faire des remarques. Lâchez du lest."
+            },
+            balance: {
+                titre: "L'ESTHÉTIQUE ABSOLUE",
+                score: 90,
+                quotidien: "C'est fluide, élégant et diplomate. On évite les conflits, on arrondit les angles. Votre maison est un havre de paix et de bon goût.",
+                amour: "Romantique à souhait. Vous êtes amoureux de l'amour. Vous avez besoin de l'autre pour exister, c'est un jeu de miroirs permanent.",
+                duree: "Harmonieuse. Vous détestez tellement la rupture que vous ferez tout pour maintenir l'équilibre.",
+                rapproche: "La quête d'harmonie. Vous avez horreur de la vulgarité et de la violence.",
+                epineux: "L'indécision. Pour choisir un restaurant ou un appartement, ça peut prendre des heures. Personne ne veut trancher pour ne pas déplaire."
+            },
+            scorpion: {
+                titre: "LA FUSION MYSTIQUE",
+                score: 80,
+                quotidien: "C'est intense, tout le temps. Vous communiquez par télépathie. Rien n'est superficiel, tout est analysé, disséqué. C'est fascinant mais épuisant pour les autres.",
+                amour: "Absolu. C'est tout ou rien. La passion est dévorante, la sexualité transcendante. Vous vous appartenez mutuellement.",
+                duree: "Éternelle... ou destructrice. Vous êtes capables de renaître de vos cendres mille fois.",
+                rapproche: "La profondeur. Vous seuls comprenez cette soif de vérité absolue qui vous habite.",
+                epineux: "La jalousie et le contrôle. C'est une guerre froide permanente pour savoir qui a le pouvoir. Apprenez à faire confiance."
+            },
+            sagittaire: {
+                titre: "LES AVENTURIERS",
+                score: 92,
+                quotidien: "On ne sait jamais où on sera demain. C'est joyeux, optimiste, bordélique. Vous vivez valises à la main, l'esprit toujours ailleurs.",
+                amour: "Libre et enthousiaste. Vous êtes des complices de voyage. Pas de jalousie mesquine ici, on regarde ensemble vers l'horizon.",
+                duree: "Fun ! Tant que vous avez des projets communs, rien ne vous arrête. La routine est votre seule ennemie.",
+                rapproche: "La philosophie de vie. Voir le verre à moitié plein et croire en sa bonne étoile.",
+                epineux: "Le manque d'ancrage. À force de regarder le ciel, on oublie de payer les factures. Il faut parfois redescendre sur Terre."
+            },
+            capricorne: {
+                titre: "L'EMPIRE SOLIDE",
+                score: 95,
+                quotidien: "C'est sérieux. Vous avez des objectifs, un plan de carrière, un plan de vie. Vous ne gaspillez pas votre temps. C'est austère pour certains, rassurant pour vous.",
+                amour: "Mature et profond. Vous n'avez pas besoin de mots doucereux. Votre présence et votre soutien indéfectible sont vos plus belles preuves d'amour.",
+                duree: "À vie. Vous ne vous engagez pas à la légère. Si vous signez, c'est pour toujours. Vous vieillirez ensemble.",
+                rapproche: "L'ambition. Vous vous tirez mutuellement vers le haut. Vous respectez la réussite et l'effort.",
+                epineux: "La froideur. N'oubliez pas de vous dire que vous vous aimez, même si cela vous semble évident. Un peu de chaleur ne nuit pas à l'efficacité."
+            },
+            verseau: {
+                titre: "LES VISIONNAIRES",
+                score: 85,
+                quotidien: "C'est un laboratoire d'expériences. Vous réinventez les règles du couple. Chacun sa liberté, chacun ses amis, mais une connexion intellectuelle constante.",
+                amour: "Cérébral et amical. Vous êtes avant tout des potes qui s'aiment. Pas de drame, pas de larmes, mais beaucoup de discussions sur l'avenir du monde.",
+                duree: "Surprenante. Votre couple ne ressemble à aucun autre, et c'est pour ça qu'il tient. Vous ne vous ennuyez jamais.",
+                rapproche: "La liberté. Vous comprenez mieux que personne le besoin d'indépendance de l'autre.",
+                epineux: "Le détachement. À force d'être cool et indépendants, vous risquez de devenir des colocataires. Gardez une part d'intimité."
+            },
+            poissons: {
+                titre: "L'OCÉAN INFINI",
+                score: 90,
+                quotidien: "C'est flou, c'est doux, c'est artistique. On vit au rythme de ses émotions et de son intuition. Le monde matériel semble loin, très loin.",
+                amour: "Spirituel et total. Vous fusionnez complètement. Les frontières entre toi et moi disparaissent. C'est magique.",
+                duree: "Romantique. Vous vivez dans votre propre conte de fées. Attention juste à la réalité qui toque à la porte.",
+                rapproche: "La sensibilité. Vous ressentez les vibrations du monde avec la même intensité.",
+                epineux: "La confusion. Si personne ne tient la barre, le bateau part à la dérive. Il faut parfois un peu de réalisme pour survivre."
+            }
+        };
+
         function calculerCompatibilite() {
             const s1 = document.getElementById('sign1').value;
             const s2 = document.getElementById('sign2').value;
+            
+            // Éléments correspondants
+            const e1 = elements[s1];
+            const e2 = elements[s2];
+
             const resBox = document.getElementById('resultat');
             const scoreTxt = document.getElementById('score');
             const titreTxt = document.getElementById('titreResultat');
@@ -144,41 +266,36 @@
             let titre = "";
             let details = {};
 
-            // --- SCÉNARIO 1 : MÊME ÉLÉMENT (Fusion) ---
+            // CAS 1 : MÊME SIGNE (Logique Unique par Signe)
             if (s1 === s2) {
-                score = 85;
-                titre = "L'EFFET MIROIR";
-                details = {
-                    quotidien: "Votre quotidien est une danse fluide. Vous fonctionnez sur le même rythme biologique et mental. Pas besoin de longues explications : un regard suffit pour comprendre que l'autre a besoin d'action (Feu), de calme (Terre), de discussion (Air) ou de silence (Eau). C'est reposant, mais attention à ne pas vous enfermer dans une bulle autarcique.",
-                    amour: "C'est une reconnaissance d'âme à âme. Vous aimez chez l'autre ce que vous aimez (ou détestez parfois) chez vous-même. La passion est narcissique dans le bon sens du terme : on se valide mutuellement. La complicité est immédiate, charnelle et instinctive.",
-                    duree: "Sur le long terme, c'est une alliance solide. Vous avancez dans la même direction avec les mêmes méthodes. Le risque ? L'ennui pour les signes de Terre, ou l'épuisement mutuel pour les signes de Feu. Il faudra parfois inviter des énergies extérieures pour renouveler l'air de votre couple.",
-                    rapproche: "Cette sensation rare d'être 'à la maison' avec l'autre. Une validation constante de vos valeurs profondes et une absence totale de jugement sur votre mode de fonctionnement.",
-                    epineux: "Le manque de perspective. Comme vous avez les mêmes défauts, personne n'est là pour tempérer l'autre. Deux anxieux s'affolent, deux colériques explosent. Il faudra apprendre à prendre du recul."
-                };
+                const data = sameSignData[s1];
+                score = data.score;
+                titre = data.titre;
+                details = data; // On prend directement l'objet data qui a les bonnes clés
             }
-            // --- SCÉNARIO 2 : ÉLÉMENTS COMPATIBLES (Feu/Air ou Terre/Eau) ---
-            else if ((s1 === 'feu' && s2 === 'air') || (s1 === 'air' && s2 === 'feu') || 
-                     (s1 === 'terre' && s2 === 'eau') || (s1 === 'eau' && s2 === 'terre')) {
+            // CAS 2 : ÉLÉMENTS COMPATIBLES (Feu/Air ou Terre/Eau)
+            else if ((e1 === 'feu' && e2 === 'air') || (e1 === 'air' && e2 === 'feu') || 
+                     (e1 === 'terre' && e2 === 'eau') || (e1 === 'eau' && e2 === 'terre')) {
                 score = 95;
                 titre = "L'HARMONIE NATURELLE";
                 details = {
                     quotidien: "C'est la complémentarité parfaite. L'un apporte ce qui manque à l'autre sans jamais l'imposer. Au quotidien, c'est une mécanique bien huilée où les rôles se distribuent naturellement. L'un propose, l'autre dispose ; l'un rêve, l'autre construit.",
-                    amour: "Une relation douce, évidente, qui semble couler de source. Il y a beaucoup d'inspiration mutuelle. L'Air attise le Feu, l'Eau nourrit la Terre. C'est un amour fertile où chacun permet à l'autre de grandir et de devenir une meilleure version de lui-même.",
-                    duree: "C'est le couple qui dure par excellence. Vous avez trouvé un équilibre dynamique qui résiste aux tempêtes. Votre duo est constructif : vous ne vous contentez pas de vous aimer, vous bâtissez quelque chose ensemble (famille, projets, empire).",
+                    amour: "Une relation douce, évidente, qui semble couler de source. Il y a beaucoup d'inspiration mutuelle. L'Air attise le Feu, l'Eau nourrit la Terre. C'est un amour fertile où chacun permet à l'autre de grandir.",
+                    duree: "C'est le couple qui dure par excellence. Vous avez trouvé un équilibre dynamique qui résiste aux tempêtes. Votre duo est constructif : vous ne vous contentez pas de vous aimer, vous bâtissez quelque chose ensemble.",
                     rapproche: "La fluidité. Tout semble simple avec vous. Les conflits se résolvent par la communication ou l'empathie, sans drames inutiles. Vous êtes les meilleurs amis du monde en plus d'être amants.",
-                    epineux: "La facilité, paradoxalement. À force de s'entendre si bien, on peut finir par prendre l'autre pour acquis. Gardez toujours une part de mystère et de séduction pour ne pas glisser vers une simple amitié fraternelle."
+                    epineux: "La facilité, paradoxalement. À force de s'entendre si bien, on peut finir par prendre l'autre pour acquis. Gardez toujours une part de mystère pour ne pas glisser vers l'amitié."
                 };
             }
-            // --- SCÉNARIO 3 : ÉLÉMENTS OPPOSÉS/DIFFÉRENTS (Le Défi) ---
+            // CAS 3 : ÉLÉMENTS OPPOSÉS/DIFFÉRENTS (Le Défi)
             else {
                 score = 60;
                 titre = "LE DÉFI MAGNÉTIQUE";
                 details = {
-                    quotidien: "Il faudra des ajustements. Vous ne parlez pas la même langue maternelle astrale. L'un est peut-être trop lent pour l'autre, ou trop émotif pour le cérébral. Le quotidien demande de la tolérance et une volonté réelle de comprendre un fonctionnement qui vous est étranger.",
+                    quotidien: "Il faudra des ajustements. Vous ne parlez pas la même langue maternelle astrale. L'un est peut-être trop lent pour l'autre, ou trop émotif pour le cérébral. Le quotidien demande de la tolérance et une volonté réelle de comprendre l'autre.",
                     amour: "C'est souvent une attraction fatale, irrationnelle et magnétique. L'autre vous fascine précisément parce qu'il est une énigme. La passion naît de cette friction, de cette différence fondamentale. C'est intense, parfois orageux, mais jamais tiède.",
-                    duree: "C'est une école de vie. Si vous passez le cap des premiers mois, vous deviendrez un couple indestructible car vous aurez appris la tolérance. C'est une relation qui vous force à évoluer et à sortir de votre zone de confort. Rien n'est jamais acquis.",
+                    duree: "C'est une école de vie. Si vous passez le cap des premiers mois, vous deviendrez un couple indestructible car vous aurez appris la tolérance. C'est une relation qui vous force à évoluer.",
                     rapproche: "La fascination pour l'inconnu. L'autre vous ouvre des portes sur des mondes que vous n'auriez jamais explorés seul. Il vous complète en vous apportant une énergie radicalement nouvelle.",
-                    epineux: "L'incompréhension. Parfois, vous aurez l'impression de venir de deux planètes différentes. Il ne faudra jamais essayer de changer l'autre, mais accepter sa différence comme une richesse et non comme un défaut."
+                    epineux: "L'incompréhension. Parfois, vous aurez l'impression de venir de deux planètes différentes. Il ne faudra jamais essayer de changer l'autre, mais accepter sa différence comme une richesse."
                 };
             }
 
@@ -206,7 +323,6 @@
                 </div>
             `;
 
-            // Animation d'affichage
             resBox.classList.remove('hidden');
             scoreTxt.innerText = score + "%";
             titreTxt.innerText = titre;
