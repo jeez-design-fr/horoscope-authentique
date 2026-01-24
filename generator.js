@@ -164,14 +164,45 @@ async function main() {
         fs.writeFileSync(path.join(outputDir, `${sign.slug}.html`), content);
     }
 
-    // Page Grille
-    let cardsHtml = '';
-    signs.forEach((sign) => {
-        // NOTE: J'ai bien laissé le point devant ./assets/ pour que l'image s'affiche en ligne
-        cardsHtml += `<a href="${sign.slug}.html" class="card-link group block"><div class="flex flex-col items-center p-4 transition-transform duration-500 hover:scale-[1.01] h-auto"><img src="./assets/${sign.image}" alt="${sign.name}" class="w-full h-auto drop-shadow-xl mb-4 relative z-10 block"><div class="text-center relative z-10 mt-auto"><h2 class="text-lg text-gray-800 font-cinzel font-bold group-hover:text-[#D4AF37] transition-colors">${sign.name}</h2></div></div></a>`;
-    });
-    const grilleHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Les 12 Signes</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]"><header class="text-center py-12 px-4"><a href="index.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">Retour Accueil</a><h1 class="text-4xl font-bold">HOROSCOPE DU JOUR</h1></header><main class="container mx-auto px-4 pb-24"><div class="grid grid-cols-2 md:grid-cols-4 gap-4">${cardsHtml}</div></main><footer class="text-center py-8 text-gray-300 text-xs"><p>© Horoscope Authentique</p></footer></body></html>`;
-    fs.writeFileSync(path.join(outputDir, 'horoscope.html'), grilleHtml);
+    // Page Grille (AVEC DATE AUTOMATIQUE)
+    const horoscopeHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Horoscope du Jour - Maison Authentique</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]">
+    
+    <header class="text-center pt-10 px-4 mb-8">
+        <a href="index.html" class="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4 hover:text-black transition-colors block">Retour Accueil</a>
+        
+        <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">HOROSCOPE DU JOUR</h1>
+        
+        <div id="date-du-jour" class="text-[#D4AF37] text-sm md:text-lg font-bold uppercase tracking-widest mt-3"></div>
+        
+        <div class="w-16 h-[1px] bg-black mx-auto mt-6"></div>
+    </header>
+
+    <main class="container mx-auto px-4 pb-12">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
+            ${signs.map(sign => `
+            <a href="${sign.slug}.html" class="block group">
+                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
+                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
+                        <img src="./assets/${sign.image}" alt="${sign.name}" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">${sign.name.toUpperCase()}</h2>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
+                </div>
+            </a>`).join('')}
+        </div>
+    </main>
+
+    <footer class="text-center py-8 text-gray-300 text-xs"><p>© Maison Horoscope Authentique</p></footer>
+
+    <script>
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const today = new Date().toLocaleDateString('fr-FR', options);
+        document.getElementById('date-du-jour').textContent = today.charAt(0).toUpperCase() + today.slice(1);
+    </script>
+
+    </body></html>`;
+    
+    fs.writeFileSync(path.join(outputDir, 'horoscope.html'), horoscopeHtml);
 
 // Page Accueil (VERSION CORRIGÉE : OMBRES LIBÉRÉES)
     const indexHtml = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Maison Authentique</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA] justify-between">
