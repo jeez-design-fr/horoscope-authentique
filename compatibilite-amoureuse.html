@@ -3,14 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide de la Compatibilité Amoureuse - Maison Authentique</title>
-    <meta name="description" content="Guide complet de la compatibilité amoureuse entre les signes du zodiaque. Analysez les forces et les défis de votre couple selon l'astrologie authentique.">
+    <title>Calculateur de Compatibilité Amoureuse - Maison Authentique</title>
+    <meta name="description" content="Testez votre compatibilité amoureuse. Sélectionnez vos signes et découvrez le pourcentage d'affinité de votre couple selon l'astrologie authentique.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         body { background-color: #FAFAFA; font-family: 'Cormorant Garamond', serif; }
-        h1, h2, h3, h4 { font-family: 'Cinzel', serif; }
+        h1, h2, h3, h4, label, button { font-family: 'Cinzel', serif; }
         .gold-border { border-left: 2px solid #D4AF37; padding-left: 1rem; }
+        
+        /* Personnalisation des Select pour faire "Classe" */
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem top 50%;
+            background-size: 0.65rem auto;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col bg-[#FAFAFA] text-gray-900">
@@ -21,10 +32,72 @@
 
     <main class="container mx-auto px-4 max-w-4xl pb-24">
         
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
             <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">L'AMOUR CÉLESTE</h1>
-            <h2 class="text-xl md:text-2xl text-gray-500 font-normal italic">Guide complet de la compatibilité amoureuse</h2>
+            <h2 class="text-xl md:text-2xl text-gray-500 font-normal italic">L'Oracle de Compatibilité</h2>
             <div class="w-24 h-[1px] bg-black mx-auto mt-6"></div>
+        </div>
+
+        <div class="bg-white border border-[#D4AF37] p-8 md:p-12 shadow-xl max-w-2xl mx-auto mb-16 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-[#D4AF37]"></div>
+            
+            <h3 class="text-center text-xl font-bold mb-8 uppercase tracking-widest">Entrez vos Signes</h3>
+
+            <div class="flex flex-col md:flex-row gap-6 items-center justify-center">
+                
+                <div class="w-full">
+                    <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2 text-center">Votre Signe</label>
+                    <select id="sign1" class="w-full border-b-2 border-gray-200 bg-transparent py-3 text-center font-serif text-lg focus:border-[#D4AF37] focus:outline-none transition-colors cursor-pointer">
+                        <option value="feu">Bélier</option>
+                        <option value="terre">Taureau</option>
+                        <option value="air">Gémeaux</option>
+                        <option value="eau">Cancer</option>
+                        <option value="feu">Lion</option>
+                        <option value="terre">Vierge</option>
+                        <option value="air">Balance</option>
+                        <option value="eau">Scorpion</option>
+                        <option value="feu">Sagittaire</option>
+                        <option value="terre">Capricorne</option>
+                        <option value="air">Verseau</option>
+                        <option value="eau">Poissons</option>
+                    </select>
+                </div>
+
+                <div class="text-2xl text-[#D4AF37] font-serif italic">&</div>
+
+                <div class="w-full">
+                    <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2 text-center">Son Signe</label>
+                    <select id="sign2" class="w-full border-b-2 border-gray-200 bg-transparent py-3 text-center font-serif text-lg focus:border-[#D4AF37] focus:outline-none transition-colors cursor-pointer">
+                        <option value="feu">Bélier</option>
+                        <option value="terre">Taureau</option>
+                        <option value="air">Gémeaux</option>
+                        <option value="eau">Cancer</option>
+                        <option value="feu">Lion</option>
+                        <option value="terre">Vierge</option>
+                        <option value="air">Balance</option>
+                        <option value="eau">Scorpion</option>
+                        <option value="feu">Sagittaire</option>
+                        <option value="terre">Capricorne</option>
+                        <option value="air">Verseau</option>
+                        <option value="eau">Poissons</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-10">
+                <button onclick="calculerCompatibilite()" class="bg-black text-white px-8 py-3 uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#D4AF37] hover:text-black transition-colors duration-500">
+                    Révéler l'Alliance
+                </button>
+            </div>
+
+            <div id="resultat" class="hidden mt-10 text-center border-t border-gray-100 pt-8 animate-fade-in">
+                <p class="text-xs uppercase tracking-widest text-gray-400 mb-2">Taux d'Harmonie Astrale</p>
+                <div class="text-5xl font-bold text-[#D4AF37] mb-4" id="score">0%</div>
+                <h4 class="text-xl font-bold mb-2" id="titreResultat">...</h4>
+                <p class="text-gray-600 italic leading-relaxed px-4" id="descResultat">...</p>
+            </div>
+
         </div>
 
         <div class="max-w-3xl mx-auto text-lg leading-relaxed text-justify text-gray-700 mb-16 space-y-8">
@@ -182,6 +255,48 @@
     <footer class="text-center py-8 text-gray-400 text-xs mt-auto">
         <p>© Horoscope Authentique</p>
     </footer>
+
+    <script>
+        function calculerCompatibilite() {
+            const s1 = document.getElementById('sign1').value;
+            const s2 = document.getElementById('sign2').value;
+            const resBox = document.getElementById('resultat');
+            const scoreTxt = document.getElementById('score');
+            const titreTxt = document.getElementById('titreResultat');
+            const descTxt = document.getElementById('descResultat');
+
+            // Logique simplifiée basée sur les éléments pour l'effet "Wow"
+            let score = 50;
+            let titre = "";
+            let desc = "";
+
+            // MEME ELEMENT (Feu-Feu, Terre-Terre...)
+            if (s1 === s2) {
+                score = 85;
+                titre = "FUSION MIROIR";
+                desc = "Vous parlez le même langage. La compréhension est instinctive, presque télépathique. Attention toutefois à ne pas vous enfermer dans une bulle.";
+            }
+            // ELEMENTS COMPATIBLES (Feu-Air ou Terre-Eau)
+            else if ((s1 === 'feu' && s2 === 'air') || (s1 === 'air' && s2 === 'feu') || 
+                     (s1 === 'terre' && s2 === 'eau') || (s1 === 'eau' && s2 === 'terre')) {
+                score = 95;
+                titre = "HARMONIE CÉLESTE";
+                desc = "L'alliance parfaite. Vos énergies se nourrissent mutuellement sans s'étouffer. C'est le terrain fertile pour une relation durable et épanouissante.";
+            }
+            // ELEMENTS OPPOSÉS (Feu-Eau ou Terre-Air -> Pas idéal selon la tradition classique, mais intense)
+            else {
+                score = 60;
+                titre = "DÉFI PASSIONNANT";
+                desc = "Vos différences sont votre force, mais aussi votre challenge. Si vous acceptez d'apprendre de l'autre, cette relation vous fera grandir comme aucune autre.";
+            }
+
+            // Animation d'affichage
+            resBox.classList.remove('hidden');
+            scoreTxt.innerText = score + "%";
+            titreTxt.innerText = titre;
+            descTxt.innerText = desc;
+        }
+    </script>
 
 </body>
 </html>
