@@ -25,50 +25,7 @@
             <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">L'ÉCHO DU COSMOS</h1>
             <h2 class="text-xl md:text-2xl text-gray-500 font-normal italic">Quand l'Astronomie rencontre l'Âme</h2>
             <div class="w-24 h-[1px] bg-black mx-auto mt-6"></div>
-            <div class="text-center mb-16">
-            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">L'ÉCHO DU COSMOS</h1>
-            <h2 class="text-xl md:text-2xl text-gray-500 font-normal italic">Quand l'Astronomie rencontre l'Âme</h2>
-            <div class="w-24 h-[1px] bg-black mx-auto mt-6"></div>
-        </div>
-
-        <div class="max-w-4xl mx-auto mb-16 shadow-2xl border-4 border-gray-800 rounded-lg overflow-hidden relative">
-            <div id="starmap" style="width:100%;height:500px;"></div>
             
-            <div class="absolute bottom-2 right-2 text-[10px] text-white/50 bg-black/50 px-2 rounded">
-                Temps réel • France
-            </div>
-        </div>
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://stu.lco.global/virtualsky/virtualsky.min.js"></script>
-        
-        <script>
-            $.virtualsky({
-                id: 'starmap',
-                projection: 'stereo', // Vue circulaire élégante
-                background: 'rgba(5, 5, 10, 1)', // Fond bleu nuit très sombre (presque noir)
-                latitude: 48.8566, // Latitude France (Paris) par défaut
-                longitude: 2.3522,
-                lang: 'fr', // En Français
-                constellations: true, // Dessiner les lignes
-                constellationlabels: true, // Noms des constellations
-                showplanets: true, // Montrer les planètes
-                showplanetlabels: true, // Noms des planètes
-                gridlines_az: false, // Pas de grille moche
-                gridlines_eq: false,
-                live: true, // Se met à jour en temps réel
-                mouse: true, // On peut bouger la carte à la souris
-                cardinalpoints: true // N, S, E, O
-            });
-        </script>
-        ```
-
-### Ce que ça fait :
-* **Interactif :** Tes visiteurs peuvent bouger la carte avec la souris pour voir ce qu'il y a dans le ciel à l'Est ou à l'Ouest.
-* **Temps Réel :** Ça montre le ciel *maintenant* (si tu visites le site de jour, le ciel sera clair avec le Soleil ; de nuit, tu verras les étoiles).
-* **Personnalisé :** J'ai réglé la langue sur Français (`lang: 'fr'`) et le style pour qu'il soit sombre et élégant, sans grilles techniques superflues.
-
-Une fois le code collé, lance ta procédure habituelle (`node generator.js` + `git push`) et admire le résultat !
         </div>
 
         <div class="max-w-3xl mx-auto text-lg leading-relaxed text-justify text-gray-700 mb-16">
