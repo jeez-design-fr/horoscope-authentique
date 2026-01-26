@@ -30,15 +30,15 @@
 
         <div class="flex flex-col items-center justify-center">
             
-            <div class="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full border-[10px] md:border-[16px] border-[#D4AF37] shadow-[0_0_50px_rgba(212,175,55,0.3)] bg-black overflow-hidden group">
+            <div class="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full bg-black overflow-hidden group shadow-2xl">
                 
-                <img id="nasa-img" src="./assets/cosmos.webp" alt="Astronomie du jour" class="w-full h-full object-cover transition-transform duration-[20s] ease-linear group-hover:scale-110">
+                <img id="nasa-img" src="./assets/cosmos.webp" alt="Astronomie du jour" class="w-full h-full object-cover transition-transform duration-[20s] ease-linear group-hover:scale-110 absolute inset-0 z-0">
                 
-                <div class="absolute inset-0 rounded-full shadow-[inset_0_0_40px_rgba(0,0,0,0.8)] pointer-events-none border border-white/10"></div>
+                <div class="absolute inset-0 rounded-full shadow-[inset_0_0_80px_rgba(0,0,0,0.9)] border border-white/10 pointer-events-none z-10"></div>
                 
-                <div class="absolute inset-2 rounded-full border-2 border-dashed border-[#D4AF37]/30 pointer-events-none"></div>
+                <img src="./assets/hublot-cadre.webp" alt="" class="absolute inset-0 w-full h-full object-cover pointer-events-none z-20">
 
-                <div id="loader" class="absolute inset-0 flex items-center justify-center bg-black z-10">
+                <div id="loader" class="absolute inset-0 flex items-center justify-center bg-black z-30">
                     <div class="w-8 h-8 border-4 border-[#D4AF37] border-t-transparent rounded-full animate-spin"></div>
                 </div>
 
