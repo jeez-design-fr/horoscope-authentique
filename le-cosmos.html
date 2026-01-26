@@ -28,39 +28,22 @@
             
 <div class="mb-12"></div>
 
-        <div class="mx-auto relative w-[350px] h-[350px] md:w-[500px] md:h-[500px] rounded-full overflow-hidden bg-black">
+        <div class="mx-auto relative w-[350px] h-[350px] md:w-[500px] md:h-[500px] rounded-full overflow-hidden bg-black shadow-2xl border-2 border-[#D4AF37]">
             
-            <div id="starmap" style="width:100%;height:100%;"></div>
-            
-            <div class="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
-                <p class="text-white/30 text-[10px] uppercase tracking-widest font-serif">Ciel en direct</p>
+            <iframe 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                scrolling="no" 
+                style="pointer-events: auto;"
+                src="https://virtualsky.lco.global/embed/index.html?longitude=2.2137&latitude=46.2276&projection=stereo&constellations=true&constellationlabels=false&showplanets=true&showplanetlabels=true&live=true&az=0&background=rgba(0,0,0,1)&gridlines_az=false&gridlines_eq=false&showdate=false&showposition=false" 
+                allowTransparency="true">
+            </iframe>
+
+            <div class="absolute bottom-6 left-0 right-0 text-center pointer-events-none">
+                <p class="text-[#D4AF37]/50 text-[10px] uppercase tracking-widest font-serif">Ciel en direct • France</p>
             </div>
         </div>
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://unpkg.com/virtualsky@0.7.6/virtualsky.min.js"></script>
-        
-        <script>
-            $.virtualsky({
-                id: 'starmap',
-                projection: 'stereo', // Projection sphérique (effet boule)
-                latitude: 46.2276,
-                longitude: 2.2137,
-                lang: 'fr',
-                background: 'rgba(0, 0, 5, 1)', // Noir très profond
-                constellations: true,
-                constellationlabels: false, // On retire les noms pour faire plus "pur"
-                showplanets: true,
-                showplanetlabels: true, // On garde juste le nom des planètes
-                gridlines_az: false,
-                gridlines_eq: false,
-                live: true,
-                mouse: true,
-                cardinalpoints: false, // On retire N/S/E/O pour le style épuré
-                showdate: false,
-                showposition: false
-            });
-        </script>
 
         </div>
 
