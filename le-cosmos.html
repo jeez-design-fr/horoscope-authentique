@@ -28,22 +28,77 @@
             
 <div class="mb-12"></div>
 
-        <div class="mx-auto relative w-[350px] h-[350px] md:w-[500px] md:h-[500px] rounded-full overflow-hidden bg-black shadow-2xl border-2 border-[#D4AF37]">
+        <div class="flex flex-col items-center justify-center">
             
-            <iframe 
-                width="100%" 
-                height="100%" 
-                frameborder="0" 
-                scrolling="no" 
-                style="pointer-events: auto;"
-                src="https://virtualsky.lco.global/embed/index.html?longitude=2.2137&latitude=46.2276&projection=stereo&constellations=true&constellationlabels=false&showplanets=true&showplanetlabels=true&live=true&az=0&background=rgba(0,0,0,1)&gridlines_az=false&gridlines_eq=false&showdate=false&showposition=false" 
-                allowTransparency="true">
-            </iframe>
+            <div class="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full border-[10px] md:border-[16px] border-[#D4AF37] shadow-[0_0_50px_rgba(212,175,55,0.3)] bg-black overflow-hidden group">
+                
+                <img id="nasa-img" src="./assets/cosmos.webp" alt="Astronomie du jour" class="w-full h-full object-cover transition-transform duration-[20s] ease-linear group-hover:scale-110">
+                
+                <div class="absolute inset-0 rounded-full shadow-[inset_0_0_40px_rgba(0,0,0,0.8)] pointer-events-none border border-white/10"></div>
+                
+                <div class="absolute inset-2 rounded-full border-2 border-dashed border-[#D4AF37]/30 pointer-events-none"></div>
 
-            <div class="absolute bottom-6 left-0 right-0 text-center pointer-events-none">
-                <p class="text-[#D4AF37]/50 text-[10px] uppercase tracking-widest font-serif">Ciel en direct • France</p>
+                <div id="loader" class="absolute inset-0 flex items-center justify-center bg-black z-10">
+                    <div class="w-8 h-8 border-4 border-[#D4AF37] border-t-transparent rounded-full animate-spin"></div>
+                </div>
+
             </div>
+
+            <div class="mt-8 text-center px-4 max-w-2xl">
+                <p class="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-2 font-bold">Image NASA du jour</p>
+                <h3 id="nasa-title" class="text-xl md:text-2xl font-serif text-gray-800 italic">Chargement du cosmos...</h3>
+                <p id="nasa-date" class="text-gray-400 text-xs mt-2"></p>
+            </div>
+
         </div>
+
+        <script>
+            // ⚠️ REMPLACE 'DEMO_KEY' PAR TA VRAIE CLÉ SI TU VEUX (optionnel pour l'instant)
+            const apiKey = '4Iaped3uJfDrlOe3Kl5Daaz7xNgjy1rt8SxuimUz'; 
+
+            async function fetchNasaPicture() {
+                try {
+                    const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);
+                    const data = await response.json();
+
+                    if (data.url) {
+                        const img = document.getElementById('nasa-img');
+                        const loader = document.getElementById('loader');
+                        
+                        // Gestion Cas Vidéo (Youtube) vs Image
+                        if (data.media_type === 'image') {
+                            img.src = data.url;
+                        } else if (data.thumbnail_url) {
+                            img.src = data.thumbnail_url;
+                        } else {
+                            // Si c'est une vidéo sans miniature, on garde l'image par défaut (cosmos.webp)
+                            console.log("C'est une vidéo, image par défaut conservée.");
+                        }
+
+                        // Mise à jour des textes
+                        document.getElementById('nasa-title').textContent = data.title;
+                        
+                        // Date formattée
+                        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+                        const dateFr = new Date(data.date).toLocaleDateString('fr-FR', dateOptions);
+                        document.getElementById('nasa-date').textContent = dateFr;
+
+                        // On cache le loader une fois l'image chargée
+                        img.onload = () => {
+                            loader.style.opacity = '0';
+                            setTimeout(() => loader.remove(), 500); // Suppression propre
+                        };
+                    }
+                } catch (error) {
+                    console.error("Erreur NASA:", error);
+                    document.getElementById('nasa-title').textContent = "L'Univers est silencieux aujourd'hui...";
+                    document.getElementById('loader').style.display = 'none';
+                }
+            }
+
+            // Lancer la fonction
+            fetchNasaPicture();
+        </script>
 
         </div>
 
