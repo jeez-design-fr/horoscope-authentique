@@ -314,6 +314,70 @@ if (fs.existsSync('./pierres-protectrices.html')) fs.copyFileSync('./pierres-pro
 if (fs.existsSync('./le-cosmos.html')) fs.copyFileSync('./le-cosmos.html', path.join(outputDir, 'le-cosmos.html'));
 if (fs.existsSync('./compatibilite-amoureuse.html')) fs.copyFileSync('./compatibilite-amoureuse.html', path.join(outputDir, 'compatibilite-amoureuse.html'));
 if (fs.existsSync('./mentions-legales.html')) fs.copyFileSync('./mentions-legales.html', path.join(outputDir, 'mentions-legales.html'));
+
+// 4. GÉNÉRATION DES ARTICLES DE BLOG (LITHOTHÉRAPIE)
+    console.log("💎 Vérification des articles de blog...");
+    
+    if (fs.existsSync('./articles.json') && fs.existsSync('./template-article.html')) {
+        const articles = require('./articles.json');
+        const templateArticle = fs.readFileSync('./template-article.html', 'utf-8');
+
+        for (const article of articles) {
+            const articlePath = path.join(outputDir, `${article.slug}.html`);
+
+            // ÉCONOMIE API : Si le fichier existe déjà, on ne le régénère pas !
+            if (fs.existsSync(articlePath)) {
+                console.log(`⏩ Article existant ignoré (économie API) : ${article.titre}`);
+                continue; 
+            }
+
+            if (API_KEY) {
+                console.log(`✍️  Rédaction par Gemini : ${article.titre}...`);
+                
+                const promptArticle = `
+                RÔLE : Tu es Livia, une experte en lithothérapie et spiritualité bienveillante.
+                TACHE : Rédige un article de blog complet (environ 600 mots) sur ce sujet : "${article.sujet}".
+                TON : Mystique, chaleureux, expert mais accessible (pas trop perché). Tu tutoies la lectrice.
+                FORMAT HTML : Utilise uniquement des balises <p>, <h2>, <ul>, <li>, <strong>. N'utilise PAS de <h1> (il est déjà dans le template). N'utilise PAS de balise <html> ou <body>.
+                STRUCTURE :
+                1. Une introduction qui touche le problème émotionnel (le "pourquoi").
+                2. L'explication des énergies de la pierre.
+                3. Un rituel concret ou un conseil d'utilisation pratique.
+                4. Une conclusion inspirante.
+                `;
+
+                try {
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ contents: [{ parts: [{ text: promptArticle }] }] })
+                    });
+                    const data = await response.json();
+                    
+                    if (data.candidates && data.candidates[0].content) {
+                        let articleBody = data.candidates[0].content.parts[0].text;
+                        
+                        // Nettoyage Markdown éventuel
+                        articleBody = articleBody.replace(/```html/g, '').replace(/```/g, '');
+
+                        // Assemblage final
+                        let finalHtml = templateArticle
+                            .replace(/{{titre}}/g, article.titre)
+                            .replace(/{{image}}/g, article.image)
+                            .replace(/{{contenu}}/g, articleBody);
+
+                        fs.writeFileSync(articlePath, finalHtml);
+                        console.log(`✅ Article généré : ${article.slug}.html`);
+                    }
+                } catch (err) {
+                    console.error("❌ Erreur génération article :", err.message);
+                }
+            }
+        }
+    } else {
+        console.log("⚠️ Fichier articles.json ou template-article.html manquant.");
+    }
+
 // --- SEO : GÉNÉRATION SITEMAP & ROBOTS.TXT ---
     console.log("🔍 Génération du Sitemap et Robots.txt...");
 
@@ -335,6 +399,12 @@ if (fs.existsSync('./mentions-legales.html')) fs.copyFileSync('./mentions-legale
 
     // On ajoute automatiquement les 12 pages des signes
     signs.forEach(sign => pagesToMap.push(`${sign.slug}.html`));
+
+    // AJOUT AUTOMATIQUE DES ARTICLES AU SITEMAP
+    if (fs.existsSync('./articles.json')) {
+        const articles = require('./articles.json');
+        articles.forEach(art => pagesToMap.push(`${art.slug}.html`));
+    }
 
     // Date du jour pour dire à Google que c'est frais
     const dateModif = new Date().toISOString().split('T')[0];

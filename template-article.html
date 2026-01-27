@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{titre}} - Maison Authentique</title>
+    <meta name="description" content="Découvrez les secrets de la lithothérapie : {{titre}}">
+    <link rel="icon" type="image/webp" href="./assets/favicon.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #FAFAFA; font-family: 'Cormorant Garamond', serif; }
+        h1, h2, h3 { font-family: 'Cinzel', serif; }
+        .article-content p { margin-bottom: 1.5rem; text-align: justify; font-size: 1.125rem; line-height: 1.8; color: #374151; }
+        .article-content h2 { font-size: 1.5rem; font-weight: bold; margin-top: 2.5rem; margin-bottom: 1rem; color: #111827; border-left: 3px solid #D4AF37; padding-left: 1rem; }
+        .article-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .article-content li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#FAFAFA] text-gray-900">
+
+    <header class="text-center py-12 px-4">
+        <a href="index.html" class="text-xs tracking-[0.3em] uppercase text-gray-400 hover:text-black transition-colors border-b border-transparent hover:border-black pb-1">Retour au Sanctuaire</a>
+    </header>
+
+    <main class="container mx-auto px-4 max-w-3xl pb-24">
+        
+        <div class="text-center mb-12">
+            <p class="text-xs uppercase tracking-widest text-[#D4AF37] mb-4 font-bold">LITHOTHÉRAPIE & RITUELS</p>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-8">{{titre}}</h1>
+            <div class="w-full h-64 md:h-96 overflow-hidden rounded-sm shadow-md mb-8">
+                <img src="./assets/{{image}}" alt="{{titre}}" class="w-full h-full object-cover">
+            </div>
+            <div class="w-24 h-[1px] bg-black mx-auto"></div>
+        </div>
+
+        <div class="article-content max-w-2xl mx-auto">
+            {{contenu}}
+        </div>
+
+        <div class="mt-16 text-center">
+            <a href="pierres-protectrices.html" class="text-sm font-bold border-b border-black pb-1 hover:text-[#D4AF37] hover:border-[#D4AF37] transition-colors">← Retour aux Pierres Protectrices</a>
+        </div>
+
+    </main>
+
+    <footer class="text-center py-8 text-gray-400 text-xs mt-auto">
+        <p>© Horoscope Authentique</p>
+    </footer>
+
+</body>
+</html>
