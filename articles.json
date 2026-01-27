@@ -166,5 +166,61 @@
         "sujet": "Transformer sa salle de bain en temple. Le pouvoir des sels de la Mer Morte et des fleurs pour une relaxation profonde et spirituelle.",
         "image": "elements.webp",
         "categorie": "SANCTUAIRE DES ÉLÉMENTS"
-    } 
+    },
+    {
+        "slug": "enfants-etoiles",
+        "titre": "Enfants des Étoiles : Votre Origine Cosmique",
+        "sujet": "Tu n'es pas dans l'univers, tu ES l'univers. Scientifiquement, nos atomes viennent des étoiles mortes. Spirituellement, cela signifie que nous sommes éternels. Un article pour soigner le sentiment de solitude.",
+        "image": "cosmos.webp",
+        "categorie": "L'OBSERVATOIRE"
+    },
+    {
+        "slug": "musique-spheres",
+        "titre": "La Musique des Sphères : Fréquences de Guérison",
+        "sujet": "Pythagore et la vibration des planètes. Le 'Om' originel. Comment les fréquences (432Hz) et les bols chantants peuvent nous réaligner avec l'harmonie universelle.",
+        "image": "cosmos.webp",
+        "categorie": "L'OBSERVATOIRE"
+    },
+    {
+        "slug": "trous-noirs-lacher-prise",
+        "titre": "Les Trous Noirs : L'Art du Lâcher-Prise",
+        "sujet": "Le trou noir n'est pas une fin, c'est une transformation. Apprendre à accepter le vide, le silence et l'inconnu pour laisser place au nouveau. Métaphore du deuil et de la renaissance.",
+        "image": "cosmos.webp",
+        "categorie": "L'OBSERVATOIRE"
+    },
+    {
+        "slug": "sirius-soleil-spirituel",
+        "titre": "Sirius : Éveille ta Lumière Intérieure",
+        "sujet": "L'étoile la plus brillante, vénérée par les Égyptiens (Isis). Elle représente notre intuition supérieure et notre guide spirituel, contrairement au Soleil qui représente notre ego.",
+        "image": "cosmos.webp",
+        "categorie": "L'OBSERVATOIRE"
+    },
+    {
+        "slug": "nebuleuses-creation",
+        "titre": "Les Nébuleuses : Le Berceau de la Créativité",
+        "sujet": "Ces nuages de gaz colorés où naissent les astres. Une métaphore magnifique pour les artistes : accepter le flou et le chaos pour créer son chef-d'œuvre.",
+        "image": "cosmos.webp",
+        "categorie": "L'OBSERVATOIRE"
+    },
+    {
+        "slug": "eclipse-ombre",
+        "titre": "L'Éclipse : Quand l'Ombre Révèle la Lumière",
+        "sujet": "Le mariage sacré du Soleil et de la Lune. Le moment idéal pour le 'Shadow Work' (travail sur soi) et accepter sa part d'ombre pour mieux briller.",
+        "image": "cosmos.webp",
+        "categorie": "L'OBSERVATOIRE"
+    },
+    {
+        "slug": "voie-lactee-ancetres",
+        "titre": "La Voie Lactée : Le Fleuve des Âmes",
+        "sujet": "Dans de nombreuses cultures, la galaxie est le chemin des âmes. Se reconnecter à ses racines stellaires, à sa lignée et au sentiment d'appartenance.",
+        "image": "cosmos.webp",
+        "categorie": "L'OBSERVATOIRE"
+    },
+    {
+        "slug": "aurores-magie",
+        "titre": "Les Aurores Polaires : La Magie du Visible",
+        "sujet": "La rencontre entre le vent solaire et la Terre. Un rappel que l'invisible (les ondes) peut devenir visible et magnifique. L'émerveillement comme thérapie.",
+        "image": "cosmos.webp",
+        "categorie": "L'OBSERVATOIRE"
+    }
 ]
