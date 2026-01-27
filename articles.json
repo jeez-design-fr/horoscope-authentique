@@ -110,5 +110,61 @@
         "sujet": "L'histoire fascinante des prêtres-astronomes. Redonner ses lettres de noblesse à l'astrologie authentique.",
         "image": "livre.webp",
         "categorie": "BIBLIOTHÈQUE INTERDITE"
-    }
+    },
+    {
+        "slug": "bougie-feu-energie",
+        "titre": "Manque d'Énergie ? Réveillez votre Feu Intérieur",
+        "sujet": "Pour les signes de Feu ou ceux qui manquent de motivation. Le pouvoir de la bougie rituelle pour relancer la vitalité et l'action.",
+        "image": "elements.webp",
+        "categorie": "SANCTUAIRE DES ÉLÉMENTS"
+    },
+    {
+        "slug": "sauge-purification",
+        "titre": "La Sauge Blanche : Le Grand Nettoyage",
+        "sujet": "Le rituel de fumigation pour purifier la maison et l'esprit. Idéal pour les signes de Feu qui ont besoin de clarté et de renouveau.",
+        "image": "elements.webp",
+        "categorie": "SANCTUAIRE DES ÉLÉMENTS"
+    },
+    {
+        "slug": "jardin-zen-terre",
+        "titre": "Stress au bureau ? Créez votre Jardin Zen",
+        "sujet": "L'importance de l'ancrage pour les signes de Terre. Comment un mini-jardin de sable et de pierres apaise le mental instantanément.",
+        "image": "elements.webp",
+        "categorie": "SANCTUAIRE DES ÉLÉMENTS"
+    },
+    {
+        "slug": "huiles-ancrage",
+        "titre": "Aromathérapie : Les Parfums de la Forêt",
+        "sujet": "Cèdre, Pin, Santal... Les huiles essentielles boisées pour s'ancrer et retrouver la stabilité émotionnelle des signes de Terre.",
+        "image": "elements.webp",
+        "categorie": "SANCTUAIRE DES ÉLÉMENTS"
+    },
+    {
+        "slug": "bol-chantant-air",
+        "titre": "Le Bol Tibétain : Purifier l'Esprit par le Son",
+        "sujet": "L'élément Air régit le son. Découvrez comment les vibrations du bol chantant chassent les pensées parasites et favorisent la méditation.",
+        "image": "elements.webp",
+        "categorie": "SANCTUAIRE DES ÉLÉMENTS"
+    },
+    {
+        "slug": "carillon-harmonie",
+        "titre": "Carillons Koshi : Harmoniser l'Énergie de la Maison",
+        "sujet": "La mélodie du vent. Comment placer des carillons pour faire circuler le Chi et apporter une légèreté aérienne à votre intérieur.",
+        "image": "elements.webp",
+        "categorie": "SANCTUAIRE DES ÉLÉMENTS"
+    },
+    {
+        "slug": "fontaine-eau-emotion",
+        "titre": "Fontaine d'Intérieur : Apaiser les Émotions",
+        "sujet": "L'eau qui coule emporte les soucis. Le Feng Shui de la fontaine pour calmer l'hypersensibilité des signes d'Eau.",
+        "image": "elements.webp",
+        "categorie": "SANCTUAIRE DES ÉLÉMENTS"
+    },
+    {
+        "slug": "bain-rituel-deesse",
+        "titre": "Le Bain Rituel : Sels et Fleurs Sacrés",
+        "sujet": "Transformer sa salle de bain en temple. Le pouvoir des sels de la Mer Morte et des fleurs pour une relaxation profonde et spirituelle.",
+        "image": "elements.webp",
+        "categorie": "SANCTUAIRE DES ÉLÉMENTS"
+    } 
 ]
