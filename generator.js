@@ -335,9 +335,16 @@ if (fs.existsSync('./mentions-legales.html')) fs.copyFileSync('./mentions-legale
                 console.log(`✍️  Rédaction par Gemini : ${article.titre}...`);
                 
                 const promptArticle = `
-                RÔLE : Tu es Livia, une experte en lithothérapie et spiritualité bienveillante.
+                RÔLE : Tu es une experte en lithothérapie et spiritualité bienveillante.
                 TACHE : Rédige un article de blog complet (environ 600 mots) sur ce sujet : "${article.sujet}".
-                TON : Mystique, chaleureux, expert mais accessible (pas trop perché). Tu tutoies la lectrice.
+                TON : Mystique, chaleureux, expert mais accessible (pas trop perché). Tu tutoies le lecteur avec compassion, comme un mentor s'adressant à une âme.
+                
+                CONSIGNES IMPORTANTES :
+                1. NE TE PRÉSENTE PAS.
+                2. N'UTILISE PAS D'EMOJIS dans le texte.
+                3. RESTE NEUTRE DE GENRE : Évite les "ma chère", "amie". Parle directement à la personne sans marquer le féminin ou le masculin.
+                4. RENTRE DIRECTEMENT DANS LE SUJET : Pas de "Bonjour à toi" ou d'intro interminable. Commence par l'émotion ou le problème.
+                
                 FORMAT HTML : Utilise uniquement des balises <p>, <h2>, <ul>, <li>, <strong>. N'utilise PAS de <h1> (il est déjà dans le template). N'utilise PAS de balise <html> ou <body>.
                 STRUCTURE :
                 1. Une introduction qui touche le problème émotionnel (le "pourquoi").
