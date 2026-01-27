@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #000000; color: #FAFAFA; font-family: 'Cormorant Garamond', serif; } /* Fond Noir pour le mode Chaos */
+        html, body { background-color: #000000; color: #FAFAFA; font-family: 'Cormorant Garamond', serif; }
         h1, h2, h3, h4, label, button { font-family: 'Cinzel', serif; }
         .gold-border { border-left: 2px solid #D4AF37; padding-left: 1rem; }
         select {
@@ -100,50 +100,608 @@
 
     </main>
 
-    <script>
-        // Dictionnaire des éléments et archétypes pour l'humour
-        const elements = {
-            belier: 'feu', lion: 'feu', sagittaire: 'feu',
-            taureau: 'terre', vierge: 'terre', capricorne: 'terre',
-            gemeaux: 'air', balance: 'air', verseau: 'air',
-            cancer: 'eau', scorpion: 'eau', poissons: 'eau'
-        };
+   <script>
+        // --- LA BASE DE DONNÉES DU CHAOS (ROAST DB) ---
+        // Structure : roastDB[signe1][signe2]
+        
+        const roastDB = {
+            belier: {
+                belier: { 
+                    titre: "ZONE DE GUERRE NUCLÉAIRE", 
+                    score: "100%", 
+                    niveau: "DEFCON 1", 
+                    resume: "Imaginez deux dictateurs enfermés dans un ascenseur en panne. C'est votre couple. Vous voulez tous les deux avoir raison, tout le temps, immédiatement. Vos disputes commencent pour une chaussette et finissent en débat sur la géopolitique mondiale avec des assiettes qui volent. C'est passionnant 5 minutes, mais vos voisins ont déjà appelé la police.", 
+                    redflag: "Vous transformez le choix du film Netflix en un débat présidentiel où personne ne cède." 
+                },
+                taureau: { 
+                    titre: "LE MUR CONTRE LE TGV", 
+                    score: "85%", 
+                    niveau: "MIGRAINE CHRONIQUE", 
+                    resume: "Le Bélier veut tout faire à la vitesse de la lumière, le Taureau a besoin de 4 formulaires administratifs et d'une sieste avant de bouger le petit doigt. Le Bélier va s'épuiser à essayer de tirer le Taureau, qui ne bougera pas d'un millimètre par pur esprit de contradiction. L'un vit dans l'urgence, l'autre dans le déni temporel.", 
+                    redflag: "Le Bélier a déjà réservé les billets d'avion alors que le Taureau finit à peine son café." 
+                },
+                gemeaux: { 
+                    titre: "TDAH COLLECTIF", 
+                    score: "70%", 
+                    niveau: "ÉPUISANT", 
+                    resume: "Votre relation est un onglet de navigateur ouvert parmi 50 autres. C'est drôle, ça part dans tous les sens, mais personne n'est capable de finir une phrase ou un projet. Vous allez vivre une aventure incroyable de 3 semaines avant de vous oublier mutuellement parce qu'un papillon est passé par la fenêtre.", 
+                    redflag: "Vous avez commencé 12 séries ensemble sans jamais en regarder le dernier épisode." 
+                },
+                cancer: { 
+                    titre: "LE BOURREAU ET LA VICTIME", 
+                    score: "95%", 
+                    niveau: "LAC DE LARMES", 
+                    resume: "Le Bélier est une brute épaisse qui dit ce qu'il pense sans filtre. Le Cancer est une éponge émotionnelle qui prend tout personnellement. Résultat ? Le Bélier fait une blague, le Cancer pleure dans la salle de bain pendant 4 heures. Le Bélier s'énerve parce que le Cancer pleure, et le cycle infernal recommence.", 
+                    redflag: "Le Bélier demande 'Ça va ?' avec agressivité, le Cancer répond 'Rien' en attendant qu'on devine sa souffrance." 
+                },
+                lion: { 
+                    titre: "GAME OF THRONES", 
+                    score: "60%", 
+                    niveau: "CONCOURS D'EGO", 
+                    resume: "Il n'y a pas assez de place dans cette relation (ni dans cet appartement) pour deux égos de cette taille. Vous passez votre temps à vous battre pour la lumière des projecteurs. C'est un couple glamour sur Instagram, mais en privé, c'est une guerre froide pour savoir qui a le droit de choisir la playlist en voiture.", 
+                    redflag: "Vous vous coupez la parole mutuellement en soirée pour raconter une anecdote où vous êtes le héros." 
+                },
+                vierge: { 
+                    titre: "MISSION IMPOSSIBLE", 
+                    score: "90%", 
+                    niveau: "CRITIQUE PERMANENTE", 
+                    resume: "Le Bélier est le Chaos incarné, la Vierge est l'Ordre maniaque. Le Bélier vit l'instant présent, la Vierge a déjà planifié sa retraite et l'ordre de ses funérailles. La Vierge va passer sa vie à ramasser derrière le Bélier en soupirant, et le Bélier va finir par étouffer sous les post-it de rappels ménagers.", 
+                    redflag: "La Vierge repasse les sous-vêtements du Bélier en lui expliquant pourquoi il a tort de vivre comme ça." 
+                },
+                balance: { 
+                    titre: "LE GÉNÉRAL ET LE DIPLOMATE", 
+                    score: "50%", 
+                    niveau: "FRUSTRATION LATENTE", 
+                    resume: "Au début, le Bélier adore décider pour deux. Puis, il se rend compte que la Balance est incapable de choisir entre pizza et sushi sans faire une crise d'angoisse. Le Bélier devient un tyran domestique, et la Balance devient passive-agressive, disant 'oui' à tout en pensant 'non' très fort.", 
+                    redflag: "Le Bélier hurle pour résoudre un conflit, la Balance sourit niaisement en attendant que l'orage passe." 
+                },
+                scorpion: { 
+                    titre: "LIAISON FATALE", 
+                    score: "99%", 
+                    niveau: "RISQUE BIOLOGIQUE", 
+                    resume: "C'est la rencontre de deux instabilités dangereuses. Mars (la guerre) rencontre Pluton (la mort). La passion est dévorante, la jalousie est maladive. Vous allez vous aimer à la folie, vous détruire, vous bloquer sur les réseaux, et recommencer. C'est un scénario de film noir qui finit mal.", 
+                    redflag: "Vous connaissez les codes de téléphone de l'autre et vous checkez les DM pendant son sommeil." 
+                },
+                sagittaire: { 
+                    titre: "LES ÉPHÉMÈRES", 
+                    score: "40%", 
+                    niveau: "AMIS, PAS AMANTS", 
+                    resume: "Vous êtes les meilleurs potes de beuverie du monde. Mais pour construire un couple ? Aucune chance. Vous êtes tous les deux allergiques à l'engagement et à la routine. Votre relation ressemblera à une longue suite de rendez-vous manqués entre deux voyages. Vous finirez colocataires.", 
+                    redflag: "Vous avez oublié votre anniversaire de rencontre parce que vous étiez tous les deux sortis avec d'autres gens." 
+                },
+                capricorne: { 
+                    titre: "LE FEU SOUS LA GLACE", 
+                    score: "88%", 
+                    niveau: "DOUCHE FROIDE", 
+                    resume: "Le Bélier est un enfant surexcité qui veut jouer. Le Capricorne est un vieillard aigri qui veut travailler. Le Bélier proposera une idée géniale, et le Capricorne lui expliquera en trois points pourquoi c'est financièrement irresponsable et statistiquement voué à l'échec. L'ambiance est aussi fun qu'un audit fiscal.", 
+                    redflag: "Le Capricorne offre un agenda au Bélier pour son anniversaire pour qu'il 'se reprenne en main'." 
+                },
+                verseau: { 
+                    titre: "DIALOGUE DE SOURDS", 
+                    score: "65%", 
+                    niveau: "ALIEN VS PREDATOR", 
+                    resume: "Le Bélier fonctionne à l'émotion brute et à la colère. Le Verseau fonctionne... on ne sait pas trop comment, mais sans émotion. Le Bélier va hurler pour obtenir une réaction, et le Verseau va le regarder comme une expérience sociologique intéressante. Vous ne vivez pas sur la même fréquence radio.", 
+                    redflag: "Le Bélier pleure, le Verseau lui propose un article scientifique sur la gestion des larmes." 
+                },
+                poissons: { 
+                    titre: "LE REQUIN ET LE POISSON ROUGE", 
+                    score: "92%", 
+                    niveau: "CARNAGE", 
+                    resume: "Sans même le vouloir, le Bélier va briser le cœur du Poissons trois fois avant le petit-déjeuner. La franchise brutale du Bélier est une arme de destruction massive pour le Poissons rêveur. Le Poissons va se noyer dans son rôle de victime incomprise, ce qui rendra le Bélier encore plus cruel.", 
+                    redflag: "Le Poissons écrit un poème pour s'excuser, le Bélier corrige les fautes d'orthographe." 
+                }
+            },
 
-        const descriptions = {
-            belier: "une cocotte-minute sans soupape",
-            taureau: "un coffre-fort têtu",
-            gemeaux: "une radio qu'on ne peut pas éteindre",
-            cancer: "une éponge émotionnelle",
-            lion: "une diva sans scène",
-            vierge: "un inspecteur des impôts",
-            balance: "une girouette élégante",
-            scorpion: "un détective paranoïaque",
-            sagittaire: "un touriste sans carte",
-            capricorne: "un PDG en burnout",
-            verseau: "un alien incompris",
-            poissons: "un nuage perdu"
-        };
+            taureau: {
+                // (Bélier est déjà fait plus haut)
+                taureau: { 
+                    titre: "COMA ÉTHYLIQUE", 
+                    score: "30%", 
+                    niveau: "ENNUI MORTEL", 
+                    resume: "Imaginez deux rochers qui se regardent pousser. Vous allez passer les 40 prochaines années sur le même canapé, à manger les mêmes plats, en regardant les mêmes émissions. C'est stable, certes, mais votre vie sexuelle ressemblera à un documentaire sur la reproduction des pandas : rare et maladroite.", 
+                    redflag: "Vous refusez tous les deux de sortir après 18h parce qu'il faut 'amortir le loyer'." 
+                },
+                gemeaux: { 
+                    titre: "L'ANCRE ET LA PLUME", 
+                    score: "55%", 
+                    niveau: "IRRITANT", 
+                    resume: "Le Taureau veut posséder, le Gémeaux veut papillonner. Le Taureau parle lentement, le Gémeaux l'a déjà interrompu 12 fois. Le Taureau va devenir fou à force d'essayer d'attraper ce courant d'air, et le Gémeaux va mourir d'ennui face à tant d'inertie.", 
+                    redflag: "Le Taureau prépare un dîner romantique, le Gémeaux arrive avec 3 potes et oublie de prévenir." 
+                },
+                cancer: { 
+                    titre: "L'ÉTOUFFEMENT", 
+                    score: "85%", 
+                    niveau: "GLUANT", 
+                    resume: "C'est mignon 5 minutes, puis ça devient flippant. Vous êtes collés l'un à l'autre comme des moules sur un rocher. Vous finissez les phrases de l'autre, vous portez des pulls assortis et vous ne voyez plus personne. C'est plus un couple, c'est une secte à deux membres.", 
+                    redflag: "Vous parlez de vous à la troisième personne du pluriel ('On a faim', 'On est tristes')." 
+                },
+                lion: { 
+                    titre: "LE CHOC DES TÊTES DURES", 
+                    score: "65%", 
+                    niveau: "BLOCAGE", 
+                    resume: "Le Lion veut briller, le Taureau veut accumuler. Le Lion dépense pour le show, le Taureau hurle pour l'économie. Mais le vrai problème, c'est l'obstination : aucun de vous ne cédera jamais, même sur la couleur des rideaux. Vous mourrez de vieillesse avant d'avoir trouvé un compromis.", 
+                    redflag: "Une dispute de 4 heures pour savoir qui a tort, qui finit par un silence radio de 3 jours." 
+                },
+                vierge: { 
+                    titre: "L'ENNUI ORGANISÉ", 
+                    score: "90%", 
+                    niveau: "SOPORIFIQUE", 
+                    resume: "Sur le papier, c'est parfait. Dans la réalité, vous êtes un cabinet comptable. Tout est propre, rangé, prévu. Il n'y a aucune passion, juste une gestion efficace du patrimoine et des tâches ménagères. Vous ferez l'amour le samedi à 22h30, après avoir vérifié que la porte est bien fermée à double tour.", 
+                    redflag: "Votre sujet de conversation principal est le prix de l'immobilier ou la qualité des produits bio." 
+                },
+                balance: { 
+                    titre: "L'ESTHÉTIQUE SANS FOND", 
+                    score: "60%", 
+                    niveau: "SUPERFICIEL", 
+                    resume: "Vous aimez tous les deux les belles choses. Le Taureau aime les posséder, la Balance aime les montrer. Mais quand les problèmes arrivent, le Taureau fonce dans le tas (ou boude), et la Balance fuit par la fenêtre pour éviter le conflit. Le Taureau finira frustré par tant de mollesse.", 
+                    redflag: "La Balance dit 'oui' pour faire plaisir, le Taureau découvre 6 mois plus tard que c'était 'non'." 
+                },
+                scorpion: { 
+                    titre: "POSSESSION TOXIQUE", 
+                    score: "95%", 
+                    niveau: "DANGEROUS", 
+                    resume: "C'est charnel, c'est intense, c'est malsain. C'est l'axe de la possession : 'Tu es à moi'. Jalousie, contrôle, espionnage. Vous êtes incapables de vous lâcher, même si vous vous détestez. C'est le couple qui s'engueule en public et que tout le monde regarde avec gêne.", 
+                    redflag: "Vous vous interdisez mutuellement de liker des photos d'autres personnes sur Instagram." 
+                },
+                sagittaire: { 
+                    titre: "LE CASANIER ET LE VAGABOND", 
+                    score: "40%", 
+                    niveau: "INCOMPATIBLE", 
+                    resume: "Le Taureau veut construire une maison, le Sagittaire veut la vendre pour faire le tour du monde. Le Taureau veut de la sécurité, le Sagittaire veut de l'aventure. Le Taureau va passer sa vie à attendre le Sagittaire qui a 'oublié' de rentrer ce week-end.", 
+                    redflag: "Le Taureau pleure parce que le Sagittaire a encore perdu ses clés (ou son alliance) en voyage." 
+                },
+                capricorne: { 
+                    titre: "L'ENTREPRISE S.A.", 
+                    score: "92%", 
+                    niveau: "FROID POLAIRE", 
+                    resume: "Vous êtes le couple le plus riche du cimetière. Vous bossez, vous économisez, vous investissez. C'est très sérieux. Mais où est la joie ? Où est la folie ? Vous risquez de vous réveiller à 60 ans avec un gros compte en banque et le sentiment d'avoir raté votre vie.", 
+                    redflag: "Vous vous offrez de l'électroménager utile pour la Saint-Valentin." 
+                },
+                verseau: { 
+                    titre: "LE PAYSAN ET L'ALIEN", 
+                    score: "50%", 
+                    niveau: "BUG SYSTÈME", 
+                    resume: "Le Taureau est Terre à terre, traditionnel, possessif. Le Verseau vit dans le futur, déteste les traditions et veut être libre. Le Taureau va essayer de mettre le Verseau en cage, et le Verseau va se téléporter ailleurs. Incompréhension totale des besoins de l'autre.", 
+                    redflag: "Le Taureau veut un câlin, le Verseau lui explique la théorie des cordes pour changer de sujet." 
+                },
+                poissons: { 
+                    titre: "LE RÉALISME VS LE DÉLIRE", 
+                    score: "80%", 
+                    niveau: "DÉPENDANCE", 
+                    resume: "Le Taureau devient la béquille du Poissons. Le Poissons rêve, plane, oublie tout, et le Taureau paie les factures et fait les courses. Au début c'est mignon, à la fin le Taureau a l'impression d'avoir adopté un enfant de 30 ans incapable de se gérer.", 
+                    redflag: "Le Poissons perd sa carte bleue pour la 3ème fois, le Taureau explose de rage." 
+                }
+            },
 
-        const sameSignRoast = {
-            belier: { titre: "GUERRE CIVILE", txt: "Deux personnes qui veulent avoir raison et commander en même temps. Prévoyez une bonne assurance habitation et des casques anti-bruit." },
-            taureau: { titre: "ENNUI MORTEL", txt: "Vous allez passer 40 ans sur le même canapé à demander 'qu'est-ce qu'on mange ?'. Personne ne voudra se lever pour changer la chaîne." },
-            gemeaux: { titre: "ASILE PSYCHIATRIQUE", txt: "Quatre personnalités dans une seule pièce (deux chacun). Ça parle, ça ment, ça oublie, ça recommence. Personne n'écoute personne." },
-            cancer: { titre: "DÉLUGE UNIVERSEL", txt: "Un concours de celui qui boude le plus longtemps. La maison va devenir un lac de larmes. Achetez un bateau." },
-            lion: { titre: "DUEL DE MIROIRS", txt: "Il n'y a pas assez de place dans cette relation pour deux égos de cette taille. Qui va applaudir l'autre ? Personne." },
-            vierge: { titre: "INSPECTION GÉNÉRALE", txt: "Vous allez passer votre vie à critiquer la façon dont l'autre range le lave-vaisselle. L'amour est mort, vive l'hygiène." },
-            balance: { titre: "INDÉCISION TOTALE", txt: "'On mange quoi ?' - 'Je sais pas, comme tu veux'. Ce dialogue va durer jusqu'à ce que vous mourriez de faim tous les deux." },
-            scorpion: { titre: "THRILLER PSYCHOLOGIQUE", txt: "Jalousie, espionnage, suspicion. Vous connaissez les mots de passe de l'autre avant même le premier rendez-vous. Flippant." },
-            sagittaire: { titre: "LES FANTÔMES", txt: "Vous êtes tous les deux partis à l'aventure de votre côté. Vous vous croisez une fois par an à l'aéroport. C'est sympa mais c'est pas un couple." },
-            capricorne: { titre: "FUSION FROIDE", txt: "Vous gérez votre couple comme une SARL. C'est efficace, rentable, mais aussi fun qu'un audit comptable un dimanche matin." },
-            verseau: { titre: "CONNEXION PERDUE", txt: "Deux robots qui essaient de comprendre les émotions humaines. Vous vivez en parallèle sans jamais vraiment vous toucher." },
-            poissons: { titre: "NAUFRAGE COLLECTIF", txt: "Qui paie le loyer ? Qui a les clés ? Personne ne sait. Vous vivez dans un rêve commun jusqu'à ce que l'huissier arrive." }
-        };
+            gemeaux: {
+                // (Bélier et Taureau déjà faits)
+                gemeaux: { 
+                    titre: "ASILE PSYCHIATRIQUE", 
+                    score: "75%", 
+                    niveau: "CHAOS MENTAL", 
+                    resume: "Il y a 4 personnes dans ce couple (2 personnalités chacun). Ça parle non-stop, ça change d'avis, ça ment un peu, ça rit beaucoup. C'est super fun, mais totalement instable. Votre appartement est un moulin, votre vie est un cirque. Personne ne sait qui sort les poubelles.", 
+                    redflag: "Vous avez oublié que vous étiez en couple l'espace d'une soirée." 
+                },
+                cancer: { 
+                    titre: "LA RADIO ET L'ÉPONGE", 
+                    score: "50%", 
+                    niveau: "DIALOGUE IMPOSSIBLE", 
+                    resume: "Le Gémeaux intellectualise tout, fait des blagues sur tout. Le Cancer ressent tout, pleure pour tout. Le Gémeaux va blesser le Cancer 10 fois par jour sans s'en rendre compte avec son humour acide. Le Cancer va étouffer le Gémeaux avec ses demandes de réassurance constantes.", 
+                    redflag: "Le Gémeaux rit pendant une dispute, le Cancer s'effondre en larmes." 
+                },
+                lion: { 
+                    titre: "LA STAR ET LE PAPARAZZI", 
+                    score: "85%", 
+                    niveau: "FAKE NEWS", 
+                    resume: "Vous êtes le couple 'm'as-tu-vu'. Le Lion adore être admiré, le Gémeaux adore commenter. Vous brillez en société, vous êtes drôles, beaux, populaires. Mais est-ce qu'il y a quelque chose de vrai derrière ? Dès que les lumières s'éteignent, le Gémeaux s'ennuie et le Lion déprime.", 
+                    redflag: "Vous passez plus de temps à choisir le filtre de votre selfie de couple qu'à vous parler." 
+                },
+                vierge: { 
+                    titre: "NEVROSE X2", 
+                    score: "60%", 
+                    niveau: "PRISE DE TÊTE", 
+                    resume: "Tous les deux gouvernés par Mercure (le mental). Ça réfléchit trop. Le Gémeaux est bordélique et insouciant, la Vierge est maniaque et anxieuse. La Vierge va passer sa vie à essayer de 'réparer' le Gémeaux, qui va juste s'enfuir en courant pour échapper aux critiques.", 
+                    redflag: "La Vierge fait une liste des défauts du Gémeaux, le Gémeaux en fait un avion en papier." 
+                },
+                balance: { 
+                    titre: "PAROLES, PAROLES", 
+                    score: "90%", 
+                    niveau: "VENT BRASSÉ", 
+                    resume: "C'est fluide, c'est léger, c'est charmant. Vous pouvez discuter des heures sans jamais rien dire de profond. Le problème ? Au premier obstacle concret (fuite d'eau, impôts), vous paniquez tous les deux. C'est un couple d'adolescents attardés qui refuse de grandir.", 
+                    redflag: "Vous mentez tous les deux 'pour ne pas blesser l'autre', jusqu'à ce que plus rien ne soit vrai." 
+                },
+                scorpion: { 
+                    titre: "LE MENTEUR ET LE DÉTECTIVE", 
+                    score: "40%", 
+                    niveau: "PARANOÏA", 
+                    resume: "Le Gémeaux cache des choses par jeu, le Scorpion fouille par obsession. Le Scorpion va analyser chaque mot du Gémeaux pour trouver la faille. Le Gémeaux va se sentir traqué et va mentir encore plus. C'est un jeu du chat et de la souris qui finit mal.", 
+                    redflag: "Le Scorpion a installé un traceur GPS, le Gémeaux a laissé son téléphone dans un taxi exprès." 
+                },
+                sagittaire: { 
+                    titre: "LES FUITES EN AVANT", 
+                    score: "88%", 
+                    niveau: "INSTABILITÉ", 
+                    resume: "Vous êtes tout le temps partis. L'un physiquement, l'autre mentalement. C'est une relation libre qui ne dit pas son nom. Vous vous amusez énormément, mais vous n'êtes pas un couple, vous êtes des potes de voyage qui couchent ensemble quand ils sont dans le même fuseau horaire.", 
+                    redflag: "Vous avez plus de photos de voyage que de souvenirs intimes." 
+                },
+                capricorne: { 
+                    titre: "L'ADO ET LE GRAND-PÈRE", 
+                    score: "30%", 
+                    niveau: "GLACIAL", 
+                    resume: "Le Gémeaux veut jouer, rire, sortir. Le Capricorne veut travailler, construire, sévir. Le Capricorne trouve le Gémeaux immature et fatiguant. Le Gémeaux trouve le Capricorne vieux jeu et déprimant. Vous éteignez mutuellement votre lumière.", 
+                    redflag: "Le Capricorne coupe le budget sorties du Gémeaux pour 'lui apprendre la vie'." 
+                },
+                verseau: { 
+                    titre: "LES ROBOTS", 
+                    score: "92%", 
+                    niveau: "ZÉRO CŒUR", 
+                    resume: "Super connexion intellectuelle. Vous refaites le monde, vous avez des idées géniales. Mais où est l'amour ? Où est la chair ? Vous êtes deux cerveaux dans un bocal. Si l'un de vous pleure, l'autre bug et propose une mise à jour système.", 
+                    redflag: "Vous débattez de la politique pendant les préliminaires." 
+                },
+                poissons: { 
+                    titre: "LE FLOU ARTISTIQUE", 
+                    score: "50%", 
+                    niveau: "MENSONGES", 
+                    resume: "Le Gémeaux ment par omission, le Poissons ment par illusion. Vous vivez dans une réalité alternative. Rien n'est clair, rien n'est dit, tout est suggéré. Vous allez vous perdre dans un brouillard de malentendus jusqu'à ce que l'un de vous disparaisse.", 
+                    redflag: "Vous ne savez plus ce qui est vrai et ce qui est inventé dans votre histoire." 
+                }
+            },
+
+            cancer: {
+                // (Bélier, Taureau, Gémeaux déjà faits)
+                cancer: { 
+                    titre: "INONDATION LACRYMALE", 
+                    score: "80%", 
+                    niveau: "HUMIDITÉ MAXIMALE", 
+                    resume: "Préparez les mouchoirs. C'est un concours de sensibilité. L'un boude, l'autre pleure. Vous passez votre vie à vous rassurer mutuellement, à vous couver, à vous étouffer. C'est une relation mère-enfant bizarre où personne ne veut être l'adulte.", 
+                    redflag: "Vous ne sortez plus de votre coquille depuis 2014." 
+                },
+                lion: { 
+                    titre: "LE CAPRICE ET LE TAPIS", 
+                    score: "65%", 
+                    niveau: "SOUMISSION", 
+                    resume: "Le Lion veut briller, le Cancer veut se cacher. Le Lion écrase le Cancer de sa superbe, et le Cancer se plaint en silence (ou fait du chantage affectif). Le Lion finit par trouver le Cancer trop 'mou', et le Cancer trouve le Lion trop égoïste. Le Cancer devient l'ombre du Lion.", 
+                    redflag: "Le Lion choisit tout (film, resto, vacances), le Cancer dit 'comme tu veux' en soupirant." 
+                },
+                vierge: { 
+                    titre: "MAMAN ET LA GOUVERNANTE", 
+                    score: "85%", 
+                    niveau: "HYPOCHONDRIE", 
+                    resume: "Le Cancer a peur de tout, la Vierge a peur des microbes. Vous allez créer un foyer aseptisé et sécurisé, fermé à double tour. C'est rassurant mais terriblement angoissant. Vous vous nourrissez mutuellement vos névroses.", 
+                    redflag: "Vous avez une pharmacie plus remplie que votre bar." 
+                },
+                balance: { 
+                    titre: "FAUX SEMBLANTS", 
+                    score: "50%", 
+                    niveau: "PASSIF-AGRESSIF", 
+                    resume: "La Balance veut que tout soit joli, le Cancer veut que tout soit émotionnel. La Balance fuit les crises de larmes du Cancer. Le Cancer trouve la Balance superficielle et froide. Vous allez sourire en public et vous faire la gueule en privé pendant des semaines.", 
+                    redflag: "La Balance sort tous les soirs pour fuir l'ambiance lourde de la maison." 
+                },
+                scorpion: { 
+                    titre: "VAMPIRISME ÉMOTIONNEL", 
+                    score: "95%", 
+                    niveau: "HANTÉ", 
+                    resume: "Vous communiquez sans parler. C'est flippant pour les autres. Mais attention : vous êtes capables de vous détruire psychologiquement. Le Scorpion pique là où ça fait mal, et le Cancer n'oublie jamais, jamais, jamais une blessure. Rancune éternelle.", 
+                    redflag: "Vous ressortez une dispute de 2008 pour justifier votre colère d'aujourd'hui." 
+                },
+                sagittaire: { 
+                    titre: "LA CORDE ET LE CHEVAL", 
+                    score: "30%", 
+                    niveau: "DÉCHIRURE", 
+                    resume: "Le Cancer veut des racines, le Sagittaire veut des ailes. Le Cancer veut rester au lit le dimanche, le Sagittaire veut faire un marathon. Le Cancer essaie d'attacher le Sagittaire, qui va paniquer et s'enfuir au galop. Incompatibilité de mode de vie totale.", 
+                    redflag: "Le Sagittaire fait ses valises, le Cancer fait une crise d'angoisse sur le paillasson." 
+                },
+                capricorne: { 
+                    titre: "LE FRIGO ET LE RADIATEUR", 
+                    score: "70%", 
+                    niveau: "CHOC THERMIQUE", 
+                    resume: "Le Cancer est toute émotion, le Capricorne est tout contrôle. Le Cancer demande de l'amour, le Capricorne ramène de l'argent. Le Cancer trouve le Capricorne sans cœur. Le Capricorne trouve le Cancer immature. C'est le parent sévère et l'enfant capricieux.", 
+                    redflag: "Le Cancer pleure devant un film, le Capricorne lui dit que c'est de la fiction et qu'il faut grandir." 
+                },
+                verseau: { 
+                    titre: "L'ALIEN ET LE BÉBÉ", 
+                    score: "40%", 
+                    niveau: "GLACE BRÛLANTE", 
+                    resume: "Le Cancer a besoin de fusion, de câlins, de proximité. Le Verseau a besoin d'espace, d'air, de distance. Le Cancer s'accroche, le Verseau se détache. Plus le Cancer demande de l'amour, plus le Verseau devient froid et distant. Cercle vicieux.", 
+                    redflag: "Le Verseau part en week-end seul sans prévenir, le Cancer appelle la police." 
+                },
+                poissons: { 
+                    titre: "NOYADE COLLECTIVE", 
+                    score: "90%", 
+                    niveau: "DÉLIRE", 
+                    resume: "Deux signes d'Eau. C'est l'océan. Vous vivez dans un monde imaginaire où les factures n'existent pas. Vous fusionnez tellement que vous ne savez plus qui est qui. Si l'un coule, il entraîne l'autre vers le fond. Dépression partagée garantie.", 
+                    redflag: "Vous passez le week-end au lit à pleurer devant des films tristes en mangeant de la glace." 
+                }
+            },
+
+            lion: {
+                // (Précédents déjà faits)
+                lion: { 
+                    titre: "LA GUERRE DES TRÔNES", 
+                    score: "50%", 
+                    niveau: "NUCLÉAIRE", 
+                    resume: "Deux Rois dans le même château ? Impossible. Vous allez passer votre temps à vous battre pour la couronne, l'attention, le dernier mot. C'est brillant, ça claque, c'est dramatique, mais c'est épuisant. Personne ne veut être le sujet de l'autre.", 
+                    redflag: "Vous vous battez pour savoir qui sera sur la photo de profil." 
+                },
+                vierge: { 
+                    titre: "LE ROI ET LE VALET", 
+                    score: "60%", 
+                    niveau: "SERVITUDE", 
+                    resume: "Le Lion commande, la Vierge exécute (en râlant). Le Lion se prend pour un Dieu, la Vierge lui rappelle qu'il a de la salade entre les dents. La Vierge rabaisse constamment l'ego du Lion avec ses critiques, et le Lion finit par aller chercher de l'admiration ailleurs.", 
+                    redflag: "Le Lion raconte une histoire héroïque, la Vierge le corrige sur les détails factuels devant tout le monde." 
+                },
+                balance: { 
+                    titre: "BARBIE ET KEN", 
+                    score: "85%", 
+                    niveau: "PLASTIQUE", 
+                    resume: "C'est beau. Vous êtes le couple parfait... en photo. Vous adorez les soirées, le luxe, l'apparence. Mais est-ce que vous vous aimez ou est-ce que vous aimez l'image que vous renvoyez ? C'est une relation vitrine, très chic mais potentiellement très vide.", 
+                    redflag: "Vous ne vous disputez jamais, sauf pour savoir quelle tenue porter." 
+                },
+                scorpion: { 
+                    titre: "LUTTE DE POUVOIR", 
+                    score: "40%", 
+                    niveau: "SANGUINAIRE", 
+                    resume: "Le Lion veut dominer de face, le Scorpion veut dominer en douce. C'est un bras de fer permanent. Le Lion rugit, le Scorpion pique. Le Lion est fier, le Scorpion est destructeur. Vous allez vous entretuer pour garder le contrôle.", 
+                    redflag: "Des scènes de jalousie dignes d'une telenovela brésilienne en public." 
+                },
+                sagittaire: { 
+                    titre: "L'INCENDIE DE FORÊT", 
+                    score: "90%", 
+                    niveau: "TOO MUCH", 
+                    resume: "C'est fun, c'est grand, c'est exagéré. Vous vivez au-dessus de vos moyens, vous riez fort, vous prenez trop de place. Vous vous épuisez mutuellement dans une course à la grandeur. À la fin, il ne reste que des cendres et des dettes.", 
+                    redflag: "Vous pariez votre maison sur un coup de tête au casino." 
+                },
+                capricorne: { 
+                    titre: "LE PRESTIGE VS LE PROFIT", 
+                    score: "70%", 
+                    niveau: "GLACÉ", 
+                    resume: "Vous êtes le 'Power Couple'. Vous voulez réussir. Le Lion veut la gloire, le Capricorne veut le pouvoir. C'est une alliance politique, pas un mariage d'amour. Vous vous admirez, mais vous ne vous réchauffez pas. C'est froid comme le marbre.", 
+                    redflag: "Vous prenez rendez-vous avec votre secrétaire pour dîner avec votre conjoint." 
+                },
+                verseau: { 
+                    titre: "LE MONARQUE ET LE RÉVOLUTIONNAIRE", 
+                    score: "50%", 
+                    niveau: "GUERRE CIVILE", 
+                    resume: "Le Lion veut être le centre du monde, le Verseau se fout du monde (et du Lion). Le Lion veut l'exclusivité, le Verseau veut la liberté. Le Lion est blessé dans son orgueil par l'indifférence du Verseau. Le Verseau trouve le Lion pathétique avec son besoin d'attention.", 
+                    redflag: "Le Lion fait une scène, le Verseau met ses écouteurs." 
+                },
+                poissons: { 
+                    titre: "LA STAR ET LE FAN", 
+                    score: "65%", 
+                    niveau: "DÉSILLUSION", 
+                    resume: "Le Lion adore être adoré, le Poissons adore adorer. Au début, ça marche. Le Lion brille, le Poissons applaudit. Mais le Poissons est trop mou, trop flou pour le Lion qui a besoin de répondant. Le Lion finit par piétiner le cœur du Poissons sans s'en apercevoir.", 
+                    redflag: "Le Lion oublie l'existence du Poissons dès qu'il y a du public." 
+                }
+            },
+            
+            vierge: {
+                // (Bélier, Taureau, Gémeaux, Cancer, Lion déjà faits)
+                vierge: { 
+                    titre: "INSPECTION DES TRAVAUX FINIS", 
+                    score: "95%", 
+                    niveau: "STÉRILE", 
+                    resume: "C'est l'endroit le plus propre et le plus angoissant du monde. Vous passez votre vie à ranger, classer, nettoyer et vous critiquer mutuellement. C'est un couple efficace, certes, mais l'amour a besoin d'un peu de bordel pour exister. Vous risquez de mourir d'ennui dans un appartement parfaitement rangé.", 
+                    redflag: "Vous vous engueulez parce que l'autre a acheté la mauvaise marque de liquide vaisselle." 
+                },
+                balance: { 
+                    titre: "L'HÉSITATION PERMANENTE", 
+                    score: "70%", 
+                    niveau: "PASSIVITÉ", 
+                    resume: "La Vierge veut résoudre les problèmes, la Balance veut les ignorer pour que 'tout soit joli'. La Vierge critique, la Balance sourit niaisement pour ne pas faire de vagues. La Vierge va finir par devenir le manager tyrannique de la Balance, qui se vengera en ne faisant absolument rien.", 
+                    redflag: "La Vierge fait un planning de tâches ménagères, la Balance le décore avec des stickers sans le remplir." 
+                },
+                scorpion: { 
+                    titre: "SHERLOCK & WATSON", 
+                    score: "88%", 
+                    niveau: "ENQUÊTE CRIMINELLE", 
+                    resume: "Vous êtes deux psychopathes de l'analyse. La Vierge analyse les détails, le Scorpion analyse les âmes. Rien ne vous échappe. Vous passez vos soirées à critiquer les autres. C'est stimulant, jusqu'à ce que le Scorpion retourne son dard contre la Vierge pour une critique mal placée.", 
+                    redflag: "Vous avez un dossier partagé avec des preuves contre vos ennemis communs." 
+                },
+                sagittaire: { 
+                    titre: "LE BIBLIOTHÉCAIRE ET L'EXPLORATEUR", 
+                    score: "40%", 
+                    niveau: "INCOMPATIBLE", 
+                    resume: "La Vierge a besoin de rituels et de sécurité. Le Sagittaire est un chaos ambulant qui perd ses clés et oublie ses rendez-vous. La Vierge va faire une dépression nerveuse à force d'essayer d'organiser la vie du Sagittaire, qui se sentira en prison.", 
+                    redflag: "Le Sagittaire rentre boueux dans le salon propre, la Vierge fait un AVC." 
+                },
+                capricorne: { 
+                    titre: "LE COUPLE EXCEL", 
+                    score: "92%", 
+                    niveau: "AUSTÈRE", 
+                    resume: "C'est le couple le plus fonctionnel du zodiaque. Ambition, économies, fidélité. Mais mon dieu, que c'est triste. Vous planifiez vos émotions comme on planifie une réunion CODIR. Il manque l'étincelle, la folie, la vie. Vous êtes des collègues de travail mariés.", 
+                    redflag: "Vous parlez de votre plan d'épargne retraite lors de votre anniversaire de mariage." 
+                },
+                verseau: { 
+                    titre: "L'ORDINATEUR ET LE BUG", 
+                    score: "50%", 
+                    niveau: "ERROR 404", 
+                    resume: "La Vierge est logique et terre-à-terre. Le Verseau est logique mais complètement perché. La Vierge veut des preuves, le Verseau a des théories complotistes. La Vierge veut que le Verseau range ses chaussettes, le Verseau veut révolutionner le concept de chaussette.", 
+                    redflag: "La Vierge trie les déchets, le Verseau veut vivre nu dans une yourte." 
+                },
+                poissons: { 
+                    titre: "L'INFIRMIÈRE ET LE PATIENT", 
+                    score: "75%", 
+                    niveau: "DEPENDANCE", 
+                    resume: "C'est l'axe de l'opposition. La Vierge gère le matériel, le Poissons gère le spirituel. Concrètement ? La Vierge devient la bonne à tout faire du Poissons qui plane à 10 000 mètres. La Vierge râle mais adore se sentir indispensable. Le Poissons se laisse porter.", 
+                    redflag: "La Vierge remplit la déclaration d'impôts du Poissons pendant qu'il médite." 
+                }
+            },
+
+            balance: {
+                // (Précédents déjà faits)
+                balance: { 
+                    titre: "MIROIR, MON BEAU MIROIR", 
+                    score: "80%", 
+                    niveau: "SUPERFICIEL", 
+                    resume: "Vous êtes beaux, vous sentez bon, vous êtes polis. Mais qui prend les décisions ? Personne. Vous allez mourir de faim devant le frigo parce qu'aucun de vous ne veut imposer le choix du dîner. C'est une relation diplomatique où personne ne dit jamais la vérité.", 
+                    redflag: "Vous passez 2 heures à choisir un film pour finalement ne rien regarder." 
+                },
+                scorpion: { 
+                    titre: "LA BELLE ET LA BÊTE", 
+                    score: "60%", 
+                    niveau: "TOXIQUE", 
+                    resume: "La Balance veut que tout soit léger et harmonieux. Le Scorpion veut remuer la boue et créer des drames. Le Scorpion est fasciné par la beauté de la Balance et veut la corrompre. La Balance est terrifiée mais excitée. Ça finit en pleurs et en maquillage qui coule.", 
+                    redflag: "Le Scorpion crée une dispute juste pour voir si la Balance tient à lui, la Balance s'effondre." 
+                },
+                sagittaire: { 
+                    titre: "LA SOCIALITE ET L'AVENTURIER", 
+                    score: "90%", 
+                    niveau: "MONDAIN", 
+                    resume: "Vous êtes le couple qu'on invite partout. La Balance charme, le Sagittaire amuse. Mais en privé ? Le Sagittaire est trop brut pour la délicate Balance. Il va faire une blague lourde sur sa nouvelle coupe de cheveux et briser l'harmonie pour la semaine.", 
+                    redflag: "Le Sagittaire arrive en jogging à une soirée chic organisée par la Balance." 
+                },
+                capricorne: { 
+                    titre: "LE GLAMOUR ET LE GRANIT", 
+                    score: "50%", 
+                    niveau: "FROID", 
+                    resume: "La Balance a besoin de mots doux, de fleurs et de romance. Le Capricorne considère que payer le loyer est une preuve d'amour suffisante. La Balance va se faner faute de compliments, et le Capricorne trouvera la Balance frivole et dépensiére.", 
+                    redflag: "La Balance demande 'Tu me trouves belle ?', le Capricorne répond 'Tu es présentable'." 
+                },
+                verseau: { 
+                    titre: "MEILLEURS AMIS", 
+                    score: "95%", 
+                    niveau: "FRIENDZONE", 
+                    resume: "C'est fluide, intellectuel, aérien. Vous discutez de tout. Mais où est la passion ? Vous êtes tellement cool et détachés que vous risquez d'oublier de coucher ensemble. C'est une colocation de luxe entre deux intellectuels.", 
+                    redflag: "Vous préférez débattre d'un film plutôt que de vous embrasser." 
+                },
+                poissons: { 
+                    titre: "ROMAN À L'EAU DE ROSE", 
+                    score: "70%", 
+                    niveau: "ILLUSION", 
+                    resume: "La Balance est amoureuse de l'amour, le Poissons est amoureux du rêve. Vous vivez dans un film Disney. Mais quand la chaudière tombe en panne, le film s'arrête. Aucun de vous n'est équipé pour affronter la réalité crue et moche.", 
+                    redflag: "Vous dépensez votre dernier euro dans un bouquet de fleurs alors que le frigo est vide." 
+                }
+            },
+
+            scorpion: {
+                // (Précédents déjà faits)
+                scorpion: { 
+                    titre: "MR. & MRS. SMITH", 
+                    score: "99%", 
+                    niveau: "APOCALYPSE", 
+                    resume: "Deux paranoïaques obsédés par le contrôle dans la même maison. C'est la guerre froide. Vous vous aimez à la folie, vous vous espionnez, vous vous testez. Si vous survivez, vous dominerez le monde. Sinon, ce sera un fait divers dans le journal.", 
+                    redflag: "Vous avez tous les deux les mots de passe de l'autre, mais vous avez aussi un deuxième téléphone caché." 
+                },
+                sagittaire: { 
+                    titre: "LE SOMBRE ET LE LUMINEUX", 
+                    score: "40%", 
+                    niveau: "INCOMPRÉHENSION", 
+                    resume: "Le Scorpion vit dans une grotte émotionnelle, le Sagittaire vit au grand air. Le Scorpion veut tout approfondir, le Sagittaire veut tout survoler. Le Scorpion trouve le Sagittaire idiot et superficiel. Le Sagittaire trouve le Scorpion glauque et plombant.", 
+                    redflag: "Le Sagittaire raconte les secrets intimes du Scorpion à tout le monde en soirée 'pour rire'." 
+                },
+                capricorne: { 
+                    titre: "HOUSE OF CARDS", 
+                    score: "95%", 
+                    niveau: "MAFIA", 
+                    resume: "Le couple le plus puissant et le plus effrayant. Vous ne montrez aucune faiblesse. Vous êtes alliés pour écraser la concurrence. Pas de pitié, pas de sentiments inutiles. C'est solide comme le béton armé, mais attention à ne pas devenir des robots sans cœur.", 
+                    redflag: "Vous planifiez la chute de vos collègues pendant le dîner en amoureux." 
+                },
+                verseau: { 
+                    titre: "L'OBSÉDÉ ET LE DÉTACHÉ", 
+                    score: "30%", 
+                    niveau: "TORTURE", 
+                    resume: "Le Scorpion veut posséder l'âme de l'autre. Le Verseau refuse d'être possédé. Plus le Scorpion serre, plus le Verseau glisse. Le Scorpion devient fou de jalousie face à ce Verseau qui traite tout le monde (y compris son ex) avec la même gentillesse.", 
+                    redflag: "Le Scorpion fait une crise de jalousie, le Verseau lui demande s'il a consulté un psy." 
+                },
+                poissons: { 
+                    titre: "TÉLÉPATHIE NOYÉE", 
+                    score: "90%", 
+                    niveau: "MYSTIQUE", 
+                    resume: "Vous n'avez pas besoin de parler. Vous communiquez par ondes. C'est magique, mais dangereux. Vous pouvez vous entraîner mutuellement dans des gouffres de dépression ou d'addiction sans que personne ne s'en rende compte. C'est une fusion sans gilet de sauvetage.", 
+                    redflag: "Vous décidez de tout plaquer pour élever des chèvres, puis changez d'avis le lendemain." 
+                }
+            },
+
+            sagittaire: {
+                // (Précédents déjà faits)
+                sagittaire: { 
+                    titre: "LES VAGABONDS", 
+                    score: "85%", 
+                    niveau: "INSTABLE", 
+                    resume: "C'est la fête permanente. Vous riez, vous voyagez, vous pariez. Mais qui s'occupe de la réalité ? Vous fuyez tous les deux les responsabilités. Votre vie est une suite de projets inachevés et de promesses en l'air. C'est drôle, jusqu'à ce que l'argent manque.", 
+                    redflag: "Vous oubliez d'aller chercher les enfants à l'école parce que l'apéro était sympa." 
+                },
+                capricorne: { 
+                    titre: "L'OPTIMISTE ET LE PESSIMISTE", 
+                    score: "50%", 
+                    niveau: "DÉPRIMANT", 
+                    resume: "Le Sagittaire dit 'Ça va aller !', le Capricorne répond 'Non, voici les statistiques de l'échec'. Le Sagittaire veut dépenser, le Capricorne veut investir. Le Sagittaire se sent éteint par la lourdeur du Capricorne, qui le prend pour un enfant irresponsable.", 
+                    redflag: "Le Sagittaire fait une blague, le Capricorne soupire et regarde sa montre." 
+                },
+                verseau: { 
+                    titre: "LES RÉVOLUTIONNAIRES", 
+                    score: "90%", 
+                    niveau: "ANARCHIE", 
+                    resume: "Vous refaites le monde, vous avez des idéaux, vous êtes libres. C'est passionnant. Mais vous êtes tellement indépendants que vous risquez de devenir des étrangers qui partagent un lit. Il n'y a pas de colle émotionnelle pour vous tenir ensemble quand l'excitation retombe.", 
+                    redflag: "Vous partez chacun en vacances de votre côté sans voir le problème." 
+                },
+                poissons: { 
+                    titre: "LES ILLUMINÉS", 
+                    score: "60%", 
+                    niveau: "PERDUS", 
+                    resume: "Le Sagittaire cherche un sens à la vie, le Poissons le rêve. Vous êtes tous les deux déconnectés du réel. Le Sagittaire est maladroit et blesse le Poissons ultra-sensible sans le vouloir. Le Poissons devient une victime, et le Sagittaire fuit la culpabilité.", 
+                    redflag: "Le Sagittaire promet la lune, le Poissons y croit, et personne ne paie le loyer." 
+                }
+            },
+
+            capricorne: {
+                // (Tous les précédents sont déjà faits dans les autres sections)
+                capricorne: { 
+                    titre: "HOLDING FINANCIÈRE", 
+                    score: "98%", 
+                    niveau: "GLACIATION", 
+                    resume: "Ce n'est pas un couple, c'est une fusion-acquisition. Vous êtes efficaces, ambitieux, et totalement ennuyeux pour le reste du monde. Vous planifiez vos vacances sur Excel. Vous ne vous disputez pas, vous négociez des avenants au contrat. Si l'un de vous meurt, l'autre sera triste de perdre un partenaire fiscal si avantageux.", 
+                    redflag: "Vous vous offrez des actions en bourse pour la Saint-Valentin." 
+                },
+                verseau: { 
+                    titre: "LE VIEUX ET LE GEEK", 
+                    score: "60%", 
+                    niveau: "BUG", 
+                    resume: "Le Capricorne respecte les règles, le Verseau veut les brûler. Le Capricorne veut bâtir un empire, le Verseau veut vivre dans une communauté autonome. Le Capricorne trouve le Verseau irresponsable, le Verseau trouve le Capricorne coincé. Vous n'avez rien à vous dire après avoir parlé politique.", 
+                    redflag: "Le Capricorne veut un CDI, le Verseau veut devenir nomade digital." 
+                },
+                poissons: { 
+                    titre: "LE BARRAGE ET LA RIVIÈRE", 
+                    score: "85%", 
+                    niveau: "DÉPENDANCE", 
+                    resume: "Le Poissons a besoin d'un cadre, le Capricorne EST le cadre. Ça marche... mais c'est malsain. Le Capricorne devient le parent sévère qui gère tout, et le Poissons devient l'enfant assisté qui ne sait pas faire un lacet. Le Capricorne finira par mépriser la faiblesse du Poissons.", 
+                    redflag: "Le Capricorne donne de l'argent de poche au Poissons à 40 ans." 
+                }
+            },
+
+            verseau: {
+                // (Précédents déjà faits)
+                verseau: { 
+                    titre: "LES CYBORGS", 
+                    score: "90%", 
+                    niveau: "ZÉRO ÉMOTION", 
+                    resume: "Vous êtes connectés en Wi-Fi, pas par le cœur. C'est brillant, vous avez des débats fascinants sur l'IA et l'écologie, mais qui va faire la vaisselle ? Qui va dire 'je t'aime' ? Personne. Vous êtes deux amis colocataires qui oublient parfois qu'ils sont en couple. C'est froid comme un serveur informatique.", 
+                    redflag: "Vous vivez ensemble mais vous communiquez par Telegram depuis la pièce d'à côté." 
+                },
+                poissons: { 
+                    titre: "L'ALIEN ET LA SIRÈNE", 
+                    score: "50%", 
+                    niveau: "INCOMPRÉHENSION", 
+                    resume: "Le Verseau intellectualise tout, le Poissons ressent tout. Le Poissons pleure pour un rien, le Verseau analyse les larmes chimiquement. Le Poissons veut fusionner, le Verseau veut de l'air. Le Poissons va finir par se noyer dans son chagrin pendant que le Verseau sera parti sauver les baleines.", 
+                    redflag: "Le Poissons fait une déclaration d'amour de 3 pages, le Verseau répond 'Vu'." 
+                }
+            },
+
+            poissons: {
+                // (Tous les autres signes sont déjà faits, il ne reste que le duo Poissons-Poissons)
+                poissons: { 
+                    titre: "L'ASILE PSYCHIATRIQUE", 
+                    score: "100%", 
+                    niveau: "DÉLUGE", 
+                    resume: "Alerte noyade. Il n'y a plus aucune limite, plus aucune réalité. Vous vivez dans un fantasme total. Vous vous entraînez mutuellement vers le fond (alcool, déprime, rêves impossibles). Personne ne paie le loyer, personne ne sait quel jour on est. C'est romantique, mais c'est un suicide social.", 
+                    redflag: "Vous décidez de tout quitter pour élever des licornes en Ardèche." 
+                }
+            }
+        }; // FIN DE LA ROAST DB
 
         function calculerChaos() {
             const s1 = document.getElementById('sign1').value;
             const s2 = document.getElementById('sign2').value;
-            const e1 = elements[s1];
-            const e2 = elements[s2];
             
             const resBox = document.getElementById('resultat');
             const scoreTxt = document.getElementById('score');
@@ -151,95 +709,60 @@
             const descBox = document.getElementById('descResultat');
             const alerteTxt = document.getElementById('niveauAlerte');
 
-            let score = 0;
-            let titre = "";
-            let htmlContent = "";
+            // 1. Récupération des données
+            // On vérifie si la combinaison existe dans le sens s1 -> s2
+            let data = null;
 
-            // LOGIQUE DU CHAOS
-
-            // CAS 1 : MÊME SIGNE
-            if (s1 === s2) {
-                score = "100%";
-                alerteTxt.innerText = "Niveau : TCHERNOBYL";
-                titre = sameSignRoast[s1].titre;
-                htmlContent = `
-                    <div class="mb-8">
-                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Scénario</h5>
-                        <p class="text-gray-300 italic">"${sameSignRoast[s1].txt}"</p>
-                    </div>
-                    <div>
-                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">La Fin Inévitable</h5>
-                        <p class="text-gray-300 italic">Vous finissez par vous entretuer pour une histoire de télécommande ou de chaussette sale.</p>
-                    </div>
-                `;
-            }
-            // CAS 2 : ÉLÉMENTS INCOMPATIBLES (Feu/Eau, Terre/Air, etc.)
-            else if ((e1 === 'feu' && e2 === 'eau') || (e1 === 'eau' && e2 === 'feu')) {
-                score = "90%";
-                alerteTxt.innerText = "Niveau : VAPEUR TOXIQUE";
-                titre = "L'EXTINCTEUR";
-                htmlContent = `
-                    <div class="mb-6">
-                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Problème</h5>
-                        <p class="text-gray-300 italic">L'Eau éteint le Feu, le Feu fait bouillir l'Eau. ${s1.toUpperCase()} va finir par trouver ${s2.toUpperCase()} trop dramatique, et ${s2.toUpperCase()} trouvera ${s1.toUpperCase()} trop brutal.</p>
-                    </div>
-                    <div>
-                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Red Flag</h5>
-                        <p class="text-gray-300 italic">Une dispute commence parce que l'un a crié et l'autre a pleuré. Classique.</p>
-                    </div>
-                `;
-            }
-            else if ((e1 === 'terre' && e2 === 'air') || (e1 === 'air' && e2 === 'terre')) {
-                score = "85%";
-                alerteTxt.innerText = "Niveau : TEMPÊTE DE SABLE";
-                titre = "DIALOGUE DE SOURDS";
-                htmlContent = `
-                    <div class="mb-6">
-                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Problème</h5>
-                        <p class="text-gray-300 italic">La Terre veut des preuves, l'Air veut des idées. ${s1.toUpperCase()} parle chinois, ${s2.toUpperCase()} répond en russe. Vous ne vivez pas sur la même planète.</p>
-                    </div>
-                    <div>
-                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Red Flag</h5>
-                        <p class="text-gray-300 italic">L'un veut investir dans la pierre, l'autre veut tout dépenser pour un voyage spirituel au Pérou.</p>
-                    </div>
-                `;
-            }
-            else if ((e1 === 'feu' && e2 === 'terre') || (e1 === 'terre' && e2 === 'feu')) {
-                score = "75%";
-                alerteTxt.innerText = "Niveau : TERRE BRÛLÉE";
-                titre = "LE BULLDOZER";
-                htmlContent = `
-                    <div class="mb-6">
-                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Problème</h5>
-                        <p class="text-gray-300 italic">Le Feu veut tout, tout de suite. La Terre veut attendre et calculer. L'un accélère, l'autre freine. Résultat : le moteur explose.</p>
-                    </div>
-                    <div>
-                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Red Flag</h5>
-                        <p class="text-gray-300 italic">L'un des deux va finir par partir en claquant la porte parce que l'autre est "trop lent" ou "trop imprudent".</p>
-                    </div>
-                `;
-            }
-            // CAS 3 : ÉLÉMENTS COMPATIBLES (Mais on les roast quand même)
-            else {
-                score = "40%";
-                alerteTxt.innerText = "Niveau : ENNUI MORTEL";
-                titre = "LA GUIMAUVE";
-                htmlContent = `
-                    <div class="mb-6">
-                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Problème</h5>
-                        <p class="text-gray-300 italic">Sur le papier, ça marche. Dans la réalité, vous risquez de devenir ce couple insupportable qui finit les phrases de l'autre et porte des pulls assortis.</p>
-                    </div>
-                    <div>
-                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Red Flag</h5>
-                        <p class="text-gray-300 italic">Vous ne sortez plus de chez vous. Vos amis ont arrêté de vous appeler.</p>
-                    </div>
-                `;
+            if (roastDB[s1] && roastDB[s1][s2]) {
+                data = roastDB[s1][s2];
+            } 
+            // Si non, on essaie l'inverse s2 -> s1 (car Bélier+Taureau = Taureau+Bélier)
+            else if (roastDB[s2] && roastDB[s2][s1]) {
+                data = roastDB[s2][s1];
             }
 
+            // 2. Gestion du contenu (Si vide ou pas encore écrit)
+            if (!data || Object.keys(data).length === 0) {
+                // FALLBACK : Si tu n'as pas encore écrit le texte pour ce duo
+                data = {
+                    titre: "ANALYSE EN COURS...",
+                    score: "?%",
+                    niveau: "Données Insuffisantes",
+                    resume: "L'Oracle est encore en train d'étudier ce désastre spécifique. Revenez plus tard, ou fuyez dans le doute.",
+                    redflag: "Le fait que vous posiez la question est déjà mauvais signe."
+                };
+            }
+
+            // 3. Injection du HTML
+            const htmlContent = `
+                <div class="mb-8 animate-fade-in-up" style="animation-delay: 0.1s">
+                    <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-3 border-b border-[#D4AF37]/30 pb-1 inline-block">Le Scénario Catastrophe</h5>
+                    <p class="text-lg text-gray-200 leading-relaxed font-light">"${data.resume}"</p>
+                </div>
+                
+                <div class="animate-fade-in-up bg-red-900/10 p-6 border border-red-900/30 rounded-sm" style="animation-delay: 0.3s">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-2xl">🚩</span>
+                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest">LE RED FLAG ABSOLU</h5>
+                    </div>
+                    <p class="text-xl font-bold text-red-400 italic">"${data.redflag}"</p>
+                </div>
+            `;
+
+            // 4. Affichage
             resBox.classList.remove('hidden');
-            scoreTxt.innerText = score;
-            titreTxt.innerText = titre;
+            scoreTxt.innerText = data.score;
+            titreTxt.innerText = data.titre;
+            
+            // Coloriage du niveau d'alerte selon le score
+            alerteTxt.innerText = `Niveau : ${data.niveau}`;
+            if(parseInt(data.score) > 80) alerteTxt.className = "text-sm font-bold text-red-500 mb-8 animate-pulse";
+            else alerteTxt.className = "text-sm italic text-gray-400 mb-8";
+
             descBox.innerHTML = htmlContent;
+
+            // Scroll auto
+            resBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     </script>
 

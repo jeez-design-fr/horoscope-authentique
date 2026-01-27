@@ -234,7 +234,7 @@ async function main() {
             <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
                 <a href="horoscope.html" class="block">
                     <div class="relative mb-4">
-                        <img src="./assets/red-flags.webp" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700">
+                        <img src="./assets/entree.webp" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700">
                     </div>
                     <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">HOROSCOPE</h3>
                     <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Votre Oracle</p>
