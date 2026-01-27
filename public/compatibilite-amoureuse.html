@@ -265,6 +265,118 @@
             cancer: 'eau', scorpion: 'eau', poissons: 'eau'
         };
 
+        // --- LE BLOC MANQUANT : SIGNES MIROIRS ---
+    const sameSignData = {
+        belier: {
+            titre: "LE FEU CONTRE LE FEU",
+            score: 80,
+            quotidien: "C'est électrique ! Deux chefs sous le même toit. Ça crie, ça rit, ça vit à 100 à l'heure. Pas de place pour l'ennui, mais attention à la compétition.",
+            amour: "Une passion dévorante et immédiate. Vous vous comprenez instinctivement. C'est tout ou rien.",
+            duree: "Explosive. Ça passe ou ça casse. Il faudra apprendre à faire des compromis pour ne pas vous épuiser.",
+            rapproche: "L'énergie vitale. Vous avez le même moteur.",
+            epineux: "L'impulsivité. Si personne ne freine, vous allez dans le mur ensemble."
+        },
+        taureau: {
+            titre: "LA FORTERESSE TRANQUILLE",
+            score: 95,
+            quotidien: "Le calme, le luxe et la volupté. Vous aimez la même routine, les bons repas et le confort. C'est du solide.",
+            amour: "Sensuel et tactile. Vous prenez le temps de vous aimer. La fidélité est votre socle.",
+            duree: "Indestructible. Une fois installés, plus rien ne bouge.",
+            rapproche: "L'épicurisme. Vous savourez la vie de la même façon.",
+            epineux: "L'entêtement. Si vous n'êtes pas d'accord, la bouderie peut durer des semaines."
+        },
+        gemeaux: {
+            titre: "LE MOUVEMENT PERPÉTUEL",
+            score: 85,
+            quotidien: "Quatre personnes dans le couple ! Ça parle, ça sort, ça change d'avis. C'est stimulant mais épuisant pour les nerfs.",
+            amour: "Cérébral et ludique. Vous êtes les meilleurs amis du monde. Pas de jalousie, beaucoup de rires.",
+            duree: "Amusante. Vous ne vieillirez jamais dans votre tête.",
+            rapproche: "La curiosité. Vous avez soif de tout.",
+            epineux: "La dispersion. Qui va payer les factures et gérer les problèmes ennuyeux ?"
+        },
+        cancer: {
+            titre: "LE COCON FUSIONNEL",
+            score: 90,
+            quotidien: "Vous vivez en autarcie dans votre bulle. C'est tendre, doux, protecteur. Le monde extérieur n'existe plus.",
+            amour: "Romantique et hypersensible. Vous devinez les émotions de l'autre.",
+            duree: "Longue. Vous bâtissez une famille unie contre le reste du monde.",
+            rapproche: "Le besoin de sécurité émotionnelle.",
+            epineux: "L'étouffement. À force de fusionner, vous risquez de vous noyer dans vos angoisses mutuelles."
+        },
+        lion: {
+            titre: "LA COUR ROYALE",
+            score: 80,
+            quotidien: "C'est brillant ! Vous vous admirez mutuellement. Vous aimez recevoir et être vus. Mais attention à la guerre d'ego.",
+            amour: "Théâtral et généreux. Vous vous couvrez de cadeaux et d'attentions.",
+            duree: "Solide si vous partagez le trône. Il ne peut pas y avoir qu'une seule star.",
+            rapproche: "La loyauté et la noblesse de cœur.",
+            epineux: "L'orgueil. Apprenez à vous excuser, c'est dur pour vous deux."
+        },
+        vierge: {
+            titre: "L'ORDRE PARFAIT",
+            score: 88,
+            quotidien: "Tout est propre, rangé, planifié. C'est une machine efficace. Vous vous faites confiance car vous êtes responsables.",
+            amour: "Pudique et dévoué. Pas de grandes scènes, mais des preuves d'amour quotidiennes.",
+            duree: "Stable. Vous construisez pierre après pierre avec prudence.",
+            rapproche: "Le souci du détail et la volonté de bien faire.",
+            epineux: "La critique. Si vous commencez à vous juger mutuellement, l'ambiance deviendra glaciale."
+        },
+        balance: {
+            titre: "LE MIROIR DE LA BEAUTÉ",
+            score: 92,
+            quotidien: "C'est l'harmonie totale. Vous détestez le conflit. Votre maison est belle, vos discussions sont courtoises.",
+            amour: "Romantique à souhait. Vous êtes amoureux de l'amour.",
+            duree: "Douce. Mais attention à ne pas balayer les problèmes sous le tapis pour garder la paix.",
+            rapproche: "La recherche d'équilibre et d'esthétisme.",
+            epineux: "L'indécision. Pour choisir un restaurant, ça peut prendre deux heures."
+        },
+        scorpion: {
+            titre: "LA FUSION NUCLÉAIRE",
+            score: 90,
+            quotidien: "Intense. Vous communiquez par télépathie. C'est passionnel, secret et parfois dangereux. Vous êtes seuls au monde.",
+            amour: "Absolu. Vous vous appartenez corps et âme. La sexualité est transcendante.",
+            duree: "Éternelle ou destructrice. Il n'y a pas de milieu.",
+            rapproche: "La soif de vérité et de profondeur.",
+            epineux: "La jalousie. Deux paranoïaques ensemble, ça peut faire des étincelles."
+        },
+        sagittaire: {
+            titre: "LES AVENTURIERS",
+            score: 96,
+            quotidien: "La fête permanente ! Voyages, projets, optimisme. Vous ne tenez pas en place. La routine est votre ennemie commune.",
+            amour: "Libre et joyeux. Vous respectez l'indépendance de l'autre.",
+            duree: "Excitante. Vous êtes des partenaires de jeu pour la vie.",
+            rapproche: "La foi en la vie et l'envie d'explorer.",
+            epineux: "Le manque de réalisme. Il faudra bien atterrir un jour pour gérer le quotidien."
+        },
+        capricorne: {
+            titre: "LE SOMMET DE LA MONTAGNE",
+            score: 95,
+            quotidien: "Sérieux, ambitieux, résistant. Vous formez une équipe de choc pour réussir socialement et matériellement.",
+            amour: "Mature et profond. Vous n'avez pas besoin de mots pour savoir que l'autre est là.",
+            duree: "Indestructible. C'est un engagement total et réfléchi.",
+            rapproche: "L'intégrité et la persévérance.",
+            epineux: "La froideur. N'oubliez pas de mettre un peu de chaleur et de folie dans votre empire."
+        },
+        verseau: {
+            titre: "LES VISIONNAIRES",
+            score: 92,
+            quotidien: "Vous vivez dans le futur. Vous refaites le monde. C'est une colocation intellectuelle de haut vol. Liberté totale.",
+            amour: "Cérébral. Vous êtes avant tout des meilleurs amis. L'amour est un concept que vous réinventez.",
+            duree: "Fluide. Pas de chaînes, pas de drames.",
+            rapproche: "L'idéalisme et l'originalité.",
+            epineux: "L'intimité émotionnelle. C'est parfois un peu trop froid et distant."
+        },
+        poissons: {
+            titre: "L'OCÉAN SANS FIN",
+            score: 98,
+            quotidien: "Vous flottez. La réalité n'existe plus. C'est magique, intuitif, artistique. Attention aux factures impayées !",
+            amour: "Spirituel et inconditionnel. Vous fusionnez totalement.",
+            duree: "Onirique. Vous vivez dans un rêve partagé.",
+            rapproche: "La sensibilité et la compassion.",
+            epineux: "Le chaos. Sans ancrage, vous risquez de vous perdre ensemble dans les illusions."
+        }
+    };
+
         // Textes UNIQUES pour les duos de même signe
         // Base de données des compatibilités spécifiques
         const compatibilityDB = {
