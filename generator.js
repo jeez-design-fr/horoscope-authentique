@@ -371,6 +371,7 @@ if (fs.existsSync('./mentions-legales.html')) fs.copyFileSync('./mentions-legale
                         let finalHtml = templateArticle
                             .replace(/{{titre}}/g, article.titre)
                             .replace(/{{image}}/g, article.image)
+                            .replace(/{{categorie}}/g, article.categorie || 'Sagesse Ancestrale') // Nouvelle ligne
                             .replace(/{{contenu}}/g, articleBody);
 
                         fs.writeFileSync(articlePath, finalHtml);

@@ -3,48 +3,112 @@
         "slug": "quartz-rose-amour",
         "titre": "Le Rituel du Quartz Rose pour attirer l'Âme Sœur",
         "sujet": "Explique comment utiliser le Quartz Rose pour guérir les blessures de cœur et trouver l'amour. Donne un petit rituel simple à faire le soir.",
-        "image": "pierres.webp"
+        "image": "pierres.webp",
+        "categorie": "LITHOTHÉRAPIE & RITUELS"
     },
     {
         "slug": "amethyste-sommeil",
         "titre": "Insomnie et Stress : Le pouvoir de l'Améthyste",
         "sujet": "Parle des vertus apaisantes de l'améthyste. Explique pourquoi la mettre sous l'oreiller ou sur la table de nuit. Ton rassurant et bienveillant.",
-        "image": "pierres.webp"
+        "image": "pierres.webp",
+        "categorie": "LITHOTHÉRAPIE & RITUELS"
     },
     {
         "slug": "oeil-tigre-protection",
         "titre": "Oeil de Tigre : Le Bouclier contre le Mauvais Œil",
         "sujet": "Article sur la protection énergétique. Comment l'Oeil de Tigre renvoie les énergies négatives à l'envoyeur. Idéal pour le travail ou les lieux toxiques.",
-        "image": "pierres.webp"
+        "image": "pierres.webp",
+        "categorie": "LITHOTHÉRAPIE & RITUELS"
     },
     {
         "slug": "labradorite-empathie",
         "titre": "Trop empathique ? La Labradorite est votre alliée",
         "sujet": "Pour les éponges émotionnelles. Explique comment cette pierre protège les thérapeutes et les hypersensibles sans les couper du monde.",
-        "image": "pierres.webp"
+        "image": "pierres.webp",
+        "categorie": "LITHOTHÉRAPIE & RITUELS"
     },
     {
         "slug": "citrine-confiance",
         "titre": "Syndrome de l'Imposteur ? Activez la Citrine",
-        "sujet": "Pour les femmes qui manquent de confiance en elles ou n'osent pas se lancer. La Citrine est la pierre du succès, de l'abondance et du plexus solaire. Parle de 'retrouver sa couronne'.",
-        "image": "pierres.webp"
+        "sujet": "Pour les femmes qui manquent de confiance en elles ou n'osent pas se lancer. La Citrine est la pierre du succès, de l'abondance et du plexus solaire.",
+        "image": "pierres.webp",
+        "categorie": "LITHOTHÉRAPIE & RITUELS"
     },
     {
         "slug": "pierre-lune-intuition",
         "titre": "Féminin Sacré : Se reconnecter à son Intuition",
-        "sujet": "Pour celles qui se sentent déconnectées de leurs cycles ou de leur instinct. La Pierre de Lune favorise la clairvoyance, la douceur et l'harmonie hormonale.",
-        "image": "pierres.webp"
+        "sujet": "Pour celles qui se sentent déconnectées de leurs cycles ou de leur instinct. La Pierre de Lune favorise la clairvoyance et la douceur.",
+        "image": "pierres.webp",
+        "categorie": "LITHOTHÉRAPIE & RITUELS"
     },
     {
         "slug": "tourmaline-ancrage",
         "titre": "Fatigue et Écrans : La Détox par la Tourmaline",
-        "sujet": "Pour celles qui sont tout le temps sur leur téléphone ou épuisées mentalement. La Tourmaline Noire ancre à la terre et protège des ondes électromagnétiques.",
-        "image": "pierres.webp"
+        "sujet": "Pour celles qui sont tout le temps sur leur téléphone ou épuisées mentalement. La Tourmaline Noire ancre à la terre.",
+        "image": "pierres.webp",
+        "categorie": "LITHOTHÉRAPIE & RITUELS"
     },
     {
         "slug": "lapis-lazuli-verite",
         "titre": "Gorge nouée ? Osez dire votre vérité avec le Lapis",
-        "sujet": "Pour celles qui n'osent pas dire non ou exprimer leurs idées. Le Lapis Lazuli débloque le chakra de la gorge et favorise une communication authentique et royale.",
-        "image": "pierres.webp"
+        "sujet": "Pour celles qui n'osent pas dire non ou exprimer leurs idées. Le Lapis Lazuli débloque le chakra de la gorge.",
+        "image": "pierres.webp",
+        "categorie": "LITHOTHÉRAPIE & RITUELS"
+    },
+    {
+        "slug": "ascendant-masque",
+        "titre": "L'Ascendant : Votre Vrai Visage Social",
+        "sujet": "Explique la différence entre signe solaire (ego) et ascendant (destin/apparence). Pourquoi on ne se reconnaît pas toujours dans son signe.",
+        "image": "livre.webp",
+        "categorie": "BIBLIOTHÈQUE INTERDITE"
+    },
+    {
+        "slug": "lilith-ombre",
+        "titre": "La Lune Noire (Lilith) : Votre Côté Sauvage",
+        "sujet": "Qui est Lilith dans le thème astral ? La part d'ombre, la sexualité libre, la rébellion. Sujet mystérieux et fascinant.",
+        "image": "livre.webp",
+        "categorie": "BIBLIOTHÈQUE INTERDITE"
+    },
+    {
+        "slug": "mercure-retrograde",
+        "titre": "Survivre à Mercure Rétrograde (Sans Paniquer)",
+        "sujet": "Dédramatiser ce phénomène. Ce n'est pas une malédiction, mais un temps pour 'Re' (revoir, réparer, repenser). Conseils pratiques.",
+        "image": "livre.webp",
+        "categorie": "BIBLIOTHÈQUE INTERDITE"
+    },
+    {
+        "slug": "maisons-astrologiques",
+        "titre": "Les 12 Maisons : La Carte de Votre Vie",
+        "sujet": "Les planètes sont les acteurs, les maisons sont le décor. Focus sur la Maison 10 (Carrière) et Maison 7 (Amour).",
+        "image": "livre.webp",
+        "categorie": "BIBLIOTHÈQUE INTERDITE"
+    },
+    {
+        "slug": "synastrie-ames-soeurs",
+        "titre": "Synastrie : Êtes-vous Âmes Sœurs ?",
+        "sujet": "Au-delà des signes solaires. L'importance de Vénus (aimer) et Mars (désirer) dans la compatibilité amoureuse.",
+        "image": "livre.webp",
+        "categorie": "BIBLIOTHÈQUE INTERDITE"
+    },
+    {
+        "slug": "astro-medicale",
+        "titre": "L'Astrologie Médicale et les Plantes",
+        "sujet": "Le lien ancien entre chaque signe et une partie du corps. Les plantes guérisseuses associées aux signes.",
+        "image": "livre.webp",
+        "categorie": "BIBLIOTHÈQUE INTERDITE"
+    },
+    {
+        "slug": "tarot-planetes",
+        "titre": "Le Tarot et l'Astrologie : Les Cousins Sacrés",
+        "sujet": "Les liens entre les arcanes majeurs et les planètes (L'Impératrice = Vénus, etc.). Comment utiliser les deux ensemble.",
+        "image": "livre.webp",
+        "categorie": "BIBLIOTHÈQUE INTERDITE"
+    },
+    {
+        "slug": "histoire-babylone",
+        "titre": "Babylone : Les Origines de l'Horoscope",
+        "sujet": "L'histoire fascinante des prêtres-astronomes. Redonner ses lettres de noblesse à l'astrologie authentique.",
+        "image": "livre.webp",
+        "categorie": "BIBLIOTHÈQUE INTERDITE"
     }
 ]
