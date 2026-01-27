@@ -266,114 +266,647 @@
         };
 
         // Textes UNIQUES pour les duos de même signe
-        const sameSignData = {
+        // Base de données des compatibilités spécifiques
+        const compatibilityDB = {
             belier: {
-                titre: "LE CHOC DES TITANS",
-                score: 75,
-                quotidien: "C’est une course de Formule 1 permanente. Vous vous stimulez, vous vous challengez. Ça crie, ça rit, ça vit. Mais attention : deux chefs sous le même toit, c'est un de trop pour sortir les poubelles.",
-                amour: "Passionnel et explosif. La conquête est mutuelle et permanente. On ne s’ennuie jamais, mais la température monte vite. C’est l’amour vache ou l’amour fou.",
-                duree: "Ça passe ou ça casse. Si vous apprenez à déposer les armes et à ne pas tout transformer en compétition, vous pouvez déplacer des montagnes ensemble.",
-                rapproche: "Votre énergie brute. Vous êtes les seuls à pouvoir suivre le rythme effréné de l’autre sans vous essouffler.",
-                epineux: "L'impulsivité. Vous démarrez tous les deux au quart de tour. Apprenez à compter jusqu'à dix avant de parler."
+                taureau: {
+                    titre: "LA FUSÉE ET LA MONTAGNE",
+                    score: 75,
+                    quotidien: "Le Bélier veut tout, tout de suite. Le Taureau prend son temps. C'est un ajustement constant : le Bélier tire, le Taureau ancre. Mais quand vous trouvez le rythme, le Bélier initie les projets et le Taureau les réalise concrètement.",
+                    amour: "Une alchimie charnelle puissante. Mars (Bélier) désire et Vénus (Taureau) savoure. Le Bélier apporte la flamme, le Taureau apporte la sensualité durable.",
+                    duree: "Solide si le Bélier apprend la patience. Le Taureau offre la stabilité dont le Bélier a besoin sans le savoir.",
+                    rapproche: "La force vitale. Vous êtes deux signes de printemps, pleins de vie et d'énergie physique.",
+                    epineux: "Le rythme. L'un court, l'autre marche. Ne vous énervez pas sur la vitesse de l'autre."
+                },
+                gemeaux: {
+                    titre: "LE VENT SUR LES BRAISES",
+                    score: 90,
+                    quotidien: "On ne s'ennuie jamais ! Le Bélier propose l'aventure, le Gémeaux organise l'itinéraire (et le change 3 fois). C'est vif, drôle, spontané. Vous êtes des éternels jeunes d'esprit.",
+                    amour: "C'est un jeu de séduction permanent. Le Gémeaux stimule l'esprit du Bélier, et le Bélier fascine le Gémeaux par son audace.",
+                    duree: "Excellente, car vous détestez tous les deux la routine. Vous saurez vous réinventer chaque matin.",
+                    rapproche: "L'enthousiasme. Vous mordez la vie à pleines dents, sans vous soucier du lendemain.",
+                    epineux: "L'inconstance. Attention à ne pas laisser trop de projets inachevés sur le bord de la route."
+                },
+                cancer: {
+                    titre: "LE CHEVALIER ET SON HAVRE",
+                    score: 60,
+                    quotidien: "Le Bélier fonce au dehors, le Cancer protège le dedans. Le Bélier peut parfois heurter la sensibilité du Cancer sans le vouloir. Il faut de la douceur.",
+                    amour: "Le Bélier se sent investi d'une mission de protection envers le Cancer, qui en retour lui offre une tendresse infinie et un foyer chaleureux.",
+                    duree: "Challengeante. Le Bélier doit apprendre la délicatesse, et le Cancer doit apprendre à ne pas bouder.",
+                    rapproche: "L'émotion brute. Vous réagissez tous les deux avec vos tripes, sans calcul.",
+                    epineux: "La susceptibilité. Le franc-parler du Bélier est une arme tranchante pour le cœur mou du Cancer."
+                },
+                lion: {
+                    titre: "L'INCENDIE PASSIONNEL",
+                    score: 95,
+                    quotidien: "C'est grandiose. Vous formez un couple charismatique qui ne passe pas inaperçu. Vous vous encouragez mutuellement à conquérir le monde.",
+                    amour: "Ardent, dramatique, loyal. Vous vous admirez mutuellement. C'est une histoire de cinéma, pleine de gestes grandioses.",
+                    duree: "Indestructible tant que vous regardez dans la même direction. Vous êtes des alliés de puissance.",
+                    rapproche: "L'ambition et l'honneur. Vous partagez une vision noble et héroïque de l'existence.",
+                    epineux: "L'ego. Si vous entrez en compétition pour la lumière, la guerre sera terrible. Partagez le trône."
+                },
+                vierge: {
+                    titre: "L'IMPULSION ET LE CONTRÔLE",
+                    score: 55,
+                    quotidien: "Le Bélier improvisé, la Vierge planifie. Le Bélier met le bazar, la Vierge range. Cela peut être complémentaire (l'un rassure l'autre) ou très agaçant.",
+                    amour: "La Vierge est fascinée par l'audace du Bélier, qui lui est touché par le dévouement discret de la Vierge. C'est un amour qui s'apprivoise.",
+                    duree: "Demande des efforts. Le Bélier doit respecter l'ordre de la Vierge, qui doit accepter la folie du Bélier.",
+                    rapproche: "L'honnêteté. Aucun de vous ne sait mentir ou manipuler. C'est une relation franche.",
+                    epineux: "La critique. Le Bélier déteste qu'on lui dise quoi faire, et la Vierge adore corriger les détails."
+                },
+                balance: {
+                    titre: "LE COUP DE FOUDRE",
+                    score: 98,
+                    quotidien: "Les opposés s'attirent ! Le Bélier décide, la Balance nuance. Le Bélier agit, la Balance harmonise. Vous vous complétez parfaitement.",
+                    amour: "Passionnel. Mars (Bélier) et Vénus (Balance) forment le couple archétypal de l'astrologie. C'est l'union de la Guerre et de la Paix.",
+                    duree: "Faite pour durer. La Balance apaise le Bélier, qui en retour lui donne la force de s'affirmer.",
+                    rapproche: "L'amour. Vous êtes tous les deux centrés sur l'autre, bien que de manière différente.",
+                    epineux: "L'indécision de la Balance peut rendre fou le Bélier, qui veut tout, tout de suite."
+                },
+                scorpion: {
+                    titre: "LA PASSION ROUGE ET NOIRE",
+                    score: 80,
+                    quotidien: "Intense. Deux signes gouvernés par Mars. C'est une lutte de pouvoir permanente mais excitante. On ne s'ennuie jamais, mais c'est fatiguant.",
+                    amour: "Sexuel, magnétique, absolu. Vous vivez vos émotions à 200%. C'est tout ou rien, adhésion totale ou rejet.",
+                    duree: "Cyclique. Des disputes explosives suivies de réconciliations sur l'oreiller mémorables.",
+                    rapproche: "L'intensité. Vous méprisez tous les deux la tiédeur et la médiocrité.",
+                    epineux: "L'agressivité. Attention à ne pas vous blesser mutuellement juste pour tester la résistance de l'autre."
+                },
+                sagittaire: {
+                    titre: "LES EXPLORATEURS",
+                    score: 96,
+                    quotidien: "Une aventure permanente ! Vous êtes toujours partants pour un voyage, un projet fou ou une sortie. L'optimisme règne en maître.",
+                    amour: "Joyeux, libre et franc. Pas de jalousie maladive, mais une confiance basée sur l'action commune.",
+                    duree: "Longue et heureuse. Vous êtes des compagnons de route idéaux. Vous vieillirez en riant.",
+                    rapproche: "La soif de vie. Vous voulez tout voir, tout goûter, tout expérimenter.",
+                    epineux: "Le manque de limites. À force de dire oui à tout, attention au burn-out ou aux dépenses imprévues."
+                },
+                capricorne: {
+                    titre: "L'ÉLAN ET LE SOMMET",
+                    score: 65,
+                    quotidien: "Le Bélier veut courir le sprint, le Capricorne court le marathon. Le Bélier trouve le Capricorne lent, le Capricorne trouve le Bélier immature.",
+                    amour: "Le Capricorne peut stabiliser le Bélier et l'aider à réussir. Le Bélier apporte la joie de vivre qui manque au Capricorne.",
+                    duree: "C'est une alliance stratégique. Si vous avez un but commun (famille, entreprise), vous êtes imbattables.",
+                    rapproche: "L'ambition. Vous voulez tous les deux être les premiers, chacun à votre manière.",
+                    epineux: "L'autorité. Vous voulez tous les deux commander. Il faudra définir des territoires clairs."
+                },
+                verseau: {
+                    titre: "LA LIBERTÉ CHÉRIE",
+                    score: 92,
+                    quotidien: "Aucune routine ! Le Verseau a les idées du futur, le Bélier a l'énergie pour les réaliser. Vous respectez totalement l'indépendance de l'autre.",
+                    amour: "Original et stimulant. C'est une relation basée sur l'amitié amoureuse et la surprise permanente.",
+                    duree: "Très bonne. Vous ne vous étouffez jamais. L'air du Verseau attise le feu du Bélier.",
+                    rapproche: "L'indépendance. Vous détestez tous les deux les chaînes et les obligations sociales.",
+                    epineux: "Le détachement. Le Bélier est passionné, le Verseau est cérébral. Parfois, le Bélier manquera de chaleur humaine."
+                },
+                poissons: {
+                    titre: "LE RÉEL ET L'IMAGINAIRE",
+                    score: 50,
+                    quotidien: "Le Bélier fonce dans le tas, le Poissons nage en eaux troubles. Le Bélier ne comprend pas toujours les états d'âme du Poissons.",
+                    amour: "Le Bélier veut sauver et protéger ce Poissons si mystérieux. Le Poissons apporte une magie qui fascine le Bélier.",
+                    duree: "Incertaine. Le Bélier risque de se lasser du flou artistique du Poissons, qui peut se sentir brutalisé.",
+                    rapproche: "L'intuition. Vous fonctionnez tous les deux à l'instinct, sans passer par la logique.",
+                    epineux: "La réalité. Le Bélier est dans l'action, le Poissons dans le rêve. Qui va payer les factures ?"
+                }
             },
+            
             taureau: {
-                titre: "LA FORTERESSE SENSUELLE",
-                score: 90,
-                quotidien: "Un cocon douillet et gourmand. Vous aimez les mêmes plaisirs : bien manger, dormir dans de beaux draps, la sécurité financière. C’est un rythme lent mais incroyablement apaisant.",
-                amour: "C’est tactile, charnel, possessif. Vous avez besoin de toucher pour croire. La fidélité est votre socle commun.",
-                duree: "Indestructible. Une fois que vous avez décidé de construire quelque chose, rien ne peut vous arrêter. Vous êtes des bâtisseurs.",
-                rapproche: "L'épicurisme. Cette capacité à jouir des plaisirs simples de la vie sans culpabilité.",
-                epineux: "L'entêtement. Si vous n'êtes pas d'accord, c'est le duel de deux murs. Aucun ne cède. Il faudra apprendre la souplesse."
+                // (Bélier déjà traité dans la section Bélier)
+                gemeaux: {
+                    titre: "LA TERRE ET LE VENT",
+                    score: 60,
+                    quotidien: "Le Taureau veut rester à la maison, le Gémeaux veut sortir. Le Taureau est calme, le Gémeaux est une pile électrique. C'est vivant mais fatiguant.",
+                    amour: "Le Gémeaux apporte de la légèreté au Taureau, qui lui offre un cadre rassurant. C'est l'attraction de la curiosité.",
+                    duree: "Demande de la souplesse. Le Taureau doit accepter que le Gémeaux change d'avis, et le Gémeaux doit apprendre à se poser.",
+                    rapproche: "Rien a priori, et c'est ça qui est drôle. Vous vous découvrez comme deux espèces différentes.",
+                    epineux: "L'insécurité. Le côté volage du Gémeaux peut réveiller la possessivité légendaire du Taureau."
+                },
+                cancer: {
+                    titre: "LE NID DOUILLET",
+                    score: 98,
+                    quotidien: "Le bonheur absolu. Vous aimez les mêmes choses : la maison, la famille, les bons repas, la sécurité. C'est tendre et confortable.",
+                    amour: "Une tendresse infinie. Le Taureau sécurise le Cancer angoissé. Le Cancer nourrit le cœur du Taureau.",
+                    duree: "Pour la vie. Vous construisez un foyer forteresse où il fait bon vivre. C'est le couple parental idéal.",
+                    rapproche: "Le besoin de sécurité. Vous protégez ce que vous aimez avec la même ferveur.",
+                    epineux: "L'enfermement. Attention à ne pas vivre en autarcie totale. Ouvrez parfois la fenêtre."
+                },
+                lion: {
+                    titre: "L'OR ET LA GLOIRE",
+                    score: 65,
+                    quotidien: "Deux signes fixes, deux têtes de mule. Le Lion dépense pour briller, le Taureau économise pour durer. Mais vous aimez tous les deux le luxe et la qualité.",
+                    amour: "Une relation puissante et possessive. Vous êtes fiers l'un de l'autre. C'est un couple qui a de la prestance.",
+                    duree: "Possible si vous ne vous butez pas. Si un conflit éclate, aucun de vous ne voudra céder en premier.",
+                    rapproche: "La loyauté. Vous ne trahissez jamais une promesse.",
+                    epineux: "L'argent et le pouvoir. Vos valeurs sont proches mais vos méthodes diffèrent. Attention aux luttes d'ego."
+                },
+                vierge: {
+                    titre: "LA SÉCURITÉ ABSOLUE",
+                    score: 95,
+                    quotidien: "C'est fluide, calme et constructif. Vous parlez le même langage de Terre. Pas de drame, juste du concret et de l'efficacité.",
+                    amour: "Un amour qui se prouve par des actes. La Vierge organise, le Taureau bâtit. Vous vous faites confiance les yeux fermés.",
+                    duree: "Très longue. Vous avancez lentement mais sûrement vers des objectifs communs.",
+                    rapproche: "Le réalisme. Vous avez les pieds sur terre tous les deux.",
+                    epineux: "La routine. C'est tellement stable que ça peut devenir un peu ennuyeux. Mettez un peu de piment !"
+                },
+                balance: {
+                    titre: "L'AMOUR DU BEAU",
+                    score: 80,
+                    quotidien: "Gouvernés tous deux par Vénus, vous cherchez l'harmonie. Le Taureau est sensuel et tactile, la Balance est esthète et romantique.",
+                    amour: "C'est doux, c'est beau. Vous détestez la vulgarité. Beaucoup de câlins, de dîners aux chandelles et de cadeaux.",
+                    duree: "Bonne. La Balance arrondit les angles quand le Taureau se braque.",
+                    rapproche: "L'art de vivre. Vous savez profiter des plaisirs de l'existence.",
+                    epineux: "La décision. La Balance hésite, le Taureau s'obstine. Le Taureau devra souvent trancher pour deux."
+                },
+                scorpion: {
+                    titre: "L'ATTRACTION FATALE",
+                    score: 92,
+                    quotidien: "Opposés polaires. Le Taureau est la matière, le Scorpion est l'énergie souterraine. L'attraction est magnétique, presque animale.",
+                    amour: "Une sexualité dévorante. C'est passionnel, jaloux, exclusif. Vous vous appartenez corps et âme.",
+                    duree: "Intense. Vous ne pouvez pas vous détacher l'un de l'autre, même si vous essayez.",
+                    rapproche: "La possessivité. Vous considérez le couple comme un pacte de sang.",
+                    epineux: "La rancune. Si vous vous blessez, la guerre sera totale. Aucun de vous n'oublie."
+                },
+                sagittaire: {
+                    titre: "LE CASANIER ET LE VOYAGEUR",
+                    score: 50,
+                    quotidien: "Le Taureau veut planter des racines, le Sagittaire veut des ailes. Le Taureau garde la maison, le Sagittaire part à l'aventure.",
+                    amour: "Le Sagittaire apporte de l'optimisme au Taureau, qui lui offre un port d'attache. Mais les rythmes sont différents.",
+                    duree: "Difficile à long terme. Le Taureau risque de se sentir insécurisé par la bougeotte du Sagittaire.",
+                    rapproche: "L'épicurisme. Vous aimez tous les deux bien manger et profiter de la vie.",
+                    epineux: "La liberté. Le Taureau veut posséder, le Sagittaire veut être libre. Conflit de valeurs majeur."
+                },
+                capricorne: {
+                    titre: "L'EMPIRE",
+                    score: 98,
+                    quotidien: "Vous êtes faits du même bois. Travailleurs, ambitieux, patients. Vous construisez ensemble un patrimoine solide.",
+                    amour: "Profond et mature. Pas de chichi, mais une solidité à toute épreuve. Le Capricorne respecte la force tranquille du Taureau.",
+                    duree: "Éternelle. C'est le couple qui fête ses noces de diamant. Rien ne peut vous ébranler.",
+                    rapproche: "L'ambition. Vous voulez tous les deux réussir et vous mettre à l'abri du besoin.",
+                    epineux: "Le pessimisme. Attention à ne pas transformer votre vie en une longue liste de devoirs et d'obligations."
+                },
+                verseau: {
+                    titre: "LA TRADITION ET LE FUTUR",
+                    score: 40,
+                    quotidien: "Le Taureau aime que rien ne change, le Verseau veut tout révolutionner. Le Taureau est prévisible, le Verseau est un chaos organisé.",
+                    amour: "Le Verseau intrigue le Taureau, mais il est souvent trop insaisissable pour lui. Le Taureau peut étouffer le Verseau.",
+                    duree: "Compliquée. Vous vivez sur deux échelles de temps différentes.",
+                    rapproche: "L'obstination. Vous êtes deux signes fixes : quand vous avez une idée, vous ne la lâchez pas.",
+                    epineux: "L'engagement. Le Taureau veut fusionner, le Verseau veut garder son indépendance. Dialogue de sourds."
+                },
+                poissons: {
+                    titre: "LE JARDIN D'ÉDEN",
+                    score: 88,
+                    quotidien: "Le Taureau s'occupe du réel, le Poissons s'occupe du rêve. Le Taureau offre un cadre rassurant aux divagations du Poissons.",
+                    amour: "Romantique et sensuel. Le Taureau est touché par la fragilité du Poissons et veut le protéger.",
+                    duree: "Harmonieuse. Vous créez votre petit monde à vous, loin de la dureté de la réalité.",
+                    rapproche: "La douceur. Vous cherchez tous les deux la paix et la beauté.",
+                    epineux: "Le manque de réalisme du Poissons peut parfois agacer le pragmatisme du Taureau."
+                }
             },
+
             gemeaux: {
-                titre: "LE PING-PONG MENTAL",
-                score: 80,
-                quotidien: "Vous ne vivez pas ensemble, vous cohabitez dans un tourbillon d'idées. Ça parle, ça débat, ça change d'avis toutes les 5 minutes. On ne s'ennuie jamais, mais où sont les clés de la maison ?",
-                amour: "Cérébral et ludique. Vous êtes avant tout des meilleurs amis qui s'adorent. La séduction passe par l'humour et les mots.",
-                duree: "Tant que c'est drôle, ça dure. Votre défi sera de construire du solide sans avoir l'impression de vous faire piéger par la routine.",
-                rapproche: "La curiosité. Vous avez cette soif commune de découvrir le monde et de ne jamais vous prendre au sérieux.",
-                epineux: "L'instabilité. À force de papillonner, vous risquez de survoler votre relation. Il faut parfois savoir se poser."
+                // (Bélier et Taureau déjà traités plus haut)
+                cancer: {
+                    titre: "L'ENFANT ET LA MAMAN",
+                    score: 55,
+                    quotidien: "Le Gémeaux veut jouer et rire, le Cancer veut câliner et protéger. Le Gémeaux est mental, le Cancer est viscéral.",
+                    amour: "Le Cancer est fasciné par l'esprit du Gémeaux, mais il risque de souffrir de ses blagues ou de son détachement.",
+                    duree: "Instable. Le Gémeaux se sent vite étouffé par les demandes affectives du Cancer.",
+                    rapproche: "L'imagination. Vous avez tous les deux un monde intérieur très riche.",
+                    epineux: "L'émotion. Le Gémeaux rationalise tout, le Cancer ressent tout. Incompréhension fréquente."
+                },
+                lion: {
+                    titre: "LA STAR ET SON AGENT",
+                    score: 92,
+                    quotidien: "Vous brillez ! Le Lion est sur le devant de la scène, le Gémeaux assure les relations publiques. C'est fun, social et pétillant.",
+                    amour: "Le Gémeaux sait exactement quoi dire pour flatter le Lion, et le Lion adore ce partenaire si spirituel.",
+                    duree: "Excellente. Vous ne vous ennuyez jamais ensemble. C'est un couple solaire.",
+                    rapproche: "La sociabilité. Vous aimez sortir, voir du monde et être au centre de l'attention.",
+                    epineux: "La superficialité. Attention à ne pas rester uniquement dans le paraître. Creusez un peu."
+                },
+                vierge: {
+                    titre: "LES INTELLECTUELS",
+                    score: 65,
+                    quotidien: "Gouvernés tous deux par Mercure. Ça discute, ça analyse, ça critique. Le Gémeaux est le bordel créatif, la Vierge est l'ordre critique.",
+                    amour: "Une connexion mentale forte. Mais la Vierge peut trouver le Gémeaux trop irresponsable, et le Gémeaux trouver la Vierge rabat-joie.",
+                    duree: "Possible si vous communiquez. Vous risquez de devenir des collègues ou des frères et sœurs.",
+                    rapproche: "L'intelligence. Vous détestez la bêtise et l'ignorance.",
+                    epineux: "La nervosité. Vous êtes deux signes anxieux, chacun à votre manière. Apprenez à vous détendre."
+                },
+                balance: {
+                    titre: "LA DOLCE VITA",
+                    score: 96,
+                    quotidien: "C'est fluide, léger, charmant. Vous discutez des heures sans voir le temps passer. Aucun conflit lourd, tout se règle par la parole.",
+                    amour: "Une complicité intellectuelle et amicale rare. Vous êtes sur la même longueur d'onde aérienne.",
+                    duree: "Idéale. Vous vous comprenez à demi-mot. C'est facile de vivre ensemble.",
+                    rapproche: "La communication. Pour vous, aimer c'est d'abord échanger.",
+                    epineux: "L'engagement concret. Vous êtes tellement bien dans les nuages que personne ne pense à payer le loyer."
+                },
+                scorpion: {
+                    titre: "LE JOUEUR ET LE STRATÈGE",
+                    score: 50,
+                    quotidien: "Le Gémeaux prend tout à la légère, le Scorpion prend tout au tragique. Le Gémeaux joue, le Scorpion manipule.",
+                    amour: "Le Scorpion est fasciné par la légèreté du Gémeaux, qu'il essaie d'attraper. Le Gémeaux est intrigué mais un peu effrayé.",
+                    duree: "Complexe. Le Scorpion risque de devenir jaloux de la sociabilité du Gémeaux, qui fuira.",
+                    rapproche: "La psychologie. Vous aimez tous les deux comprendre comment fonctionnent les gens.",
+                    epineux: "Le secret. Le Gémeaux dit tout, le Scorpion ne dit rien. Méfiance réciproque."
+                },
+                sagittaire: {
+                    titre: "L'AXE DU SAVOIR",
+                    score: 90,
+                    quotidien: "Signes opposés et complémentaires. Le Gémeaux est l'étudiant, le Sagittaire est le professeur. Vous avez soif de découvrir le monde.",
+                    amour: "Une grande liberté mutuelle. Pas de chaînes. Vous voyagez, vous apprenez, vous riez.",
+                    duree: "Aventureuse. Vous ne resterez pas longtemps au même endroit. La routine est votre ennemie.",
+                    rapproche: "La curiosité. Vous voulez tout comprendre et tout voir.",
+                    epineux: "La dispersion. À force de courir partout, vous risquez de vous croiser sans vous voir."
+                },
+                capricorne: {
+                    titre: "LA CIGALE ET LA FOURMI",
+                    score: 40,
+                    quotidien: "Le Gémeaux est un éternel adolescent, le Capricorne est né vieux. Le Gémeaux veut s'amuser, le Capricorne veut travailler.",
+                    amour: "Le Capricorne peut structurer le Gémeaux, mais il risque souvent de le juger sévèrement. Le Gémeaux trouve le Capricorne ennuyeux.",
+                    duree: "Difficile. Vous n'avez pas les mêmes priorités dans la vie.",
+                    rapproche: "L'humour (parfois). Le Capricorne a un humour noir que le Gémeaux peut apprécier.",
+                    epineux: "La maturité. Le Capricorne demande une responsabilité que le Gémeaux refuse de porter."
+                },
+                verseau: {
+                    titre: "LES ÂMES SŒURS MENTALES",
+                    score: 98,
+                    quotidien: "Vous vous comprenez instantanément. Mêmes idées, même besoin de liberté, même vision du monde. C'est stimulant et électrique.",
+                    amour: "Une amitié amoureuse indestructible. Vous respectez totalement l'individualité de l'autre.",
+                    duree: "Longue. Vous ne vous lasserez jamais de discuter ensemble.",
+                    rapproche: "L'originalité. Vous ne faites rien comme tout le monde et vous adorez ça.",
+                    epineux: "L'émotion. C'est tellement cérébral que vous pouvez oublier la tendresse physique. N'oubliez pas le corps."
+                },
+                poissons: {
+                    titre: "LE MIRAGE",
+                    score: 50,
+                    quotidien: "C'est flou. Le Gémeaux est logique, le Poissons est intuitif. Le Gémeaux ment par jeu, le Poissons ment par omission. On ne sait plus ce qui est vrai.",
+                    amour: "Le Gémeaux essaie de comprendre le Poissons, qui lui glisse entre les doigts. C'est insaisissable.",
+                    duree: "Confuse. Beaucoup de malentendus possibles. Vous ne parlez pas la même langue.",
+                    rapproche: "La flexibilité. Vous êtes deux signes mutables, capables de vous adapter à tout.",
+                    epineux: "La cohérence. Votre couple manque de direction et de colonne vertébrale."
+                }
             },
             cancer: {
-                titre: "LA BULLE ÉMOTIONNELLE",
-                score: 85,
-                quotidien: "C'est un vase clos, protégé du monde extérieur. Vous créez un foyer hyper-sécurisant. On se comprend sans parler, on ressent les humeurs de l'autre instantanément.",
-                amour: "Fusionnel et tendre. Vous avez un immense besoin de câlins et de réassurance. Vous êtes l'un pour l'autre un refuge.",
-                duree: "Très forte, si vous ne vous noyez pas dans vos émotions communes. Vous avez vocation à fonder une famille, réelle ou symbolique.",
-                rapproche: "L'empathie. Vous savez instinctivement ce qui blesse ou fait plaisir à l'autre.",
-                epineux: "Les bouderies. Deux crabes qui se renferment dans leur coquille en même temps, ça peut créer des silences interminables."
+                // (Bélier, Taureau, Gémeaux déjà traités plus haut)
+                lion: {
+                    titre: "LE SOLEIL ET LA LUNE",
+                    score: 75,
+                    quotidien: "Le Lion brille, le Cancer protège. Le Lion est l'action extérieure, le Cancer est la sécurité intérieure. C'est l'archétype du couple Roi/Reine où chacun règne sur son domaine.",
+                    amour: "Le Cancer admire la force du Lion, et le Lion adore être 'materné' et choyé par le Cancer. Une tendresse réciproque puissante.",
+                    duree: "Très bonne. Si le Lion respecte la sensibilité du Cancer et que le Cancer laisse le Lion briller.",
+                    rapproche: "La loyauté. Vous protégez tous les deux votre clan avec férocité.",
+                    epineux: "L'orgueil du Lion face à la susceptibilité du Cancer. Un mot maladroit et le Cancer boude pour trois jours."
+                },
+                vierge: {
+                    titre: "LE JARDIN SECRET",
+                    score: 90,
+                    quotidien: "C'est doux, calme et sécurisant. Le Cancer apporte la poésie, la Vierge apporte l'organisation. Vous aimez tous les deux prendre soin de votre foyer et des petits détails.",
+                    amour: "Une affection pudeur et profonde. Pas de grands éclats, mais une présence constante. La Vierge ancre les émotions du Cancer.",
+                    duree: "Excellente. Vous construisez une vie stable, saine et confortable, loin du bruit du monde.",
+                    rapproche: "Le besoin de sécurité. Vous n'aimez ni l'un ni l'autre l'imprévu.",
+                    epineux: "L'inquiétude. Vous pouvez vous entraîner mutuellement dans des spirales d'anxiété. Apprenez à lâcher prise."
+                },
+                balance: {
+                    titre: "LA DIPLOMATIE DU CŒUR",
+                    score: 60,
+                    quotidien: "La Balance veut sortir et voir du monde, le Cancer veut rester sous la couette. La Balance intellectualise, le Cancer ressent. Ça demande des ajustements.",
+                    amour: "C'est romantique et courtois. La Balance apporte de la légèreté aux émotions parfois lourdes du Cancer.",
+                    duree: "Moyenne. Le Cancer peut trouver la Balance trop superficielle ou mondaine à la longue.",
+                    rapproche: "La gentillesse. Vous détestez tous les deux le conflit et la vulgarité.",
+                    epineux: "L'incompréhension. Le Cancer a besoin de fusion, la Balance a besoin d'air et de social. Risque de décalage."
+                },
+                scorpion: {
+                    titre: "L'OCÉAN PROFOND",
+                    score: 98,
+                    quotidien: "Vous vous comprenez sans parler. Deux signes d'Eau : l'intuition est totale. Vous vivez dans votre bulle, imperméable au monde extérieur.",
+                    amour: "Fusionnel, absolu, magique. Le Scorpion protège le Cancer, qui en retour apaise les tourments du Scorpion. Une alchimie d'âmes sœurs.",
+                    duree: "Éternelle. Le lien est quasi indestructible, tissé de secrets et de ressentis partagés.",
+                    rapproche: "L'intensité émotionnelle. Pour vous, aimer c'est fusionner.",
+                    epineux: "Le drame. Si vous sombrez tous les deux dans la dépression ou la paranoïa, personne ne remonte à la surface."
+                },
+                sagittaire: {
+                    titre: "LE FOYER ET L'AVENTURE",
+                    score: 50,
+                    quotidien: "Le Cancer veut des racines, le Sagittaire veut des ailes. Le Cancer économise, le Sagittaire dépense. Le Cancer est prudent, le Sagittaire est téméraire.",
+                    amour: "Le Sagittaire peut bousculer positivement le Cancer et le faire sortir de sa coquille. Le Cancer offre un port d'attache au voyageur.",
+                    duree: "Difficile. Le Sagittaire se sentira vite en cage, et le Cancer se sentira abandonné.",
+                    rapproche: "L'imagination. Vous êtes deux rêveurs, chacun à votre manière.",
+                    epineux: "L'indépendance. Le Cancer veut retenir, le Sagittaire veut partir. Conflit de besoins fondamentaux."
+                },
+                capricorne: {
+                    titre: "L'AXE DE LA FAMILLE",
+                    score: 88,
+                    quotidien: "Opposés et complémentaires. Le Cancer est la Mère (douceur), le Capricorne est le Père (rigueur). Ensemble, vous bâtissez un empire familial solide.",
+                    amour: "Le Capricorne structure les émotions du Cancer. Le Cancer adoucit la froideur du Capricorne. C'est un équilibre parfait.",
+                    duree: "Pour la vie. Vous avez les mêmes valeurs traditionnelles et le même sens de l'engagement.",
+                    rapproche: "La famille. C'est le pilier central de votre union.",
+                    epineux: "La froideur. Le Cancer a besoin de mots d'amour que le Capricorne a parfois du mal à prononcer."
+                },
+                verseau: {
+                    titre: "LE PASSÉ ET LE FUTUR",
+                    score: 40,
+                    quotidien: "Le Cancer est nostalgique et attaché aux souvenirs. Le Verseau est tourné vers l'avenir et le progrès. Le Cancer est collant, le Verseau est distant.",
+                    amour: "Le Verseau intrigue le Cancer par son originalité, mais il ne comble pas son besoin de sécurité affective.",
+                    duree: "Compliquée. Le Cancer risque de souffrir du détachement émotionnel du Verseau.",
+                    rapproche: "L'humain. Le Verseau aime l'humanité, le Cancer aime les humains. Nuance importante.",
+                    epineux: "L'intimité. Le Cancer veut fusionner, le Verseau veut respirer. Dialogue de sourds fréquent."
+                },
+                poissons: {
+                    titre: "LE CONTE DE FÉES",
+                    score: 95,
+                    quotidien: "Tout est fluide, doux, intuitif. Vous vivez dans un rêve éveillé. La réalité matérielle passe au second plan (attention aux factures !).",
+                    amour: "Romantique et spirituel. Vous vous devinez. C'est une communion des cœurs, tendre et bienveillante.",
+                    duree: "Longue et paisible. Vous créez un refuge contre la dureté du monde.",
+                    rapproche: "La sensibilité. Vous pleurez devant les mêmes films et ressentez les mêmes vibrations.",
+                    epineux: "La fuite. Aucun de vous n'aime affronter les problèmes concrets. Risque de déni de réalité."
+                }
             },
+
             lion: {
-                titre: "LE COUPLE ROYAL",
-                score: 70,
-                quotidien: "C'est brillant, c'est théâtral. Vous aimez recevoir, briller, être admirés. Vous vous soutenez mutuellement pour réussir, à condition de ne pas vous faire d'ombre.",
-                amour: "Passionné et généreux. Vous vous couvrez de cadeaux et d'attentions. Vous voulez que votre couple soit 'le plus beau'.",
-                duree: "Solide, tant que le respect mutuel est là. Si l'un blesse l'ego de l'autre, la guerre est déclarée.",
-                rapproche: "La loyauté. Vous avez un code d'honneur très strict et vous défendez votre partenaire envers et contre tous.",
-                epineux: "L'orgueil. Apprendre à dire 'pardon' ou 'tu as raison' est un défi titanesque pour vous deux."
+                // (Bélier, Taureau, Gémeaux, Cancer déjà traités)
+                vierge: {
+                    titre: "LE ROI ET L'INTENDANT",
+                    score: 65,
+                    quotidien: "Le Lion a la vision globale, la Vierge gère les détails. Si chacun reste à sa place, c'est très efficace. Sinon, la Vierge critique et le Lion rugit.",
+                    amour: "La Vierge est dévouée et admire le Lion. Le Lion se sent soutenu. Mais la Vierge peut trouver le Lion trop dépensier ou égocentrique.",
+                    duree: "Stable si la hiérarchie est acceptée. Le Lion doit valoriser la Vierge, qui ne doit pas devenir servile.",
+                    rapproche: "La volonté de bien faire. Vous êtes deux perfectionnistes, l'un dans la forme, l'autre dans le fond.",
+                    epineux: "La critique. Le Lion déteste qu'on lui fasse remarquer ses erreurs, ce que la Vierge adore faire."
+                },
+                balance: {
+                    titre: "LE COUPLE GLAMOUR",
+                    score: 95,
+                    quotidien: "Vous êtes beaux ensemble ! Vous aimez sortir, recevoir, l'art et l'élégance. C'est une vie sociale riche et brillante.",
+                    amour: "Le Lion adore être admiré, la Balance adore séduire. C'est un jeu de miroirs flatteur. Beaucoup de romantisme.",
+                    duree: "Excellente. Vous partagez le même goût pour le raffinement et l'harmonie.",
+                    rapproche: "L'esthétique. La laideur et la médiocrité vous font fuir tous les deux.",
+                    epineux: "L'apparence. Attention à ne pas construire un couple uniquement pour la galerie. Soyez authentiques."
+                },
+                scorpion: {
+                    titre: "LE CHOC DES PUISSANCES",
+                    score: 50,
+                    quotidien: "Deux signes fixes, deux egos, deux volontés de contrôle. Le Lion commande de face, le Scorpion manipule en coulisses. Tension maximale.",
+                    amour: "Passionnel mais destructeur. C'est une lutte de pouvoir permanente mêlée d'une attraction sexuelle forte.",
+                    duree: "Explosive. C'est souvent 'je t'aime, moi non plus'. Difficile de trouver la paix.",
+                    rapproche: "La force de caractère. Vous respectez l'adversaire de taille que vous avez en face.",
+                    epineux: "La domination. Il n'y a de place que pour un seul chef. Qui se soumettra ? Personne."
+                },
+                sagittaire: {
+                    titre: "LE FEU SACRÉ",
+                    score: 98,
+                    quotidien: "C'est grandiose, joyeux, dynamique. Vous voyez grand tous les deux. Voyages, projets fous, générosité. On ne s'ennuie pas.",
+                    amour: "Une complicité totale. Le Sagittaire inspire le Lion, le Lion donne les moyens au Sagittaire. C'est chaleureux.",
+                    duree: "Idéale. Vous êtes des partenaires de conquête. Vous tirez le meilleur l'un de l'autre.",
+                    rapproche: "L'optimisme. Vous croyez en votre bonne étoile et en la vie.",
+                    epineux: "L'exagération. Vous avez tendance à en faire trop, à dépenser trop, à parler trop fort."
+                },
+                capricorne: {
+                    titre: "L'AMBITION PARTAGÉE",
+                    score: 75,
+                    quotidien: "Le Lion veut le prestige, le Capricorne veut le pouvoir. C'est un couple 'Power Couple'. Socialement, c'est une réussite totale.",
+                    amour: "Un peu froid. Le Capricorne peut éteindre l'enthousiasme du Lion par son réalisme. Le Lion trouve le Capricorne austère.",
+                    duree: "Solide par intérêt commun. Vous construisez un empire, mais n'oubliez pas de vous aimer.",
+                    rapproche: "La réussite. Vous voulez tous les deux atteindre le sommet.",
+                    epineux: "La chaleur. Le Lion a besoin de démonstrations que le Capricorne juge inutiles."
+                },
+                verseau: {
+                    titre: "L'AXE DE L'IDENTITÉ",
+                    score: 85,
+                    quotidien: "Opposés polaires. Le Lion est 'Moi', le Verseau est 'Nous'. Le Lion est personnel, le Verseau est universel. Vous vous fascinez.",
+                    amour: "Le Verseau trouve le Lion un peu trop théâtral mais attachant. Le Lion est intrigué par la liberté du Verseau.",
+                    duree: "Enrichissante. Le Verseau apprend au Lion à être moins égoïste, le Lion apprend au Verseau à avoir du cœur.",
+                    rapproche: "L'individualité. Vous ne voulez ressembler à personne d'autre.",
+                    epineux: "L'ego. Le Lion veut être le centre du monde du Verseau, qui refuse d'avoir un centre."
+                },
+                poissons: {
+                    titre: "LE HÉROS ET LA MUSE",
+                    score: 60,
+                    quotidien: "Le Lion dirige, le Poissons suit (ou rêve). Le Lion protège ce signe fragile. Mais le Poissons est insaisissable pour le Lion direct.",
+                    amour: "Romantique. Le Lion est touché par la dévotion du Poissons. Mais attention aux désillusions.",
+                    duree: "Inégale. Le Lion risque de se fatiguer de devoir tout gérer pendant que le Poissons plane.",
+                    rapproche: "Le rêve. Le Lion veut rendre la vie magique, le Poissons vit dans la magie.",
+                    epineux: "La réalité. Le Poissons fuit les responsabilités que le Lion finit par porter seul."
+                }
             },
+
             vierge: {
-                titre: "L'ORDRE PARFAIT",
-                score: 88,
-                quotidien: "Tout est réglé comme du papier à musique. Vous anticipez les problèmes avant qu'ils n'arrivent. C'est propre, c'est sain, c'est efficace. L'angoisse n'a pas sa place ici.",
-                amour: "Pudique mais dévoué. Pas de grandes déclarations enflammées, mais des petits gestes quotidiens qui prouvent que l'on tient à l'autre.",
-                duree: "Rassurante. Vous construisez pierre après pierre, sans prise de risque inutile. C'est du solide.",
-                rapproche: "L'honnêteté intellectuelle. Vous aimez analyser les choses avec lucidité, sans faux-semblants.",
-                epineux: "La critique. À force de vouloir tout perfectionner, vous risquez de passer votre temps à vous faire des remarques. Lâchez du lest."
+                // (Précédents traités)
+                balance: {
+                    titre: "LA DÉLICATESSE",
+                    score: 80,
+                    quotidien: "C'est courtois, raffiné et calme. La Vierge gère l'intendance, la Balance la déco et le social. Vous détestez le conflit.",
+                    amour: "Intellectuel et doux. La Balance arrondit les angles de la Vierge critique. La Vierge sécurise la Balance indécise.",
+                    duree: "Paisible. C'est un couple sans vagues, peut-être un peu trop sage.",
+                    rapproche: "Le raffinement. Vous aimez les choses bien faites et les relations polies.",
+                    epineux: "La décision. La Vierge analyse trop, la Balance hésite trop. Qui tranche ?"
+                },
+                scorpion: {
+                    titre: "L'ANALYSE ET L'INSTINCT",
+                    score: 88,
+                    quotidien: "La Vierge décortique, le Scorpion transperce. Rien ne vous échappe. Vous êtes redoutables ensemble pour comprendre le monde.",
+                    amour: "Le Scorpion réveille la sensualité cachée de la Vierge. La Vierge apaise les angoisses du Scorpion.",
+                    duree: "Profonde. Le lien est cérébral et charnel. Une complicité secrète vous unit.",
+                    rapproche: "La lucidité. Vous voyez les choses telles qu'elles sont, sans filtre.",
+                    epineux: "L'obsession. La Vierge peut devenir maniaque et le Scorpion paranoïaque. Attention à l'enfermement."
+                },
+                sagittaire: {
+                    titre: "LE DÉTAIL ET L'ENSEMBLE",
+                    score: 50,
+                    quotidien: "La Vierge regarde le grain de sable, le Sagittaire regarde l'horizon. La Vierge est prudente, le Sagittaire imprudent. Ça frotte.",
+                    amour: "Difficile. La Vierge essaie de cadrer un Sagittaire qui ne pense qu'à galoper. Frustrations mutuelles.",
+                    duree: "Challenge. Vous avez beaucoup à apprendre l'un de l'autre, mais la cohabitation est sportive.",
+                    rapproche: "L'intellect. Vous êtes deux signes 'mentaux', capables de grandes discussions.",
+                    epineux: "Le quotidien. Le désordre du Sagittaire rend la Vierge malade."
+                },
+                capricorne: {
+                    titre: "L'EMPIRE SOLIDE",
+                    score: 98,
+                    quotidien: "Deux signes de Terre. Vous parlez le même langage : efficacité, économie, devoir. C'est une machine de guerre bien huilée.",
+                    amour: "Pas très démonstratif, mais d'une fiabilité absolue. Vous comptez l'un sur l'autre comme sur un roc.",
+                    duree: "Indestructible. Vous vieillirez ensemble dans la sécurité et le confort.",
+                    rapproche: "Le réalisme. Pas de chimères ici, que du concret.",
+                    epineux: "L'austérité. N'oubliez pas de rire et de jouer un peu. La vie n'est pas qu'une to-do list."
+                },
+                verseau: {
+                    titre: "LA LOGIQUE ET LE GÉNIE",
+                    score: 60,
+                    quotidien: "La Vierge est méthodique, le Verseau est chaotique. La Vierge suit les règles, le Verseau les casse. C'est perturbant.",
+                    amour: "Cérébral. Vous échangez beaucoup d'idées, mais le Verseau est trop imprévisible pour la Vierge anxieuse.",
+                    duree: "Instable. La Vierge finira par s'épuiser à essayer de ranger la vie du Verseau.",
+                    rapproche: "L'intelligence. Vous avez l'esprit vif tous les deux.",
+                    epineux: "L'imprévu. Le carburant du Verseau est le poison de la Vierge."
+                },
+                poissons: {
+                    titre: "L'AXE DU SERVICE",
+                    score: 85,
+                    quotidien: "Opposés complémentaires. La Vierge organise le réel pour permettre au Poissons de rêver. Le Poissons apporte la magie qui manque à la Vierge.",
+                    amour: "La Vierge est touchée par la grâce du Poissons. Le Poissons se sent en sécurité avec la Vierge. C'est alchimique.",
+                    duree: "Très bonne. Vous vous complétez : l'un a les pieds sur terre, l'autre la tête dans les étoiles.",
+                    rapproche: "Le dévouement. Vous aimez tous les deux aider et soigner.",
+                    epineux: "Le chaos. Si le Poissons est trop désorganisé, la Vierge devient tyrannique."
+                }
             },
+
             balance: {
-                titre: "L'ESTHÉTIQUE ABSOLUE",
-                score: 90,
-                quotidien: "C'est fluide, élégant et diplomate. On évite les conflits, on arrondit les angles. Votre maison est un havre de paix et de bon goût.",
-                amour: "Romantique à souhait. Vous êtes amoureux de l'amour. Vous avez besoin de l'autre pour exister, c'est un jeu de miroirs permanent.",
-                duree: "Harmonieuse. Vous détestez tellement la rupture que vous ferez tout pour maintenir l'équilibre.",
-                rapproche: "La quête d'harmonie. Vous avez horreur de la vulgarité et de la violence.",
-                epineux: "L'indécision. Pour choisir un restaurant ou un appartement, ça peut prendre des heures. Personne ne veut trancher pour ne pas déplaire."
+                // (Précédents traités)
+                scorpion: {
+                    titre: "LA BELLE ET LA BÊTE",
+                    score: 70,
+                    quotidien: "La Balance veut l'harmonie, le Scorpion veut l'intensité. La Balance sourit, le Scorpion scrute. C'est fascinant mais fatiguant.",
+                    amour: "Attraction fatale. Le Scorpion est obsédé par la beauté de la Balance, qui est hypnotisée par le mystère du Scorpion.",
+                    duree: "Passionnée. Mais la Balance risque de fuir les drames incessants du Scorpion.",
+                    rapproche: "Le couple. Vous ne concevez pas la vie en solo.",
+                    epineux: "La jalousie. Le Scorpion est possessif, la Balance aime plaire. Mélange explosif."
+                },
+                sagittaire: {
+                    titre: "LES MONDAINS",
+                    score: 95,
+                    quotidien: "C'est léger, joyeux, sociable. Vous sortez, vous voyagez, vous recevez. Une vie de couple ouverte sur le monde.",
+                    amour: "Facile et enthousiaste. Le Sagittaire fait rire la Balance, qui l'apaise. Pas de lourdeur entre vous.",
+                    duree: "Excellente. Vous êtes des complices de vie, toujours partants pour la nouveauté.",
+                    rapproche: "La justice. Vous avez tous les deux un fort idéal social.",
+                    epineux: "L'engagement profond. Tout va bien tant que c'est fun. Serez-vous là dans la tempête ?"
+                },
+                capricorne: {
+                    titre: "LE SOCIAL ET LE SOLITAIRE",
+                    score: 60,
+                    quotidien: "La Balance a besoin de monde, le Capricorne a besoin de silence. La Balance dépense pour l'esthétique, le Capricorne pour l'utile.",
+                    amour: "Le Capricorne est fasciné par l'élégance de la Balance mais la trouve frivole. La Balance trouve le Capricorne froid.",
+                    duree: "Difficile. Vous ne partagez pas les mêmes plaisirs.",
+                    rapproche: "L'ambition sociale. Vous savez tous les deux vous tenir en société.",
+                    epineux: "La froideur. La Balance a besoin de mots d'amour que le Capricorne ne dit pas."
+                },
+                verseau: {
+                    titre: "LES IDÉALISTES",
+                    score: 98,
+                    quotidien: "Deux signes d'Air. Ça vole haut ! Discussions interminables, projets humanitaires, vie amicale riche. On respire.",
+                    amour: "Libre et intellectuel. Vous êtes les meilleurs amis du monde. Pas de jalousie, juste du partage.",
+                    duree: "Parfaite. Vous vous comprenez sans effort. C'est fluide.",
+                    rapproche: "La communication. Vous avez toujours quelque chose à vous dire.",
+                    epineux: "L'intimité charnelle. N'oubliez pas de redescendre sur terre pour vous toucher."
+                },
+                poissons: {
+                    titre: "LE ROMANTISME ABSOLU",
+                    score: 75,
+                    quotidien: "C'est poétique, artistique, un peu déconnecté du réel. La Balance veut que ce soit beau, le Poissons veut que ce soit magique.",
+                    amour: "Tendre et sentimental. Vous vous écrivez des poèmes. Mais qui prend les décisions difficiles ?",
+                    duree: "Floue. Vous risquez de flotter côte à côte sans direction précise.",
+                    rapproche: "L'amour de l'art et de la beauté.",
+                    epineux: "La réalité. Quand les problèmes arrivent, vous avez tous les deux tendance à fuir."
+                }
             },
+
             scorpion: {
-                titre: "LA FUSION MYSTIQUE",
-                score: 80,
-                quotidien: "C'est intense, tout le temps. Vous communiquez par télépathie. Rien n'est superficiel, tout est analysé, disséqué. C'est fascinant mais épuisant pour les autres.",
-                amour: "Absolu. C'est tout ou rien. La passion est dévorante, la sexualité transcendante. Vous vous appartenez mutuellement.",
-                duree: "Éternelle... ou destructrice. Vous êtes capables de renaître de vos cendres mille fois.",
-                rapproche: "La profondeur. Vous seuls comprenez cette soif de vérité absolue qui vous habite.",
-                epineux: "La jalousie et le contrôle. C'est une guerre froide permanente pour savoir qui a le pouvoir. Apprenez à faire confiance."
+                // (Précédents traités)
+                sagittaire: {
+                    titre: "LE MYSTÈRE ET LA VÉRITÉ",
+                    score: 55,
+                    quotidien: "Le Scorpion cache tout, le Sagittaire dit tout. Le Scorpion est casanier, le Sagittaire est nomade. Difficile à concilier.",
+                    amour: "Le Scorpion trouve le Sagittaire superficiel. Le Sagittaire trouve le Scorpion plombant. Mais sexuellement, c'est intense.",
+                    duree: "Courte souvent. Le Sagittaire fuira l'emprise du Scorpion.",
+                    rapproche: "La quête de sens. Vous cherchez tous les deux une vérité, l'un dans l'ombre, l'autre dans la lumière.",
+                    epineux: "L'optimisme vs le pessimisme. Vous ne voyez pas le même monde."
+                },
+                capricorne: {
+                    titre: "LES STRATÈGES",
+                    score: 92,
+                    quotidien: "Vous êtes durs, résistants, ambitieux. Vous formez une alliance redoutable. Personne n'ose vous attaquer. C'est du sérieux.",
+                    amour: "Profond, fidèle, absolu. Vous n'avez pas besoin de parler pour vous comprendre. Vous vous respectez immensément.",
+                    duree: "Indestructible. Une fois l'engagement pris, c'est pour la vie. Un couple de pouvoir.",
+                    rapproche: "L'exigence. Vous ne supportez pas la faiblesse ou la médiocrité.",
+                    epineux: "Le silence. Attention à ne pas vous murer dans un mutisme hautain."
+                },
+                verseau: {
+                    titre: "LE REBELLE ET LE RÉVOLUTIONNAIRE",
+                    score: 60,
+                    quotidien: "Le Scorpion veut fusionner, le Verseau veut se détacher. Le Scorpion est intense, le Verseau est froid. Ça coince.",
+                    amour: "Le Scorpion veut posséder l'âme du Verseau, qui est insaisissable. Cela rend le Scorpion fou.",
+                    duree: "Toxique ou brève. Le Verseau finira par partir pour respirer.",
+                    rapproche: "L'anticonformisme. Vous aimez tous les deux choquer le bourgeois.",
+                    epineux: "La liberté. Le besoin d'air du Verseau est une insulte pour l'amour fusionnel du Scorpion."
+                },
+                poissons: {
+                    titre: "L'ÂME SŒUR SPIRITUELLE",
+                    score: 98,
+                    quotidien: "Deux signes d'Eau. L'osmose est totale. Vous communiquez par ondes. C'est magique, mystique, enveloppant.",
+                    amour: "Inconditionnel. Vous vous devinez. Le Scorpion protège le Poissons, qui apaise le Scorpion.",
+                    duree: "Éternelle. C'est le couple qui ne fait qu'un. La fusion dont vous rêvez tous les deux.",
+                    rapproche: "L'intuition. Vous ressentez les choses avec la même intensité.",
+                    epineux: "Les addictions. Attention à ne pas vous entraîner mutuellement vers le fond si ça va mal."
+                }
             },
+
             sagittaire: {
-                titre: "LES AVENTURIERS",
-                score: 92,
-                quotidien: "On ne sait jamais où on sera demain. C'est joyeux, optimiste, bordélique. Vous vivez valises à la main, l'esprit toujours ailleurs.",
-                amour: "Libre et enthousiaste. Vous êtes des complices de voyage. Pas de jalousie mesquine ici, on regarde ensemble vers l'horizon.",
-                duree: "Fun ! Tant que vous avez des projets communs, rien ne vous arrête. La routine est votre seule ennemie.",
-                rapproche: "La philosophie de vie. Voir le verre à moitié plein et croire en sa bonne étoile.",
-                epineux: "Le manque d'ancrage. À force de regarder le ciel, on oublie de payer les factures. Il faut parfois redescendre sur Terre."
+                // (Tous les précédents sont déjà faits dans les autres sections)
+                capricorne: {
+                    titre: "L'OPTIMISTE ET LE RÉALISTE",
+                    score: 60,
+                    quotidien: "Le Sagittaire dit 'Tout est possible !', le Capricorne répond 'Non, voici le budget'. Le Sagittaire veut courir, le Capricorne veut bâtir. C'est parfois frustrant.",
+                    amour: "Le Capricorne admire la joie du Sagittaire mais le trouve immature. Le Sagittaire trouve le Capricorne rabat-joie mais rassurant.",
+                    duree: "Demandera des compromis. Le Sagittaire devra mûrir, le Capricorne devra sourire.",
+                    rapproche: "L'ambition. Vous voulez tous les deux aller haut et loin.",
+                    epineux: "Le temps. Le Sagittaire vit dans l'instant, le Capricorne vit dans la durée."
+                },
+                verseau: {
+                    titre: "LES AMIS DU MONDE",
+                    score: 95,
+                    quotidien: "Génial ! Vous êtes indépendants, ouverts, tournés vers le futur. Pas de chaînes, pas de drames. Vous refaites le monde au petit-déjeuner.",
+                    amour: "Fraternel et stimulant. Vous vous aimez sans vous étouffer. C'est une relation moderne, basée sur la confiance absolue.",
+                    duree: "Idéale. Vous ne vous lasserez jamais l'un de l'autre car vous évoluez sans cesse.",
+                    rapproche: "La liberté. C'est votre valeur cardinale à tous les deux.",
+                    epineux: "L'engagement. À force d'être libres, attention à ne pas devenir des étrangers qui se croisent."
+                },
+                poissons: {
+                    titre: "LES VOYAGEURS DE L'ÂME",
+                    score: 75,
+                    quotidien: "Le Sagittaire voyage avec son corps, le Poissons avec son esprit. C'est un peu le bazar organisé. Vous vivez dans un monde à part, un peu déconnecté du réel.",
+                    amour: "Romantique et philosophique. Vous partagez des idéaux élevés. Mais le Sagittaire peut blesser le Poissons par sa franchise brutale.",
+                    duree: "Fluctuante. Le Sagittaire risque de se lasser des jérémiades du Poissons.",
+                    rapproche: "La spiritualité. Vous cherchez tous les deux un sens à la vie.",
+                    epineux: "La réalité. Qui va gérer les papiers administratifs ? Aucun de vous deux."
+                }
             },
+
             capricorne: {
-                titre: "L'EMPIRE SOLIDE",
-                score: 95,
-                quotidien: "C'est sérieux. Vous avez des objectifs, un plan de carrière, un plan de vie. Vous ne gaspillez pas votre temps. C'est austère pour certains, rassurant pour vous.",
-                amour: "Mature et profond. Vous n'avez pas besoin de mots doucereux. Votre présence et votre soutien indéfectible sont vos plus belles preuves d'amour.",
-                duree: "À vie. Vous ne vous engagez pas à la légère. Si vous signez, c'est pour toujours. Vous vieillirez ensemble.",
-                rapproche: "L'ambition. Vous vous tirez mutuellement vers le haut. Vous respectez la réussite et l'effort.",
-                epineux: "La froideur. N'oubliez pas de vous dire que vous vous aimez, même si cela vous semble évident. Un peu de chaleur ne nuit pas à l'efficacité."
+                // (Précédents traités)
+                verseau: {
+                    titre: "LE VIEUX SAGE ET LE GÉNIE",
+                    score: 50,
+                    quotidien: "Le Capricorne respecte les règles, le Verseau veut les briser. Le Capricorne aime le passé, le Verseau le futur. Difficile de s'accorder sur le présent.",
+                    amour: "Froid. Le Capricorne juge le Verseau irresponsable. Le Verseau juge le Capricorne coincé. Mais intellectuellement, vous vous respectez.",
+                    duree: "Compliquée. Vos modes de vie sont souvent incompatibles.",
+                    rapproche: "L'indépendance d'esprit. Vous vous fichez du regard des autres.",
+                    epineux: "La chaleur. Votre relation manque cruellement de tendresse spontanée."
+                },
+                poissons: {
+                    titre: "LA TERRE ET L'EAU",
+                    score: 90,
+                    quotidien: "Le Capricorne offre un cadre, le Poissons le remplit de couleurs. Le Capricorne gère, le Poissons rêve. C'est un équilibre très apaisant.",
+                    amour: "Le Capricorne fond (en secret) pour la douceur du Poissons. Il se sent utile et protecteur. Le Poissons se sent en sécurité.",
+                    duree: "Solide. Le Capricorne est le roc dont le Poissons a besoin pour ne pas dériver.",
+                    rapproche: "La profondeur. Vous ne parlez pas pour ne rien dire.",
+                    epineux: "Le pessimisme. Le Capricorne peut parfois broyer du noir et entraîner le Poissons avec lui."
+                }
             },
+
             verseau: {
-                titre: "LES VISIONNAIRES",
-                score: 85,
-                quotidien: "C'est un laboratoire d'expériences. Vous réinventez les règles du couple. Chacun sa liberté, chacun ses amis, mais une connexion intellectuelle constante.",
-                amour: "Cérébral et amical. Vous êtes avant tout des potes qui s'aiment. Pas de drame, pas de larmes, mais beaucoup de discussions sur l'avenir du monde.",
-                duree: "Surprenante. Votre couple ne ressemble à aucun autre, et c'est pour ça qu'il tient. Vous ne vous ennuyez jamais.",
-                rapproche: "La liberté. Vous comprenez mieux que personne le besoin d'indépendance de l'autre.",
-                epineux: "Le détachement. À force d'être cool et indépendants, vous risquez de devenir des colocataires. Gardez une part d'intimité."
+                // (Précédents traités)
+                poissons: {
+                    titre: "LES EXTRA-TERRESTRES",
+                    score: 65,
+                    quotidien: "Le Verseau est cérébral, le Poissons est émotionnel. Vous êtes tous les deux 'ailleurs', mais pas dans le même ailleurs. Le Verseau pense, le Poissons ressent.",
+                    amour: "Le Verseau est intrigué par le Poissons mais mal à l'aise avec ses débordements émotionnels. Le Poissons trouve le Verseau trop robotique.",
+                    duree: "Floue. Vous avez du mal à vous saisir. C'est une relation insaisissable.",
+                    rapproche: "L'humanisme. Vous voulez tous les deux aider les autres.",
+                    epineux: "L'incompréhension émotionnelle. Le Poissons pleure, le Verseau analyse. Ça coince."
+                }
             },
+
             poissons: {
-                titre: "L'OCÉAN INFINI",
-                score: 90,
-                quotidien: "C'est flou, c'est doux, c'est artistique. On vit au rythme de ses émotions et de son intuition. Le monde matériel semble loin, très loin.",
-                amour: "Spirituel et total. Vous fusionnez complètement. Les frontières entre toi et moi disparaissent. C'est magique.",
-                duree: "Romantique. Vous vivez dans votre propre conte de fées. Attention juste à la réalité qui toque à la porte.",
-                rapproche: "La sensibilité. Vous ressentez les vibrations du monde avec la même intensité.",
-                epineux: "La confusion. Si personne ne tient la barre, le bateau part à la dérive. Il faut parfois un peu de réalisme pour survivre."
+                // (Tous les autres signes sont faits, et Poissons-Poissons est dans sameSignData)
+                // Donc on laisse ce bloc vide, c'est normal !
             }
         };
 
@@ -394,58 +927,74 @@
             let titre = "";
             let details = {};
 
-            // CAS 1 : MÊME SIGNE (Logique Unique par Signe)
+            // LOGIQUE DE RECHERCHE DANS LA BASE DE DONNÉES
+
+            // 1. DUOS MÊME SIGNE (Priorité absolue)
             if (s1 === s2) {
                 const data = sameSignData[s1];
                 score = data.score;
                 titre = data.titre;
                 details = data;
             }
-            // CAS 2 : ÉLÉMENTS COMPATIBLES (Feu/Air ou Terre/Eau)
+            // 2. DUOS SPÉCIFIQUES (Base de données compatibilityDB)
+            // On vérifie si la combinaison existe dans un sens (s1 -> s2) ou dans l'autre (s2 -> s1)
+            else if (compatibilityDB[s1] && compatibilityDB[s1][s2]) {
+                const data = compatibilityDB[s1][s2];
+                score = data.score;
+                titre = data.titre;
+                details = data;
+            }
+            else if (compatibilityDB[s2] && compatibilityDB[s2][s1]) {
+                const data = compatibilityDB[s2][s1];
+                score = data.score;
+                titre = data.titre;
+                details = data;
+            }
+            // 3. FALLBACK GÉNÉRIQUE (Si le couple n'est pas encore écrit dans la DB)
+            // Cela servira pour les signes que tu n'as pas encore remplis (ex: Lion vs Vierge)
             else if ((e1 === 'feu' && e2 === 'air') || (e1 === 'air' && e2 === 'feu') || 
                      (e1 === 'terre' && e2 === 'eau') || (e1 === 'eau' && e2 === 'terre')) {
-                score = 95;
-                titre = "L'HARMONIE NATURELLE";
+                score = 85;
+                titre = "L'HARMONIE ÉLÉMENTAIRE";
                 details = {
-                    quotidien: "C'est la complémentarité parfaite. L'un apporte ce qui manque à l'autre sans jamais l'imposer. Au quotidien, c'est une mécanique bien huilée où les rôles se distribuent naturellement. L'un propose, l'autre dispose ; l'un rêve, l'autre construit.",
-                    amour: "Une relation douce, évidente, qui semble couler de source. Il y a beaucoup d'inspiration mutuelle. L'Air attise le Feu, l'Eau nourrit la Terre. C'est un amour fertile où chacun permet à l'autre de grandir.",
-                    duree: "C'est le couple qui dure par excellence. Vous avez trouvé un équilibre dynamique qui résiste aux tempêtes. Votre duo est constructif : vous ne vous contentez pas de vous aimer, vous bâtissez quelque chose ensemble.",
-                    rapproche: "La fluidité. Tout semble simple avec vous. Les conflits se résolvent par la communication ou l'empathie, sans drames inutiles. Vous êtes les meilleurs amis du monde en plus d'être amants.",
-                    epineux: "La facilité, paradoxalement. À force de s'entendre si bien, on peut finir par prendre l'autre pour acquis. Gardez toujours une part de mystère pour ne pas glisser vers l'amitié."
+                    quotidien: "Vos éléments sont compatibles par nature. Le quotidien est fluide.",
+                    amour: "Une belle entente naturelle. Vous vous nourrissez mutuellement.",
+                    duree: "Positive. Vous avez les bases pour construire.",
+                    rapproche: "La complémentarité de vos tempéraments.",
+                    epineux: "Attention à ne pas prendre cette facilité pour acquise."
                 };
             }
-            // CAS 3 : ÉLÉMENTS OPPOSÉS/DIFFÉRENTS (Le Défi)
             else {
-                score = 60;
-                titre = "LE DÉFI MAGNÉTIQUE";
+                score = 50;
+                titre = "LE DÉFI ASTRAL";
                 details = {
-                    quotidien: "Il faudra des ajustements. Vous ne parlez pas la même langue maternelle astrale. L'un est peut-être trop lent pour l'autre, ou trop émotif pour le cérébral. Le quotidien demande de la tolérance et une volonté réelle de comprendre l'autre.",
-                    amour: "C'est souvent une attraction fatale, irrationnelle et magnétique. L'autre vous fascine précisément parce qu'il est une énigme. La passion naît de cette friction, de cette différence fondamentale. C'est intense, parfois orageux, mais jamais tiède.",
-                    duree: "C'est une école de vie. Si vous passez le cap des premiers mois, vous deviendrez un couple indestructible car vous aurez appris la tolérance. C'est une relation qui vous force à évoluer.",
-                    rapproche: "La fascination pour l'inconnu. L'autre vous ouvre des portes sur des mondes que vous n'auriez jamais explorés seul. Il vous complète en vous apportant une énergie radicalement nouvelle.",
-                    epineux: "L'incompréhension. Parfois, vous aurez l'impression de venir de deux planètes différentes. Il ne faudra jamais essayer de changer l'autre, mais accepter sa différence comme une richesse."
+                    quotidien: "Des ajustements sont nécessaires. Vous êtes différents.",
+                    amour: "Une attraction basée sur la différence et le mystère.",
+                    duree: "Demandera des efforts de compréhension mutuelle.",
+                    rapproche: "La fascination pour ce qui vous est étranger.",
+                    epineux: "L'incompréhension possible de vos modes de fonctionnement."
                 };
             }
 
-            // Génération du HTML avec les nouveaux titres thématiques
+            // Génération du HTML
             const htmlContent = `
-                <div class="mb-6">
+                <div class="mb-6 animate-fade-in-up" style="animation-delay: 0.1s">
                     <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">L'Alchimie du Quotidien</h5>
                     <p class="text-gray-700 text-justify italic">${details.quotidien}</p>
                 </div>
-                <div class="mb-6">
+                <div class="mb-6 animate-fade-in-up" style="animation-delay: 0.2s">
                     <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">La Vibration du Cœur</h5>
                     <p class="text-gray-700 text-justify italic">${details.amour}</p>
                 </div>
-                <div class="mb-6">
+                <div class="mb-6 animate-fade-in-up" style="animation-delay: 0.3s">
                     <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">Votre Destinée Commune</h5>
                     <p class="text-gray-700 text-justify italic">${details.duree}</p>
                 </div>
-                <div class="mb-6">
+                <div class="mb-6 animate-fade-in-up" style="animation-delay: 0.4s">
                     <h5 class="font-bold text-[#D4AF37] uppercase text-xs tracking-widest mb-1">Votre Pacte Céleste</h5>
                     <p class="text-gray-700 text-justify italic">${details.rapproche}</p>
                 </div>
-                <div class="mb-0">
+                <div class="mb-0 animate-fade-in-up" style="animation-delay: 0.5s">
                     <h5 class="font-bold text-gray-400 uppercase text-xs tracking-widest mb-1">Le Défi Karmique</h5>
                     <p class="text-gray-600 text-justify italic">${details.epineux}</p>
                 </div>
@@ -455,8 +1004,10 @@
             scoreTxt.innerText = score + "%";
             titreTxt.innerText = titre;
             descBox.innerHTML = htmlContent;
-        }
-    </script>
+            
+            // Scroll auto
+            resBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }    </script>
 
 </body>
 </html>
