@@ -222,5 +222,12 @@
         "sujet": "La rencontre entre le vent solaire et la Terre. Un rappel que l'invisible (les ondes) peut devenir visible et magnifique. L'émerveillement comme thérapie.",
         "image": "cosmos.webp",
         "categorie": "L'OBSERVATOIRE"
+    },
+    {
+        "slug": "verite-horoscope-mensonge",
+        "titre": "Pourquoi votre Horoscope ne marche jamais (La Vérité Révélée)",
+        "sujet": "Article 'Manifeste'. Dénonce l'effet Barnum des horoscopes magazines qui restent vagues pour plaire à tout le monde. Explique la différence entre l'astrologie de divertissement et l'astrologie authentique (basée sur les degrés exacts). Tease l'arrivée imminente de l'Espace Premium : 'Horoscope Authentique' ouvrira bientôt ses consultations privées sur mesure. Plusieurs formats d'analyses ultra-précises seront proposés (Thème Natal complet, Révolution Solaire, Étude Karmique...), accessibles à partir de 20€ pour permettre à chacun de découvrir sa véritable carte du ciel.",
+        "image": "livre.webp",
+        "categorie": "BIBLIOTHÈQUE INTERDITE"
     }
 ]
