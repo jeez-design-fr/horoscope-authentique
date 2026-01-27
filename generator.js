@@ -234,7 +234,7 @@ async function main() {
             <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
                 <a href="horoscope.html" class="block">
                     <div class="relative mb-4">
-                        <img src="./assets/${entreeImageName}" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700">
+                        <img src="./assets/red-flags.webp" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700">
                     </div>
                     <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">HOROSCOPE</h3>
                     <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Votre Oracle</p>
@@ -248,6 +248,16 @@ async function main() {
                     </div>
                     <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">AMOUR</h3>
                     <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Compatibilité</p>
+                </a>
+            </div>
+
+            <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
+                <a href="red-flags.html" class="block">
+                    <div class="relative mb-4">
+                        <img src="./assets/red-flags.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.7s;">
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">RED FLAGS</h3>
+                    <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">L'Oracle du Chaos</p>
                 </a>
             </div>
 
@@ -314,6 +324,7 @@ if (fs.existsSync('./pierres-protectrices.html')) fs.copyFileSync('./pierres-pro
 if (fs.existsSync('./le-cosmos.html')) fs.copyFileSync('./le-cosmos.html', path.join(outputDir, 'le-cosmos.html'));
 if (fs.existsSync('./compatibilite-amoureuse.html')) fs.copyFileSync('./compatibilite-amoureuse.html', path.join(outputDir, 'compatibilite-amoureuse.html'));
 if (fs.existsSync('./mentions-legales.html')) fs.copyFileSync('./mentions-legales.html', path.join(outputDir, 'mentions-legales.html'));
+if (fs.existsSync('./red-flags.html')) fs.copyFileSync('./red-flags.html', path.join(outputDir, 'red-flags.html'));
 
 // 4. GÉNÉRATION DES ARTICLES DE BLOG (LITHOTHÉRAPIE)
     console.log("💎 Vérification des articles de blog...");
@@ -397,6 +408,7 @@ if (fs.existsSync('./mentions-legales.html')) fs.copyFileSync('./mentions-legale
         '', // Pour la racine (index.html)
         'horoscope.html',
         'compatibilite-amoureuse.html',
+        'red-flags.html',
         'signification.html',
         'comprendre-astrologie.html',
         'pierres-protectrices.html',

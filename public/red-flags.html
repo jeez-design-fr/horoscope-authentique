@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" type="image/webp" href="./assets/favicon.webp">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Flags & Toxicité - L'Oracle du Chaos</title>
+    <meta name="description" content="Oubliez la compatibilité. Découvrez pourquoi ça va casser. L'Oracle du Chaos analyse vos Red Flags et votre indice de toxicité avec humour.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #000000; color: #FAFAFA; font-family: 'Cormorant Garamond', serif; } /* Fond Noir pour le mode Chaos */
+        h1, h2, h3, h4, label, button { font-family: 'Cinzel', serif; }
+        .gold-border { border-left: 2px solid #D4AF37; padding-left: 1rem; }
+        select {
+            -webkit-appearance: none; -moz-appearance: none; appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem top 50%;
+            background-size: 0.65rem auto;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <header class="text-center py-12 px-4">
+        <a href="index.html" class="text-xs tracking-[0.3em] uppercase text-gray-500 hover:text-[#D4AF37] transition-colors border-b border-transparent hover:border-[#D4AF37] pb-1">Fuir le Chaos (Retour)</a>
+    </header>
+
+    <main class="container mx-auto px-4 max-w-4xl pb-24">
+        
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#D4AF37]">RED FLAGS</h1>
+            <h2 class="text-xl md:text-2xl text-gray-400 font-normal italic">L'Oracle du Chaos</h2>
+            <div class="w-24 h-[1px] bg-[#D4AF37] mx-auto mt-6"></div>
+        </div>
+
+        <div class="bg-[#111] border border-[#D4AF37] p-8 md:p-12 shadow-[0_0_30px_rgba(212,175,55,0.1)] max-w-3xl mx-auto mb-16 relative overflow-hidden">
+            
+            <h3 class="text-center text-xl font-bold mb-8 uppercase tracking-widest text-gray-200">Qui sont les coupables ?</h3>
+
+            <div class="flex flex-col md:flex-row gap-6 items-center justify-center">
+                <div class="w-full">
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 text-center">Vous (La Victime)</label>
+                    <select id="sign1" class="w-full border-b-2 border-gray-700 bg-transparent py-3 text-center text-white font-serif text-lg focus:border-[#D4AF37] focus:outline-none transition-colors cursor-pointer">
+                        <option value="belier">Bélier</option>
+                        <option value="taureau">Taureau</option>
+                        <option value="gemeaux">Gémeaux</option>
+                        <option value="cancer">Cancer</option>
+                        <option value="lion">Lion</option>
+                        <option value="vierge">Vierge</option>
+                        <option value="balance">Balance</option>
+                        <option value="scorpion">Scorpion</option>
+                        <option value="sagittaire">Sagittaire</option>
+                        <option value="capricorne">Capricorne</option>
+                        <option value="verseau">Verseau</option>
+                        <option value="poissons">Poissons</option>
+                    </select>
+                </div>
+
+                <div class="text-2xl text-[#D4AF37] font-serif italic">VS</div>
+
+                <div class="w-full">
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 text-center">L'Autre (Le Problème)</label>
+                    <select id="sign2" class="w-full border-b-2 border-gray-700 bg-transparent py-3 text-center text-white font-serif text-lg focus:border-[#D4AF37] focus:outline-none transition-colors cursor-pointer">
+                        <option value="belier">Bélier</option>
+                        <option value="taureau">Taureau</option>
+                        <option value="gemeaux">Gémeaux</option>
+                        <option value="cancer">Cancer</option>
+                        <option value="lion">Lion</option>
+                        <option value="vierge">Vierge</option>
+                        <option value="balance">Balance</option>
+                        <option value="scorpion">Scorpion</option>
+                        <option value="sagittaire">Sagittaire</option>
+                        <option value="capricorne">Capricorne</option>
+                        <option value="verseau">Verseau</option>
+                        <option value="poissons">Poissons</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button onclick="calculerChaos()" class="bg-[#D4AF37] text-black px-8 py-3 uppercase tracking-[0.2em] text-xs font-bold hover:bg-white transition-colors duration-500 shadow-lg">
+                    Lancer le Désastre
+                </button>
+            </div>
+
+            <div id="resultat" class="hidden mt-12 text-center border-t border-gray-800 pt-8 animate-fade-in">
+                <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Indice de Toxicité</p>
+                <div class="text-5xl font-bold text-red-600 mb-2" id="score">0%</div>
+                <p class="text-sm italic text-gray-400 mb-8" id="niveauAlerte">Niveau : Risque Biologique</p>
+                
+                <h4 class="text-2xl font-bold mb-8 text-[#D4AF37]" id="titreResultat">...</h4>
+                
+                <div id="descResultat" class="text-left space-y-8 px-2 md:px-8">
+                    </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        // Dictionnaire des éléments et archétypes pour l'humour
+        const elements = {
+            belier: 'feu', lion: 'feu', sagittaire: 'feu',
+            taureau: 'terre', vierge: 'terre', capricorne: 'terre',
+            gemeaux: 'air', balance: 'air', verseau: 'air',
+            cancer: 'eau', scorpion: 'eau', poissons: 'eau'
+        };
+
+        const descriptions = {
+            belier: "une cocotte-minute sans soupape",
+            taureau: "un coffre-fort têtu",
+            gemeaux: "une radio qu'on ne peut pas éteindre",
+            cancer: "une éponge émotionnelle",
+            lion: "une diva sans scène",
+            vierge: "un inspecteur des impôts",
+            balance: "une girouette élégante",
+            scorpion: "un détective paranoïaque",
+            sagittaire: "un touriste sans carte",
+            capricorne: "un PDG en burnout",
+            verseau: "un alien incompris",
+            poissons: "un nuage perdu"
+        };
+
+        const sameSignRoast = {
+            belier: { titre: "GUERRE CIVILE", txt: "Deux personnes qui veulent avoir raison et commander en même temps. Prévoyez une bonne assurance habitation et des casques anti-bruit." },
+            taureau: { titre: "ENNUI MORTEL", txt: "Vous allez passer 40 ans sur le même canapé à demander 'qu'est-ce qu'on mange ?'. Personne ne voudra se lever pour changer la chaîne." },
+            gemeaux: { titre: "ASILE PSYCHIATRIQUE", txt: "Quatre personnalités dans une seule pièce (deux chacun). Ça parle, ça ment, ça oublie, ça recommence. Personne n'écoute personne." },
+            cancer: { titre: "DÉLUGE UNIVERSEL", txt: "Un concours de celui qui boude le plus longtemps. La maison va devenir un lac de larmes. Achetez un bateau." },
+            lion: { titre: "DUEL DE MIROIRS", txt: "Il n'y a pas assez de place dans cette relation pour deux égos de cette taille. Qui va applaudir l'autre ? Personne." },
+            vierge: { titre: "INSPECTION GÉNÉRALE", txt: "Vous allez passer votre vie à critiquer la façon dont l'autre range le lave-vaisselle. L'amour est mort, vive l'hygiène." },
+            balance: { titre: "INDÉCISION TOTALE", txt: "'On mange quoi ?' - 'Je sais pas, comme tu veux'. Ce dialogue va durer jusqu'à ce que vous mourriez de faim tous les deux." },
+            scorpion: { titre: "THRILLER PSYCHOLOGIQUE", txt: "Jalousie, espionnage, suspicion. Vous connaissez les mots de passe de l'autre avant même le premier rendez-vous. Flippant." },
+            sagittaire: { titre: "LES FANTÔMES", txt: "Vous êtes tous les deux partis à l'aventure de votre côté. Vous vous croisez une fois par an à l'aéroport. C'est sympa mais c'est pas un couple." },
+            capricorne: { titre: "FUSION FROIDE", txt: "Vous gérez votre couple comme une SARL. C'est efficace, rentable, mais aussi fun qu'un audit comptable un dimanche matin." },
+            verseau: { titre: "CONNEXION PERDUE", txt: "Deux robots qui essaient de comprendre les émotions humaines. Vous vivez en parallèle sans jamais vraiment vous toucher." },
+            poissons: { titre: "NAUFRAGE COLLECTIF", txt: "Qui paie le loyer ? Qui a les clés ? Personne ne sait. Vous vivez dans un rêve commun jusqu'à ce que l'huissier arrive." }
+        };
+
+        function calculerChaos() {
+            const s1 = document.getElementById('sign1').value;
+            const s2 = document.getElementById('sign2').value;
+            const e1 = elements[s1];
+            const e2 = elements[s2];
+            
+            const resBox = document.getElementById('resultat');
+            const scoreTxt = document.getElementById('score');
+            const titreTxt = document.getElementById('titreResultat');
+            const descBox = document.getElementById('descResultat');
+            const alerteTxt = document.getElementById('niveauAlerte');
+
+            let score = 0;
+            let titre = "";
+            let htmlContent = "";
+
+            // LOGIQUE DU CHAOS
+
+            // CAS 1 : MÊME SIGNE
+            if (s1 === s2) {
+                score = "100%";
+                alerteTxt.innerText = "Niveau : TCHERNOBYL";
+                titre = sameSignRoast[s1].titre;
+                htmlContent = `
+                    <div class="mb-8">
+                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Scénario</h5>
+                        <p class="text-gray-300 italic">"${sameSignRoast[s1].txt}"</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">La Fin Inévitable</h5>
+                        <p class="text-gray-300 italic">Vous finissez par vous entretuer pour une histoire de télécommande ou de chaussette sale.</p>
+                    </div>
+                `;
+            }
+            // CAS 2 : ÉLÉMENTS INCOMPATIBLES (Feu/Eau, Terre/Air, etc.)
+            else if ((e1 === 'feu' && e2 === 'eau') || (e1 === 'eau' && e2 === 'feu')) {
+                score = "90%";
+                alerteTxt.innerText = "Niveau : VAPEUR TOXIQUE";
+                titre = "L'EXTINCTEUR";
+                htmlContent = `
+                    <div class="mb-6">
+                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Problème</h5>
+                        <p class="text-gray-300 italic">L'Eau éteint le Feu, le Feu fait bouillir l'Eau. ${s1.toUpperCase()} va finir par trouver ${s2.toUpperCase()} trop dramatique, et ${s2.toUpperCase()} trouvera ${s1.toUpperCase()} trop brutal.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Red Flag</h5>
+                        <p class="text-gray-300 italic">Une dispute commence parce que l'un a crié et l'autre a pleuré. Classique.</p>
+                    </div>
+                `;
+            }
+            else if ((e1 === 'terre' && e2 === 'air') || (e1 === 'air' && e2 === 'terre')) {
+                score = "85%";
+                alerteTxt.innerText = "Niveau : TEMPÊTE DE SABLE";
+                titre = "DIALOGUE DE SOURDS";
+                htmlContent = `
+                    <div class="mb-6">
+                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Problème</h5>
+                        <p class="text-gray-300 italic">La Terre veut des preuves, l'Air veut des idées. ${s1.toUpperCase()} parle chinois, ${s2.toUpperCase()} répond en russe. Vous ne vivez pas sur la même planète.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Red Flag</h5>
+                        <p class="text-gray-300 italic">L'un veut investir dans la pierre, l'autre veut tout dépenser pour un voyage spirituel au Pérou.</p>
+                    </div>
+                `;
+            }
+            else if ((e1 === 'feu' && e2 === 'terre') || (e1 === 'terre' && e2 === 'feu')) {
+                score = "75%";
+                alerteTxt.innerText = "Niveau : TERRE BRÛLÉE";
+                titre = "LE BULLDOZER";
+                htmlContent = `
+                    <div class="mb-6">
+                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Problème</h5>
+                        <p class="text-gray-300 italic">Le Feu veut tout, tout de suite. La Terre veut attendre et calculer. L'un accélère, l'autre freine. Résultat : le moteur explose.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Red Flag</h5>
+                        <p class="text-gray-300 italic">L'un des deux va finir par partir en claquant la porte parce que l'autre est "trop lent" ou "trop imprudent".</p>
+                    </div>
+                `;
+            }
+            // CAS 3 : ÉLÉMENTS COMPATIBLES (Mais on les roast quand même)
+            else {
+                score = "40%";
+                alerteTxt.innerText = "Niveau : ENNUI MORTEL";
+                titre = "LA GUIMAUVE";
+                htmlContent = `
+                    <div class="mb-6">
+                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Problème</h5>
+                        <p class="text-gray-300 italic">Sur le papier, ça marche. Dans la réalité, vous risquez de devenir ce couple insupportable qui finit les phrases de l'autre et porte des pulls assortis.</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-red-500 uppercase text-xs tracking-widest mb-1">Le Red Flag</h5>
+                        <p class="text-gray-300 italic">Vous ne sortez plus de chez vous. Vos amis ont arrêté de vous appeler.</p>
+                    </div>
+                `;
+            }
+
+            resBox.classList.remove('hidden');
+            scoreTxt.innerText = score;
+            titreTxt.innerText = titre;
+            descBox.innerHTML = htmlContent;
+        }
+    </script>
+
+</body>
+</html>
