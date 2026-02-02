@@ -937,6 +937,49 @@
             }
         };
 
+        // --- 3. FONCTIONS D'INTERACTION (MANQUANTES) ---
+
+        function openRoast(sign) {
+            const modal = document.getElementById('roastModal');
+            const title = document.getElementById('modalTitle');
+            const text = document.getElementById('modalText');
+            const img = document.getElementById('modalImg');
+            
+            // Sécurité : Vérifie si le signe existe
+            if (soloRoast[sign]) {
+                title.innerText = soloRoast[sign].titre;
+                text.innerText = soloRoast[sign].text;
+                // On charge bien l'image "carte" dans la pop-up aussi
+                img.src = `./assets/${sign}-carte.webp`;
+                
+                // Animation d'ouverture
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('modalContent').classList.remove('scale-95');
+                    document.getElementById('modalContent').classList.add('scale-100');
+                }, 10);
+            }
+        }
+
+        function closeRoast() {
+            const modal = document.getElementById('roastModal');
+            // Animation de fermeture
+            document.getElementById('modalContent').classList.remove('scale-100');
+            document.getElementById('modalContent').classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+        
+        // Fermer si on clique en dehors de la boîte
+        window.onclick = function(event) {
+            const modal = document.getElementById('roastModal');
+            if (event.target == modal) {
+                closeRoast();
+            }
+        }
+
     </script>
 
 </body>
