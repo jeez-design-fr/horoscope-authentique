@@ -261,6 +261,20 @@ async function main() {
                 </a>
             </div>
 
+            <div class="flex flex-row justify-center w-full px-4 -mt-4 mb-4">
+            <div class="w-[50vw] md:w-96 text-center group cursor-pointer z-20">
+                <a href="etude-karmique.html" class="block">
+                    <div class="relative mb-4">
+                        <img src="./assets/cabinet.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.8s;">
+                        <div class="absolute -top-3 right-0 md:-right-4 bg-[#D4AF37] text-white text-[10px] md:text-xs font-bold px-3 py-1 uppercase tracking-widest shadow-lg transform rotate-12">Ouverture</div>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-[#D4AF37] group-hover:text-black transition-colors">CABINET PRIVÉ</h3>
+                    <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Étude Céleste & Héritage</p>
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-row flex-wrap justify-center gap-4 md:gap-8 w-full px-2 max-w-6xl">
+            
         </div>
 
         <div class="flex flex-row flex-wrap justify-center gap-4 md:gap-8 w-full px-2 max-w-6xl">
@@ -325,6 +339,7 @@ if (fs.existsSync('./le-cosmos.html')) fs.copyFileSync('./le-cosmos.html', path.
 if (fs.existsSync('./compatibilite-amoureuse.html')) fs.copyFileSync('./compatibilite-amoureuse.html', path.join(outputDir, 'compatibilite-amoureuse.html'));
 if (fs.existsSync('./mentions-legales.html')) fs.copyFileSync('./mentions-legales.html', path.join(outputDir, 'mentions-legales.html'));
 if (fs.existsSync('./red-flags.html')) fs.copyFileSync('./red-flags.html', path.join(outputDir, 'red-flags.html'));
+if (fs.existsSync('./etude-karmique.html')) fs.copyFileSync('./etude-karmique.html', path.join(outputDir, 'etude-karmique.html'));
 
 // 4. GÉNÉRATION DES ARTICLES DE BLOG (LITHOTHÉRAPIE)
     console.log("💎 Vérification des articles de blog...");

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" type="image/webp" href="./assets/favicon.webp">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabinet Privé - Étude Céleste & Héritage</title>
+    <meta name="description" content="Commandez votre étude astrologique sur-mesure. Analyse karmique, héritage familial et prévisions datées. Consultation privée par écrit.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0a0a0a; color: #E5E5E5; font-family: 'Cormorant Garamond', serif; }
+        h1, h2, h3, button, label, .price-tag { font-family: 'Cinzel', serif; }
+        .gold-text { color: #D4AF37; }
+        .gold-border { border-color: #D4AF37; }
+        .input-field {
+            background-color: #111;
+            border-bottom: 1px solid #333;
+            color: white;
+            transition: all 0.3s;
+        }
+        .input-field:focus {
+            border-bottom: 1px solid #D4AF37;
+            outline: none;
+        }
+        /* Effet de sélection des cartes */
+        .selected-card {
+            border: 2px solid #D4AF37;
+            background-color: #1a1a1a;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="text-center py-8 px-4 border-b border-gray-900">
+        <a href="index.html" class="text-xs tracking-[0.3em] uppercase text-gray-500 hover:text-white transition-colors">Retour au Sanctuaire</a>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 max-w-4xl">
+        
+        <div class="text-center mb-16">
+            <p class="text-[#D4AF37] text-xs tracking-[0.4em] uppercase mb-4">Espace Consultations</p>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">L'ÉTUDE CÉLESTE & HÉRITAGE</h1>
+            <p class="text-gray-400 text-lg md:text-xl italic max-w-2xl mx-auto">
+                "Votre destin n'est pas écrit dans un horoscope de magazine. Il est gravé dans l'heure exacte de votre naissance et dans les mémoires de votre lignée."
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-16" id="pricing-grid">
+            
+            <div onclick="selectOffer(1)" id="card-1" class="border border-gray-800 p-8 rounded-sm cursor-pointer hover:border-gray-600 transition-all relative group">
+                <h3 class="text-xl font-bold text-gray-300 group-hover:text-white mb-2">L'Essentiel Karmique</h3>
+                <div class="text-3xl font-bold gold-text mb-4">20€</div>
+                <p class="text-sm text-gray-400 mb-6 italic min-h-[60px]">Pour comprendre qui vous êtes vraiment et ce que vous portez de vos parents.</p>
+                <ul class="text-sm text-gray-400 space-y-2 mb-8 border-t border-gray-800 pt-4">
+                    <li>✦ Thème Astral Identitaire</li>
+                    <li>✦ Analyse de l'Héritage Familial</li>
+                    <li>✦ Votre Mission de Vie (Nœud Nord)</li>
+                    <li>✦ 1 Question précise</li>
+                </ul>
+                <div class="text-center">
+                    <span class="text-xs uppercase tracking-widest border border-gray-600 px-4 py-2 rounded-full group-hover:border-[#D4AF37] transition-colors">Choisir</span>
+                </div>
+            </div>
+
+            <div onclick="selectOffer(2)" id="card-2" class="border border-gray-800 p-8 rounded-sm cursor-pointer hover:border-gray-600 transition-all relative group bg-[#111]">
+                <div class="absolute top-0 right-0 bg-[#D4AF37] text-black text-[10px] font-bold px-2 py-1 uppercase tracking-widest">Recommandé</div>
+                <h3 class="text-xl font-bold text-white mb-2">La Boussole Annuelle</h3>
+                <div class="text-3xl font-bold gold-text mb-4">45€</div>
+                <p class="text-sm text-gray-400 mb-6 italic min-h-[60px]">Où allez-vous cette année ? Prévisions datées et blocages actuels.</p>
+                <ul class="text-sm text-gray-400 space-y-2 mb-8 border-t border-gray-800 pt-4">
+                    <li>✦ <strong>Tout le pack Essentiel</strong></li>
+                    <li>✦ Révolution Solaire (12 mois)</li>
+                    <li>✦ Vos dates clés de l'année</li>
+                    <li>✦ Analyse d'un blocage (6 lignes)</li>
+                </ul>
+                <div class="text-center">
+                    <span class="text-xs uppercase tracking-widest border border-[#D4AF37] text-[#D4AF37] px-4 py-2 rounded-full">Choisir</span>
+                </div>
+            </div>
+
+            <div onclick="selectOffer(3)" id="card-3" class="border border-gray-800 p-8 rounded-sm cursor-pointer hover:border-gray-600 transition-all relative group">
+                <h3 class="text-xl font-bold text-gray-300 group-hover:text-white mb-2">L'Alchimie Totale</h3>
+                <div class="text-3xl font-bold gold-text mb-4">80€</div>
+                <p class="text-sm text-gray-400 mb-6 italic min-h-[60px]">Transformation complète. Magie, Lithothérapie et Thérapie Astrale.</p>
+                <ul class="text-sm text-gray-400 space-y-2 mb-8 border-t border-gray-800 pt-4">
+                    <li>✦ <strong>Tout le pack Boussole</strong></li>
+                    <li>✦ Rituel Magique Personnalisé</li>
+                    <li>✦ Prescription Lithothérapie</li>
+                    <li>✦ Consultation "Livre Ouvert" (Page A4)</li>
+                </ul>
+                <div class="text-center">
+                    <span class="text-xs uppercase tracking-widest border border-gray-600 px-4 py-2 rounded-full group-hover:border-[#D4AF37] transition-colors">Choisir</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="form-section" class="hidden animate-fade-in">
+            <div class="border-t border-[#D4AF37] pt-12">
+                <h3 class="text-2xl font-bold text-center mb-8 uppercase tracking-widest text-[#D4AF37]">L'Anamnèse</h3>
+                
+                <form class="max-w-2xl mx-auto space-y-8" onsubmit="event.preventDefault(); alert('Le système de paiement sera activé très prochainement. Merci de votre patience.');">
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Prénom</label>
+                            <input type="text" class="w-full input-field py-2 bg-transparent" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email (Pour réception PDF)</label>
+                            <input type="email" class="w-full input-field py-2 bg-transparent" required>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Date de Naissance</label>
+                            <input type="date" class="w-full input-field py-2 bg-transparent text-gray-400" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Heure Exacte</label>
+                            <input type="time" class="w-full input-field py-2 bg-transparent text-gray-400" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Lieu de Naissance</label>
+                            <input type="text" placeholder="Ville, Pays" class="w-full input-field py-2 bg-transparent" required>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#111] p-6 border border-gray-800 rounded-sm">
+                        <h4 class="text-[#D4AF37] font-bold mb-4 text-sm uppercase tracking-widest">L'Héritage Astral</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Date de naissance Mère</label>
+                                <input type="date" class="w-full input-field py-2 bg-transparent text-gray-400" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Date de naissance Père</label>
+                                <input type="date" class="w-full input-field py-2 bg-transparent text-gray-400" required>
+                            </div>
+                        </div>
+                        <p class="text-[10px] text-gray-500 mt-4 italic">*Ces données permettent de calculer les transmissions karmiques et les schémas répétitifs.</p>
+                    </div>
+
+                    <div id="dynamic-fields" class="space-y-6">
+                        </div>
+
+                    <div class="pt-8 text-center">
+                        <button type="submit" class="bg-[#D4AF37] text-black px-12 py-4 font-bold uppercase tracking-[0.2em] hover:bg-white transition-colors duration-500 w-full md:w-auto">
+                            Confirmer la commande • <span id="pay-btn-amount">0€</span>
+                        </button>
+                        <p class="text-xs text-gray-500 mt-4">Paiement sécurisé. Livraison de votre Grimoire PDF sous 48h.</p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        let currentOffer = 0;
+
+        function selectOffer(id) {
+            currentOffer = id;
+            
+            // Gestion visuelle des cartes
+            [1, 2, 3].forEach(num => {
+                document.getElementById(`card-${num}`).classList.remove('selected-card');
+            });
+            document.getElementById(`card-${id}`).classList.add('selected-card');
+
+            // Affichage du formulaire
+            document.getElementById('form-section').classList.remove('hidden');
+            
+            // Scroll doux vers le formulaire
+            document.getElementById('form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Mise à jour des champs dynamiques et du prix
+            const dynamicDiv = document.getElementById('dynamic-fields');
+            const payBtn = document.getElementById('pay-btn-amount');
+            
+            let content = '';
+            
+            if (id === 1) {
+                payBtn.innerText = "20€";
+                content = `
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#D4AF37] mb-2">Votre Question Unique</label>
+                        <textarea rows="2" class="w-full input-field bg-transparent p-2 border border-gray-700" placeholder="Posez une question précise (Amour, Travail...)" required></textarea>
+                    </div>
+                `;
+            } else if (id === 2) {
+                payBtn.innerText = "45€";
+                content = `
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#D4AF37] mb-2">Votre Blocage Actuel</label>
+                        <textarea rows="4" class="w-full input-field bg-transparent p-2 border border-gray-700" placeholder="Décrivez la situation qui vous pèse actuellement..." required></textarea>
+                        <p class="text-[10px] text-gray-500 mt-1 text-right">Environ 6 lignes</p>
+                    </div>
+                `;
+            } else if (id === 3) {
+                payBtn.innerText = "80€";
+                content = `
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#D4AF37] mb-2">Consultation "Livre Ouvert"</label>
+                        <textarea rows="10" class="w-full input-field bg-transparent p-2 border border-gray-700" placeholder="Racontez votre histoire, vos doutes, vos espoirs. L'espace est à vous." required></textarea>
+                        <p class="text-[10px] text-gray-500 mt-1 text-right">Espace illimité</p>
+                    </div>
+                `;
+            }
+            
+            dynamicDiv.innerHTML = content;
+        }
+    </script>
+</body>
+</html>
