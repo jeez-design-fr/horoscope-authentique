@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" type="image/webp" href="./assets/favicon.webp">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liens - Horoscope Authentique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #FAFAFA; font-family: 'Cinzel', serif; }
+        .gold-border { border: 1px solid #D4AF37; }
+        .btn-link {
+            transition: all 0.3s ease;
+        }
+        .btn-link:hover {
+            transform: translateY(-2px);
+            background-color: #000;
+            color: #D4AF37;
+            border-color: #000;
+        }
+        /* Animation d'apparition douce */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-fade { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center px-4 py-8 bg-[#FAFAFA]">
+
+    <div class="mb-8 text-center animate-fade" style="animation-delay: 0.1s;">
+        <div class="w-24 h-24 mx-auto rounded-full p-1 border-2 border-[#D4AF37] mb-4">
+            <img src="./assets/entree.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-full object-cover rounded-full">
+        </div>
+        <h1 class="text-xl font-bold tracking-[0.2em] text-gray-900">MAISON AUTHENTIQUE</h1>
+        <p class="text-xs text-gray-500 tracking-widest mt-1">L'Astrologie sans filtre</p>
+    </div>
+
+    <div class="w-full max-w-sm space-y-4">
+
+        <a href="compatibilite-amoureuse.html" class="block animate-fade" style="animation-delay: 0.2s;">
+            <div class="btn-link gold-border bg-white text-gray-900 py-4 px-6 text-center shadow-sm">
+                <span class="block text-lg font-bold tracking-widest">COMPATIBILITÉ AMOUREUSE</span>
+                <span class="block text-[10px] text-gray-500 font-serif italic mt-1 group-hover:text-gray-400">Est-ce que ça va marcher ?</span>
+            </div>
+        </a>
+
+        <a href="red-flags.html" class="block animate-fade" style="animation-delay: 0.3s;">
+            <div class="btn-link border border-red-900 bg-red-50 text-red-900 py-4 px-6 text-center shadow-sm hover:bg-red-900 hover:text-white hover:border-red-900">
+                <span class="block text-lg font-bold tracking-widest">🚩 RED FLAGS & TOXICITÉ</span>
+                <span class="block text-[10px] text-gray-600 font-serif italic mt-1">Le Mur de la Honte & Crash Test</span>
+            </div>
+        </a>
+
+        <a href="horoscope.html" class="block animate-fade" style="animation-delay: 0.4s;">
+            <div class="btn-link gold-border bg-white text-gray-900 py-4 px-6 text-center shadow-sm">
+                <span class="block text-lg font-bold tracking-widest">HOROSCOPE DU JOUR</span>
+                <span class="block text-[10px] text-gray-500 font-serif italic mt-1">Vos prévisions quotidiennes</span>
+            </div>
+        </a>
+
+        <a href="etude-karmique.html" class="block animate-fade" style="animation-delay: 0.5s;">
+            <div class="bg-[#0a0a0a] border border-[#D4AF37] text-[#D4AF37] py-4 px-6 text-center shadow-lg transform scale-100 hover:scale-[1.02] transition-transform">
+                <span class="block text-lg font-bold tracking-widest">✦ CABINET PRIVÉ</span>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="mt-12 animate-fade" style="animation-delay: 0.6s;">
+        <a href="index.html" class="text-xs text-gray-400 hover:text-black tracking-[0.2em] uppercase border-b border-transparent hover:border-black pb-1 transition-all">
+            Entrer dans le Sanctuaire (Accueil)
+        </a>
+    </div>
+
+</body>
+</html>

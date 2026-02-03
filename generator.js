@@ -341,6 +341,7 @@ if (fs.existsSync('./mentions-legales.html')) fs.copyFileSync('./mentions-legale
 if (fs.existsSync('./red-flags.html')) fs.copyFileSync('./red-flags.html', path.join(outputDir, 'red-flags.html'));
 if (fs.existsSync('./etude-karmique.html')) fs.copyFileSync('./etude-karmique.html', path.join(outputDir, 'etude-karmique.html'));
 if (fs.existsSync('./verite-horoscope-mensonge.html')) fs.copyFileSync('./verite-horoscope-mensonge.html', path.join(outputDir, 'verite-horoscope-mensonge.html'));
+if (fs.existsSync('./links.html')) fs.copyFileSync('./links.html', path.join(outputDir, 'links.html'));
 
 // 4. GÉNÉRATION DES ARTICLES DE BLOG (LITHOTHÉRAPIE)
     console.log("💎 Vérification des articles de blog...");
