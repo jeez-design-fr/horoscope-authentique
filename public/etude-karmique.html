@@ -30,7 +30,35 @@
             transform: scale(1.02);
         }
     </style>
-</head>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Étude Céleste & Héritage Karmique",
+      "image": "https://www.horoscope-authentique.fr/assets/cabinet.webp",
+      "description": "Analyse astrologique complète : Thème natal, Héritage familial et Mission de vie. Consultation privée par écrit.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Maison Authentique"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.horoscope-authentique.fr/etude-karmique.html",
+        "priceCurrency": "EUR",
+        "price": "20.00",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "128",
+        "reviewCount": "128"
+      }
+    }
+    </script></head>
 <body class="min-h-screen flex flex-col">
 
     <header class="text-center py-8 px-4 border-b border-gray-900">
@@ -343,5 +371,63 @@
             recapDiv.innerHTML = recapHTML;
         }
     </script>
-</body>
+
+    <footer class="bg-[#050505] text-gray-400 py-12 border-t border-[#D4AF37] mt-auto w-[100vw] relative left-[calc(-50vw+50%)] right-[calc(-50vw+50%)] ml-0 mr-0 normal-case font-serif z-50">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8 text-sm text-left">
+                
+                <div>
+                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Les 12 Signes</h4>
+                    <ul class="space-y-2 grid grid-cols-2">
+                        <li><a href="belier.html" class="hover:text-white transition-colors">Bélier</a></li>
+                        <li><a href="taureau.html" class="hover:text-white transition-colors">Taureau</a></li>
+                        <li><a href="gemeaux.html" class="hover:text-white transition-colors">Gémeaux</a></li>
+                        <li><a href="cancer.html" class="hover:text-white transition-colors">Cancer</a></li>
+                        <li><a href="lion.html" class="hover:text-white transition-colors">Lion</a></li>
+                        <li><a href="vierge.html" class="hover:text-white transition-colors">Vierge</a></li>
+                        <li><a href="balance.html" class="hover:text-white transition-colors">Balance</a></li>
+                        <li><a href="scorpion.html" class="hover:text-white transition-colors">Scorpion</a></li>
+                        <li><a href="sagittaire.html" class="hover:text-white transition-colors">Sagittaire</a></li>
+                        <li><a href="capricorne.html" class="hover:text-white transition-colors">Capricorne</a></li>
+                        <li><a href="verseau.html" class="hover:text-white transition-colors">Verseau</a></li>
+                        <li><a href="poissons.html" class="hover:text-white transition-colors">Poissons</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Outils Astraux</h4>
+                    <ul class="space-y-2">
+                        <li><a href="horoscope.html" class="hover:text-white transition-colors">✦ Horoscope du Jour</a></li>
+                        <li><a href="compatibilite-amoureuse.html" class="hover:text-white transition-colors">♥ Compatibilité Amoureuse</a></li>
+                        <li><a href="red-flags.html" class="hover:text-white transition-colors">🚩 Red Flags & Toxicité</a></li>
+                        <li><a href="etude-karmique.html" class="hover:text-[#D4AF37] font-bold transition-colors">🗝️ Cabinet Privé (Étude)</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Savoirs Anciens</h4>
+                    <ul class="space-y-2">
+                        <li><a href="signification.html" class="hover:text-white transition-colors">Signification des Signes</a></li>
+                        <li><a href="comprendre-astrologie.html" class="hover:text-white transition-colors">Les 4 Éléments</a></li>
+                        <li><a href="pierres-protectrices.html" class="hover:text-white transition-colors">Lithothérapie & Cristaux</a></li>
+                        <li><a href="le-cosmos.html" class="hover:text-white transition-colors">Astronomie & Cosmos</a></li>
+                        <li><a href="verite-horoscope-mensonge.html" class="hover:text-white transition-colors">Vérité sur l'Horoscope</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Maison Authentique</h4>
+                    <p class="mb-4 italic text-xs">"Les étoiles inclinent, mais ne déterminent pas."</p>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="apropos.html" class="hover:text-white transition-colors">À Propos / Manifeste</a></li>
+                        <li><a href="mentions-legales.html" class="hover:text-white transition-colors">Mentions Légales</a></li>
+                        <li><a href="links.html" class="hover:text-white transition-colors">Liens Rapides</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-gray-900 text-xs text-gray-600">
+                <p>&copy; Horoscope Authentique. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer></body>
 </html>

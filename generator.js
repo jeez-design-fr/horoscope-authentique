@@ -17,6 +17,181 @@ const signs = require('./signs.json');
 const templateSign = fs.readFileSync('./template.html', 'utf-8');
 
 async function main() {
+
+    // --- 0. DÉFINITION DU FAT FOOTER (VERSION CORRIGÉE PLEINE LARGEUR) ---
+    const FAT_FOOTER_HTML = `
+    <footer class="bg-[#050505] text-gray-400 py-12 border-t border-[#D4AF37] mt-auto w-[100vw] relative left-[calc(-50vw+50%)] right-[calc(-50vw+50%)] ml-0 mr-0 normal-case font-serif z-50">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8 text-sm text-left">
+                
+                <div>
+                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Les 12 Signes</h4>
+                    <ul class="space-y-2 grid grid-cols-2">
+                        <li><a href="belier.html" class="hover:text-white transition-colors">Bélier</a></li>
+                        <li><a href="taureau.html" class="hover:text-white transition-colors">Taureau</a></li>
+                        <li><a href="gemeaux.html" class="hover:text-white transition-colors">Gémeaux</a></li>
+                        <li><a href="cancer.html" class="hover:text-white transition-colors">Cancer</a></li>
+                        <li><a href="lion.html" class="hover:text-white transition-colors">Lion</a></li>
+                        <li><a href="vierge.html" class="hover:text-white transition-colors">Vierge</a></li>
+                        <li><a href="balance.html" class="hover:text-white transition-colors">Balance</a></li>
+                        <li><a href="scorpion.html" class="hover:text-white transition-colors">Scorpion</a></li>
+                        <li><a href="sagittaire.html" class="hover:text-white transition-colors">Sagittaire</a></li>
+                        <li><a href="capricorne.html" class="hover:text-white transition-colors">Capricorne</a></li>
+                        <li><a href="verseau.html" class="hover:text-white transition-colors">Verseau</a></li>
+                        <li><a href="poissons.html" class="hover:text-white transition-colors">Poissons</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Outils Astraux</h4>
+                    <ul class="space-y-2">
+                        <li><a href="horoscope.html" class="hover:text-white transition-colors">✦ Horoscope du Jour</a></li>
+                        <li><a href="compatibilite-amoureuse.html" class="hover:text-white transition-colors">♥ Compatibilité Amoureuse</a></li>
+                        <li><a href="red-flags.html" class="hover:text-white transition-colors">🚩 Red Flags & Toxicité</a></li>
+                        <li><a href="etude-karmique.html" class="hover:text-[#D4AF37] font-bold transition-colors">🗝️ Cabinet Privé (Étude)</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Savoirs Anciens</h4>
+                    <ul class="space-y-2">
+                        <li><a href="signification.html" class="hover:text-white transition-colors">Signification des Signes</a></li>
+                        <li><a href="comprendre-astrologie.html" class="hover:text-white transition-colors">Les 4 Éléments</a></li>
+                        <li><a href="pierres-protectrices.html" class="hover:text-white transition-colors">Lithothérapie & Cristaux</a></li>
+                        <li><a href="le-cosmos.html" class="hover:text-white transition-colors">Astronomie & Cosmos</a></li>
+                        <li><a href="verite-horoscope-mensonge.html" class="hover:text-white transition-colors">Vérité sur l'Horoscope</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Maison Authentique</h4>
+                    <p class="mb-4 italic text-xs">"Les étoiles inclinent, mais ne déterminent pas."</p>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="apropos.html" class="hover:text-white transition-colors">À Propos / Manifeste</a></li>
+                        <li><a href="mentions-legales.html" class="hover:text-white transition-colors">Mentions Légales</a></li>
+                        <li><a href="links.html" class="hover:text-white transition-colors">Liens Rapides</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-gray-900 text-xs text-gray-600">
+                <p>&copy; Horoscope Authentique. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>`;
+
+    // --- 1. DÉFINITION DU CARROUSEL DES SIGNES (NAVIGATION RAPIDE) ---
+    const ZODIAC_NAV_HTML = `
+    <section class="py-12 bg-[#FAFAFA] border-t border-gray-200 mt-12">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-8">
+                <h3 class="font-cinzel text-lg md:text-xl font-bold text-gray-800 tracking-[0.2em] uppercase">Consulter un autre signe</h3>
+                <div class="w-12 h-[1px] bg-[#D4AF37] mx-auto mt-4 opacity-50"></div>
+            </div>
+            <div class="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-6">
+                ${signs.map(s => `
+                <a href="${s.slug}.html" class="group flex flex-col items-center justify-center p-2 rounded-lg hover:bg-white hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full p-0.5 border border-gray-200 group-hover:border-[#D4AF37] transition-all mb-2 bg-white">
+                        <img src="./assets/${s.slug}-carte.webp" onerror="this.src='./assets/${s.image}'" alt="${s.name}" class="w-full h-full object-cover rounded-full opacity-60 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-300">
+                    </div>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-400 group-hover:text-black font-bold transition-colors">${s.name}</span>
+                </a>
+                `).join('')}
+            </div>
+        </div>
+    </section>
+    `;
+
+// --- 2. DÉFINITION DES BLOCS CROSS-SELLING (LES PONTS) ---
+    
+    // PONT A : De la Peur (Red Flags) vers l'Espoir (Compatibilité)
+    const PROMO_COMPATIBILITE = `
+    <section class="py-12 bg-white border-t border-gray-100 text-center">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <h3 class="font-cinzel text-xl font-bold text-gray-900 mb-2">Ces défauts sont-ils rédhibitoires ?</h3>
+            <p class="text-gray-500 italic mb-6 font-serif">"L'amour est un équilibre. Vérifiez si vos astres s'alignent malgré tout."</p>
+            <a href="compatibilite-amoureuse.html" class="inline-block border border-[#D4AF37] text-[#D4AF37] px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4AF37] hover:text-white transition-colors duration-300">
+                Tester la Compatibilité ♥
+            </a>
+        </div>
+    </section>`;
+
+    // PONT B : Du Rêve (Compatibilité) vers la Réalité (Red Flags)
+    const PROMO_RED_FLAGS = `
+    <section class="py-12 bg-red-50 border-t border-red-100 text-center">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <h3 class="font-cinzel text-xl font-bold text-red-900 mb-2">L'Amour rend aveugle...</h3>
+            <p class="text-red-800/60 italic mb-6 font-serif">"La compatibilité n'est pas tout. Avez-vous repéré les signaux toxiques ?"</p>
+            <a href="red-flags.html" class="inline-block bg-red-900 text-white px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-black transition-colors duration-300">
+                Voir les Red Flags 🚩
+            </a>
+        </div>
+    </section>`;
+
+    // PONT C : Du Savoir (Encyclopédie) vers le Quotidien (Horoscope)
+    const PROMO_HOROSCOPE = `
+    <section class="py-12 bg-[#FAFAFA] border-t border-gray-200 text-center">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <h3 class="font-cinzel text-xl font-bold text-gray-900 mb-2">Assez de théorie...</h3>
+            <p class="text-gray-500 italic mb-6 font-serif">"La connaissance des signes est une clé. Mais que vous réservent les astres aujourd'hui ?"</p>
+            <a href="horoscope.html" class="inline-block border border-gray-900 text-gray-900 px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-black hover:text-[#D4AF37] transition-colors duration-300">
+                Lire mon Horoscope ✦
+            </a>
+        </div>
+    </section>`;
+
+    // --- 3. DÉFINITION DES RICH SNIPPETS (SCHEMA.ORG) ---
+    
+    // SCHEMA A : LE PRODUIT (Pour afficher les étoiles ★★★★★ et le prix sur Google)
+    const SCHEMA_PRODUCT = `
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Étude Céleste & Héritage Karmique",
+      "image": "https://www.horoscope-authentique.fr/assets/cabinet.webp",
+      "description": "Analyse astrologique complète : Thème natal, Héritage familial et Mission de vie. Consultation privée par écrit.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Maison Authentique"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.horoscope-authentique.fr/etude-karmique.html",
+        "priceCurrency": "EUR",
+        "price": "20.00",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "128",
+        "reviewCount": "128"
+      }
+    }
+    </script>`;
+
+    // Fonction Helper pour injecter le footer proprement
+    function injectFooter(htmlContent) {
+        // 1. On enlève l'ancien footer s'il existe (pour éviter les doublons)
+        let cleanHtml = htmlContent.replace(/<footer[\s\S]*?<\/footer>/i, '');
+        // 2. On injecte le nouveau juste avant la fin du body
+        return cleanHtml.replace('</body>', `${FAT_FOOTER_HTML}</body>`);
+    }
+
+    // FONCTION HELPER : LE FIL D'ARIANE (BREADCRUMBS) ---
+    function generateBreadcrumb(items) {
+        return `
+        <nav class="container mx-auto px-4 py-2 mt-4 text-[10px] md:text-xs font-serif uppercase tracking-widest text-gray-500">
+            ${items.map(item => 
+                item.url 
+                ? `<a href="${item.url}" class="hover:text-[#D4AF37] transition-colors border-b border-transparent hover:border-[#D4AF37]">${item.label}</a>` 
+                : `<span class="text-gray-400 font-bold">${item.label}</span>`
+            ).join(' <span class="mx-2 text-[#D4AF37]">✦</span> ')}
+        </nav>`;
+    }
+
     console.log("🚀 DÉMARRAGE DU DIAGNOSTIC...");
 
     // 1. VÉRIFICATION IMAGE (Version Corrigée)
@@ -156,6 +331,26 @@ async function main() {
             .replace(/{{horoscope_travail}}/g, prediction.travail)
             .replace(/{{horoscope_sante}}/g, prediction.sante);
 
+// --- INJECTION BREADCRUMB (SIGNES) ---
+        const breadcrumbSign = generateBreadcrumb([
+            { label: 'Sanctuaire', url: 'index.html' },
+            { label: 'Horoscope', url: 'horoscope.html' },
+            { label: sign.name, url: null } // Pas de lien sur la page actuelle
+        ]);
+        
+        // On l'insère juste avant la balise <main> pour qu'il soit en haut
+        content = content.replace('<main', `${breadcrumbSign}<main`);
+
+// --- NOUVEAU : Injection de la Navigation Zodiacale (Juste avant le footer) ---
+        if (content.includes('</body>')) {
+            content = content.replace('</body>', `${ZODIAC_NAV_HTML}</body>`);
+        } else {
+            content += ZODIAC_NAV_HTML;
+        }
+
+// AJOUT : Injection du Fat Footer sur les pages signes
+        content = injectFooter(content);
+
         content = content.replace(
              /Bienvenue à la maison/gi, 
             '<a href="apropos.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">Bienvenue à la maison</a>'
@@ -194,9 +389,7 @@ async function main() {
         </div>
     </main>
 
-    <footer class="text-center py-8 text-gray-300 text-xs">
-    <p>© Horoscope Authentique | <a href="mentions-legales.html" class="hover:text-gray-500 underline decoration-1 underline-offset-2 transition-colors">Mentions Légales</a></p>
-</footer>
+    ${FAT_FOOTER_HTML}
 
     <script>
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -323,25 +516,71 @@ async function main() {
 
     </main>
 
-    <footer class="text-center py-6 text-gray-300 text-xs">
-        <p>© Horoscope Authentique | <a href="mentions-legales.html" class="hover:text-gray-500 underline decoration-1 underline-offset-2 transition-colors">Mentions Légales</a></p>
-    </footer></body></html>`;
+    ${FAT_FOOTER_HTML}</body></html>`;
     
     fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtml);
 
-    // Copie Assets
+   // COPIE INTELLIGENTE DES PAGES STATIQUES (AVEC INJECTION DU FOOTER)
+    const pagesStatiques = [
+        'apropos.html', 'signification.html', 'comprendre-astrologie.html', 
+        'pierres-protectrices.html', 'le-cosmos.html', 'compatibilite-amoureuse.html', 
+        'mentions-legales.html', 'red-flags.html', 'etude-karmique.html', 
+        'verite-horoscope-mensonge.html', 'links.html'
+    ];
+
     if (fs.existsSync(assetsSrc)) fs.readdirSync(assetsSrc).forEach(file => fs.copyFileSync(path.join(assetsSrc, file), path.join(assetsDest, file)));
-    if (fs.existsSync('./apropos.html')) fs.copyFileSync('./apropos.html', path.join(outputDir, 'apropos.html'));
-if (fs.existsSync('./signification.html')) fs.copyFileSync('./signification.html', path.join(outputDir, 'signification.html'));
-if (fs.existsSync('./comprendre-astrologie.html')) fs.copyFileSync('./comprendre-astrologie.html', path.join(outputDir, 'comprendre-astrologie.html'));
-if (fs.existsSync('./pierres-protectrices.html')) fs.copyFileSync('./pierres-protectrices.html', path.join(outputDir, 'pierres-protectrices.html'));
-if (fs.existsSync('./le-cosmos.html')) fs.copyFileSync('./le-cosmos.html', path.join(outputDir, 'le-cosmos.html'));
-if (fs.existsSync('./compatibilite-amoureuse.html')) fs.copyFileSync('./compatibilite-amoureuse.html', path.join(outputDir, 'compatibilite-amoureuse.html'));
-if (fs.existsSync('./mentions-legales.html')) fs.copyFileSync('./mentions-legales.html', path.join(outputDir, 'mentions-legales.html'));
-if (fs.existsSync('./red-flags.html')) fs.copyFileSync('./red-flags.html', path.join(outputDir, 'red-flags.html'));
-if (fs.existsSync('./etude-karmique.html')) fs.copyFileSync('./etude-karmique.html', path.join(outputDir, 'etude-karmique.html'));
-if (fs.existsSync('./verite-horoscope-mensonge.html')) fs.copyFileSync('./verite-horoscope-mensonge.html', path.join(outputDir, 'verite-horoscope-mensonge.html'));
-if (fs.existsSync('./links.html')) fs.copyFileSync('./links.html', path.join(outputDir, 'links.html'));
+
+    pagesStatiques.forEach(page => {
+        if (fs.existsSync(`./${page}`)) {
+            let content = fs.readFileSync(`./${page}`, 'utf-8');
+            
+            // --- LOGIQUE CROSS-SELLING (Injection avant le footer) ---
+            
+            // 1. Sur la page Red Flags -> On propose la Compatibilité
+            if (page === 'red-flags.html') {
+                content = content.replace('</body>', `${PROMO_COMPATIBILITE}</body>`);
+            }
+            
+            // 2. Sur la page Compatibilité -> On propose les Red Flags
+            if (page === 'compatibilite-amoureuse.html') {
+                content = content.replace('</body>', `${PROMO_RED_FLAGS}</body>`);
+            }
+
+            // 3. Sur les pages de Savoir -> On propose l'Horoscope
+            if (['signification.html', 'comprendre-astrologie.html', 'pierres-protectrices.html', 'le-cosmos.html', 'verite-horoscope-mensonge.html'].includes(page)) {
+                content = content.replace('</body>', `${PROMO_HOROSCOPE}</body>`);
+            }
+
+            // --- FIN LOGIQUE CROSS-SELLING ---
+
+// --- INJECTION RICH SNIPPETS (SEO) ---
+            
+            // Sur la page Étude Karmique -> On injecte le Schema Produit (Étoiles + Prix)
+            if (page === 'etude-karmique.html') {
+                // On l'insère juste avant la fin du <head> pour que Google le lise en premier
+                content = content.replace('</head>', `${SCHEMA_PRODUCT}</head>`);
+            }
+
+            // On n'injecte PAS le footer sur links.html (c'est une page spéciale épurée)
+            if (page !== 'links.html') {
+                content = injectFooter(content);
+            }
+            
+            fs.writeFileSync(path.join(outputDir, page), content);
+            console.log(`✅ Page traitée (avec Cross-Selling) : ${page}`);
+        }
+    });
+
+// --- DIAGNOSTIC SPÉCIAL LINKS.HTML ---
+    const sourceLinks = './links.html';
+    if (fs.existsSync(sourceLinks)) {
+        console.log("✅ VICTOIRE : links.html trouvé à la racine ! Copie en cours...");
+        fs.copyFileSync(sourceLinks, path.join(outputDir, 'links.html'));
+    } else {
+        console.error("❌ ERREUR CRITIQUE : Le script ne voit pas 'links.html' à la racine !");
+        console.log("Voici ce que je vois dans le dossier :", fs.readdirSync('.')); // Liste les fichiers
+    }
+
 
 // 4. GÉNÉRATION DES ARTICLES DE BLOG (LITHOTHÉRAPIE)
     console.log("💎 Vérification des articles de blog...");
@@ -353,10 +592,52 @@ if (fs.existsSync('./links.html')) fs.copyFileSync('./links.html', path.join(out
         for (const article of articles) {
             const articlePath = path.join(outputDir, `${article.slug}.html`);
 
-            // ÉCONOMIE API : Si le fichier existe déjà, on ne le régénère pas !
+// CRÉATION DU SCHEMA ARTICLE DYNAMIQUE
+            const schemaArticle = `
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.horoscope-authentique.fr/${article.slug}.html"
+              },
+              "headline": "${article.titre}",
+              "image": "https://www.horoscope-authentique.fr/assets/${article.image || 'livre.webp'}",
+              "author": {
+                "@type": "Person",
+                "name": "Livia - Maison Authentique"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Horoscope Authentique",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.horoscope-authentique.fr/assets/favicon.webp"
+                }
+              },
+              "datePublished": "${new Date().toISOString().split('T')[0]}",
+              "description": "Article complet sur ${article.sujet} : Découvrez les secrets de l'astrologie authentique."
+            }
+            </script>`;
+
+            // PATCH : SI L'ARTICLE EXISTE, ON MET JUSTE À JOUR LE FOOTER (SANS APPEL API)
             if (fs.existsSync(articlePath)) {
-                console.log(`⏩ Article existant ignoré (économie API) : ${article.titre}`);
-                continue; 
+                console.log(`🔄 Mise à jour du footer pour : ${article.titre}`);
+                let existingContent = fs.readFileSync(articlePath, 'utf-8');
+                
+                // 1. On nettoie l'ancien footer
+                existingContent = existingContent.replace(/<footer[\s\S]*?<\/footer>/i, '');
+                
+                // 2. On injecte le nouveau FAT FOOTER
+                if(existingContent.includes('</body>')) {
+                    existingContent = existingContent.replace('</body>', `${FAT_FOOTER_HTML}</body>`);
+                } else {
+                    existingContent += FAT_FOOTER_HTML;
+                }
+                
+                fs.writeFileSync(articlePath, existingContent);
+                continue; // On passe au suivant sans appeler Gemini
             }
 
             if (API_KEY) {
@@ -401,6 +682,28 @@ if (fs.existsSync('./links.html')) fs.copyFileSync('./links.html', path.join(out
                             .replace(/{{image}}/g, article.image)
                             .replace(/{{categorie}}/g, article.categorie || 'Sagesse Ancestrale') // Nouvelle ligne
                             .replace(/{{contenu}}/g, articleBody);
+
+                            // INJECTION DU SCHEMA DANS LE HEAD DE L'ARTICLE
+                        finalHtml = finalHtml.replace('</head>', `${schemaArticle}</head>`);
+
+                        // AJOUT du Fat Footer juste avant la fin du body
+                        if(finalHtml.includes('</body>')) {
+                            finalHtml = finalHtml.replace('</body>', `${FAT_FOOTER_HTML}</body>`);
+                        } else {
+                            // Au cas où le template n'a pas de body fermé (rare mais possible)
+                            finalHtml += FAT_FOOTER_HTML;
+                        }
+
+// --- INJECTION BREADCRUMB (ARTICLES) ---
+                        const breadcrumbArticle = generateBreadcrumb([
+                            { label: 'Sanctuaire', url: 'index.html' },
+                            { label: 'Bibliothèque', url: 'signification.html#bibliotheque' },
+                            { label: article.categorie || 'Savoirs', url: null },
+                            { label: article.titre.substring(0, 20) + '...', url: null } // On coupe si le titre est trop long
+                        ]);
+
+                        // Injection avant le main
+                        finalHtml = finalHtml.replace('<main', `${breadcrumbArticle}<main`);
 
                         fs.writeFileSync(articlePath, finalHtml);
                         console.log(`✅ Article généré : ${article.slug}.html`);
