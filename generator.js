@@ -183,10 +183,11 @@ async function main() {
 
     // Fonction Helper pour injecter le footer proprement
     function injectFooter(htmlContent) {
-        // 1. On enlève l'ancien footer s'il existe (pour éviter les doublons)
-        let cleanHtml = htmlContent.replace(/<footer[\s\S]*?<\/footer>/i, '');
+        // 1. On enlève l'ancien footer s'il existe (pour éviter les doublons), avec les espaces
+        //    autour, pour ne pas accumuler des lignes vides à chaque régénération
+        let cleanHtml = htmlContent.replace(/\s*<footer[\s\S]*?<\/footer>\s*/i, '\n');
         // 2. On injecte le nouveau juste avant la fin du body
-        return cleanHtml.replace('</body>', `${FAT_FOOTER_HTML}</body>`);
+        return cleanHtml.replace('</body>', `${FAT_FOOTER_HTML}\n</body>`);
     }
 
     // FONCTION HELPER : LE FIL D'ARIANE (BREADCRUMBS) ---
@@ -389,6 +390,172 @@ async function main() {
         content = injectGA(content);
 
         fs.writeFileSync(path.join(outputDir, `${sign.slug}.html`), content);
+    }
+
+// --- PAGES RÉSUMÉ PAR SIGNE : COMPATIBILITÉ & RED FLAGS ---
+// Le calculateur interactif (compatibilite-amoureuse.html / red-flags.html) contient déjà
+// 78 combinaisons de signes rédigées, mais planquées dans du JS déclenché au clic : invisible
+// pour Google. On regénère ce même contenu en pages statiques lisibles, une par signe.
+    console.log("💞 Génération des pages résumé Compatibilité & Red Flags...");
+
+    if (fs.existsSync('./compatibilite-data.json') && fs.existsSync('./red-flags-data.json')) {
+        const compatData = require('./compatibilite-data.json');
+        const roastData = require('./red-flags-data.json');
+        const signByslug = Object.fromEntries(signs.map(s => [s.slug, s]));
+
+        const scoreBar = (pct) => `
+                <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden my-3">
+                    <div class="h-full bg-[#D4AF37]" style="width:${pct}%"></div>
+                </div>`;
+
+        function buildSignSummaryPage({ typePage, sign, entries, pageTitle, introText, metaDesc }) {
+            const cards = entries.map(e => {
+                const autre = signByslug[e.with];
+                const scoreNum = typeof e.score === 'number' ? e.score : parseInt(e.score, 10) || 0;
+                if (typePage === 'compat') {
+                    return `
+            <article class="porcelain-card p-6 md:p-8 mb-6">
+                <div class="flex items-center justify-between flex-wrap gap-2 mb-1">
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-900">${sign.name} + ${autre.name} <span class="text-[#D4AF37] font-normal italic text-base">— ${e.titre}</span></h2>
+                    <span class="text-sm font-bold text-[#D4AF37]">${scoreNum}%</span>
+                </div>
+                ${scoreBar(scoreNum)}
+                <p class="text-gray-700 mb-3"><strong class="text-gray-900">Au quotidien :</strong> ${e.quotidien}</p>
+                <p class="text-gray-700 mb-3"><strong class="text-gray-900">En amour :</strong> ${e.amour}</p>
+                <p class="text-gray-700 mb-3"><strong class="text-gray-900">Sur la durée :</strong> ${e.duree}</p>
+                <p class="text-gray-700 mb-1"><strong class="text-gray-900">Ce qui vous rapproche :</strong> ${e.rapproche}</p>
+                <p class="text-gray-700"><strong class="text-gray-900">Le point épineux :</strong> ${e.epineux}</p>
+            </article>`;
+                }
+                return `
+            <article class="porcelain-card p-6 md:p-8 mb-6">
+                <div class="flex items-center justify-between flex-wrap gap-2 mb-1">
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-900">${sign.name} + ${autre.name} <span class="text-red-700 font-normal italic text-base">— ${e.titre}</span></h2>
+                    <span class="text-sm font-bold text-red-700">${e.score} · ${e.niveau}</span>
+                </div>
+                ${scoreBar(scoreNum)}
+                <p class="text-gray-700 mb-3">${e.resume}</p>
+                <p class="text-gray-700 bg-red-50 border-l-2 border-red-700 pl-4 py-2"><strong class="text-red-900">Red flag :</strong> ${e.redflag}</p>
+            </article>`;
+            }).join('');
+
+            const breadcrumb = generateBreadcrumb(typePage === 'compat' ? [
+                { label: 'Sanctuaire', url: 'index.html' },
+                { label: 'Compatibilité Amoureuse', url: 'compatibilite-amoureuse.html' },
+                { label: sign.name, url: null }
+            ] : [
+                { label: 'Sanctuaire', url: 'index.html' },
+                { label: 'Red Flags & Toxicité', url: 'red-flags.html' },
+                { label: sign.name, url: null }
+            ]);
+
+            const ctaBlock = typePage === 'compat' ? `
+        <div class="mt-12 text-center">
+            <a href="compatibilite-amoureuse.html" class="inline-block border border-[#D4AF37] text-[#D4AF37] px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4AF37] hover:text-white transition-colors duration-300 mr-3 mb-3">Tester une autre combinaison ♥</a>
+            <a href="etude-karmique.html" class="inline-block bg-black text-white px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4AF37] transition-colors duration-300 mb-3">Étude complète au Cabinet Privé</a>
+        </div>` : `
+        <div class="mt-12 text-center">
+            <a href="red-flags.html" class="inline-block border border-red-800 text-red-800 px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-red-800 hover:text-white transition-colors duration-300 mr-3 mb-3">Tester une autre combinaison 🚩</a>
+            <a href="etude-karmique.html" class="inline-block bg-black text-white px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4AF37] transition-colors duration-300 mb-3">Étude complète au Cabinet Privé</a>
+        </div>`;
+
+            const schemaArticlePage = `
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.horoscope-authentique.fr/${pageTitle.slug}.html" },
+      "headline": "${pageTitle.h1.replace(/"/g, '\\"')}",
+      "image": "https://www.horoscope-authentique.fr/assets/${sign.image}",
+      "author": { "@type": "Person", "name": "Livia - Maison Authentique" },
+      "publisher": { "@type": "Organization", "name": "Horoscope Authentique", "logo": { "@type": "ImageObject", "url": "https://www.horoscope-authentique.fr/assets/favicon.webp" } },
+      "datePublished": "${new Date().toISOString().split('T')[0]}",
+      "description": "${metaDesc.replace(/"/g, '\\"')}"
+    }
+    </script>`;
+
+            let html = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" type="image/webp" href="./assets/favicon.webp">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${pageTitle.title}</title>
+    <meta name="description" content="${metaDesc}">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #FAFAFA; font-family: 'Cormorant Garamond', serif; }
+        h1, h2, h3 { font-family: 'Cinzel', serif; }
+        .porcelain-card { background: white; box-shadow: 20px 20px 60px #d1d1d1, -20px -20px 60px #ffffff; border-radius: 12px; }
+    </style>
+    ${schemaArticlePage}
+</head>
+<body class="min-h-screen flex flex-col bg-[#FAFAFA] text-gray-900">
+
+    <header class="text-center py-12 px-4">
+        <a href="index.html" class="text-xs tracking-[0.3em] uppercase text-gray-400 hover:text-black transition-colors border-b border-transparent hover:border-black pb-1">Retour au Sanctuaire</a>
+    </header>
+    ${breadcrumb}
+    <main class="container mx-auto px-4 max-w-3xl pb-24">
+
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">${pageTitle.h1}</h1>
+            <div class="w-24 h-[1px] bg-black mx-auto mt-6"></div>
+        </div>
+
+        <p class="text-gray-600 leading-relaxed mb-10 text-lg font-serif">${introText}</p>
+
+        ${cards}
+
+        ${ctaBlock}
+
+    </main>
+
+</body>
+</html>`;
+
+            html = injectGA(html);
+            html = injectFooter(html);
+            return html;
+        }
+
+        for (const sign of signs) {
+            // Trie par score décroissant : les meilleures/pires combos en premier, plus intéressant à lire
+            const compatEntries = [...compatData[sign.slug]].sort((a, b) => b.score - a.score);
+            const roastEntries = [...roastData[sign.slug]].sort((a, b) => parseInt(b.score) - parseInt(a.score));
+
+            const compatHtml = buildSignSummaryPage({
+                typePage: 'compat',
+                sign,
+                entries: compatEntries,
+                pageTitle: {
+                    slug: `compatibilite-${sign.slug}`,
+                    title: `Compatibilité Amoureuse ${sign.name} avec les 12 Signes - Maison Authentique`,
+                    h1: `COMPATIBILITÉ AMOUREUSE ${sign.name.toUpperCase()}`
+                },
+                introText: `Comment ${sign.name} s'entend avec chacun des 12 signes du zodiaque, en amour comme au quotidien : le résumé complet, signe par signe, avant de tester votre propre combinaison dans l'Oracle de Compatibilité.`,
+                metaDesc: `Compatibilité amoureuse de ${sign.name} avec les 12 signes du zodiaque : quotidien, amour, durée et points de friction pour chaque combinaison.`
+            });
+            fs.writeFileSync(path.join(outputDir, `compatibilite-${sign.slug}.html`), compatHtml);
+
+            const roastHtml = buildSignSummaryPage({
+                typePage: 'roast',
+                sign,
+                entries: roastEntries,
+                pageTitle: {
+                    slug: `red-flags-${sign.slug}`,
+                    title: `Red Flags ${sign.name} en Amour avec les 12 Signes - Maison Authentique`,
+                    h1: `RED FLAGS ${sign.name.toUpperCase()} EN AMOUR`
+                },
+                introText: `Les signaux toxiques et les indices de désastre entre ${sign.name} et chacun des 12 signes du zodiaque : le mur de la honte complet, signe par signe, avant de lancer votre propre diagnostic dans l'Oracle du Chaos.`,
+                metaDesc: `Red flags et indice de toxicité entre ${sign.name} et les 12 signes du zodiaque : ce qui coince, signe par signe, dans l'Oracle du Chaos.`
+            });
+            fs.writeFileSync(path.join(outputDir, `red-flags-${sign.slug}.html`), roastHtml);
+        }
+        console.log("✅ 24 pages résumé générées (12 compatibilité + 12 red flags).");
+    } else {
+        console.log("⚠️ compatibilite-data.json ou red-flags-data.json manquant, pages résumé sautées.");
     }
 
 // Page Grille (AVEC DATE + IMAGES SPÉCIALES "-carte" + RETOUR SANCTUAIRE)
@@ -679,12 +846,13 @@ async function main() {
                 console.log(`🔄 Mise à jour du footer pour : ${article.titre}`);
                 let existingContent = fs.readFileSync(articlePath, 'utf-8');
 
-                // 1. On nettoie l'ancien footer
-                existingContent = existingContent.replace(/<footer[\s\S]*?<\/footer>/i, '');
+                // 1. On nettoie l'ancien footer (avec les espaces autour, pour ne pas accumuler
+                //    des lignes vides à chaque régénération)
+                existingContent = existingContent.replace(/\s*<footer[\s\S]*?<\/footer>\s*/i, '\n');
 
                 // 2. On injecte le nouveau FAT FOOTER
                 if(existingContent.includes('</body>')) {
-                    existingContent = existingContent.replace('</body>', `${FAT_FOOTER_HTML}</body>`);
+                    existingContent = existingContent.replace('</body>', `${FAT_FOOTER_HTML}\n</body>`);
                 } else {
                     existingContent += FAT_FOOTER_HTML;
                 }
@@ -837,6 +1005,14 @@ async function main() {
     if (fs.existsSync('./articles.json')) {
         const articles = require('./articles.json');
         articles.forEach(art => pagesStablesSitemap.push(`${art.slug}.html`));
+    }
+
+    // AJOUT DES 24 PAGES RÉSUMÉ COMPATIBILITÉ & RED FLAGS (contenu éditorial stable)
+    if (fs.existsSync('./compatibilite-data.json') && fs.existsSync('./red-flags-data.json')) {
+        signs.forEach(sign => {
+            pagesStablesSitemap.push(`compatibilite-${sign.slug}.html`);
+            pagesStablesSitemap.push(`red-flags-${sign.slug}.html`);
+        });
     }
 
     // Date du jour pour dire à Google que c'est frais
