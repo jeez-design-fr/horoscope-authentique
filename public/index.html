@@ -5,7 +5,28 @@
     <meta name="description" content="Votre horoscope quotidien gratuit et authentique. Découvrez votre avenir amoureux, professionnel et spirituel selon les véritables mouvements planétaires.">
     <meta name="google-site-verification" content="Y48soU-Rt1uh7fBNj2rRT9c9YFGJZiBpkbEmwbhCydk" />
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA] justify-between">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP733JKXH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0FP733JKXH');
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Horoscope Authentique",
+      "alternateName": "Maison Authentique",
+      "url": "https://www.horoscope-authentique.fr/",
+      "logo": "https://www.horoscope-authentique.fr/assets/favicon.webp",
+      "founder": { "@type": "Person", "name": "Livia" },
+      "sameAs": []
+    }
+    </script>
+    <link rel="stylesheet" href="./assets/style.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA] justify-between">
     
     <header class="text-center pt-12 px-4">
         <a href="apropos.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">Bienvenue à la maison</a>
@@ -23,7 +44,7 @@
             <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
                 <a href="horoscope.html" class="block">
                     <div class="relative mb-4">
-                        <img src="./assets/entree.webp" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700">
+                        <img src="./assets/entree.webp" alt="Horoscope du jour - Votre Oracle" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700">
                     </div>
                     <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">HOROSCOPE</h3>
                     <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Votre Oracle</p>
@@ -33,7 +54,7 @@
             <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
                 <a href="compatibilite-amoureuse.html" class="block">
                     <div class="relative mb-4">
-                        <img src="./assets/compatibilite.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.5s;">
+                        <img src="./assets/compatibilite.webp" onerror="this.src='./assets/belier.webp'" alt="Compatibilité amoureuse entre signes du zodiaque" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.5s;">
                     </div>
                     <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">AMOUR</h3>
                     <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Compatibilité</p>
@@ -43,7 +64,7 @@
             <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
                 <a href="red-flags.html" class="block">
                     <div class="relative mb-4">
-                        <img src="./assets/red-flags.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.7s;">
+                        <img src="./assets/red-flags.webp" onerror="this.src='./assets/belier.webp'" alt="Red flags et signaux de toxicité par signe astrologique" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.7s;">
                     </div>
                     <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">RED FLAGS</h3>
                     <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">L'Oracle du Chaos</p>
@@ -54,7 +75,7 @@
             <div class="w-[50vw] md:w-96 text-center group cursor-pointer z-20">
                 <a href="etude-karmique.html" class="block">
                     <div class="relative mb-4">
-                        <img src="./assets/cabinet.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.8s;">
+                        <img src="./assets/cabinet.webp" onerror="this.src='./assets/belier.webp'" alt="Cabinet Privé - Étude astrologique céleste et héritage familial" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.8s;">
                         <div class="absolute -bottom-2 right-0 bg-[#D4AF37] text-white text-[10px] md:text-xs font-bold px-3 py-1 uppercase tracking-widest shadow-lg transform -rotate-6">Ouverture</div>
                     </div>
                     <h3 class="text-2xl md:text-3xl font-bold text-[#D4AF37] group-hover:text-black transition-colors">CABINET PRIVÉ</h3>
@@ -71,7 +92,7 @@
             <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
                 <a href="signification.html" class="block">
                     <div class="relative mb-4">
-                        <img src="./assets/livre.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1s;">
+                        <img src="./assets/livre.webp" onerror="this.src='./assets/belier.webp'" alt="Encyclopédie de la signification des signes astrologiques" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1s;">
                     </div>
                     <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">ENCYCLOPÉDIE</h3>
                     <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Signification</p>
@@ -81,7 +102,7 @@
             <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
                 <a href="comprendre-astrologie.html" class="block">
                     <div class="relative mb-4">
-                        <img src="./assets/elements.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.2s;">
+                        <img src="./assets/elements.webp" onerror="this.src='./assets/belier.webp'" alt="Les 4 éléments astrologiques : Feu, Terre, Air, Eau" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.2s;">
                     </div>
                     <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">ÉLÉMENTS</h3>
                     <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Feu, Terre, Air, Eau</p>
@@ -91,7 +112,7 @@
             <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
                 <a href="pierres-protectrices.html" class="block">
                     <div class="relative mb-4">
-                        <img src="./assets/pierres.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.4s;">
+                        <img src="./assets/pierres.webp" onerror="this.src='./assets/belier.webp'" alt="Pierres protectrices et lithothérapie" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.4s;">
                     </div>
                     <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">CRISTAUX</h3>
                     <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Lithothérapie</p>
@@ -101,7 +122,7 @@
             <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
                 <a href="le-cosmos.html" class="block">
                     <div class="relative mb-4">
-                        <img src="./assets/cosmos.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.6s;">
+                        <img src="./assets/cosmos.webp" onerror="this.src='./assets/belier.webp'" alt="Astronomie et cosmos, l'écho de l'âme" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.6s;">
                     </div>
                     <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">COSMOS</h3>
                     <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Astronomie & Âme</p>
