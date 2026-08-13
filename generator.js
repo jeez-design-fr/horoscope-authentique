@@ -467,7 +467,7 @@ async function main() {
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.horoscope-authentique.fr/${pageTitle.slug}.html" },
       "headline": "${pageTitle.h1.replace(/"/g, '\\"')}",
       "image": "https://www.horoscope-authentique.fr/assets/${sign.image}",
-      "author": { "@type": "Person", "name": "Livia - Maison Authentique" },
+      "author": { "@type": "Person", "name": "Madeleine - Maison Authentique" },
       "publisher": { "@type": "Organization", "name": "Horoscope Authentique", "logo": { "@type": "ImageObject", "url": "https://www.horoscope-authentique.fr/assets/favicon.webp" } },
       "datePublished": "${new Date().toISOString().split('T')[0]}",
       "description": "${metaDesc.replace(/"/g, '\\"')}"
@@ -617,7 +617,7 @@ async function main() {
       "alternateName": "Maison Authentique",
       "url": "https://www.horoscope-authentique.fr/",
       "logo": "https://www.horoscope-authentique.fr/assets/favicon.webp",
-      "founder": { "@type": "Person", "name": "Livia" },
+      "founder": { "@type": "Person", "name": "Madeleine" },
       "sameAs": []
     }
     </script>
@@ -826,7 +826,7 @@ async function main() {
               "image": "https://www.horoscope-authentique.fr/assets/${article.image || 'livre.webp'}",
               "author": {
                 "@type": "Person",
-                "name": "Livia - Maison Authentique"
+                "name": "Madeleine - Maison Authentique"
               },
               "publisher": {
                 "@type": "Organization",
@@ -865,6 +865,9 @@ async function main() {
 
                 // 4. GA4
                 existingContent = injectGA(existingContent);
+
+                // 4bis. Rattrapage renommage autrice (ancien schema figé lors de la génération initiale)
+                existingContent = existingContent.replace(/Livia/g, 'Madeleine');
 
                 // 5. Sortie du CDN Tailwind (perf) vers le CSS compilé local
                 existingContent = existingContent.replace(
