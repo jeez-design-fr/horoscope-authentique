@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horoscope Authentique - Bélier</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Horoscope Bélier du jour : amour, travail et bien-être selon les vrais transits planétaires. Prédictions authentiques mises à jour chaque jour.">
+    <link rel="stylesheet" href="./assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Cormorant Garamond', serif; background-color: #FAFAFA; }
@@ -18,6 +19,15 @@
         }
         .porcelain-card { background: white; box-shadow: 20px 20px 60px #d1d1d1, -20px -20px 60px #ffffff; border-radius: 12px; }
     </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP733JKXH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0FP733JKXH');
+    </script>
 </head>
 <body class="min-h-screen flex flex-col items-center selection:bg-black selection:text-white">
 
@@ -30,7 +40,32 @@
     
         <nav class="container mx-auto px-4 py-2 mt-4 text-[10px] md:text-xs font-serif uppercase tracking-widest text-gray-500">
             <a href="index.html" class="hover:text-[#D4AF37] transition-colors border-b border-transparent hover:border-[#D4AF37]">Sanctuaire</a> <span class="mx-2 text-[#D4AF37]">✦</span> <a href="horoscope.html" class="hover:text-[#D4AF37] transition-colors border-b border-transparent hover:border-[#D4AF37]">Horoscope</a> <span class="mx-2 text-[#D4AF37]">✦</span> <span class="text-gray-400 font-bold">Bélier</span>
-        </nav><main class="w-full max-w-4xl px-4 mb-20">
+        </nav>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Sanctuaire",
+              "item": "https://www.horoscope-authentique.fr/index.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Horoscope",
+              "item": "https://www.horoscope-authentique.fr/horoscope.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Bélier"
+            }
+          ]
+        }
+        </script><main class="w-full max-w-4xl px-4 mb-20">
         
         <div class="text-center mb-12 relative">
             <div class="w-full max-w-md mx-auto mb-8 relative z-10">
@@ -48,17 +83,17 @@
             <article class="porcelain-card p-8 text-center border-t-4 border-[#D4AF37] relative">
                 <h2 class="text-2xl mb-4 text-gray-800">Amour</h2>
                 <div class="w-8 h-[1px] bg-[#D4AF37] mx-auto mb-6"></div>
-                <p class="text-gray-600 leading-relaxed italic">Ta flamme intérieure brûle grâce au Soleil et Mercure en Lion, tu es irrésistible ! Mais attention, l'énergie protectrice de Mars en Cancer pourrait te rendre un brin possessive avec tes proches. Ambiance passionnée, mais gare aux drames superflus, ma belle !</p>
+                <p class="text-gray-600 leading-relaxed italic">Ah, Bélier, Vénus en Lion te lance un défi passionné ! Aujourd'hui, on ne fait pas dans la demi-mesure côté cœur. Que tu sois en couple ou célibataire, ose rugir tes désirs. C'est le moment de la grande déclaration ou d'un rendez-vous flamboyant. N'aie pas peur d'être généreux avec tes affections, ça te va si bien !</p>
             </article>
             <article class="porcelain-card p-8 text-center border-t-4 border-[#D4AF37] relative">
                 <h2 class="text-2xl mb-4 text-gray-800">Travail</h2>
                 <div class="w-8 h-[1px] bg-[#D4AF37] mx-auto mb-6"></div>
-                <p class="text-gray-600 leading-relaxed italic">Tu as envie de briller, Bélier, et les idées fusent à une vitesse folle ! Jupiter en Cancer te pousse à te sentir bien dans ton espace de travail, peut-être à y mettre une touche personnelle. Ne te laisse pas freiner si tu te sens à l'étroit, la liberté, c'est ta potion magique !</p>
+                <p class="text-gray-600 leading-relaxed italic">Saturne rétrograde en Bélier te pousse à revoir ta feuille de route, mon grand. C'est une période de réajustement, pas de stagnation ! Prends le temps de polir tes stratégies, de consolider tes bases. L'impulsivité, on la garde pour l'amour, pas pour les dossiers importants. C'est en regardant en arrière qu'on comprend mieux où aller.</p>
             </article>
             <article class="porcelain-card p-8 text-center border-t-4 border-[#D4AF37] relative">
                 <h2 class="text-2xl mb-4 text-gray-800">Bien-être</h2>
                 <div class="w-8 h-[1px] bg-[#D4AF37] mx-auto mb-6"></div>
-                <p class="text-gray-600 leading-relaxed italic">La Lune en Scorpion te donne une intensité folle, mais attention à ne pas te consumer ! Pense à canaliser cette fougue, fais de l'exercice pour te défouler mais aussi de la relaxation. Le repos est ta meilleure arme pour éviter de te sentir vidée.</p>
+                <p class="text-gray-600 leading-relaxed italic">Avec la Lune en Poissons qui te chuchote à l'oreille, ton corps te demande une pause émotionnelle. Écoute cette intuition qui te dit de lever le pied. Une séance de méditation, un bon livre, ou simplement un moment de calme loin du brouhaha : ton énergie de guerrier a besoin de se recharger en douceur.</p>
             </article>
         </div>
 
