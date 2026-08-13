@@ -1,6 +1,12 @@
 {
+  "scripts": {
+    "build:css": "tailwindcss -i ./tailwind-input.css -o ./assets/style.css --minify"
+  },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
   }
 }

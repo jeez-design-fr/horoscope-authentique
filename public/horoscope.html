@@ -1,6 +1,14 @@
 <!DOCTYPE html><html lang="fr"><head>
     <link rel="icon" type="image/webp" href="./assets/favicon.webp">
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Horoscope du Jour - Maison Authentique</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Horoscope du Jour - Maison Authentique</title><meta name="description" content="Consultez l'horoscope du jour pour les 12 signes du zodiaque : amour, travail et bien-être. Choisissez votre signe pour découvrir vos prédictions astrales.">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP733JKXH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0FP733JKXH');
+    </script><link rel="stylesheet" href="./assets/style.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]">
     
     <header class="text-center pt-10 px-4 mb-8">
         <a href="index.html" class="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4 hover:text-black transition-colors border-b border-transparent hover:border-black pb-1 inline-block">Retour au Sanctuaire</a>
@@ -18,7 +26,7 @@
             <a href="belier.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/belier-carte.webp" onerror="this.src='./assets/belier.webp'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/belier-carte.webp" onerror="this.src='./assets/belier.webp'" alt="Horoscope Bélier" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">BÉLIER</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
@@ -27,7 +35,7 @@
             <a href="taureau.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/taureau-carte.webp" onerror="this.src='./assets/taureau.webp'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/taureau-carte.webp" onerror="this.src='./assets/taureau.webp'" alt="Horoscope Taureau" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">TAUREAU</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
@@ -36,7 +44,7 @@
             <a href="gemeaux.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/gemeaux-carte.webp" onerror="this.src='./assets/gemeaux.webp'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/gemeaux-carte.webp" onerror="this.src='./assets/gemeaux.webp'" alt="Horoscope Gémeaux" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">GÉMEAUX</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
@@ -45,7 +53,7 @@
             <a href="cancer.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/cancer-carte.webp" onerror="this.src='./assets/cancer.webp'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/cancer-carte.webp" onerror="this.src='./assets/cancer.webp'" alt="Horoscope Cancer" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">CANCER</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
@@ -54,7 +62,7 @@
             <a href="lion.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/lion-carte.webp" onerror="this.src='./assets/lion.webp'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/lion-carte.webp" onerror="this.src='./assets/lion.webp'" alt="Horoscope Lion" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">LION</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
@@ -63,7 +71,7 @@
             <a href="vierge.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/vierge-carte.webp" onerror="this.src='./assets/vierge.webp'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/vierge-carte.webp" onerror="this.src='./assets/vierge.webp'" alt="Horoscope Vierge" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">VIERGE</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
@@ -72,7 +80,7 @@
             <a href="balance.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/balance-carte.webp" onerror="this.src='./assets/balance.webp'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/balance-carte.webp" onerror="this.src='./assets/balance.webp'" alt="Horoscope Balance" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">BALANCE</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
@@ -81,7 +89,7 @@
             <a href="scorpion.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/scorpion-carte.webp" onerror="this.src='./assets/scorpion.webp'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/scorpion-carte.webp" onerror="this.src='./assets/scorpion.webp'" alt="Horoscope Scorpion" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">SCORPION</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
@@ -90,7 +98,7 @@
             <a href="sagittaire.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/sagittaire-carte.webp" onerror="this.src='./assets/sagittaire.webp'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/sagittaire-carte.webp" onerror="this.src='./assets/sagittaire.webp'" alt="Horoscope Sagittaire" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">SAGITTAIRE</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
@@ -99,7 +107,7 @@
             <a href="capricorne.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/capricorne-carte.webp" onerror="this.src='./assets/capricorne.webp'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/capricorne-carte.webp" onerror="this.src='./assets/capricorne.webp'" alt="Horoscope Capricorne" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">CAPRICORNE</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
@@ -108,7 +116,7 @@
             <a href="verseau.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/verseau-carte.webp" onerror="this.src='./assets/verseau.webp'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/verseau-carte.webp" onerror="this.src='./assets/verseau.webp'" alt="Horoscope Verseau" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">VERSEAU</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
@@ -117,7 +125,7 @@
             <a href="poissons.html" class="block group">
                 <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                     <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/poissons-carte.webp" onerror="this.src='./assets/poissons.webp'" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
+                        <img src="./assets/poissons-carte.webp" onerror="this.src='./assets/poissons.webp'" alt="Horoscope Poissons" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">POISSONS</h2>
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>

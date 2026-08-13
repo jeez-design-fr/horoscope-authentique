@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horoscope Authentique - Lion</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Horoscope Lion du jour : amour, travail et bien-être selon les vrais transits planétaires. Prédictions authentiques mises à jour chaque jour.">
+    <link rel="stylesheet" href="./assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Cormorant Garamond', serif; background-color: #FAFAFA; }
@@ -18,6 +19,15 @@
         }
         .porcelain-card { background: white; box-shadow: 20px 20px 60px #d1d1d1, -20px -20px 60px #ffffff; border-radius: 12px; }
     </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP733JKXH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0FP733JKXH');
+    </script>
 </head>
 <body class="min-h-screen flex flex-col items-center selection:bg-black selection:text-white">
 
@@ -30,7 +40,32 @@
     
         <nav class="container mx-auto px-4 py-2 mt-4 text-[10px] md:text-xs font-serif uppercase tracking-widest text-gray-500">
             <a href="index.html" class="hover:text-[#D4AF37] transition-colors border-b border-transparent hover:border-[#D4AF37]">Sanctuaire</a> <span class="mx-2 text-[#D4AF37]">✦</span> <a href="horoscope.html" class="hover:text-[#D4AF37] transition-colors border-b border-transparent hover:border-[#D4AF37]">Horoscope</a> <span class="mx-2 text-[#D4AF37]">✦</span> <span class="text-gray-400 font-bold">Lion</span>
-        </nav><main class="w-full max-w-4xl px-4 mb-20">
+        </nav>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Sanctuaire",
+              "item": "https://www.horoscope-authentique.fr/index.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Horoscope",
+              "item": "https://www.horoscope-authentique.fr/horoscope.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Lion"
+            }
+          ]
+        }
+        </script><main class="w-full max-w-4xl px-4 mb-20">
         
         <div class="text-center mb-12 relative">
             <div class="w-full max-w-md mx-auto mb-8 relative z-10">
@@ -48,17 +83,17 @@
             <article class="porcelain-card p-8 text-center border-t-4 border-[#D4AF37] relative">
                 <h2 class="text-2xl mb-4 text-gray-800">Amour</h2>
                 <div class="w-8 h-[1px] bg-[#D4AF37] mx-auto mb-6"></div>
-                <p class="text-gray-600 leading-relaxed italic">Le Soleil et Mercure dans ton signe te donnent un éclat incroyable, tu rayonnes d'amour et d'assurance ! Mais attention, la Lune en Scorpion peut provoquer quelques étincelles, surtout sur le front domestique. Apprends à dompter ton besoin de contrôle pour éviter les drames inutiles.</p>
+                <p class="text-gray-600 leading-relaxed italic">Les astres murmurent...</p>
             </article>
             <article class="porcelain-card p-8 text-center border-t-4 border-[#D4AF37] relative">
                 <h2 class="text-2xl mb-4 text-gray-800">Travail</h2>
                 <div class="w-8 h-[1px] bg-[#D4AF37] mx-auto mb-6"></div>
-                <p class="text-gray-600 leading-relaxed italic">C'est ton moment de briller, cher Lion ! Tu es créatif, éloquent, et tes idées sont percutantes. Mars et Jupiter en Cancer te poussent à travailler en coulisses, à préparer tes coups avec finesse. Mais ne te consume pas trop dans le secret, n'aie pas peur de rugir et de te montrer !</p>
+                <p class="text-gray-600 leading-relaxed italic">Patience et observation.</p>
             </article>
             <article class="porcelain-card p-8 text-center border-t-4 border-[#D4AF37] relative">
                 <h2 class="text-2xl mb-4 text-gray-800">Bien-être</h2>
                 <div class="w-8 h-[1px] bg-[#D4AF37] mx-auto mb-6"></div>
-                <p class="text-gray-600 leading-relaxed italic">Ton énergie est au top, mais la Lune en Scorpion te met un peu sous pression émotionnelle. Ne laisse pas les tensions familiales ou les rancœurs cachées te saper le moral. Respire, et concentre-toi sur ce qui te fait du bien, comme un bon bain moussant ou une séance de sport intense.</p>
+                <p class="text-gray-600 leading-relaxed italic">Prenez soin de vous.</p>
             </article>
         </div>
 
