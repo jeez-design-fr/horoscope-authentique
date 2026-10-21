@@ -9,7 +9,8 @@ const fs = require('fs');
 const path = require('path');
 
 const { getCiel, astresPourSigne, periodeMercureRetro, PHASES } = require('./lib/ciel');
-const { horoscopeDuJour } = require('./lib/horoscope');
+const H = require('./lib/horoscope');
+const C = require('./lib/chantiers');
 const articlesLib = require('./lib/articles');
 const L = require('./lib/layout');
 const { esc } = L;
@@ -21,28 +22,9 @@ const articles = require('./articles.json');
 const compatData = require('./compatibilite-data.json');
 const roastData = require('./red-flags-data.json');
 const bySlug = Object.fromEntries(signs.map((s) => [s.slug, s]));
+const SLUGS_ORDRE = signs.map((s) => s.slug);
 
-// Dimensions des images (après compression) pour éviter les décalages de mise en page
-const IMG = {
-    medal: (slug) => `<img src="./assets/${slug}-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async">`,
-    obj: (file, alt = '', lazy = true) => `<img src="./assets/${file}" alt="${esc(alt)}" width="640" height="731"${lazy ? ' loading="lazy"' : ''} decoding="async">`,
-    lune: (i, lazy = true) => `<img src="./assets/lune-${i + 1}.webp" alt="" width="240" height="274"${lazy ? ' loading="lazy"' : ''} decoding="async">`
-};
-
-const phrase = (t) => { const l = String(t || '').toLowerCase(); return l.charAt(0).toUpperCase() + l.slice(1); };
-const tronquer = (s, n = 155) => { s = String(s || '').replace(/\s+/g, ' ').trim(); return s.length <= n ? s : s.slice(0, n).replace(/\s+\S*$/, '') + '…'; };
-const premierePhrase = (s) => (String(s || '').match(/^.*?[.!?](\s|$)/) || [s])[0].trim();
-const dateSigne = (s) => s.date.replace(' - ', ' – ');
-const ancre = (t) => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
-const write = (file, html) => fs.writeFileSync(path.join(OUT, file), html);
-const auteur = { '@type': 'Person', name: 'Madeleine', url: L.SITE + 'apropos.html' };
-const editeur = { '@type': 'Organization', name: 'Horoscope Authentique', logo: { '@type': 'ImageObject', url: L.SITE + 'assets/icon-192.png' } };
-
-function faqHtml(items) {
-    return `<div class="faq">${items.map((f, i) => `<details${i === 0 ? ' open' : ''}><summary><span>${esc(f.q)}</span><span class="plus" aria-hidden="true">+</span></summary><p class="rep">${esc(f.a)}</p></details>`).join('')}</div>`;
-}
-const faqSchema = (items) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: items.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) });
-const article = (s) => (/^[AEIOUÉÈÊŒH]/i.test(s) ? "l'" : 'la ');
+const { IMG, phrase, tronquer, premierePhrase, dateSigne, ancre, write, auteur, editeur, article, faqHtml, faqSchema, ongletsSigne, ongletsHub } = require('./lib/ui');
 
 async function main() {
     console.log('🚀 Génération du site');
@@ -50,8 +32,12 @@ async function main() {
 
     // ---------- 1. Le ciel et l'horoscope ----------
     const cielMaintenant = getCiel(new Date());
-    const horo = await horoscopeDuJour({ apiKey: API_KEY, ciel: cielMaintenant, signs, publicDir: OUT });
+    // Ordre de priorité des appels Gemini (plafond par nuit) : demain, semaine, mois, puis articles
+    const { jour: horo, demain: horoDemain } = await H.quotidiens({ apiKey: API_KEY, signs, publicDir: OUT });
+    const horoSemaine = await H.semaine({ apiKey: API_KEY, signs });
+    const horoMois = await H.mois({ apiKey: API_KEY, signs });
     const ciel = horo.ciel || cielMaintenant;
+    const dispo = { demain: !!horoDemain, semaine: !!horoSemaine, mois: !!horoMois, 2027: true };
     const quand = horo.genereLe;
     const merc = periodeMercureRetro(new Date());
     const mercTexte = merc.enCours
@@ -102,7 +88,7 @@ async function main() {
 <p class="eyebrow">Astrologie · Maison Authentique</p>
 <h1 id="h1" class="display">L'horoscope du jour, calculé sur le <em>ciel réel</em>.</h1>
 <p class="lede">Chaque nuit, la Maison calcule la position du Soleil, de la Lune et des planètes, puis rédige pour chacun des douze signes une lecture en trois temps : amour, travail, bien-être. Choisissez le vôtre sur le cadran.</p>
-<div class="hero-actions"><a class="btn" href="horoscope.html">Lire mon horoscope</a><a class="ulink" href="compatibilite-amoureuse.html">Tester une compatibilité</a></div>
+<div class="hero-actions"><a class="btn" href="horoscope.html">Lire mon horoscope</a><a class="ulink" href="calcul-ascendant.html">Calculer mon ascendant</a></div>
 <p class="muted small" style="margin:0">Mis à jour le ${L.dateCourte(quand)} à ${L.heure(quand)} · 12 signes · lecture gratuite</p>
 </div>
 <div class="hero-dial"><div class="dial" role="group" aria-label="Cadran des douze signes">
@@ -127,10 +113,14 @@ ${dial}
 <section class="section" aria-labelledby="h-outils"><div class="wrap stack gap-xl">
 <div class="stack gap-s center" style="align-items:center"><p class="eyebrow">Les outils de la Maison</p><h2 id="h-outils" class="h2">Au-delà du signe solaire</h2></div>
 <div class="tools">
+<a class="tool" href="theme-astral.html">${IMG.obj('cosmos.webp')}<span class="eyebrow">Gratuit</span><h3 class="h3">Thème astral</h3><p>Votre ciel de naissance calculé au centième de degré : ascendant, planètes, maisons.</p></a>
 <a class="tool" href="compatibilite-amoureuse.html">${IMG.obj('compatibilite.webp')}<span class="eyebrow">Amour</span><h3 class="h3">Compatibilité</h3><p>Deux signes, cinq lectures : le quotidien, le désir, la durée, ce qui rapproche et ce qui coince.</p></a>
-<a class="tool" href="red-flags.html">${IMG.obj('red-flags.webp')}<span class="eyebrow">L'oracle du chaos</span><h3 class="h3">Red Flags</h3><p>Les cent quarante-quatre alliances toxiques du zodiaque, sans filtre et avec humour.</p></a>
-<a class="tool" href="encyclopedie.html">${IMG.obj('livre.webp')}<span class="eyebrow">Encyclopédie</span><h3 class="h3">La Bibliothèque</h3><p>Ascendant, Lilith, maisons, Mercure rétrograde : les notions qui vont plus loin que le signe.</p></a>
-<a class="tool" href="pierres-protectrices.html">${IMG.obj('pierres.webp')}<span class="eyebrow">Lithothérapie</span><h3 class="h3">Les pierres</h3><p>La pierre de chaque signe, comment la choisir, la purifier et la porter.</p></a>
+<a class="tool" href="horoscope-2027.html">${IMG.obj('entree.webp')}<span class="eyebrow">L'année qui vient</span><h3 class="h3">Horoscope 2027</h3><p>Votre année saison par saison, avec les dates clés calculées sur le vrai ciel.</p></a>
+<a class="tool" href="calendrier-lunaire.html"><img src="./assets/lune-5.webp" alt="" width="240" height="274" loading="lazy" decoding="async" style="width:150px;height:200px;object-fit:contain;margin-bottom:10px"><span class="eyebrow">Lune</span><h3 class="h3">Calendrier lunaire</h3><p>Pleines et nouvelles lunes à l'heure près, et ce qu'elles remuent pour chaque signe.</p></a>
+<a class="tool" href="red-flags.html">${IMG.obj('red-flags.webp')}<span class="eyebrow">L'oracle du chaos</span><h3 class="h3">Red Flags</h3><p>Les alliances toxiques du zodiaque, sans filtre et avec humour.</p></a>
+<a class="tool" href="horoscope-chinois-2027.html">${IMG.obj('elements.webp')}<span class="eyebrow">Chèvre de Feu</span><h3 class="h3">Horoscope chinois</h3><p>Votre signe chinois et votre année 2027, à partir du 6 février.</p></a>
+<a class="tool" href="encyclopedie.html">${IMG.obj('livre.webp')}<span class="eyebrow">Encyclopédie</span><h3 class="h3">La Bibliothèque</h3><p>Ascendant, Lilith, maisons, rétrogrades : les notions qui vont plus loin que le signe.</p></a>
+<a class="tool" href="numerologie-chemin-de-vie.html">${IMG.obj('pierres.webp')}<span class="eyebrow">Numérologie</span><h3 class="h3">Chemin de vie</h3><p>Le nombre de votre date de naissance et ce qu'il dit de votre route.</p></a>
 </div></div></section>
 
 <section class="section" aria-labelledby="h-cabinet"><div class="wrap split">
@@ -192,7 +182,7 @@ ${faqHtml(faq)}
 <article class="lecture"><p class="lb"><span>${lb}</span><span aria-hidden="true">${n}</span></p>${x.titre ? `<h3 class="h3">${esc(x.titre)}</h3>` : ''}<p class="tx">${esc(x.texte)}</p></article>`).join('');
         const compat = compatData[s.slug].map((c) => {
             const o = bySlug[c.with];
-            return `<li><a href="compatibilite-${s.slug}.html#avec-${o.slug}">${IMG.medal(o.slug)}<span class="info"><span class="duo">${esc(s.name)} × ${esc(o.name)}</span><span class="ti">${esc(phrase(c.titre))}</span><span class="bar" aria-hidden="true"><span style="width:${c.score}%"></span></span></span><span class="sc">${c.score} %</span></a></li>`;
+            return `<li><a href="compatibilite-${SLUGS_ORDRE.indexOf(s.slug) <= SLUGS_ORDRE.indexOf(o.slug) ? s.slug + '-' + o.slug : o.slug + '-' + s.slug}.html">${IMG.medal(o.slug)}<span class="info"><span class="duo">${esc(s.name)} × ${esc(o.name)}</span><span class="ti">${esc(phrase(c.titre))}</span><span class="bar" aria-hidden="true"><span style="width:${c.score}%"></span></span></span><span class="sc">${c.score} %</span></a></li>`;
         }).join('');
         const top = [...compatData[s.slug]].filter((c) => c.with !== s.slug).sort((a, b) => b.score - a.score).slice(0, 3).map((c) => bySlug[c.with].name);
         const autres = signs.filter((x) => x.slug !== s.slug).map((x) => `<li><a href="${x.slug}.html">${IMG.medal(x.slug)}<span>${esc(x.name)}</span></a></li>`).join('');
@@ -214,6 +204,7 @@ ${faqHtml(faq)}
 <p class="muted small" style="margin:0">Ciel pris en compte : ${esc(transits.join(' · '))}. Mis à jour à ${L.heure(quand)}.</p>
 </div>
 </section>
+${ongletsSigne(s.slug, 'jour', dispo)}
 <section class="section" aria-labelledby="h-lecture"><div class="wrap stack gap-l">
 <h2 id="h-lecture" class="h2 center">La lecture du jour</h2>
 <div class="lectures">${lectures}</div>
@@ -223,7 +214,7 @@ ${faqHtml(faq)}
 <p class="eyebrow">Fiche d'identité</p>
 <h2 id="h-bref" class="h2">Le ${esc(s.name)} en bref</h2>
 <p style="margin:0;color:var(--encre-2);max-width:30em">${esc(s.presentation)}</p>
-<a class="ulink" style="align-self:flex-start" href="signification.html">Signification des signes</a>
+<a class="ulink" style="align-self:flex-start" href="signe-${s.slug}.html">Caractère et personnalité ${s.slug === 'gemeaux' || s.slug === 'poissons' ? 'des' : s.slug === 'vierge' || s.slug === 'balance' ? 'de la' : 'du'} ${esc(s.name)}</a>
 </div>
 <dl class="fiche">
 <div><dt>Dates</dt><dd>${esc(dateSigne(s))}</dd></div>
@@ -279,6 +270,7 @@ ${faqHtml(faq)}
 <h1 class="display">Horoscope du jour</h1>
 <p class="lede">Le Soleil est en ${esc(ciel.soleil.signe)}, la Lune ${esc(ciel.lune.phase.toLowerCase())} en ${esc(ciel.lune.signe)}. Voici l'essentiel de la journée pour chaque signe ; la lecture complète vous attend sur la page de votre signe.</p>
 </section>
+${ongletsHub('jour', dispo)}
 <section class="section"><div class="wrap" style="padding-top:24px;padding-bottom:96px"><ul class="hub">${liste}</ul></div></section>`;
         write('horoscope.html', L.page({
             ...ctx, main, crumbs, active: 'horoscope',
@@ -305,7 +297,7 @@ ${faqHtml(faq)}
             const cartes = compatData[s.slug].map((c) => {
                 const o = bySlug[c.with];
                 return `<article class="duo-card" id="avec-${o.slug}">
-<div class="side">${IMG.medal(o.slug)}<span class="eyebrow" style="color:var(--gris)">${esc(s.name)} &amp; ${esc(o.name)}</span><span class="score">${c.score} %</span></div>
+<div class="side">${IMG.medal(o.slug)}<span class="eyebrow" style="color:var(--gris)">${esc(s.name)} &amp; ${esc(o.name)}</span><span class="score">${c.score} %</span><a class="ulink" style="align-self:flex-start;margin-top:6px" href="compatibilite-${SLUGS_ORDRE.indexOf(s.slug) <= SLUGS_ORDRE.indexOf(o.slug) ? s.slug + '-' + o.slug : o.slug + '-' + s.slug}.html">Le couple en détail</a></div>
 <div class="main"><h2 class="h3" style="font-size:32px">${esc(phrase(c.titre))}</h2><dl>
 <div><dt>Au quotidien</dt><dd>${esc(c.quotidien)}</dd></div>
 <div><dt>En amour</dt><dd>${esc(c.amour)}</dd></div>
@@ -427,6 +419,11 @@ ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class=
         }));
     }
 
+    // ---------- 9 bis. Les nouvelles rubriques ----------
+    const cctx = { ciel, signs, bySlug, compatData, roastData, jour: horo, demain: horoDemain, semaine: horoSemaine, mois: horoMois, genere: quand };
+    const nouvelles = [C.periodes(cctx), C.theme(cctx), C.lune(cctx), C.paires(cctx), C.fiches(cctx), C.chinois(cctx), C.numerologie(cctx)].flatMap((r) => r.urls);
+    console.log(`✅ ${nouvelles.length} pages des nouvelles rubriques`);
+
     // ---------- 10. Pages historiques, habillées du nouveau gabarit ----------
     const historiques = {
         'apropos.html': { active: null, label: 'Madeleine' },
@@ -478,6 +475,7 @@ ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class=
         }));
     }
     if (fs.existsSync('./links.html')) fs.copyFileSync('./links.html', path.join(OUT, 'links.html'));
+    fs.copyFileSync('./vercel.json', path.join(OUT, 'vercel.json')); // en-têtes de sécurité (si Vercel sert le dossier public)
     console.log('✅ Pages historiques habillées');
 
     // ---------- 11. Page 404 ----------
@@ -487,6 +485,19 @@ ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class=
         head: { title: 'Page introuvable · Horoscope Authentique', file: '404.html', robots: 'noindex' }
     }));
 
+    // ---------- 11 bis. Filet de sécurité : aucun lien vers une page absente ----------
+    // (ex. « Horoscope de demain » une nuit où Gemini n'a pas répondu)
+    const existe = (h) => fs.existsSync(path.join(OUT, h));
+    let retires = 0;
+    for (const f of fs.readdirSync(OUT).filter((x) => x.endsWith('.html'))) {
+        const src = fs.readFileSync(path.join(OUT, f), 'utf-8');
+        const net = src
+            .replace(/<li><a href="([a-z0-9-]+\.html)"[^>]*>[^<]*<\/a><\/li>/g, (m, h) => (existe(h) ? m : (retires++, '')))
+            .replace(/<a ([^>]*?)href="([a-z0-9-]+\.html)"([^>]*)>([\s\S]*?)<\/a>/g, (m, a, h, b, t) => (existe(h) ? m : (retires++, `<span>${t}</span>`)));
+        if (net !== src) fs.writeFileSync(path.join(OUT, f), net);
+    }
+    if (retires) console.log(`⚠️  ${retires} lien(s) vers des pages absentes neutralisé(s)`);
+
     // ---------- 12. Sitemap & robots.txt ----------
     const jour = L.isoJour(quand);
     const urls = [
@@ -495,7 +506,8 @@ ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class=
         ['encyclopedie.html', 'weekly', '0.7'],
         ...signs.flatMap((s) => [[`compatibilite-${s.slug}.html`, 'monthly', '0.7'], [`red-flags-${s.slug}.html`, 'monthly', '0.6']]),
         ...Object.keys(historiques).filter((f) => f !== 'mentions-legales.html').map((f) => [f, 'monthly', '0.6']),
-        ...articlesPrets.map((a) => { const m = articlesLib.lireMeta(a.slug) || {}; return [`${a.slug}.html`, 'monthly', '0.6', m.maj ? L.isoJour(m.maj) : null]; })
+        ...articlesPrets.map((a) => { const m = articlesLib.lireMeta(a.slug) || {}; return [`${a.slug}.html`, 'monthly', '0.6', m.maj ? L.isoJour(m.maj) : null]; }),
+        ...nouvelles.map(([u, f, p]) => [u, f, p, f === 'daily' ? jour : null])
     ];
     write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u, f, p, lm]) => `  <url><loc>${L.SITE}${u}</loc>${lm ? `<lastmod>${lm}</lastmod>` : ''}<changefreq>${f}</changefreq><priority>${p}</priority></url>`).join('\n')}\n</urlset>\n`);
     write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${L.SITE}sitemap.xml\n`);

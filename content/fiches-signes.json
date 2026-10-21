@@ -1,0 +1,122 @@
+{
+  "belier": {
+    "intro": "Premier signe du zodiaque, le Bélier ouvre le printemps et l'année astrologique. Signe de Feu cardinal gouverné par Mars, il incarne l'élan vital : l'envie de commencer, d'oser, d'aller droit au but.",
+    "caractere": "Le Bélier vit à l'instinct. Il agit d'abord et réfléchit ensuite, ce qui lui donne une audace que les autres signes lui envient. Il aime les défis, les départs, les premières fois, et s'ennuie dès que la routine s'installe. Franc jusqu'à la brusquerie, il dit ce qu'il pense, mais oublie vite ses colères : chez lui, la rancune ne tient pas.\n\nSon énergie est contagieuse. Dans un groupe, c'est souvent lui qui lance l'idée, ouvre la marche, prend le risque. Sa grande leçon de vie consiste à apprendre la patience : comprendre que certaines choses ne se gagnent pas en un assaut, mais en tenant la distance.",
+    "qualites": ["Le courage et l'esprit d'initiative", "La franchise", "L'enthousiasme communicatif", "La générosité spontanée", "La capacité à rebondir après un échec"],
+    "defauts": ["L'impatience", "L'impulsivité, parfois la colère", "La difficulté à finir ce qu'il commence", "Un certain goût de la compétition, même là où il n'y en a pas"],
+    "amour": "En amour, le Bélier aime conquérir. Il se déclare vite, avec passion, et apprécie les relations où il se passe quelque chose. Il a besoin d'un partenaire qui lui tienne tête sans l'étouffer : la jalousie et la routine l'éteignent, l'admiration et l'aventure le gardent.",
+    "travail": "Le Bélier excelle quand il faut lancer, décider, entraîner. Entrepreneuriat, sport, urgence, commerce, métiers d'action : il aime voir le résultat de ses efforts et déteste attendre une validation. Il gagne à s'entourer de profils plus patients pour mener ses projets jusqu'au bout.",
+    "bienetre": "Traditionnellement associé à la tête, le Bélier a besoin de dépenser son énergie physiquement : le sport est pour lui une soupape indispensable. Apprendre à ralentir, par la respiration ou la marche, l'aide à éviter les coups de fatigue et les tensions.",
+    "conseil": "Le plus beau défi du Bélier n'est pas de commencer, mais de durer."
+  },
+  "taureau": {
+    "intro": "Deuxième signe du zodiaque, le Taureau est un signe de Terre fixe gouverné par Vénus. Il incarne la stabilité, la sensualité et le goût des choses qui durent.",
+    "caractere": "Le Taureau avance à son rythme, et personne ne le fera aller plus vite. Patient, fiable, profondément attaché à son confort et à ses repères, il construit sa vie pierre après pierre. Il a besoin de sécurité, matérielle comme affective, et se montre d'une loyauté remarquable envers ceux qu'il aime.\n\nVénus lui donne un sens aigu de la beauté et des plaisirs : la bonne table, la musique, la nature, les belles matières. Son calme apparent cache une grande force : il se met rarement en colère, mais quand il s'agace, mieux vaut s'écarter. Sa leçon de vie consiste à accepter le changement, qu'il redoute souvent plus que nécessaire.",
+    "qualites": ["La fiabilité et la loyauté", "La patience", "Le sens pratique", "La sensualité et le goût du beau", "La persévérance"],
+    "defauts": ["L'entêtement", "La résistance au changement", "Une tendance à la possessivité", "Le goût du confort qui peut freiner l'audace"],
+    "amour": "En amour, le Taureau prend son temps, mais quand il s'engage, c'est pour durer. Tendre, sensuel, attentif, il aime les gestes concrets plus que les grandes déclarations. Il a besoin de fidélité et de stabilité, et peut se montrer possessif quand il se sent insécurisé.",
+    "travail": "Le Taureau réussit dans les métiers où la constance paie : finance, artisanat, gastronomie, agriculture, art, immobilier. Il préfère un projet solide à une aventure risquée, et sa patience finit presque toujours par payer.",
+    "bienetre": "Associé à la gorge et au cou, le Taureau gagne à prendre soin de sa voix et de ses tensions cervicales. Sa gourmandise est une joie à cultiver avec mesure, et le contact avec la nature le recharge.",
+    "conseil": "Le Taureau n'a rien à prouver : sa force, c'est de savoir ce qui compte vraiment."
+  },
+  "gemeaux": {
+    "intro": "Troisième signe du zodiaque, les Gémeaux sont un signe d'Air mutable gouverné par Mercure. Ils incarnent la curiosité, la parole et le mouvement des idées.",
+    "caractere": "Les Gémeaux veulent tout comprendre, tout essayer, tout raconter. Vifs d'esprit, drôles, sociables, ils passent d'un sujet à l'autre avec une aisance déconcertante. Leur double nature, symbolisée par les jumeaux, leur permet de voir chaque situation sous plusieurs angles, ce qui en fait d'excellents médiateurs.\n\nLeur besoin de nouveauté est vital : sans stimulation, ils s'ennuient et se dispersent. Leur grande leçon consiste à aller au fond des choses, à transformer la curiosité en savoir et les mille projets en quelques réalisations.",
+    "qualites": ["La vivacité d'esprit", "L'humour", "L'adaptabilité", "Le talent pour la communication", "La curiosité insatiable"],
+    "defauts": ["La dispersion", "L'inconstance", "Une nervosité qui peut fatiguer", "La tentation de la légèreté face aux sujets graves"],
+    "amour": "En amour, les Gémeaux ont besoin d'un partenaire qui les fasse rire et réfléchir. La complicité intellectuelle compte autant que l'attirance. Ils fuient la routine et la jalousie, et s'attachent à qui leur laisse de l'air.",
+    "travail": "Journalisme, enseignement, commerce, communication, numérique, traduction : les Gémeaux brillent partout où il faut échanger, relier et transmettre. Les métiers trop répétitifs les éteignent.",
+    "bienetre": "Associés aux bras, aux mains et aux poumons, les Gémeaux gagnent à apprendre à respirer et à poser leur mental. Leur système nerveux sollicité réclame des pauses et un sommeil régulier.",
+    "conseil": "Choisir, c'est renoncer un peu ; mais c'est aussi la seule façon d'aller loin."
+  },
+  "cancer": {
+    "intro": "Quatrième signe du zodiaque, le Cancer est un signe d'Eau cardinal gouverné par la Lune. Il incarne la sensibilité, la mémoire et le besoin d'un foyer.",
+    "caractere": "Le Cancer ressent avant de penser. Sa carapace protège une sensibilité immense : il capte les émotions des autres, se souvient de tout et s'attache profondément. La famille, au sens large, est le centre de sa vie : il protège les siens avec une tendresse et une détermination étonnantes.\n\nLa Lune lui donne des humeurs changeantes, comme des marées. Il se replie quand il se sent blessé, puis revient quand la confiance est rétablie. Sa leçon de vie consiste à ne pas laisser le passé décider de l'avenir, et à oser sortir de sa coquille.",
+    "qualites": ["La tendresse et l'attention aux autres", "L'intuition", "La loyauté envers les siens", "L'imagination", "Le sens de l'accueil"],
+    "defauts": ["La susceptibilité", "Les humeurs changeantes", "La tendance à ressasser le passé", "La difficulté à dire ce qui blesse"],
+    "amour": "En amour, le Cancer cherche un refuge. Il aime avec profondeur, fidélité et un grand sens du soin. Il a besoin de se sentir en sécurité affective et peut se refermer face à l'indifférence ou à la moquerie.",
+    "travail": "Soin, éducation, restauration, immobilier, histoire, accompagnement : le Cancer s'épanouit dans les métiers où il protège et nourrit. Il travaille mieux dans un climat bienveillant que sous la pression.",
+    "bienetre": "Associé à la poitrine et à l'estomac, le Cancer ressent ses émotions dans le corps. Un foyer apaisant, une alimentation réconfortante et des moments au bord de l'eau l'équilibrent.",
+    "conseil": "Prendre soin de soi n'est pas un abandon des autres : c'est ce qui permet de continuer à les aimer."
+  },
+  "lion": {
+    "intro": "Cinquième signe du zodiaque, le Lion est un signe de Feu fixe gouverné par le Soleil. Il incarne la créativité, la générosité et le besoin de rayonner.",
+    "caractere": "Le Lion a besoin de briller, non par vanité, mais parce que c'est sa manière d'offrir quelque chose au monde. Chaleureux, généreux, loyal, il donne beaucoup et attend en retour de la reconnaissance. Il a le sens du spectacle, de la fête, de la grandeur.\n\nSa fierté est à la fois sa force et sa fragilité : il supporte mal l'indifférence et peut se blesser d'un manque d'égards. Sa leçon de vie consiste à briller sans avoir besoin d'applaudissements, à trouver en lui la source de sa propre lumière.",
+    "qualites": ["La générosité", "La loyauté", "La créativité", "Le charisme naturel", "Le courage de s'exposer"],
+    "defauts": ["L'orgueil", "Le besoin d'être admiré", "Une tendance à vouloir tout diriger", "La susceptibilité face à la critique"],
+    "amour": "En amour, le Lion est passionné, protecteur et démonstratif. Il aime séduire, offrir, célébrer. Il a besoin d'un partenaire qui l'admire sincèrement et partage sa joie de vivre ; la froideur le fait fuir.",
+    "travail": "Arts, spectacle, direction, création, événementiel, enseignement : le Lion rayonne dans les rôles où il peut inspirer et être vu. Il est un leader naturel, à condition d'écouter son équipe.",
+    "bienetre": "Associé au cœur et au dos, le Lion gagne à prendre soin de sa posture et de son endurance. Le soleil, la danse et le jeu nourrissent sa vitalité.",
+    "conseil": "La vraie royauté du Lion, c'est de faire grandir ceux qui l'entourent."
+  },
+  "vierge": {
+    "intro": "Sixième signe du zodiaque, la Vierge est un signe de Terre mutable gouverné par Mercure. Elle incarne la précision, le discernement et le sens du service.",
+    "caractere": "La Vierge observe, analyse, améliore. Rien ne lui échappe : ni le détail qui cloche, ni la façon de faire mieux. Discrète, méthodique, fiable, elle trouve sa paix dans l'ordre et l'utilité. Derrière sa réserve se cache une grande sensibilité et un humour fin.\n\nSon exigence est d'abord tournée vers elle-même, au point de parfois l'empêcher de savourer ses réussites. Sa leçon de vie consiste à accepter l'imperfection, chez les autres comme en elle, et à se faire confiance.",
+    "qualites": ["Le sens du détail", "La fiabilité", "L'intelligence pratique", "Le dévouement", "La modestie"],
+    "defauts": ["Le perfectionnisme", "L'esprit critique", "L'anxiété", "La difficulté à lâcher prise"],
+    "amour": "En amour, la Vierge se montre réservée au départ, puis profondément attentionnée. Elle prouve son amour par les actes : rendre service, prendre soin, être là. Elle a besoin de temps pour se livrer, et d'un partenaire qui ne la brusque pas.",
+    "travail": "Santé, recherche, gestion, édition, artisanat de précision, organisation : la Vierge excelle partout où la rigueur fait la différence. Elle est le pilier discret de bien des équipes.",
+    "bienetre": "Associée à l'intestin, la Vierge ressent son stress dans le ventre. Une hygiène de vie régulière, une alimentation soignée et des moments sans contrôle l'apaisent.",
+    "conseil": "Ce qui est assez bien est souvent déjà merveilleux."
+  },
+  "balance": {
+    "intro": "Septième signe du zodiaque, la Balance est un signe d'Air cardinal gouverné par Vénus. Elle incarne l'harmonie, la relation et le sens de la justice.",
+    "caractere": "La Balance cherche l'équilibre en toute chose. Diplomate, élégante, sociable, elle a le don de mettre les gens d'accord et de rendre les lieux plus beaux. Elle déteste les conflits et l'injustice, et pèse chaque décision avec soin, parfois au point d'hésiter longtemps.\n\nLa relation est au cœur de sa vie : elle se découvre à travers les autres. Sa leçon de vie consiste à oser trancher et à dire non, même au risque de déplaire, pour rester fidèle à elle-même.",
+    "qualites": ["La diplomatie", "Le sens de la justice", "Le charme", "Le goût du beau", "L'écoute"],
+    "defauts": ["L'indécision", "La peur du conflit", "Une tendance à vouloir plaire à tout le monde", "La dépendance au regard des autres"],
+    "amour": "En amour, la Balance est romantique, attentive et raffinée. Elle aime la vie à deux, les attentions, les beaux moments partagés. Elle a besoin d'une relation équilibrée, où chacun donne autant qu'il reçoit.",
+    "travail": "Droit, médiation, diplomatie, mode, design, arts, ressources humaines : la Balance brille là où il faut relier, négocier ou embellir. Elle travaille mieux en duo qu'en solitaire.",
+    "bienetre": "Associée aux reins, la Balance gagne à boire suffisamment et à préserver son équilibre entre vie sociale et repos. Les lieux harmonieux et la musique l'apaisent.",
+    "conseil": "L'harmonie véritable commence par l'accord avec soi-même."
+  },
+  "scorpion": {
+    "intro": "Huitième signe du zodiaque, le Scorpion est un signe d'Eau fixe gouverné par Pluton et Mars. Il incarne l'intensité, la profondeur et la transformation.",
+    "caractere": "Le Scorpion ne fait rien à moitié. Passionné, lucide, magnétique, il va au fond des choses et des êtres, là où d'autres restent en surface. Il sent ce qui est caché, devine les intentions, et ne se laisse pas facilement tromper.\n\nSa force tient à sa capacité de renaître : chaque crise le transforme et le rend plus solide. Pudique sur ses émotions, il ne se livre qu'en pleine confiance, et la trahison lui est presque impardonnable. Sa leçon de vie consiste à lâcher le contrôle et à faire confiance à la vie.",
+    "qualites": ["La profondeur", "La loyauté absolue", "Le courage face aux crises", "L'intuition", "La détermination"],
+    "defauts": ["La jalousie", "La rancune", "Le goût du contrôle", "La méfiance"],
+    "amour": "En amour, le Scorpion vit tout avec intensité. Il cherche une fusion vraie, faite de passion et de confiance totale. Fidèle et protecteur, il attend la même sincérité en retour.",
+    "travail": "Psychologie, recherche, médecine, enquête, finance, gestion de crise : le Scorpion excelle là où il faut aller au fond des choses et ne pas avoir peur de la vérité.",
+    "bienetre": "Associé à la région du bassin, le Scorpion gagne à évacuer ses émotions plutôt qu'à les garder. L'eau, la sexualité épanouie et les pratiques de transformation, comme l'écriture, le libèrent.",
+    "conseil": "La plus grande force du Scorpion, c'est d'oser montrer sa vulnérabilité."
+  },
+  "sagittaire": {
+    "intro": "Neuvième signe du zodiaque, le Sagittaire est un signe de Feu mutable gouverné par Jupiter. Il incarne l'aventure, la quête de sens et l'optimisme.",
+    "caractere": "Le Sagittaire regarde toujours plus loin. Voyages, idées, philosophies, cultures : il a soif de découvertes et d'horizons. Optimiste, franc, enthousiaste, il entraîne les autres dans son sillage et croit sincèrement que demain sera meilleur.\n\nSa liberté est sacrée : il fuit tout ce qui ressemble à une cage. Sa franchise peut parfois manquer de tact, mais elle ne cache jamais de malveillance. Sa leçon de vie consiste à s'engager sans se sentir enfermé, et à tenir ses promesses.",
+    "qualites": ["L'optimisme", "La générosité", "La soif d'apprendre", "La franchise", "Le sens de l'humour"],
+    "defauts": ["L'impatience face aux contraintes", "Le manque de tact", "La tendance à promettre trop", "La fuite devant la routine"],
+    "amour": "En amour, le Sagittaire a besoin d'un partenaire de route : quelqu'un avec qui rire, voyager et grandir. Il aime avec chaleur et franchise, mais l'étouffement le fait fuir.",
+    "travail": "Voyage, enseignement, édition, droit, sport, international : le Sagittaire s'épanouit dans les métiers qui élargissent les horizons. Il a besoin de sens dans ce qu'il fait.",
+    "bienetre": "Associé aux hanches et aux cuisses, le Sagittaire a besoin de bouger, de marcher, de partir. Le grand air et le sport sont ses meilleurs alliés.",
+    "conseil": "Le plus beau voyage du Sagittaire est parfois celui qui l'emmène au fond de lui."
+  },
+  "capricorne": {
+    "intro": "Dixième signe du zodiaque, le Capricorne est un signe de Terre cardinal gouverné par Saturne. Il incarne l'ambition, la persévérance et le sens des responsabilités.",
+    "caractere": "Le Capricorne gravit la montagne pas à pas. Patient, endurant, organisé, il se fixe des objectifs élevés et s'y tient. Sérieux en apparence, il cache un humour pince-sans-rire et une sensibilité qu'il ne montre qu'aux intimes.\n\nIl a souvent mûri tôt et prend volontiers des responsabilités. Avec l'âge, il s'allège : on dit du Capricorne qu'il rajeunit en vieillissant. Sa leçon de vie consiste à s'autoriser le plaisir et la tendresse sans attendre d'avoir tout mérité.",
+    "qualites": ["La persévérance", "Le sens des responsabilités", "La fiabilité", "L'ambition", "La maîtrise de soi"],
+    "defauts": ["La rigidité", "Le pessimisme", "La difficulté à exprimer ses émotions", "La tendance à trop travailler"],
+    "amour": "En amour, le Capricorne s'engage lentement mais solidement. Pudique, fidèle, protecteur, il montre son amour par la constance et les projets communs plutôt que par les grands mots.",
+    "travail": "Direction, gestion, architecture, droit, politique, entrepreneuriat de long terme : le Capricorne réussit partout où l'endurance et la stratégie font la différence.",
+    "bienetre": "Associé aux genoux et aux os, le Capricorne gagne à préserver ses articulations et à ne pas négliger le repos. Les montagnes et la nature l'apaisent.",
+    "conseil": "Le sommet n'a de valeur que si l'on prend le temps de regarder la vue."
+  },
+  "verseau": {
+    "intro": "Onzième signe du zodiaque, le Verseau est un signe d'Air fixe gouverné par Uranus et Saturne. Il incarne la liberté, l'innovation et la fraternité.",
+    "caractere": "Le Verseau pense en avance sur son temps. Original, indépendant, idéaliste, il refuse les cases et les conventions inutiles. Il s'intéresse au collectif, aux idées, au progrès, et se montre un ami fidèle et généreux.\n\nSa liberté est non négociable, et il peut sembler distant à ceux qui attendent de lui des effusions. Sa leçon de vie consiste à relier son idéal aux émotions et aux personnes proches, et pas seulement à l'humanité tout entière.",
+    "qualites": ["L'originalité", "L'esprit d'innovation", "La fidélité en amitié", "L'ouverture d'esprit", "Le sens du collectif"],
+    "defauts": ["Une certaine distance émotionnelle", "L'entêtement sur ses idées", "L'imprévisibilité", "Le refus des règles"],
+    "amour": "En amour, le Verseau a besoin d'un partenaire qui soit aussi un ami. La complicité intellectuelle et la liberté de chacun comptent plus que la fusion. Il aime de manière sincère, mais à sa façon.",
+    "travail": "Technologies, sciences, innovation, associatif, humanitaire, astrologie : le Verseau brille là où il peut inventer et servir une cause. Les hiérarchies rigides l'étouffent.",
+    "bienetre": "Associé aux chevilles et à la circulation, le Verseau gagne à bouger régulièrement et à apaiser son mental très actif. Les activités en groupe lui font du bien.",
+    "conseil": "La révolution du Verseau commence parfois par un simple geste de tendresse."
+  },
+  "poissons": {
+    "intro": "Douzième et dernier signe du zodiaque, les Poissons sont un signe d'Eau mutable gouverné par Neptune et Jupiter. Ils incarnent l'intuition, l'empathie et l'imaginaire.",
+    "caractere": "Les Poissons ressentent le monde plus qu'ils ne l'analysent. Intuitifs, empathiques, rêveurs, ils absorbent les émotions de leur entourage comme des éponges. Leur imagination est immense, leur compassion sincère, et leur sensibilité artistique souvent remarquable.\n\nCette perméabilité est un don qui demande des protections : sans refuge, ils se perdent dans les émotions des autres. Leur leçon de vie consiste à poser des limites et à donner une forme concrète à leurs rêves.",
+    "qualites": ["L'empathie", "L'intuition", "La créativité", "La générosité", "La capacité à pardonner"],
+    "defauts": ["La tendance à fuir la réalité", "La difficulté à dire non", "L'hypersensibilité", "Le manque d'organisation"],
+    "amour": "En amour, les Poissons sont romantiques, dévoués et profondément tendres. Ils aiment de manière absolue et ont besoin d'un partenaire qui protège leur sensibilité sans en abuser.",
+    "travail": "Arts, musique, soin, accompagnement, spiritualité, cinéma : les Poissons s'épanouissent là où l'intuition et l'empathie sont des forces. Les environnements trop durs les épuisent.",
+    "bienetre": "Associés aux pieds, les Poissons gagnent à garder les pieds sur terre au sens propre comme au figuré : marche, ancrage, bains, musique et sommeil réparateur les rééquilibrent.",
+    "conseil": "La sensibilité des Poissons est un trésor : elle mérite des frontières pour être protégée."
+  }
+}

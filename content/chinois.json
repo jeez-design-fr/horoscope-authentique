@@ -1,0 +1,80 @@
+{
+  "annee": 2027,
+  "intro2027": "Le Nouvel An chinois tombe le samedi 6 février 2027 et ouvre l'année de la Chèvre de Feu, jusqu'au 25 janvier 2028. La Chèvre, parfois appelée Mouton, est le signe de la douceur, de l'art et de la paix ; le Feu lui ajoute de la chaleur, de l'audace et de l'émotion. Une année propice à la création, à la réconciliation et aux projets du cœur, où la gentillesse paie davantage que la force.",
+  "animaux": {
+    "rat": {
+      "nom": "Rat", "hanzi": "鼠", "elementFixe": "Eau",
+      "profil": "Vif, malin et débrouillard, le Rat voit les opportunités avant tout le monde. Sociable et charmant, il sait se faire aimer, et son sens de l'économie le met rarement à court de ressources. Derrière son aisance se cache une inquiétude qu'il calme en anticipant tout.",
+      "relations": "Grands alliés : le Dragon et le Singe. Ami secret : le Bœuf. Opposé : le Cheval.",
+      "a2027": "La tradition voit entre le Rat et la Chèvre une relation délicate : 2027 demande de la diplomatie et de la patience, surtout dans les relations professionnelles. Évite les décisions précipitées et mise sur tes alliés de toujours. Le second semestre est plus fluide pour les projets d'argent."
+    },
+    "boeuf": {
+      "nom": "Bœuf", "hanzi": "牛", "elementFixe": "Terre",
+      "profil": "Patient, travailleur et fiable, le Bœuf avance avec une constance que rien n'arrête. Discret, il préfère les actes aux discours, et sa parole vaut un contrat. Il peut se montrer têtu, mais rarement injuste.",
+      "relations": "Grands alliés : le Serpent et le Coq. Ami secret : le Rat. Opposé : la Chèvre.",
+      "a2027": "La Chèvre est le signe opposé du Bœuf : l'année est traditionnellement la plus exigeante pour lui. Changements imposés, remises en question, besoin de souplesse. C'est l'année pour consolider plutôt que pour se lancer, et pour s'appuyer sur ses proches."
+    },
+    "tigre": {
+      "nom": "Tigre", "hanzi": "虎", "elementFixe": "Bois",
+      "profil": "Courageux, magnétique et passionné, le Tigre se lance là où les autres hésitent. Il défend les causes justes, aime l'aventure et supporte mal l'autorité. Sa générosité est aussi grande que son impatience.",
+      "relations": "Grands alliés : le Cheval et le Chien. Ami secret : le Cochon. Opposé : le Singe.",
+      "a2027": "Une année plutôt paisible pour le Tigre, qui gagne à adopter le rythme plus doux de la Chèvre. Les projets créatifs et les voyages sont favorisés. En amour, la tendresse paiera plus que la conquête."
+    },
+    "lapin": {
+      "nom": "Lapin", "hanzi": "兔", "elementFixe": "Bois",
+      "profil": "Élégant, diplomate et sensible, le Lapin (ou Chat dans la tradition vietnamienne) cherche l'harmonie et la beauté. Prudent, raffiné, il sait éviter les conflits et créer autour de lui une atmosphère apaisante.",
+      "relations": "Grands alliés : la Chèvre et le Cochon. Ami secret : le Chien. Opposé : le Coq.",
+      "a2027": "La Chèvre est l'une des grandes alliées du Lapin : 2027 s'annonce comme une année douce et favorable. Amour, création, foyer et amitiés sont à l'honneur. Un excellent moment pour concrétiser un projet artistique ou familial."
+    },
+    "dragon": {
+      "nom": "Dragon", "hanzi": "龍", "elementFixe": "Terre",
+      "profil": "Charismatique, ambitieux et plein d'énergie, le Dragon est le signe le plus prestigieux du zodiaque chinois. Il voit grand, inspire les autres et déteste la médiocrité. Sa franchise peut parfois manquer de nuance.",
+      "relations": "Grands alliés : le Rat et le Singe. Ami secret : le Coq. Opposé : le Chien.",
+      "a2027": "Une année de transition pour le Dragon, qui doit composer avec l'énergie plus douce et plus émotionnelle de la Chèvre. Les succès viendront par la coopération plutôt que par la force. Prends soin de ton entourage : il te le rendra."
+    },
+    "serpent": {
+      "nom": "Serpent", "hanzi": "蛇", "elementFixe": "Feu",
+      "profil": "Intuitif, réfléchi et mystérieux, le Serpent observe avant d'agir. Il a un sens aigu de la stratégie, une grande élégance et une sagesse qui se dévoile avec le temps. Il pardonne difficilement les trahisons.",
+      "relations": "Grands alliés : le Bœuf et le Coq. Ami secret : le Singe. Opposé : le Cochon.",
+      "a2027": "Le Feu de l'année réchauffe le Serpent, signe de Feu par nature : 2027 est favorable aux projets personnels et à la réflexion de fond. Tes intuitions seront justes ; fais-leur confiance, surtout dans les affaires d'argent."
+    },
+    "cheval": {
+      "nom": "Cheval", "hanzi": "馬", "elementFixe": "Feu",
+      "profil": "Libre, enthousiaste et énergique, le Cheval a besoin d'espace et de mouvement. Sociable et franc, il entraîne les autres dans ses élans, mais supporte mal les contraintes et la routine.",
+      "relations": "Grands alliés : le Tigre et le Chien. Ami secret : la Chèvre. Opposé : le Rat.",
+      "a2027": "La Chèvre est l'amie secrète du Cheval : après son année 2026, le Cheval bénéficie en 2027 d'un soutien discret mais réel. Rencontres, collaborations et réconciliations sont favorisées. Une belle année pour consolider ce qui a été lancé."
+    },
+    "chevre": {
+      "nom": "Chèvre", "hanzi": "羊", "elementFixe": "Terre",
+      "profil": "Douce, créative et sensible, la Chèvre (ou Mouton) a un sens artistique remarquable et un grand besoin d'harmonie. Généreuse et bienveillante, elle a besoin de sécurité et d'un entourage aimant pour s'épanouir.",
+      "relations": "Grands alliés : le Lapin et le Cochon. Ami secret : le Cheval. Opposé : le Bœuf.",
+      "a2027": "2027 est l'année de naissance de la Chèvre, que la tradition considère comme une année à traverser avec prudence : beaucoup d'émotions, de remises en question et de changements intérieurs. Porter du rouge, selon la coutume, est censé protéger. Prends soin de toi et entoure-toi de tes alliés."
+    },
+    "singe": {
+      "nom": "Singe", "hanzi": "猴", "elementFixe": "Métal",
+      "profil": "Ingénieux, drôle et curieux, le Singe résout les problèmes avec une créativité étonnante. Sociable et malicieux, il apprend vite et s'adapte à tout, mais peut se disperser.",
+      "relations": "Grands alliés : le Rat et le Dragon. Ami secret : le Serpent. Opposé : le Tigre.",
+      "a2027": "Une année plutôt favorable au Singe, qui sait tirer parti de l'ambiance créative de la Chèvre. Les projets intellectuels, la communication et les études sont portés. Attention seulement à ne pas t'éparpiller."
+    },
+    "coq": {
+      "nom": "Coq", "hanzi": "雞", "elementFixe": "Métal",
+      "profil": "Franc, organisé et travailleur, le Coq aime l'ordre, la précision et les choses bien faites. Courageux et fier, il dit ce qu'il pense, parfois sans détour, mais il est d'une grande loyauté.",
+      "relations": "Grands alliés : le Bœuf et le Serpent. Ami secret : le Dragon. Opposé : le Lapin.",
+      "a2027": "Une année neutre et constructive pour le Coq : ton sens de l'organisation fait merveille dans l'ambiance plus rêveuse de la Chèvre. Les efforts réguliers paient, et une reconnaissance professionnelle est possible."
+    },
+    "chien": {
+      "nom": "Chien", "hanzi": "狗", "elementFixe": "Terre",
+      "profil": "Loyal, honnête et protecteur, le Chien est le plus fidèle des amis. Il a un sens profond de la justice et s'engage pour les causes qui lui tiennent à cœur. Il peut se montrer inquiet ou pessimiste.",
+      "relations": "Grands alliés : le Tigre et le Cheval. Ami secret : le Lapin. Opposé : le Dragon.",
+      "a2027": "La tradition associe le Chien, le Bœuf et la Chèvre dans une relation de tension : 2027 peut apporter des frictions, notamment dans le travail ou la famille. Reste fidèle à tes valeurs sans chercher à avoir raison à tout prix ; la seconde moitié de l'année est plus sereine."
+    },
+    "cochon": {
+      "nom": "Cochon", "hanzi": "豬", "elementFixe": "Eau",
+      "profil": "Généreux, sincère et bon vivant, le Cochon (ou Sanglier) aime les plaisirs de la vie et le partage. Honnête et indulgent, il fait confiance facilement, ce qui fait sa force et parfois sa fragilité.",
+      "relations": "Grands alliés : le Lapin et la Chèvre. Ami secret : le Tigre. Opposé : le Serpent.",
+      "a2027": "La Chèvre est l'une des grandes alliées du Cochon : 2027 s'annonce chaleureuse et favorable. Amitiés, amour, plaisirs partagés et projets de famille sont à l'honneur. Une année pour profiter et pour donner."
+    }
+  },
+  "ordre": ["rat", "boeuf", "tigre", "lapin", "dragon", "serpent", "cheval", "chevre", "singe", "coq", "chien", "cochon"],
+  "elements": ["Bois", "Bois", "Feu", "Feu", "Terre", "Terre", "Métal", "Métal", "Eau", "Eau"]
+}

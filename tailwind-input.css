@@ -289,3 +289,103 @@ a:hover{color:var(--or)}
 .legacy h1{font-family:var(--serif) !important;font-weight:300 !important;font-size:clamp(42px,5.4vw,76px) !important;line-height:1.04 !important;letter-spacing:-.01em !important;text-transform:none !important;text-wrap:balance;margin-top:48px !important;color:var(--encre)}
 .legacy h1+h2,.legacy h1+p{font-family:var(--serif) !important;font-style:italic;font-weight:400 !important;font-size:clamp(22px,2.2vw,28px) !important;letter-spacing:0 !important;text-transform:none !important;color:var(--encre-2) !important}
 .legacy h2,.legacy h3{font-family:var(--serif);font-weight:400;letter-spacing:0}
+
+/* =====================================================================
+   NOUVELLES RUBRIQUES
+   ===================================================================== */
+
+/* ---------- Onglets de période ---------- */
+.onglets ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 36px;border-bottom:1px solid var(--filet)}
+.onglets a{display:block;padding:14px 2px;font-family:var(--caps);font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gris);border-bottom:1px solid transparent;margin-bottom:-1px}
+.onglets a:hover{color:var(--encre)}
+.onglets a[aria-current="page"]{color:var(--or);border-bottom-color:var(--or)}
+@media (max-width:720px){.onglets ul{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:24px}.onglets ul::-webkit-scrollbar{display:none}.onglets a{white-space:nowrap}}
+.trimestres{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px 44px}
+
+/* ---------- Agenda (listes datées) ---------- */
+.agenda{list-style:none;margin:0;padding:0;border-top:1px solid var(--filet)}
+.agenda li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 28px;padding:15px 0;border-bottom:1px solid var(--filet)}
+.agenda .ag-d{flex:0 0 190px;font-family:var(--caps);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--or)}
+.agenda .ag-t{flex:1 1 300px;font-size:21px;line-height:1.45}
+.phases-liste li{align-items:center}
+.phases-liste img{width:40px;height:auto;flex:none}
+
+/* ---------- Formulaires ---------- */
+.form-theme{border-top:1px solid var(--or-clair);border-bottom:1px solid var(--or-clair);padding:34px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px 40px;align-items:start}
+.champ-bloc{display:flex;flex-direction:column;gap:6px;min-width:0}
+.champ-lb{font-family:var(--caps);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris)}
+.champ{border:0;border-bottom:1px solid var(--or-clair);background:transparent;font-family:var(--serif);font-size:24px;font-weight:500;padding:8px 0;color:var(--encre);width:100%;border-radius:0}
+.champ:focus{outline:none;border-bottom-color:var(--encre)}
+.champ:disabled{opacity:.4}
+.champ-aide{font-size:16px;color:var(--gris)}
+.ville-bloc{position:relative}
+.ville-liste{position:absolute;z-index:20;top:76px;left:0;right:0;margin:0;padding:6px 0;list-style:none;background:#FFFFFF;border:1px solid var(--filet);box-shadow:0 18px 40px -20px rgba(28,26,23,.25);max-height:320px;overflow:auto}
+.ville-liste li{padding:9px 14px;cursor:pointer;font-size:19px}
+.ville-liste li:hover,.ville-liste li[aria-selected="true"]{background:var(--survol);color:var(--or)}
+.form-pied{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+.case{display:flex;align-items:center;gap:10px;font-size:18px;color:var(--encre-2);cursor:pointer}
+.case input{width:18px;height:18px;accent-color:var(--or)}
+.erreur{grid-column:1/-1;margin:0;color:#9B2C2C;font-size:18px}
+.erreur:empty{display:none}
+.lien-bouton{background:none;border:0;padding:0;font:inherit;color:var(--or);border-bottom:1px solid var(--or-clair);cursor:pointer}
+.credits{padding-top:28px;padding-bottom:40px;font-size:14px}
+.outil-mini{display:flex;flex-wrap:wrap;align-items:end;justify-content:center;gap:20px 28px;width:100%;max-width:560px}
+.outil-mini .champ-bloc{flex:1 1 240px;text-align:left}
+.outil-res{margin:0;font-size:22px;min-height:1.4em}
+
+/* ---------- Thème astral ---------- */
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:44px 40px}
+.trio-carte{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.trio-carte img{width:112px;height:auto}
+.trio-carte p{margin:0;max-width:21em;color:var(--encre-2)}
+.trio-deg{font-size:21px;color:var(--or)}
+.theme-grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:48px 64px;align-items:start;padding-top:88px;padding-bottom:88px}
+.roue{position:relative;width:min(520px,100%);aspect-ratio:1/1;margin:0 auto}
+.roue .orbit{position:absolute;border:1px solid var(--filet);border-radius:50%}
+.roue .orbit.r1{left:7%;top:7%;width:86%;height:86%}
+.roue .orbit.r3{left:15%;top:15%;width:70%;height:70%;border-color:#F1EAD6}
+.roue-svg{position:absolute;inset:0;width:100%;height:100%}
+.roue-signe{position:absolute;width:10%;transform:translate(-50%,-50%)}
+.roue-signe img{width:100%;height:auto}
+.roue-astre{position:absolute;transform:translate(-50%,-50%);width:clamp(22px,5.4%,30px);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#FFFFFF;border:1px solid var(--or-clair);font-family:var(--caps);font-size:clamp(8px,1.6vw,10px);letter-spacing:.04em;color:var(--encre)}
+.roue-axe{position:absolute;transform:translate(-50%,-50%);font-family:var(--caps);font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--or);background:#FFFFFF;padding:0 3px}
+.table-scroll{overflow-x:auto}
+.table-theme{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.table-theme th{text-align:left;padding:0 14px 10px 0;font-family:var(--caps);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gris)}
+.table-theme td{padding:12px 14px 12px 0;border-top:1px solid var(--filet);font-size:20px;vertical-align:top}
+.table-theme td.num{color:var(--or);white-space:nowrap}
+.table-theme td.sens{font-size:17px;color:var(--encre-2);min-width:220px}
+.retro{font-family:var(--caps);font-size:10px;color:var(--or);border:1px solid var(--or-clair);border-radius:50%;padding:0 4px}
+
+/* ---------- Lune ---------- */
+.lune-hero{display:flex;flex-wrap:wrap;align-items:center;gap:48px 80px;padding-top:44px;padding-bottom:80px}
+.lune-visuel{flex:0 1 260px;display:flex;justify-content:center}
+.lune-visuel img{width:min(220px,60vw);height:auto}
+.lune-hero>.stack{flex:1 1 460px}
+.prochaine{flex:0 1 360px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;border-top:1px solid var(--or-clair);border-bottom:1px solid var(--or-clair);padding:30px 0}
+.prochaine img{width:110px;height:auto}
+.pr-d{font-size:30px;line-height:1.15}
+.lune-signes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:0 48px}
+.lune-signes li{display:flex;gap:18px;align-items:flex-start;padding:20px 0;border-top:1px solid var(--filet-2)}
+.lune-signes img{width:56px;height:auto;flex:none}
+.lune-signes p{margin:4px 0 0;color:var(--encre-2);font-size:19px;line-height:1.5}
+.lune-nav{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:40px;padding-bottom:64px}
+.archives{list-style:none;margin:0;padding:0;columns:2 260px;column-gap:40px}
+.archives li{padding:6px 0;break-inside:avoid}
+
+/* ---------- Paires, fiches ---------- */
+.duo-medailles{display:flex;align-items:center;gap:18px;font-family:var(--serif);font-style:italic;font-size:30px;color:var(--or)}
+.duo-medailles img{width:96px;height:auto}
+.score-grand{margin:0;font-size:clamp(56px,7vw,88px);font-weight:300;line-height:1;color:var(--or);font-variant-numeric:tabular-nums}
+.puces{list-style:none;margin:0;padding:0;border-top:1px solid var(--filet)}
+.puces li{padding:14px 0 14px 26px;border-bottom:1px solid var(--filet);position:relative;font-size:21px}
+.puces li::before{content:"";position:absolute;left:4px;top:29px;width:8px;height:1px;background:var(--or)}
+
+/* ---------- Astrologie chinoise & numérologie ---------- */
+.hanzi{display:inline-flex;align-items:center;justify-content:center;width:120px;height:120px;border-radius:50%;background:#FFFFFF;border:2px solid var(--or-clair);box-shadow:inset 0 0 0 6px #FFFFFF,inset 0 0 0 7px var(--filet);font-family:"Noto Serif SC","Songti SC","SimSun","Microsoft YaHei",serif;font-size:56px;color:var(--or);line-height:1}
+.hanzi.petit{width:68px;height:68px;font-size:32px;box-shadow:inset 0 0 0 4px #FFFFFF,inset 0 0 0 5px var(--filet)}
+.hub .hanzi.petit{flex:none}
+.nombre{display:inline-flex;align-items:center;justify-content:center;width:120px;height:120px;border-radius:50%;border:2px solid var(--or-clair);box-shadow:inset 0 0 0 6px #FFFFFF,inset 0 0 0 7px var(--filet);font-size:58px;font-weight:300;color:var(--or);font-variant-numeric:tabular-nums}
+.nombre.petit{width:64px;height:64px;font-size:28px;box-shadow:inset 0 0 0 4px #FFFFFF,inset 0 0 0 5px var(--filet)}
+.nombres-grille{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:32px 16px}
+.nombres-grille a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;font-size:19px}
