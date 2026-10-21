@@ -292,6 +292,11 @@ html,body{overflow-x:clip}
 .prose .lettrine::first-letter{font-size:4.4em;float:left;line-height:.8;margin:8px 12px 0 0;color:var(--or);font-weight:300}
 .author{margin-top:28px;padding:30px 0;border-top:1px solid var(--filet);border-bottom:1px solid var(--filet);display:flex;gap:24px;align-items:flex-start}
 .author img{width:64px;height:auto;flex:none}
+.author img.portrait{width:84px;height:84px;object-fit:cover;border-radius:50%;box-shadow:0 0 0 1px var(--or-clair),0 0 0 5px #fff,0 0 0 6px var(--filet)}
+.portrait-sig{width:112px;height:112px;object-fit:cover;border-radius:50%;box-shadow:0 0 0 1px var(--or-clair),0 0 0 6px #fff,0 0 0 7px var(--filet)}
+.portrait-madeleine{margin:0 auto 40px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.portrait-madeleine img{width:220px;height:220px;object-fit:cover;border-radius:50%;box-shadow:0 0 0 1px var(--or-clair),0 0 0 8px #fff,0 0 0 9px var(--filet)}
+.portrait-madeleine figcaption{font-size:15px;font-style:italic;color:var(--gris);text-align:center}
 .related{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px 40px}
 .related a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
 .related img{width:150px;height:170px;object-fit:contain;margin-bottom:8px;transition:transform .8s cubic-bezier(.2,.7,.2,1)}

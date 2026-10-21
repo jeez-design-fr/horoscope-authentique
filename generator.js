@@ -150,7 +150,7 @@ ${faqHtml(faq)}
 </div></section>
 
 <section class="section" aria-label="Signature"><div class="wrap-narrow stack gap-m center" style="align-items:center">
-<img src="./assets/entree.webp" alt="" width="640" height="731" loading="lazy" style="width:72px;height:auto">
+<img class="portrait portrait-sig" src="./assets/madeleine.webp" alt="Portrait illustré de Madeleine" width="720" height="720" loading="lazy">
 <p class="quote">« Les étoiles inclinent, mais ne déterminent pas. »</p>
 <p class="eyebrow" style="color:var(--gris)">Madeleine, fondatrice de la Maison</p>
 </div></section>`;
@@ -377,7 +377,7 @@ ${toc.length > 1 ? `<aside class="toc" aria-label="Sommaire"><p class="eyebrow" 
 <div class="prose">
 ${enBref || extraBref ? `<section class="enbref" aria-label="En bref"><p class="eyebrow">En bref</p>${enBref ? `<p class="tx">${esc(enBref)}</p>` : ''}${extraBref ? `<p class="muted" style="margin:0;font-size:19px">${esc(extraBref)}</p>` : ''}</section>` : ''}
 ${html}
-<aside class="author" aria-label="L'autrice"><img src="./assets/entree.webp" alt="" width="640" height="731" loading="lazy"><div class="stack" style="gap:4px"><p class="eyebrow">L'autrice</p><p style="margin:0;font-size:27px">Madeleine</p><p style="margin:0;font-size:18px;color:var(--encre-2)">Voix de la Maison Authentique, spécialisée en astrologie karmique et transgénérationnelle. Elle reçoit au <a class="inlink" href="etude-karmique.html">Cabinet privé</a>.</p></div></aside>
+<aside class="author" aria-label="L'autrice"><img class="portrait" src="./assets/madeleine.webp" alt="Portrait illustré de Madeleine" width="720" height="720" loading="lazy"><div class="stack" style="gap:4px"><p class="eyebrow">L'autrice</p><p style="margin:0;font-size:27px">Madeleine</p><p style="margin:0;font-size:18px;color:var(--encre-2)">Voix de la Maison Authentique, spécialisée en astrologie karmique et transgénérationnelle. Elle reçoit au <a class="inlink" href="etude-karmique.html">Cabinet privé</a>.</p></div></aside>
 </div>
 </div>
 </article>
