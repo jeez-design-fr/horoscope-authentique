@@ -1,190 +1,202 @@
 {
-  "version": 2,
+  "version": 3,
   "id": "2026-10-19",
   "debutIso": "2026-10-19",
   "finIso": "2026-10-25",
   "label": "semaine du 19 octobre au 25 octobre 2026",
-  "genereLe": "2026-10-21T13:55:25.237Z",
+  "genereLe": "2026-10-21T14:30:20.771Z",
   "signes": {
     "belier": {
-      "essentiel": "Ralentis le pas et structure tes élans sans forcer le destin cette semaine.",
+      "essentiel": "Toi qui fonces tête baissée sans regarder les obstacles, cette semaine te demande de ralentir l'allure avec le passage de Saturne et de Neptune dans ton espace.",
       "amour": {
-        "titre": "Prendre le temps d'écouter",
-        "texte": "Avec Saturne et Neptune rétrogrades dans ton signe, le ciel t'invite à faire le tri dans tes attentes affectives. Inutile de foncer tête baissée vers des déclarations passionnées sans mesurer la portée de tes mots. Mars en Lion vient soutenir Saturne d'un trigone bienveillant pour t'aider à construire du solide. La tendresse gagne en profondeur quand tu acceptes d'avancer à un rythme plus tranquille."
+        "titre": "Apprendre à poser tes valises",
+        "texte": "Toi qui as l'habitude de brûler les étapes, le ciel t'invite à souffler un bon coup. Avec Saturne et Neptune qui font escale chez toi, les relations demandent plus de douceur et moins d'impulsivité. C'est le moment idéal pour écouter vraiment l'autre sans chercher à tout diriger immédiatement. Laisse de côté tes grands élans de conquête pour privilégier la simplicité des moments partagés. Une discussion sincère va dissiper les petits nuages qui traînent dans l'air depuis quelque temps. Prends le temps de savourer la présence de ton entourage sans pression ni attente démesurée. L'amour se nourrit aussi de silences partagés et de tendresse sans bruit. Tu verras que la vulnérabilité a un charme fou et désarmant."
       },
       "travail": {
-        "titre": "Une rigueur payante au quotidien",
-        "texte": "Mars veille au grain et apporte une belle endurance à tes projets grâce à son alliance avec Saturne. Tu peux poser des bases solides sans craindre les contretemps administratifs ou techniques. Prends le temps de relire chaque dossier avec attention pour éviter les oublis de Neptune. Ta persévérance fait toute la différence et force le respect de ton entourage professionnel."
+        "titre": "Construire sur du solide",
+        "texte": "La présence de Saturne dans ton signe te pousse à revoir tes méthodes avec beaucoup de sérieux. Tu ne veux plus courir partout sans savoir où tu vas ni pourquoi tu le fais. Grâce à un beau trigone entre Mars et Saturne, ton énergie trouve enfin un canal constructif et durable. C'est le moment parfait pour poser des bases saines sur tes projets professionnels à long terme. Ne cherche pas à tout bousculer en un seul jour, la patience reste ta meilleure alliée. Accorde de l'importance aux détails que tu as tendance à survoler quand l'impatience te gagne. Tes collègues apprécieront cette nouvelle rigueur qui change de ton habituelle précipitation. En consolidant ton socle, tu gagnes en crédibilité et en sérénité pour la suite."
       },
       "bienetre": {
-        "titre": "Canaliser le feu intérieur",
-        "texte": "Ton énergie habituelle demande un exutoire mesuré pour ne pas virer en nervosité inutile. Les disciplines calmes et la marche au grand air t'offrent un vrai répit mental cette semaine. Accorde une pause salvatrice à ton esprit quand le doute tente de s'installer. Tu retrouves ainsi un équilibre parfait entre dynamisme et repos salvateur."
-      }
+        "titre": "Trouver ton point d'ancrage",
+        "texte": "Avec Neptune qui baigne ton signe d'une brume rêveuse, la fatigue se fait parfois sentir. Ton corps réclame des pauses bien méritées pour relâcher toute la pression accumulée. Ose t'accorder de vrais moments de calme loin du bruit et de l'agitation extérieure. Une bonne nuit de sommeil ou une promenade en solo fera des miracles pour ton moral. Évite de t'imposer des programmes surchargés qui finissent par te vider de ton énergie vitale. Laisse ton esprit vagabonder sans culpabilité, cela fait partie intégrante de ton équilibre. Prends soin de ton dos et de tes articulations en pratiquant des étirements doux chaque matin. Retrouver ton calme intérieur est la plus belle chose à t'offrir cette semaine."
+      },
+      "mission": "Mets ton téléphone en mode silencieux pendant une heure entière pour ne faire absolument rien d'autre que respirer."
     },
     "taureau": {
-      "essentiel": "Face aux remous en face de toi, garde ton calme légendaire et ajuste le tir.",
+      "essentiel": "Toi qui aimes tes repères et ta tranquillité, tu te retrouves au cœur d'un grand remue-ménage avec le Soleil, Mercure et Vénus qui s'installent juste en face de toi.",
       "amour": {
-        "titre": "Dialogue sincère en vue",
-        "texte": "Le Soleil et Mercure font face à ton signe dès le vendredi 23 octobre, rejoints par Vénus rétrograde. Attends-toi à des conversations intenses qui remettent certaines vérités sur la table sans détour. Dimanche 25 octobre, le départ de Vénus vers la Balance allège enfin l'atmosphère de tes amours. Écoute avec le cœur sans chercher à avoir le dernier mot sur tout."
+        "titre": "Un grand miroir tendu",
+        "texte": "Toi qui tiens tant à ta sécurité affective, le ciel s'agite avec le Soleil, Mercure et Vénus qui traversent le signe en face du tien. Cette configuration met en lumière tout ce qui se vit à deux, pour le meilleur et pour les remises en question. Le vendredi 23 octobre marque un tournant avec Vénus qui entame sa rétrogradation et Mercure qui fait de même. C'est l'occasion rêvée de clarifier une situation avec quelqu'un qui compte énormément pour toi. Ne fuis pas les conversations un peu plus complexes sous prétexte que tu préfères le calme. Avec la conjonction entre le Soleil et Vénus, la tendresse reprend le dessus si tu acceptes d'ouvrir ton cœur. Dis les choses avec tes mots simples, sans chercher à tout contrôler. Laisse l'autre te surprendre dans ses contradictions et ses élans de sincérité."
       },
       "travail": {
-        "titre": "Vérifier chaque clause écrite",
-        "texte": "Avec Mercure qui commence sa rétrogradation en Scorpion le 23 octobre, prudence absolue sur les signatures. Tes partenaires professionnels peuvent changer d'avis ou formuler des demandes plutôt exigeantes. Garde la tête froide et refuse de signer le moindre accord dans la précipitation. Ton sens pratique reste ton meilleur atout pour éviter les malentendus de dernière minute."
+        "titre": "Naviguer dans le brouillard",
+        "texte": "Le domaine professionnel demande de la souplesse puisque Mercure rétrograde en face de ton signe. Les contrats et les accords méritent d'être relus deux fois plutôt qu'une pour éviter les quiproquos. Heureusement, ton sens pratique légendaire t'aide à garder les pieds sur terre malgré les imprévus. Évite de t'entêter sur une méthode si tu vois bien qu'elle montre des signes de faiblesse. Prends le temps d'écouter les retours de tes partenaires ou de tes collègues sans te braquer. Un ajustement de dernière minute finira par se révéler bien plus avantageux que prévu. Accorde-toi le droit à l'erreur et n'exige pas de toi une perfection absolue. La patience est la clé pour traverser cette période un peu sinueuse sans encombre."
       },
       "bienetre": {
-        "titre": "Préserver sa paix intérieure",
-        "texte": "Le face-à-face astral bouscule un peu tes habitudes bien ancrées et demande de l'adaptation. Accorde-toi des moments pour cuisiner ou savourer un moment de calme loin des écrans. Quand la pression monte chez tes proches, choisis simplement de ne pas surenchérir. Revenir aux plaisirs simples t'aide à garder un ancrage sans faille."
-      }
+        "titre": "Ralentir le rythme habituel",
+        "texte": "L'énergie de la Lune en Poissons t'invite à la rêverie et à une douce introspection bienveillante. Ton corps apprécie les plaisirs simples, comme un bon repas chaud ou une sieste improvisée. N'hésite pas à décliner les invitations si tu sens que tu as simplement besoin de te reposer chez toi. La rétrogradation de Vénus te demande de faire le tri dans tes dépenses énergétiques superflues. Prends soin de ton cou et de ton dos en buvant des infusions réconfortantes le soir. Laisse de côté les soucis matériels qui n'ont pas d'importance immédiate pour ton bonheur. Te faire passer en premier n'est pas un luxe, c'est une nécessité absolue cette semaine."
+      },
+      "mission": "Prépare-toi ton plat réconfortant préféré et savoure chaque bouchée en écoutant un album de musique que tu adores."
     },
     "gemeaux": {
-      "essentiel": "Prends du recul sur tes idées pour mieux naviguer dans les petits retards.",
+      "essentiel": "Toi qui papillonnes d'une idée à l'autre avec une curiosité infinie, Uranus rétrograde dans ton signe et t'invite à poser enfin tes valises mentales.",
       "amour": {
-        "titre": "Révélations et petits secrets",
-        "texte": "Uranus rétrograde dans ton signe reçoit un magnifique trigone de Pluton qui bouscule tes certitudes de fond. En amour, cela donne des déclics soudains sur ce que tu souhaites vraiment partager au quotidien. Mercure devenant rétrograde le vendredi 23 octobre, évite de trop intellectualiser tes sentiments. Laisse plutôt parler tes intuitions pour désamorcer les quiproquos avec le sourire."
+        "titre": "Des papillons dans l'esprit",
+        "texte": "Uranus rétrograde dans ton signe bouscule un peu tes certitudes amoureuses pour ton plus grand bien. Le beau sextile entre Uranus et Neptune apporte une touche de poésie et d'intuition à tes échanges. C'est le moment idéal pour surprendre la personne qui partage ta vie avec une attention totalement inattendue. Si tu cherches quelqu'un, une rencontre fortuite pourrait bien te faire voir le monde sous un autre angle. Ne cherche pas à tout analyser avec ta logique habituelle, laisse parler tes ressentis. L'amour se vit avec le cœur grand ouvert, sans chercher à tout anticiper par les mots. Profite de cette fraîcheur pour réinventer ton quotidien amoureux avec fantaisie."
       },
       "travail": {
-        "titre": "Changer ses méthodes en douceur",
-        "texte": "Le carré entre Mercure et Jupiter te pousse à promettre beaucoup trop en un temps record. Garde les pieds sur terre et réduis la voilure avant d'accepter une nouvelle mission complexe. L'appui d'Uranus sur Pluton t'invite à moderniser tes outils de travail avec pertinence. Ne cours pas après l'urgence quand une réorganisation méthodique s'impose d'elle-même."
+        "titre": "Repenser tes grands projets",
+        "texte": "Ton cerveau bouillonne d'idées novatrices, mais Uranus te demande de revoir ta copie en profondeur. Pluton en bel accord avec ton signe t'aide à creuser sous la surface pour trouver de vraies solutions. Évite de te disperser sur dix dossiers en même temps au risque de t'épuiser inutilement. Concentre ton énergie sur une seule tâche importante et mène-la rondement jusqu'au bout. Tes talents de communicant font des merveilles pour apaiser les tensions au sein de ton équipe. Un projet créatif mis de côté refait surface avec un potentiel très intéressant à exploiter. Fais confiance à ton intuition pour repérer les bonnes opportunités derrière les apparences. Tu as toutes les cartes en main pour marquer des points sans te presser."
       },
       "bienetre": {
-        "titre": "Aérer l'esprit en continu",
-        "texte": "Le tourbillon des pensées peut parfois troubler ton sommeil au cours de cette période chargée. Prends le temps d'écrire tes réflexions sur un carnet pour libérer ton esprit avant la nuit. Uranus en sextile à Neptune t'ouvre à des pratiques douces comme la respiration profonde. Offre-toi de vraies déconnexions pour recharger ta vivacité naturelle."
-      }
+        "titre": "Calmer le tourbillon mental",
+        "texte": "Ton mental ne s'arrête jamais, mais la présence d'Uranus et de Neptune t'offre une belle opportunité de lâcher prise. S'offrir des moments de silence total devient indispensable pour retrouver un bon sommeil réparateur. Pense à aérer ton espace de vie et à faire le tri dans tes papiers pour alléger ton esprit. Une activité manuelle ou artistique t'aidera à canaliser ton trop-plein d'énergie nerveuse. Bois beaucoup d'eau pour éliminer les tensions et garder les idées claires tout au long de la journée. Ne culpabilise surtout pas si tu as envie de ne rien faire pendant quelques heures. Ton système nerveux te dira merci pour cette pause bien méritée."
+      },
+      "mission": "Écris sur un carnet trois pensées qui tournent en boucle dans ta tête, puis ferme-le pour ne plus y penser."
     },
     "cancer": {
-      "essentiel": "La lune gibbeuse en Poissons t'offre une intuition précieuse à suivre sans hésiter.",
+      "essentiel": "Toi qui protèges ton petit monde avec tant de tendresse, le ciel t'offre une parenthèse de douceur et d'intuition particulièrement bienvenue.",
       "amour": {
-        "titre": "Laisser parler l'intuition profonde",
-        "texte": "La Lune en Poissons, éclairée à 91 %, amplifie ta sensibilité et déploie un climat d'intimité réconfortant. Tu devines ce que l'autre ressent avant même qu'un mot ne soit prononcé dans la pièce. L'entrée du Soleil en Scorpion le vendredi 23 octobre vient réchauffer tes élans affectifs. Profite de ces journées pour partager des confidences chaleureuses au coin du feu."
+        "titre": "Un cocon de tendresse",
+        "texte": "Toi qui ressens tout avant les autres, la Lune illumine ton secteur de la sensibilité et des émotions douces. C'est une période idéale pour resserrer les liens avec tes proches et exprimer ce que tu as sur le cœur. Le vendredi 23 octobre, le Soleil entre en Scorpion, ce qui renforce ton besoin de fusion et d'authenticité. Tu n'as pas de temps à perdre avec les faux-semblants, tu veux du vrai et du solide. Laisse-toi envelopper par une vague de chaleur humaine qui effacera tes doutes récents. Si tu es célibataire, ton aura mystérieuse et bienveillante attire les regards bien intentionnés. Un simple regard ou un message spontané suffit à illuminer ta journée. Ose te montrer tel que tu es, sans armure ni protection superflue."
       },
       "travail": {
-        "titre": "Faire confiance à son flair",
-        "texte": "Aucun nuage direct ne vient assombrir ton ciel professionnel cette semaine, ce qui te laisse le champ libre. Ton imagination fait des merveilles pour trouver des solutions originales à des soucis quotidiens. Avec Mercure rétrograde dès le 23 octobre, privilégie la finition des projets en cours plutôt que les lancements. Ta créativité discrète marque des points précieux auprès de tes collègues."
+        "titre": "Avancer en eaux calmes",
+        "texte": "Dans le domaine professionnel, ton intuition légendaire est ta meilleure boussole pour prendre les bonnes décisions. Tu repères les pièges avant tout le monde grâce à une sensibilité affûtée qui ne te trompe jamais. Même si le ciel bouge un peu ailleurs, ton coin de ciel reste paisible et propice à la concentration. C'est le moment idéal pour finaliser des dossiers de fond qui demandent de la minutie et de la patience. Tes collègues apprécient ton écoute attentive et ta capacité à apaiser les tensions ambiantes. Ne te laisse pas submerger par la charge de travail des autres, pose tes limites avec douceur. En restant fidèle à ton rythme, tu abats un travail de qualité sans stress inutile."
       },
       "bienetre": {
-        "titre": "Se ressourcer près de l'eau",
-        "texte": "La Lune gibbeuse en signe d'eau te conseille de recharger tes batteries dans un cadre très apaisant. Un long bain chaud ou une marche au bord d'un lac t'apportera un soulagement immédiat. Évite de prendre sur tes épaules les angoisses d'autrui pour conserver ton bel optimisme. Ce temps pour soi reste le secret de ta sérénité actuelle."
-      }
+        "titre": "Buller loin du bruit",
+        "texte": "La Lune en Poissons amplifie ton besoin de te retirer dans ton sanctuaire pour recharger tes batteries. Ton corps a besoin de chaleur, de réconfort et de moments de repos absolu pour retrouver son équilibre. Un bain chaud aux huiles essentielles ou une soirée sous un plaid douillet fera des miracles. Évite les ambiances trop bruyantes ou les personnes qui vampirisent ton énergie positive. Prends soin de ton estomac en privilégiant des repas simples, légers et faits maison. Laisse couler les petites contrariétés qui ne méritent pas que tu t'en fasses. Tu possèdes en toi toutes les ressources nécessaires pour traverser cette semaine sereinement."
+      },
+      "mission": "Offre-toi une boisson chaude dans ton mug préféré et bois-la en regardant par la fenêtre pendant cinq minutes."
     },
     "lion": {
-      "essentiel": "Ton énergie rayonne fort, canalise simplement ta fougue pour garder l'avantage.",
+      "essentiel": "Toi qui brilles de mille feux avec ton grand cœur, la présence de Mars et de Jupiter dans ton signe te donne une énergie absolument flamboyante.",
       "amour": {
-        "titre": "Passion vive sous contrôle",
-        "texte": "Mars et Jupiter trônent dans ton signe et boostent ton pouvoir de séduction à son maximum. Toutefois, l'opposition avec Pluton et les aspects au Soleil te demandent de modérer tout désir d'hégémonie. En couple, propose des projets communs au lieu d'imposer tes choix de manière autoritaire. Une belle complicité s'installe quand tu laisses aussi l'autre mener la danse amoureuse."
+        "titre": "Des étincelles dans le regard",
+        "texte": "Toi qui aimes passionnément et avec panache, Mars et Jupiter dynamitent ton espace vital de la plus belle des manières. En face de toi, Pluton te pousse à aller chercher plus de profondeur dans tes relations intimes. Le vendredi 23 octobre, le passage du Soleil en Scorpion apporte un peu de mystère et d'intensité. C'est le moment de creuser une question importante avec la personne qui partage ton quotidien. Ne reste pas en surface quand ton cœur réclame des conversations vraies et profondes. Si tu cherches l'amour, ton magnétisme naturel fait des ravages partout où tu passes. Ose faire le premier pas avec ton audace habituelle, la chance sourit aux audacieux. Laisse ta générosité s'exprimer sans compter, tu seras largement récompensé. La conjonction du Soleil et de Vénus t'invite à célébrer la beauté des sentiments partagés."
       },
       "travail": {
-        "titre": "Modérer ses grandes ambitions",
-        "texte": "Le carré entre Jupiter et Mercure te pousse à voir grand, parfois un peu trop grand pour le planning. Heureusement, le trigone entre Mars et Saturne t'aide à canaliser cette formidable ambition vers du concret. Sois précis dans les détails administratifs dès le 23 octobre avec la rétrogradation de Mercure. Tes initiatives impressionnent, à condition de garder une modestie bienvenue."
+        "titre": "Prendre les commandes avec brio",
+        "texte": "Avec Mars et Jupiter dans ton signe, tu déplaces des montagnes et rien ne semble pouvoir t'arrêter. Ton enthousiasme est communicatif et entraîne toute ton équipe vers la réussite. Le beau trigone entre Mars et Saturne te donne la discipline nécessaire pour concrétiser tes ambitions. C'est le moment idéal pour présenter un projet audacieux ou prendre de nouvelles responsabilités. Attention tout de même à ne pas vouloir aller trop vite sous l'effet du carré de Mercure avec Jupiter. Garde un œil critique sur les détails administratifs pour éviter les oublis fâcheux. Tes talents de leader naturel sont reconnus et valorisés à leur juste valeur. Brille, mais pense aussi à écouter les propositions de tes collaborateurs."
       },
       "bienetre": {
-        "titre": "Dépenser son trop-plein physique",
-        "texte": "Avec une telle réserve d'énergie dans ton signe, la sédentarité est ta pire ennemie cette semaine. Une séance de sport intense ou une longue sortie tonique permet d'évacuer toute tension accumulée. Pense aussi à relâcher la pression au niveau de la mâchoire et du dos. Ton enthousiasme reste contagieux quand le corps reste détendu."
-      }
+        "titre": "Canaliser ton feu intérieur",
+        "texte": "Ton énergie est débordante, mais le carré du Soleil avec Pluton peut créer une petite tension nerveuse. Ton corps a besoin de se dépenser pour évacuer le trop-plein d'adrénaline accumulée. Une séance de sport intense ou une longue marche en plein air te fera le plus grand bien. Veille à ne pas t'épuiser à vouloir tout réussir en même temps dans la même journée. Prends le temps de souffler et de t'hydrater régulièrement pour garder le cap. Ton cœur bat fort, offre-lui des moments de détente pour redescendre en pression le soir. Dormir suffisamment est la clé pour continuer à rayonner sans t'essouffler. Tu es une source d'énergie, mais prends soin de ta propre flamme."
+      },
+      "mission": "Complimente sincèrement une personne croisée dans ta journée juste pour voir son visage s'illuminer."
     },
     "vierge": {
-      "essentiel": "La lune en face t'invite à la souplesse face aux imprévus de ton quotidien.",
+      "essentiel": "Toi qui veilles à tout organiser avec minutie, la Lune traverse ton signe et t'offre une occasion en or de te reconnecter à tes vrais besoins.",
       "amour": {
-        "titre": "Ouvrir son espace intime",
-        "texte": "La Lune en Poissons illumine le secteur relationnel et t'invite à lâcher un peu tes repères habituels. Quelqu'un pourrait exprimer des sentiments d'une manière inattendue qui bouscule tes certitudes bien ordonnées. Accueille ces émotions sans chercher immédiatement à tout analyser sous un angle strictement logique. La beauté d'une rencontre réside souvent dans ce qui échappe au contrôle parfait."
+        "titre": "Mettre des mots sur l'essentiel",
+        "texte": "Toi qui cherches toujours à bien faire, la Lune présente dans ton signe met en lumière ta grande sensibilité. Le vendredi 23 octobre, l'entrée du Soleil en Scorpion et la rétrogradation de Mercure modifient un peu la donne. Tu ressens le besoin de clarifier tes pensées et d'avoir des discussions franches et constructives. Ne garde pas tes petites inquiétudes pour toi, partage-les avec la personne qui t'accompagne. La conjonction du Soleil et de Vénus t'aide à trouver les mots doux pour exprimer ton affection. Si tu es célibataire, une conversation inattendue pourrait bien faire naître une belle complicité. Laisse un peu de place à l'imprévu dans ton cœur, tout ne doit pas être planifié. Tu découvriras que la spontanéité a beaucoup de charme et de légèreté."
       },
       "travail": {
-        "titre": "Adapter son plan méthodiquement",
-        "texte": "Mercure, ton maître céleste, forme un carré avec Jupiter puis devient rétrograde le vendredi 23 octobre. Attends-toi à des ajustements de calendrier et à des consignes qui changent sans crier gare. Reste sur tes gardes quant aux promesses un peu trop alléchantes formulées par ton entourage professionnel. Vérifier deux fois les chiffres évite bien des déconvenues d'ici le week-end."
+        "titre": "Affiner ta stratégie avec calme",
+        "texte": "Mercure rétrograde demande de la vigilance dans tes communications et la gestion de tes dossiers. Heureusement, ton esprit analytique repère la moindre faille avant qu'elle ne devienne un problème. C'est le moment idéal pour réorganiser ton espace de travail et faire un grand tri salutaire. Ne te laisse pas agiter par la précipitation ambiante, garde ton calme légendaire. Le beau trigone entre Uranus et Pluton t'inspire des solutions astucieuses et modernes. Tes collègues se tourneront naturellement vers toi pour obtenir des conseils avisés et précis. Valide chaque étape de tes projets pour t'assurer qu'aucun détail n'a été oublié en route. Ton sens du service et ton efficacité font des merveilles cette semaine."
       },
       "bienetre": {
-        "titre": "S'accorder le droit d'hésiter",
-        "texte": "Vouloir tout ranger et tout maîtriser peut créer une fatigue mentale superflue cette semaine. Offre-toi des temps de pause sans culpabilité au fil de tes journées bien remplies. La phase gibbeuse de la Lune te rappelle que les cycles de repos font partie du succès. Lâche la bride pour retrouver un sommeil réparateur et durable."
-      }
+        "titre": "Prendre soin de ton équilibre",
+        "texte": "La Lune en Poissons en face de ton signe te rappelle l'importance de relâcher la pression mentale. Ton système digestif est un peu le baromètre de tes émotions, écoute-le avec attention. Prépare-toi des repas simples et digestes pour retrouver un confort corporel immédiat. Une tisane de camomille le soir t'aidera à trouver un sommeil profond et réparateur. Ne cherche pas à tout contrôler dans ton environnement immédiat, lâche prise. Prends le temps de respirer profondément en ouvrant grand ta fenêtre chaque matin. Te reposer n'est pas une perte de temps, c'est le carburant de ta réussite. Prends soin de ton esprit en lisant un livre qui te transporte ailleurs."
+      },
+      "mission": "Range un seul tiroir qui traîne depuis des semaines et savoure la sensation de clarté que cela procure."
     },
     "balance": {
-      "essentiel": "Retrouve ton centre alors que ta planète maîtresse se prépare à te rejoindre.",
+      "essentiel": "Toi qui cherches toujours la paix et l'harmonie autour de toi, le ciel t'invite à te recentrer avec l'arrivée de Vénus dans ton signe.",
       "amour": {
-        "titre": "Un retour vers l'harmonie",
-        "texte": "Vénus rétrograde termine sa traversée du Scorpion avant de faire son grand retour dans ton signe le 25 octobre. Les tensions de la semaine, accentuées par le carré de Vénus à Pluton, s'apaisent enfin dimanche. Saturne et Neptune en face de toi imposent de la clarté dans tes relations intimes sans fausse pudeur. Les malentendus se dissipent dès lors que la sincérité prend le dessus sur la séduction de façade."
+        "titre": "Une vague de douceur retrouvée",
+        "texte": "Toi qui as le sens du compromis et du beau, le dimanche 25 octobre marque un événement majeur. Vénus entre dans ton signe, même si elle commence sa rétrogradation, t'invitant à revoir ta façon d'aimer. En face de toi, Saturne et Neptune rétrogrades te demandent de poser des limites saines. Le vendredi 23 octobre, le Soleil rejoint Vénus et éclaire ta sphère relationnelle d'un éclat nouveau. C'est le moment parfait pour exprimer tes besoins profonds sans peur du conflit. Si tu es en couple, la tendresse reprend le dessus après quelques semaines de flottement. Si tu es célibataire, ton charme naturel opère avec une intensité magnétique. Ose dire non à ce qui ne te convient plus pour faire de la place au meilleur. L'amour véritable commence par le respect de tes propres aspirations."
       },
       "travail": {
-        "titre": "Faire le tri calmement",
-        "texte": "Face aux exigences de Saturne rétrograde en face de ton signe, il faut savoir dire non avec courtoisie. Tu n'as pas à porter la charge de dossiers qui ne te concernent pas directement. Reste concentré sur tes priorités sans te laisser distraire par les hésitations de tes associés. La fin de semaine apporte une vision nettement plus sereine sur tes objectifs."
+        "titre": "Trouver le juste équilibre",
+        "texte": "Dans ta vie professionnelle, tu cherches constamment la balance idéale entre tes envies et les attentes des autres. Saturne en face de ton signe te pousse à structurer tes engagements sur le long terme. Ne prends pas d'engagements hâtifs, prends le temps de peser le pour et le contre. Le carré de Vénus avec Pluton te demande de lâcher le besoin de plaire à tout prix. Concentre-toi sur la qualité de tes collaborations plutôt que sur la quantité de tes tâches. Ton sens de la diplomatie désamorcera une situation délicate avec tes partenaires ou tes collègues. Un accord financier ou contractuel demande à être relu avec beaucoup d'attention. Fais confiance à ton flair pour faire le bon choix au moment décisif."
       },
       "bienetre": {
-        "titre": "Protéger son équilibre nerveux",
-        "texte": "L'agitation ambiante met ton besoin viscéral d'équilibre à rude épreuve durant quelques jours. Pratique des étirements doux ou une séance de relaxation dès que la tension se fait sentir. Évite les ambiances conflictuelles qui drainent ton énergie sans t'apporter aucune satisfaction. Préserve ton cocon et profite du dimanche pour te faire plaisir."
-      }
+        "titre": "Alléger ton espace intérieur",
+        "texte": "L'influence de Neptune et de Saturne te demande de ménager ta monture pour éviter la fatigue. Ton corps réclame de la beauté, du calme et des environnements harmonieux pour se ressourcer. Offre-toi une sortie culturelle, une visite d'exposition ou simplement une promenade dans un parc. Évite les ambiances conflictuelles qui pèsent lourdement sur ton moral sensible. Prends soin de tes reins et de ta peau en veillant à t'hydrater tout au long de la journée. Le repos est ton meilleur allié pour traverser cette période de transition astrale. Apprends à savourer le silence et la paix de ne rien faire. Tu as le droit de souffler et de te choisir en priorité absolue."
+      },
+      "mission": "Mets de la musique douce et accorde-toi dix minutes de respiration profonde les yeux fermés."
     },
     "scorpion": {
-      "essentiel": "Sous les feux de la rampe céleste, affirme tes désirs sans chercher le conflit.",
+      "essentiel": "Toi qui vis tout avec intensité et passion, ta saison démarre en trombe avec l'arrivée du Soleil, de Mercure et de Vénus dans ton signe.",
       "amour": {
-        "titre": "Intensité à fleur de peau",
-        "texte": "Le Soleil entre dans ton signe le vendredi 23 octobre pour rejoindre Mercure et Vénus rétrograde en conjonction. La tension est palpable avec le carré à Pluton, réveillant des passions parfois un peu excessives. Vénus quitte ton signe dimanche 25 octobre, ce qui te permet de souffler après quelques jours très intenses. Exprime tes ressentis profonds sans chercher à tester la loyauté de l'autre."
+        "titre": "Un magnétisme irrésistible",
+        "texte": "Toi qui ne fais jamais les choses à moitié, le vendredi 23 octobre marque le grand début de ton anniversaire. Le Soleil entre dans ton signe, suivi de Mercure et de Vénus qui y rétrogradent. C'est une période d'introspection puissante où tes sentiments se bousculent avec force et vérité. La conjonction entre le Soleil et Vénus dans ton espace illumine ton charisme naturel. Tu attires les regards et les cœurs comme un aimant, mais tu aspires à de l'authentique. Une discussion profonde avec la personne qui partage ta vie va tout clarifier. Si tu es célibataire, une rencontre marquante pourrait bien bouleverser tes repères habituels. Ne crains pas ta propre intensité, elle fait toute ta beauté et ta force. Ose te livrer sans masque, la récompense sera à la hauteur de ton audace."
       },
       "travail": {
-        "titre": "Miser sur la stratégie",
-        "texte": "Mercure commence sa rétrogradation dans ton signe le 23 octobre en même temps que l'arrivée du Soleil. C'est le moment idéal pour revoir tes stratégies secrètes et peaufiner tes dossiers en toute discrétion. Mars en Lion forme un trigone à Saturne qui t'aide à garder un cap productif et tenace. Ne réagis pas à chaud si une décision hiérarchique vient contrarier tes plans."
+        "titre": "Creuser pour tout comprendre",
+        "texte": "Sur le plan professionnel, ton esprit perçant fait des merveilles pour dénouer les énigmes les plus complexes. Mercure rétrograde dans ton signe t'invite à revoir tes projets et à peaufiner ta stratégie. Le carré du Soleil avec Pluton, ton maître, te pousse à te transformer et à lâcher d'anciens fonctionnements. Ne t'accroche pas à des méthodes obsolètes juste par habitude ou par fierté. C'est le moment idéal pour faire le point sur ta carrière et réorienter tes ambitions. Tes collègues admirent ton intuition redoutable et ta capacité à voir ce que les autres ignorent. Fais preuve de discernement et évite les luttes de pouvoir inutiles. Tu hai l'énergie nécessaire pour poser des bases durables et couronnées de succès."
       },
       "bienetre": {
-        "titre": "Canaliser le volcan intérieur",
-        "texte": "Avec une telle concentration planétaire dans ton signe, l'émotivité peut vite grimper d'un cran. Trouve un moyen d'extérioriser ce feu par une activité manuelle, sportive ou un projet créatif. Évite les discussions houleuses en fin de soirée pour garantir un repos de qualité. Ton magnétisme reste irrésistible quand tu cultives le calme intérieur."
-      }
+        "titre": "Recharger tes batteries profondes",
+        "texte": "Ta passion demande beaucoup d'énergie, et le passage de plusieurs astres chez toi te demande du repos. La Lune en Poissons t'offre une belle sensibilité pour évacuer les tensions accumulées. Prends le temps de te couper du monde extérieur pour retrouver ton calme intérieur. Un moment de lecture au coin du feu ou une marche nocturne te fera le plus grand bien. Évite de ressasser les pensées sombres, autorise-toi à lâcher prise sur ce que tu ne contrôles pas. Prends soin de ton sommeil en instaurant un rituel apaisant chaque soir avant de te coucher. Tu es un phénix qui sait renaître de ses cendres avec panache. Prends soin de toi et honore ta belle vitalité."
+      },
+      "mission": "Écris sur un papier ce dont tu veux te libérer, puis déchire-le en souriant."
     },
     "sagittaire": {
-      "essentiel": "Garde ton cap avec sagesse sans te disperser dans des promesses intenables.",
+      "essentiel": "Toi qui cours après les grands espaces et l'aventure, Uranus en face de ton signe te pousse à réinventer ta vision du monde.",
       "amour": {
-        "titre": "Prendre du recul salutaire",
-        "texte": "Jupiter, ton maître céleste, loge en Lion mais forme un carré pointilleux avec Mercure cette semaine. Dans tes échanges affectifs, attention aux déclarations grandiloquentes qui dépassent la réalité de tes sentiments. Uranus rétrograde en face de toi continue de souffler un vent d'indépendance difficile à ignorer. Savoure les moments d'intimité sans chercher à planifier l'avenir sur dix ans."
+        "titre": "Des horizons relationnels neufs",
+        "texte": "Toi qui as besoin de liberté et d'optimisme, Uranus en face de ton signe bouscule tes habitudes amoureuses. Le trigone entre Uranus et ton maître Jupiter t'insuffle un vent de liberté et de joie de vivre. Tu as envie de grand air, de discussions philosophiques et de partages spontanés avec l'autre. Si tu es en couple, propose une escapade imprévue pour casser la routine du quotidien. Si tu es célibataire, une rencontre surprenante pourrait bien éveiller ton intérêt là où tu ne l'attendais pas. Ne t'enferme pas dans des schémas rigides, laisse la vie te surprendre agréablement. L'amour se vit comme un voyage à deux, riche de découvertes et de rires partagés. Garde ton grand sourire et ton enthousiasme communicatif pour charmer ton entourage."
       },
       "travail": {
-        "titre": "Modérer ses engagements professionnels",
-        "texte": "L'enthousiasme ne manque pas avec l'énergie martienne, mais le carré Mercure-Jupiter incite aux excès d'optimisme. Ne t'engage pas sur des délais intenables simplement pour faire bonne figure auprès de ton équipe. Vérifie la faisabilité technique de tes idées avant de les soumettre publiquement dès le 23 octobre. La patience devient ton meilleur outil pour transformer un coup d'essai en réussite."
+        "titre": "Viser toujours plus haut",
+        "texte": "Avec Jupiter et Mars en Lion qui soutiennent tes ambitions, ton moral est au beau fixe. Tu débordes d'idées grandioses et tu as envie de porter des projets qui ont du sens. Le carré de Mercure avec Jupiter te demande toutefois de bien vérifier les aspects pratiques. Ne signe rien les yeux fermés et prends le temps de lire les petits caractères. Ton optimisme naturel est une force, mais un peu de réalisme t'évitera des petits tracas. C'est le moment idéal pour planifier un déplacement ou une formation enrichissante. Tes collègues apprécient ton dynamisme et ta capacité à voir grand dans toutes les situations. Fais confiance à ton intuition pour guider tes pas vers la réussite."
       },
       "bienetre": {
-        "titre": "Ralentir le rythme quotidien",
-        "texte": "Ton goût naturel pour l'aventure t'incite souvent à en faire trop au détriment de ton repos. Prends le temps de savourer un bon livre ou de contempler le ciel d'automne sans montre en main. Écoute les petits signaux de lassitude corporelle avant qu'ils ne se transforment en blocages. Tu retrouveras ainsi toute ta légendaire bonne humeur pour aborder le week-end."
-      }
+        "titre": "Bouger pour mieux respirer",
+        "texte": "Ton corps a besoin de mouvement pour exprimer tout son potentiel et libérer ses endorphines. Une randonnée en pleine nature ou une activité sportive en extérieur te fera le plus grand bien. Veille cependant à ne pas t'épuiser à vouloir tout faire en même temps dans la semaine. La Lune en Poissons t'invite aussi à calmer le jeu et à t'accorder des temps de repos. Prends soin de tes jambes et de tes hanches en pratiquant des étirements adaptés. Bois beaucoup d'eau pour éliminer les toxines et garder ton tonus légendaire. Saisis chaque occasion de rire un bon coup, c'est ton meilleur remède contre le stress. Tu es une source d'inspiration pour ton entourage, prends soin de ta belle énergie."
+      },
+      "mission": "Planifie une micro-aventure pour le weekend prochain, même s'il s'agit juste d'explorer un quartier inconnu."
     },
     "capricorne": {
-      "essentiel": "La rigueur de ton maître céleste porte ses fruits grâce à un soutien d'action.",
+      "essentiel": "Toi qui bâtis ton empire avec patience et persévérance, le ciel t'offre une période de consolidation particulièrement constructive.",
       "amour": {
-        "titre": "Construire sur la durée",
-        "texte": "Saturne rétrograde en Bélier reçoit un trigone stimulant de Mars, ce qui apporte solidité et cohérence à tes liens. Tu prouves ton attachement par des gestes concrets plutôt que par de longs discours enflammés. La Lune en Poissons adoucit tes réactions et facilite le partage d'émotions sincères au milieu de la semaine. Laisse tomber un peu ton armure pour savourer la douceur d'un rapprochement."
+        "titre": "La force des liens solides",
+        "texte": "Toi qui ne promets jamais rien en vain, Saturne ton maître rétrograde dans ton secteur de la construction. Le vendredi 23 octobre, le Soleil entre en Scorpion, apportant de la profondeur à tes relations. Tu n'as pas de temps à perdre avec des fioritures, tu recherches l'authenticité et la loyauté. Si tu es célibataire, tu observes le terrain avec beaucoup de recul avant de t'engager. La conjonction du Soleil et de Vénus t'invite à montrer ton côté plus tendre et chaleureux. Ne crains pas de dévoiler ton jardin secret, il contient tant de belles richesses. L'amour véritable se construit pierre par pierre, dans la confiance et le respect mutuel."
       },
       "travail": {
-        "titre": "Bâtir des fondations inébranlables",
-        "texte": "L'alliance entre Mars et Saturne favorise une cadence de travail régulière et particulièrement productive. Même si Mercure rétrograde dès le vendredi 23 octobre, tu gardes le cap sans dévier d'un millimètre. Ton sens de l'organisation fait l'admiration de tous face aux flottements généraux de ton service. Continue de travailler en coulisses, les résultats récompenseront bientôt tes efforts constants."
+        "titre": "Porter des projets durables",
+        "texte": "Ton sens des responsabilités fait des merveilles avec le beau trigone entre Mars et Saturne. Tu avances avec méthode, rigueur et une efficacité redoutable qui forcent l'admiration générale. C'est le moment idéal pour concrétiser un objectif professionnel de longue haleine. Ne te laisse pas perturber par l'agitation extérieure, garde ton cap avec assurance. Ton sérieux est ta meilleure carte de visite pour obtenir la reconnaissance que tu mérites. Un projet financier ou un investissement demande ton expertise pour être optimisé. Prends le temps d'écouter les suggestions de tes collègues, elles peuvent t'apporter un plus. Tu es le pilier sur lequel on peut compter les yeux fermés."
       },
       "bienetre": {
-        "titre": "Prendre soin de son corps",
-        "texte": "Les aspects planétaires soutiennent ton endurance physique, mais n'oublie pas d'assouplir tes articulations. Une bonne séance d'étirements matinaux t'évitera de garder des raideurs liées aux postures prolongées. Bois suffisamment d'eau pour éliminer les toxines accumulées durant les journées chargées. Ta constance dans l'hygiène de vie reste ton meilleur bouclier contre la fatigue."
-      }
+        "titre": "S'autoriser un vrai repos",
+        "texte": "Ton emploi du temps est souvent bien rempli, mais le ciel te rappelle l'importance de déconnecter. Ton corps a besoin de moments de calme absolu pour relâcher la pression des responsabilités. Offre-toi une soirée de repos total sans culpabilité aucune, juste pour le plaisir. Prends soin de tes articulations et de ton dos en faisant quelques exercices d'assouplissement. Une alimentation simple et équilibrée t'aidera à garder toute ton énergie intacte. Laisse de côté tes exigences de perfection pour apprécier l'instant présent. Le silence est un ami précieux qui t'aide à retrouver ton centre de gravité. Tu fais déjà tellement pour les autres, prends soin de ta propre personne."
+      },
+      "mission": "Ferme ton ordinateur ou range tes dossiers une heure plus tôt ce soir pour ne faire que ce qui te plaît."
     },
     "verseau": {
-      "essentiel": "Pluton dans ton signe te transforme en profondeur, reste souple face aux défis.",
+      "essentiel": "Toi qui as toujours une longueur d'avance sur ton époque, Pluton dans ton signe te pousse à une profonde transformation intérieure.",
       "amour": {
-        "titre": "Des échanges passionnés et vrais",
-        "texte": "Pluton trône dans ton signe et forme des aspects majeurs avec le Soleil, Vénus et Uranus cette semaine. L'opposition de Mars et Jupiter en Lion réveille l'envie de confronter tes désirs à ceux de l'autre sans masque. Refuse les jeux de pouvoir futiles et privilégie un dialogue authentique pour clarifier les malentendus. En laissant tomber l'esprit de contradiction, l'attachement mutuel en sort grandi."
+        "titre": "Des relations en pleine mutation",
+        "texte": "Toi qui chéris ta liberté par-dessus tout, la présence de Pluton dans ton signe te métamorphose en profondeur. En face de toi, Mars et Jupiter en Lion animent ta vie sociale et affective avec éclat. Le vendredi 23 octobre, le Soleil entre en Scorpion et forme un carré avec Pluton. Cette configuration te demande de lâcher le contrôle pour vivre des émotions plus vraies. Si tu es en couple, surprends ton partenaire avec une proposition audacieuse et originale. Si tu es célibataire, ton originalité naturelle attire des personnes fascinées par ton esprit libre. Ne cherche pas à tout intellectualiser, laisse ton cœur guider tes pas. L'amour est une formidable aventure qui demande parfois de sauter dans l'inconnu."
       },
       "travail": {
-        "titre": "Moderniser sans tout casser",
-        "texte": "Uranus en Gémeaux envoie un trigone d'air inspirant à Pluton, te soufflant des idées innovantes et avant-gardistes. Toutefois, Mars en face appelle à la diplomatie face à des collègues réfractaires aux changements trop radicaux. Présente tes propositions avec calme sans chercher à brusquer l'ordre établi du service. Le temps joue en ta faveur pour faire valider tes visions d'avenir."
+        "titre": "Innover avec audace et sagesse",
+        "texte": "Ton cerveau bouillonne d'idées futuristes et novatrices qui bousculent les traditions établies. Le beau trigone entre Uranus et Pluton est un tremplin exceptionnel pour tes projets collectifs. Tu sais fédérer les énergies autour de causes qui ont du sens pour l'avenir. Attention toutefois à ne pas te disperser sous l'effet des planètes en Lion. Garde une direction claire pour que tes efforts portent leurs fruits à long terme. Tes collègues apprécient ton esprit visionnaire et ta capacité à penser hors du cadre. C'est le moment idéal pour proposer une solution moderne à un vieux problème persistant. Fais confiance à ton intuition pour repérer les bonnes associations professionnelles."
       },
       "bienetre": {
-        "titre": "Évacuer l'électricité mentale",
-        "texte": "L'intensité des aspects touchant Pluton peut provoquer une surchauffe cérébrale en fin de journée. Trouve une activité manuelle ou artistique pour faire redescendre la pression nerveuse loin des écrans. Uranus en sextile à Neptune t'invite à renouer avec la méditation ou l'écoute musicale douce. Offre-toi un véritable sas de décompression chaque soir pour bien dormir."
-      }
+        "titre": "Libérer le trop-plein d'énergie",
+        "texte": "Ton système nerveux est très sollicité, et le carré du Soleil à Pluton demande de la vigilance. Ton corps a besoin de se dépenser pour évacuer les tensions mentales accumulées. Une activité physique dynamique ou une session de danse t'aidera à relâcher la pression. Veille à bien t'hydrater et à t'accorder des moments de silence loin des écrans. La Lune en Poissons t'offre une belle sensibilité artistique pour nourrir ton imagination. Prends soin de tes mollets et de tes chevilles en marchant régulièrement en plein air. Ne t'isole pas trop longtemps, le contact avec tes proches te fait le plus grand bien. Prends soin de ta belle énergie en écoutant tes propres limites."
+      },
+      "mission": "Change ton trajet habituel pour aller quelque part et observe les détails de ce nouveau chemin."
     },
     "poissons": {
-      "essentiel": "La lune gibbeuse chez toi renforce ton intuition et t'apporte une paix bienvenue.",
+      "essentiel": "Toi qui portes l'univers tout entier dans ton grand cœur empathique, la Lune illumine ton signe d'une douce lumière bienveillante.",
       "amour": {
-        "titre": "Voguer au gré du cœur",
-        "texte": "La Lune illumine ton signe à 91 % de sa clarté et déploie une aura pleine de charme et de sensibilité. Tu ressens avec une acuité rare les battements de cœur et les pensées secrètes de tes proches. L'entrée du Soleil en Scorpion le 23 octobre s'accorde à merveille avec ton élément d'eau nourricier. Profite de cette ambiance enveloppante pour tisser des liens d'une complicité féerique."
+        "titre": "Une vague de poésie amoureuse",
+        "texte": "Toi qui ressens les moindres vibrations du monde, la Lune présente dans ton signe t'enveloppe de douceur. Le vendredi 23 octobre, le Soleil entre en Scorpion, créant une belle harmonie d'eau propice à l'amour. Le magnifique sextile entre Uranus et Neptune nourrit ton intuition et ta créativité relationnelle. C'est le moment idéal pour exprimer tes sentiments avec une poésie et une sincérité touchantes. Si tu es célibataire, ton aura mystérieuse et romantique ne laissera personne indifférent. Ne te perds pas dans les méandres de tes illusions, reste ancré dans le moment présent. L'amour que tu donnes te revient multiplié par mille si tu l'acceptes pleinement."
       },
       "travail": {
-        "titre": "Suivre son inspiration singulière",
-        "texte": "Neptune rétrograde dans le ciel conserve un beau sextile avec Pluton et Uranus pour nourrir ton imagination créative. Mercure devenant rétrograde le vendredi 23 octobre, fuis les signatures hâtives et prends le temps de réfléchir. Laisse mûrir tes projets sans te précipiter sous la pression de collègues un peu agités. Ton approche intuitive dénoue des situations professionnelles bien complexes."
+        "titre": "Créer avec intuition et talent",
+        "texte": "Dans le domaine professionnel, ton inspiration artistique et intuitive est tout simplement au sommet. Tu captes les tendances et les besoins des autres avant même qu'ils ne les expriment. Neptune et Saturne rétrogrades dans ton signe t'invitent à structurer tes rêves en projets concrets. Ne doute pas de tes compétences, tu as une valeur unique à apporter à ton équipe. C'est le moment parfait pour t'investir dans une tâche créative ou humanitaire. Évite de fuir les aspects administratifs un peu plus terrestres qui demandent de la rigueur. Tes collègues ont besoin de ta bienveillance pour apaiser le climat ambiant au bureau. Fais confiance à ton ressenti pour orienter tes choix avec justesse."
       },
       "bienetre": {
-        "titre": "Se protéger des ondes négatives",
-        "texte": "Ta perméabilité émotionnelle est particulièrement forte avec la présence lunaire dans ton espace céleste. Choisis avec soin les personnes dont tu t'entoures et évite les atmosphères trop bruyantes ou oppressantes. Offre-toi des temps de silence complet pour te recentrer sur ton monde intérieur si riche. Tu maintiendras ainsi une énergie lumineuse tout au long de la période."
-      }
+        "titre": "Flotter dans ton élément aquatique",
+        "texte": "La Lune dans ton signe amplifie ta sensibilité et ton besoin de calme absolu. Ton corps a un grand besoin d'eau pour se ressourcer, comme un bain chaud ou une thalasso. Prends soin de ton sommeil en créant un cocon douillet et chaleureux dans ta chambre. Évite les ambiances stressantes ou les personnes négatives qui pèsent sur ton moral. Pratique la méditation ou l'écoute de musique relaxante pour retrouver ta paix intérieure. Bois des infusions et prends le temps de respirer profondément chaque jour. Tu es une éponge émotionnelle, il est vital de nettoyer tes énergies régulièrement. Offre-toi la douceur que tu distribues si généreusement aux autres."
+      },
+      "mission": "Prends un long bain ou une douche prolongée en imaginant que l'eau emporte toutes tes petites fatigues."
     }
   }
 }
