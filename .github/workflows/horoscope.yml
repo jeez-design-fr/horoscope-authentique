@@ -39,3 +39,9 @@ jobs:
         git add public/*.html public/assets/style.css public/sitemap.xml public/robots.txt
         git commit -m "🔮 Mise à jour quotidienne des astres" || echo "Pas de changement"
         git push
+
+    - name: Publier sur Bluesky
+      env:
+        BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+        BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      run: node post-bluesky.js
