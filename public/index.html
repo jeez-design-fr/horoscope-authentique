@@ -1,194 +1,152 @@
-<!DOCTYPE html><html lang="fr"><head>
-    <title>Horoscope Authentique</title>
-    
-    <link rel="icon" type="image/webp" href="./assets/favicon.webp">
-    <meta name="description" content="Votre horoscope quotidien gratuit et authentique. Découvrez votre avenir amoureux, professionnel et spirituel selon les véritables mouvements planétaires.">
-    <meta name="google-site-verification" content="Y48soU-Rt1uh7fBNj2rRT9c9YFGJZiBpkbEmwbhCydk" />
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP733JKXH"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0FP733JKXH');
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Horoscope Authentique",
-      "alternateName": "Maison Authentique",
-      "url": "https://www.horoscope-authentique.fr/",
-      "logo": "https://www.horoscope-authentique.fr/assets/favicon.webp",
-      "founder": { "@type": "Person", "name": "Livia" },
-      "sameAs": []
-    }
-    </script>
-    <link rel="stylesheet" href="./assets/style.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA] justify-between">
-    
-    <header class="text-center pt-12 px-4">
-        <a href="apropos.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">Bienvenue à la maison</a>
-        <div class="flex flex-col items-center">
-            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4">HOROSCOPE</h1>
-            <div class="w-24 h-[1px] bg-black mb-4"></div>
-            <h2 class="text-3xl md:text-5xl tracking-[0.2em] font-normal">AUTHENTIQUE</h2>
-        </div>
-    </header>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horoscope du jour gratuit, calculé sur le ciel réel · Horoscope Authentique</title>
+<meta name="description" content="Horoscope du jour gratuit pour les 12 signes, rédigé chaque nuit à partir des vraies positions des planètes. Amour, travail, bien-être, compatibilités et Cabinet privé.">
 
-    <main class="flex-grow w-full flex flex-col items-center justify-center py-6 gap-8 md:gap-12">
-        
-        <div class="flex flex-row flex-wrap justify-center gap-6 w-full px-4">
-            
-            <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
-                <a href="horoscope.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/entree.webp" alt="Horoscope du jour - Votre Oracle" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700">
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">HOROSCOPE</h3>
-                    <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Votre Oracle</p>
-                </a>
-            </div>
+<link rel="canonical" href="https://www.horoscope-authentique.fr/">
+<meta property="og:site_name" content="Horoscope Authentique">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Horoscope du jour gratuit, calculé sur le ciel réel · Horoscope Authentique">
+<meta property="og:description" content="Horoscope du jour gratuit pour les 12 signes, rédigé chaque nuit à partir des vraies positions des planètes. Amour, travail, bien-être, compatibilités et Cabinet privé.">
+<meta property="og:url" content="https://www.horoscope-authentique.fr/">
+<meta property="og:image" content="https://www.horoscope-authentique.fr/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="preload" href="./assets/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/cinzel-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="./assets/lune-4.webp">
+<link rel="stylesheet" href="./assets/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP733JKXH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0FP733JKXH');</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Horoscope Authentique","alternateName":"Maison Authentique","url":"https://www.horoscope-authentique.fr/","inLanguage":"fr-FR"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Horoscope Authentique","url":"https://www.horoscope-authentique.fr/","logo":"https://www.horoscope-authentique.fr/assets/icon-192.png","founder":{"@type":"Person","name":"Madeleine","url":"https://www.horoscope-authentique.fr/apropos.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"L'horoscope du jour est-il fiable ?","acceptedAnswer":{"@type":"Answer","text":"Un horoscope par signe décrit une tendance commune à des millions de personnes : il ne remplace pas un thème natal. Le nôtre part des positions réelles des planètes, calculées chaque nuit, puis les traduit pour chacun des douze signes."}},{"@type":"Question","name":"Comment les positions des planètes sont-elles calculées ?","acceptedAnswer":{"@type":"Answer","text":"Chaque nuit, la Maison calcule la position du Soleil, de la Lune et des huit planètes à partir des éphémérides astronomiques, ainsi que les rétrogradations, la phase de la Lune et les aspects du jour. L'horoscope n'a le droit de citer que ces positions."}},{"@type":"Question","name":"Quand Mercure sera-t-il rétrograde ?","acceptedAnswer":{"@type":"Answer","text":"La prochaine période de Mercure rétrograde ira du 24 octobre 2026 au 13 novembre 2026. La période dure environ trois semaines et revient trois à quatre fois par an."}},{"@type":"Question","name":"Pourquoi connaître son ascendant ?","acceptedAnswer":{"@type":"Answer","text":"Le signe solaire décrit votre nature profonde ; l'ascendant, calculé avec l'heure et le lieu exacts de naissance, décrit votre manière d'aborder le monde. Deux personnes du même signe peuvent avoir des ascendants très différents."}},{"@type":"Question","name":"Qu'est-ce que l'astrologie karmique ?","acceptedAnswer":{"@type":"Answer","text":"Une lecture du thème natal qui cherche les schémas hérités de la lignée et la direction indiquée par le Nœud Nord. C'est la spécialité du Cabinet privé de Madeleine."}}]}</script>
 
-            <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
-                <a href="compatibilite-amoureuse.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/compatibilite.webp" onerror="this.src='./assets/belier.webp'" alt="Compatibilité amoureuse entre signes du zodiaque" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.5s;">
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">AMOUR</h3>
-                    <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Compatibilité</p>
-                </a>
-            </div>
+</head>
+<body>
+<a class="sr-only" href="#contenu">Aller au contenu</a>
+<div class="ciel-bar"><div class="wrap">
+<span>Mercredi 21 octobre 2026</span>
+<span>Soleil en Balance · Lune gibbeuse croissante en Verseau</span>
+</div></div>
+<header class="wrap site-header">
+<a class="logo" href="./" aria-label="Horoscope Authentique, accueil"><img src="./assets/logo.svg" alt="Horoscope Authentique" width="752" height="200"></a>
+<nav class="nav" aria-label="Navigation principale"><ul><li><a href="horoscope.html">Horoscope</a></li><li><a href="theme-astral.html">Thème astral</a></li><li><a href="compatibilite-amoureuse.html">Compatibilité</a></li><li><a href="calendrier-lunaire.html">Lune</a></li><li><a href="encyclopedie.html">Encyclopédie</a></li><li><a href="etude-karmique.html" class="accent">Cabinet privé</a></li></ul></nav>
+</header>
 
-            <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
-                <a href="red-flags.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/red-flags.webp" onerror="this.src='./assets/belier.webp'" alt="Red flags et signaux de toxicité par signe astrologique" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.7s;">
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">RED FLAGS</h3>
-                    <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">L'Oracle du Chaos</p>
-                </a>
-            </div>
+<main id="contenu">
 
-            <div class="flex flex-row justify-center w-full px-4 -mt-4 mb-4">
-            <div class="w-[50vw] md:w-96 text-center group cursor-pointer z-20">
-                <a href="etude-karmique.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/cabinet.webp" onerror="this.src='./assets/belier.webp'" alt="Cabinet Privé - Étude astrologique céleste et héritage familial" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.8s;">
-                        <div class="absolute -bottom-2 right-0 bg-[#D4AF37] text-white text-[10px] md:text-xs font-bold px-3 py-1 uppercase tracking-widest shadow-lg transform -rotate-6">Ouverture</div>
-                    </div>
-                    <h3 class="text-2xl md:text-3xl font-bold text-[#D4AF37] group-hover:text-black transition-colors">CABINET PRIVÉ</h3>
-                    <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Étude Céleste & Héritage</p>
-                </a>
-            </div>
-        </div>
-        <div class="flex flex-row flex-wrap justify-center gap-4 md:gap-8 w-full px-2 max-w-6xl">
-            
-        </div>
+<section class="wrap hero" aria-labelledby="h1">
+<div class="hero-text">
+<p class="eyebrow">Astrologie · Maison Authentique</p>
+<h1 id="h1" class="display">L'horoscope du jour, calculé sur le <em>ciel réel</em>.</h1>
+<p class="lede">Chaque nuit, la Maison calcule la position du Soleil, de la Lune et des planètes, puis rédige pour chacun des douze signes une lecture en trois temps : amour, travail, bien-être. Choisissez le vôtre sur le cadran.</p>
+<div class="hero-actions"><a class="btn" href="horoscope.html">Lire mon horoscope</a><a class="ulink" href="calcul-ascendant.html">Calculer mon ascendant</a></div>
+<p class="muted small" style="margin:0">Mis à jour le 21 octobre 2026 à 13:01 · 12 signes · lecture gratuite</p>
+</div>
+<div class="hero-dial"><div class="dial" role="group" aria-label="Cadran des douze signes">
+<div class="orbit r1" aria-hidden="true"></div><div class="orbit r2" aria-hidden="true"></div>
+<div class="centre"><img src="./assets/lune-4.webp" alt="Gibbeuse croissante" width="240" height="274" fetchpriority="high"><span class="k">Ce soir</span><span class="v">Gibbeuse croissante</span><span class="s">76 % éclairée · en Verseau</span></div>
+<a class="medal" href="belier.html" style="left:50.00%;top:9.00%" aria-label="Horoscope Bélier du jour"><img src="./assets/belier-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">Bélier</span></a><a class="medal" href="taureau.html" style="left:70.50%;top:14.49%" aria-label="Horoscope Taureau du jour"><img src="./assets/taureau-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">Taureau</span></a><a class="medal" href="gemeaux.html" style="left:85.51%;top:29.50%" aria-label="Horoscope Gémeaux du jour"><img src="./assets/gemeaux-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">Gémeaux</span></a><a class="medal" href="cancer.html" style="left:91.00%;top:50.00%" aria-label="Horoscope Cancer du jour"><img src="./assets/cancer-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">Cancer</span></a><a class="medal" href="lion.html" style="left:85.51%;top:70.50%" aria-label="Horoscope Lion du jour"><img src="./assets/lion-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">Lion</span></a><a class="medal" href="vierge.html" style="left:70.50%;top:85.51%" aria-label="Horoscope Vierge du jour"><img src="./assets/vierge-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">Vierge</span></a><a class="medal" href="balance.html" style="left:50.00%;top:91.00%" aria-label="Horoscope Balance du jour"><img src="./assets/balance-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">Balance</span></a><a class="medal" href="scorpion.html" style="left:29.50%;top:85.51%" aria-label="Horoscope Scorpion du jour"><img src="./assets/scorpion-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">Scorpion</span></a><a class="medal" href="sagittaire.html" style="left:14.49%;top:70.50%" aria-label="Horoscope Sagittaire du jour"><img src="./assets/sagittaire-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">Sagittaire</span></a><a class="medal" href="capricorne.html" style="left:9.00%;top:50.00%" aria-label="Horoscope Capricorne du jour"><img src="./assets/capricorne-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">Capricorne</span></a><a class="medal" href="verseau.html" style="left:14.49%;top:29.50%" aria-label="Horoscope Verseau du jour"><img src="./assets/verseau-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">Verseau</span></a><a class="medal" href="poissons.html" style="left:29.50%;top:14.49%" aria-label="Horoscope Poissons du jour"><img src="./assets/poissons-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">Poissons</span></a>
+</div></div>
+</section>
 
-        <div class="flex flex-row flex-wrap justify-center gap-4 md:gap-8 w-full px-2 max-w-6xl">
-            
-            <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
-                <a href="signification.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/livre.webp" onerror="this.src='./assets/belier.webp'" alt="Encyclopédie de la signification des signes astrologiques" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1s;">
-                    </div>
-                    <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">ENCYCLOPÉDIE</h3>
-                    <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Signification</p>
-                </a>
-            </div>
+<section class="section" aria-labelledby="h-ciel"><div class="wrap stack gap-l">
+<div class="head-row"><div class="stack gap-s"><p class="eyebrow">Le ciel du jour</p><h2 id="h-ciel" class="h2">Où sont les planètes aujourd'hui</h2></div>
+<p class="muted" style="margin:0;max-width:30em">Positions calculées pour le mercredi 21 octobre 2026. La prochaine période de Mercure rétrograde ira du 24 octobre 2026 au 13 novembre 2026.</p></div>
+<ul class="astres"><li><span class="n">Soleil</span><span class="v">en Balance <span class="muted small">28°</span></span></li><li><span class="n">Lune</span><span class="v">en Verseau <span class="muted small">29°</span></span></li><li><span class="n">Mercure</span><span class="v">en Scorpion <span class="muted small">20°</span></span></li><li><span class="n">Vénus</span><span class="v">en Scorpion <span class="muted small">2°</span></span><span class="r">rétrograde</span></li><li><span class="n">Mars</span><span class="v">en Lion <span class="muted small">13°</span></span></li><li><span class="n">Jupiter</span><span class="v">en Lion <span class="muted small">22°</span></span></li><li><span class="n">Saturne</span><span class="v">en Bélier <span class="muted small">10°</span></span><span class="r">rétrograde</span></li><li><span class="n">Uranus</span><span class="v">en Gémeaux <span class="muted small">5°</span></span><span class="r">rétrograde</span></li><li><span class="n">Neptune</span><span class="v">en Bélier <span class="muted small">2°</span></span><span class="r">rétrograde</span></li><li><span class="n">Pluton</span><span class="v">en Verseau <span class="muted small">3°</span></span></li></ul>
+</div></section>
 
-            <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
-                <a href="comprendre-astrologie.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/elements.webp" onerror="this.src='./assets/belier.webp'" alt="Les 4 éléments astrologiques : Feu, Terre, Air, Eau" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.2s;">
-                    </div>
-                    <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">ÉLÉMENTS</h3>
-                    <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Feu, Terre, Air, Eau</p>
-                </a>
-            </div>
+<section class="section" aria-labelledby="h-lune"><div class="wrap stack gap-l">
+<div class="head-row"><div class="stack gap-s"><p class="eyebrow">Le cycle en cours</p><h2 id="h-lune" class="h2">La Lune, phase après phase</h2></div>
+<p class="muted" style="margin:0;max-width:30em">La Lune croît : un temps pour porter les projets lancés à la nouvelle lune, avant le bilan de la pleine lune.</p></div>
+<ol class="phases"><li><img src="./assets/lune-1.webp" alt="" width="240" height="274" loading="lazy" decoding="async"><span class="nm">Nouvelle lune</span></li><li><img src="./assets/lune-2.webp" alt="" width="240" height="274" loading="lazy" decoding="async"><span class="nm">Premier croissant</span></li><li><img src="./assets/lune-3.webp" alt="" width="240" height="274" loading="lazy" decoding="async"><span class="nm">Premier quartier</span></li><li class="now"><img src="./assets/lune-4.webp" alt="" width="240" height="274" loading="lazy" decoding="async"><span class="nm">Gibbeuse croissante</span><span class="tag-now">Ce soir</span></li><li><img src="./assets/lune-5.webp" alt="" width="240" height="274" loading="lazy" decoding="async"><span class="nm">Pleine lune</span></li><li><img src="./assets/lune-6.webp" alt="" width="240" height="274" loading="lazy" decoding="async"><span class="nm">Gibbeuse décroissante</span></li><li><img src="./assets/lune-7.webp" alt="" width="240" height="274" loading="lazy" decoding="async"><span class="nm">Dernier quartier</span></li><li><img src="./assets/lune-8.webp" alt="" width="240" height="274" loading="lazy" decoding="async"><span class="nm">Dernier croissant</span></li></ol>
+</div></section>
 
-            <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
-                <a href="pierres-protectrices.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/pierres.webp" onerror="this.src='./assets/belier.webp'" alt="Pierres protectrices et lithothérapie" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.4s;">
-                    </div>
-                    <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">CRISTAUX</h3>
-                    <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Lithothérapie</p>
-                </a>
-            </div>
+<section class="section" aria-labelledby="h-outils"><div class="wrap stack gap-xl">
+<div class="stack gap-s center" style="align-items:center"><p class="eyebrow">Les outils de la Maison</p><h2 id="h-outils" class="h2">Au-delà du signe solaire</h2></div>
+<div class="tools">
+<a class="tool" href="theme-astral.html"><img src="./assets/cosmos.webp" alt="" width="640" height="731" loading="lazy" decoding="async"><span class="eyebrow">Gratuit</span><h3 class="h3">Thème astral</h3><p>Votre ciel de naissance calculé au centième de degré : ascendant, planètes, maisons.</p></a>
+<a class="tool" href="compatibilite-amoureuse.html"><img src="./assets/compatibilite.webp" alt="" width="640" height="731" loading="lazy" decoding="async"><span class="eyebrow">Amour</span><h3 class="h3">Compatibilité</h3><p>Deux signes, cinq lectures : le quotidien, le désir, la durée, ce qui rapproche et ce qui coince.</p></a>
+<a class="tool" href="horoscope-2027.html"><img src="./assets/entree.webp" alt="" width="640" height="731" loading="lazy" decoding="async"><span class="eyebrow">L'année qui vient</span><h3 class="h3">Horoscope 2027</h3><p>Votre année saison par saison, avec les dates clés calculées sur le vrai ciel.</p></a>
+<a class="tool" href="calendrier-lunaire.html"><img src="./assets/lune-5.webp" alt="" width="240" height="274" loading="lazy" decoding="async" style="width:150px;height:200px;object-fit:contain;margin-bottom:10px"><span class="eyebrow">Lune</span><h3 class="h3">Calendrier lunaire</h3><p>Pleines et nouvelles lunes à l'heure près, et ce qu'elles remuent pour chaque signe.</p></a>
+<a class="tool" href="red-flags.html"><img src="./assets/red-flags.webp" alt="" width="640" height="731" loading="lazy" decoding="async"><span class="eyebrow">L'oracle du chaos</span><h3 class="h3">Red Flags</h3><p>Les alliances toxiques du zodiaque, sans filtre et avec humour.</p></a>
+<a class="tool" href="horoscope-chinois-2027.html"><img src="./assets/elements.webp" alt="" width="640" height="731" loading="lazy" decoding="async"><span class="eyebrow">Chèvre de Feu</span><h3 class="h3">Horoscope chinois</h3><p>Votre signe chinois et votre année 2027, à partir du 6 février.</p></a>
+<a class="tool" href="encyclopedie.html"><img src="./assets/livre.webp" alt="" width="640" height="731" loading="lazy" decoding="async"><span class="eyebrow">Encyclopédie</span><h3 class="h3">La Bibliothèque</h3><p>Ascendant, Lilith, maisons, rétrogrades : les notions qui vont plus loin que le signe.</p></a>
+<a class="tool" href="numerologie-chemin-de-vie.html"><img src="./assets/pierres.webp" alt="" width="640" height="731" loading="lazy" decoding="async"><span class="eyebrow">Numérologie</span><h3 class="h3">Chemin de vie</h3><p>Le nombre de votre date de naissance et ce qu'il dit de votre route.</p></a>
+</div></div></section>
 
-            <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
-                <a href="le-cosmos.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/cosmos.webp" onerror="this.src='./assets/belier.webp'" alt="Astronomie et cosmos, l'écho de l'âme" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.6s;">
-                    </div>
-                    <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">COSMOS</h3>
-                    <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Astronomie & Âme</p>
-                </a>
-            </div>
+<section class="section" aria-labelledby="h-cabinet"><div class="wrap split">
+<div class="split-media"><img src="./assets/cabinet.webp" alt="Encrier de porcelaine et plume dorée du Cabinet privé" width="640" height="731" loading="lazy" decoding="async"></div>
+<div class="split-text">
+<p class="eyebrow">Le Cabinet privé</p>
+<h2 id="h-cabinet" class="h2">Votre thème complet, lu par <em>Madeleine</em>.</h2>
+<p class="lede" style="font-size:21px">Une étude écrite à partir de votre date, de votre heure et de votre lieu de naissance. Sa spécialité : l'héritage familial, ce que votre ciel porte de la lignée qui vous précède.</p>
+<ul class="offers">
+<li><span class="o-n">L'Essentiel karmique</span><span class="o-t">Thème identitaire, héritage familial, mission de vie, une question.</span><span class="o-p">20 €</span></li>
+<li><span class="o-n">La Boussole annuelle</span><span class="o-t">L'Essentiel, plus la révolution solaire et vos dates clés de l'année.</span><span class="o-p">45 €</span></li>
+<li><span class="o-n">L'Alchimie totale</span><span class="o-t">La Boussole, plus un rituel, une prescription de pierres et une correspondance ouverte.</span><span class="o-p">80 €</span></li>
+</ul>
+<div><a class="btn" href="etude-karmique.html">Commander une étude</a></div>
+</div></div></section>
 
-        </div>
+<section class="section" aria-labelledby="h-biblio"><div class="wrap stack gap-l">
+<div class="head-row"><div class="stack gap-s"><p class="eyebrow">La Bibliothèque</p><h2 id="h-biblio" class="h2">À lire cette semaine</h2></div><a class="ulink" href="encyclopedie.html">Toute l'encyclopédie</a></div>
+<div class="alist"><a class="aitem" href="synastrie-ames-soeurs.html"><img src="./assets/livre.webp" alt="" width="640" height="731" loading="lazy"><span><span class="c">Bibliothèque</span><span class="t">Synastrie : Êtes-vous Âmes Sœurs ?</span><span class="m">Par Madeleine</span></span></a><a class="aitem" href="huiles-ancrage.html"><img src="./assets/elements.webp" alt="" width="640" height="731" loading="lazy"><span><span class="c">Sanctuaire des éléments</span><span class="t">Aromathérapie : Les Parfums de la Forêt</span><span class="m">Par Madeleine</span></span></a><a class="aitem" href="trous-noirs-lacher-prise.html"><img src="./assets/cosmos.webp" alt="" width="640" height="731" loading="lazy"><span><span class="c">Observatoire</span><span class="t">Les Trous Noirs : L'Art du Lâcher-Prise</span><span class="m">Par Madeleine</span></span></a><a class="aitem" href="amethyste-sommeil.html"><img src="./assets/pierres.webp" alt="" width="640" height="731" loading="lazy"><span><span class="c">Lithothérapie</span><span class="t">Insomnie et Stress : Le pouvoir de l'Améthyste</span><span class="m">Par Madeleine</span></span></a></div>
+</div></section>
 
-    </main>
+<section class="section" aria-labelledby="h-faq"><div class="wrap-narrow stack gap-l">
+<div class="stack gap-s center" style="align-items:center"><p class="eyebrow">Questions fréquentes</p><h2 id="h-faq" class="h2">Ce qu'on nous demande</h2></div>
+<div class="faq"><details open><summary><span>L'horoscope du jour est-il fiable ?</span><span class="plus" aria-hidden="true">+</span></summary><p class="rep">Un horoscope par signe décrit une tendance commune à des millions de personnes : il ne remplace pas un thème natal. Le nôtre part des positions réelles des planètes, calculées chaque nuit, puis les traduit pour chacun des douze signes.</p></details><details><summary><span>Comment les positions des planètes sont-elles calculées ?</span><span class="plus" aria-hidden="true">+</span></summary><p class="rep">Chaque nuit, la Maison calcule la position du Soleil, de la Lune et des huit planètes à partir des éphémérides astronomiques, ainsi que les rétrogradations, la phase de la Lune et les aspects du jour. L'horoscope n'a le droit de citer que ces positions.</p></details><details><summary><span>Quand Mercure sera-t-il rétrograde ?</span><span class="plus" aria-hidden="true">+</span></summary><p class="rep">La prochaine période de Mercure rétrograde ira du 24 octobre 2026 au 13 novembre 2026. La période dure environ trois semaines et revient trois à quatre fois par an.</p></details><details><summary><span>Pourquoi connaître son ascendant ?</span><span class="plus" aria-hidden="true">+</span></summary><p class="rep">Le signe solaire décrit votre nature profonde ; l'ascendant, calculé avec l'heure et le lieu exacts de naissance, décrit votre manière d'aborder le monde. Deux personnes du même signe peuvent avoir des ascendants très différents.</p></details><details><summary><span>Qu'est-ce que l'astrologie karmique ?</span><span class="plus" aria-hidden="true">+</span></summary><p class="rep">Une lecture du thème natal qui cherche les schémas hérités de la lignée et la direction indiquée par le Nœud Nord. C'est la spécialité du Cabinet privé de Madeleine.</p></details></div>
+</div></section>
 
-    
-    <footer class="bg-[#050505] text-gray-300 py-12 border-t border-[#D4AF37] mt-12 w-full relative z-40">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-8 text-sm text-left">
-                
-                <div>
-                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Les 12 Signes</h4>
-                    <ul class="space-y-2 grid grid-cols-2">
-                        <li><a href="belier.html" class="hover:text-white transition-colors">Bélier</a></li>
-                        <li><a href="taureau.html" class="hover:text-white transition-colors">Taureau</a></li>
-                        <li><a href="gemeaux.html" class="hover:text-white transition-colors">Gémeaux</a></li>
-                        <li><a href="cancer.html" class="hover:text-white transition-colors">Cancer</a></li>
-                        <li><a href="lion.html" class="hover:text-white transition-colors">Lion</a></li>
-                        <li><a href="vierge.html" class="hover:text-white transition-colors">Vierge</a></li>
-                        <li><a href="balance.html" class="hover:text-white transition-colors">Balance</a></li>
-                        <li><a href="scorpion.html" class="hover:text-white transition-colors">Scorpion</a></li>
-                        <li><a href="sagittaire.html" class="hover:text-white transition-colors">Sagittaire</a></li>
-                        <li><a href="capricorne.html" class="hover:text-white transition-colors">Capricorne</a></li>
-                        <li><a href="verseau.html" class="hover:text-white transition-colors">Verseau</a></li>
-                        <li><a href="poissons.html" class="hover:text-white transition-colors">Poissons</a></li>
-                    </ul>
-                </div>
+<section class="section" aria-label="Signature"><div class="wrap-narrow stack gap-m center" style="align-items:center">
+<img src="./assets/entree.webp" alt="" width="640" height="731" loading="lazy" style="width:72px;height:auto">
+<p class="quote">« Les étoiles inclinent, mais ne déterminent pas. »</p>
+<p class="eyebrow" style="color:var(--gris)">Madeleine, fondatrice de la Maison</p>
+</div></section>
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><h2>Les douze signes</h2><ul class="two"><li><a href="belier.html">Bélier</a></li><li><a href="taureau.html">Taureau</a></li><li><a href="gemeaux.html">Gémeaux</a></li><li><a href="cancer.html">Cancer</a></li><li><a href="lion.html">Lion</a></li><li><a href="vierge.html">Vierge</a></li><li><a href="balance.html">Balance</a></li><li><a href="scorpion.html">Scorpion</a></li><li><a href="sagittaire.html">Sagittaire</a></li><li><a href="capricorne.html">Capricorne</a></li><li><a href="verseau.html">Verseau</a></li><li><a href="poissons.html">Poissons</a></li></ul></div>
+<div><h2>Horoscopes</h2><ul>
+<li><a href="horoscope.html">Horoscope du jour</a></li>
 
-                <div>
-                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Outils Astraux</h4>
-                    <ul class="space-y-2">
-                        <li><a href="horoscope.html" class="hover:text-white transition-colors">✦ Horoscope du Jour</a></li>
-                        <li><a href="compatibilite-amoureuse.html" class="hover:text-white transition-colors">♥ Compatibilité Amoureuse</a></li>
-                        <li><a href="red-flags.html" class="hover:text-white transition-colors">🚩 Red Flags & Toxicité</a></li>
-                        <li><a href="etude-karmique.html" class="hover:text-[#D4AF37] font-bold transition-colors">🗝️ Cabinet Privé (Étude)</a></li>
-                    </ul>
-                </div>
 
-                <div>
-                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Savoirs Anciens</h4>
-                    <ul class="space-y-2">
-                        <li><a href="signification.html" class="hover:text-white transition-colors">Signification des Signes</a></li>
-                        <li><a href="comprendre-astrologie.html" class="hover:text-white transition-colors">Les 4 Éléments</a></li>
-                        <li><a href="pierres-protectrices.html" class="hover:text-white transition-colors">Lithothérapie & Cristaux</a></li>
-                        <li><a href="le-cosmos.html" class="hover:text-white transition-colors">Astronomie & Cosmos</a></li>
-                        <li><a href="verite-horoscope-mensonge.html" class="hover:text-white transition-colors">Vérité sur l'Horoscope</a></li>
-                    </ul>
-                </div>
 
-                <div>
-                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Maison Authentique</h4>
-                    <p class="mb-4 italic text-xs">"Les étoiles inclinent, mais ne déterminent pas."</p>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="apropos.html" class="hover:text-white transition-colors">À Propos / Manifeste</a></li>
-                        <li><a href="mentions-legales.html" class="hover:text-white transition-colors">Mentions Légales</a></li>
-                        <li><a href="links.html" class="hover:text-white transition-colors">Liens Rapides</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="text-center pt-8 border-t border-gray-900 text-xs text-gray-600">
-                <p>&copy; Horoscope Authentique. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer></body></html>
+<li><a href="horoscope-2027.html">Horoscope 2027</a></li>
+<li><a href="horoscope-chinois-2027.html">Horoscope chinois 2027</a></li>
+</ul></div>
+<div><h2>Outils</h2><ul>
+<li><a href="theme-astral.html">Thème astral gratuit</a></li>
+<li><a href="calcul-ascendant.html">Calcul de l'ascendant</a></li>
+<li><a href="compatibilite-amoureuse.html">Compatibilité amoureuse</a></li>
+<li><a href="red-flags.html">Red Flags</a></li>
+<li><a href="numerologie-chemin-de-vie.html">Numérologie</a></li>
+<li><a href="calendrier-lunaire.html">Calendrier lunaire</a></li>
+</ul></div>
+<div><h2>Savoirs</h2><ul>
+<li><a href="encyclopedie.html">Encyclopédie</a></li>
+<li><a href="signification.html">Signification des signes</a></li>
+<li><a href="ciel-2027.html">Le ciel de 2027</a></li>
+<li><a href="pierres-protectrices.html">Lithothérapie</a></li>
+<li><a href="le-cosmos.html">Astronomie &amp; cosmos</a></li>
+</ul></div>
+<div><h2>La Maison</h2><p class="devise">« Les étoiles inclinent, mais ne déterminent pas. »</p><ul>
+<li><a href="verite-horoscope-mensonge.html">Le manifeste</a></li>
+<li><a href="apropos.html">Madeleine</a></li>
+<li><a href="etude-karmique.html">Cabinet privé</a></li>
+<li><a href="mentions-legales.html">Mentions légales</a></li>
+</ul></div>
+</div>
+<div class="bottom"><img src="./assets/logo-ligne.svg" alt="Horoscope Authentique" width="1740" height="100" loading="lazy"><span>© 2026 Horoscope Authentique</span></div>
+</div></footer>
+
+</body>
+</html>

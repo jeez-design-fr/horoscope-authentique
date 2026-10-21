@@ -1,877 +1,518 @@
+// =====================================================================
+//  HOROSCOPE AUTHENTIQUE — générateur du site
+//  Chaque nuit (GitHub Actions) : calcule le ciel réel, fait rédiger
+//  l'horoscope par Gemini à partir de ce ciel, (ré)écrit quelques
+//  articles, puis régénère toutes les pages dans ./public.
+// =====================================================================
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 
-// --- CONFIGURATION ---
-const outputDir = './public';
-const assetsSrc = './assets';
-const assetsDest = path.join(outputDir, 'assets');
-const API_KEY = process.env.GOOGLE_API_KEY ? process.env.GOOGLE_API_KEY.trim() : "";
+const { getCiel, astresPourSigne, periodeMercureRetro, PHASES } = require('./lib/ciel');
+const H = require('./lib/horoscope');
+const C = require('./lib/chantiers');
+const articlesLib = require('./lib/articles');
+const L = require('./lib/layout');
+const { esc } = L;
 
-// Création des dossiers
-if (!fs.existsSync(assetsSrc)) fs.mkdirSync(assetsSrc);
-if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
-if (!fs.existsSync('./template.html')) { console.error("❌ ERREUR : template.html introuvable !"); process.exit(1); }
-
+const OUT = './public';
+const API_KEY = (process.env.GOOGLE_API_KEY || '').trim();
 const signs = require('./signs.json');
-const templateSign = fs.readFileSync('./template.html', 'utf-8');
+const articles = require('./articles.json');
+const compatData = require('./compatibilite-data.json');
+const roastData = require('./red-flags-data.json');
+const bySlug = Object.fromEntries(signs.map((s) => [s.slug, s]));
+const SLUGS_ORDRE = signs.map((s) => s.slug);
+
+const { IMG, phrase, tronquer, premierePhrase, dateSigne, ancre, write, auteur, editeur, article, faqHtml, faqSchema, ongletsSigne, ongletsHub } = require('./lib/ui');
 
 async function main() {
+    console.log('🚀 Génération du site');
+    fs.mkdirSync(path.join(OUT, 'assets', 'fonts'), { recursive: true });
 
-    // --- 0. DÉFINITION DU FAT FOOTER (VERSION CORRIGÉE PLEINE LARGEUR) ---
-    const FAT_FOOTER_HTML = `
-    <footer class="bg-[#050505] text-gray-300 py-12 border-t border-[#D4AF37] mt-12 w-full relative z-40">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-8 text-sm text-left">
-                
-                <div>
-                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Les 12 Signes</h4>
-                    <ul class="space-y-2 grid grid-cols-2">
-                        <li><a href="belier.html" class="hover:text-white transition-colors">Bélier</a></li>
-                        <li><a href="taureau.html" class="hover:text-white transition-colors">Taureau</a></li>
-                        <li><a href="gemeaux.html" class="hover:text-white transition-colors">Gémeaux</a></li>
-                        <li><a href="cancer.html" class="hover:text-white transition-colors">Cancer</a></li>
-                        <li><a href="lion.html" class="hover:text-white transition-colors">Lion</a></li>
-                        <li><a href="vierge.html" class="hover:text-white transition-colors">Vierge</a></li>
-                        <li><a href="balance.html" class="hover:text-white transition-colors">Balance</a></li>
-                        <li><a href="scorpion.html" class="hover:text-white transition-colors">Scorpion</a></li>
-                        <li><a href="sagittaire.html" class="hover:text-white transition-colors">Sagittaire</a></li>
-                        <li><a href="capricorne.html" class="hover:text-white transition-colors">Capricorne</a></li>
-                        <li><a href="verseau.html" class="hover:text-white transition-colors">Verseau</a></li>
-                        <li><a href="poissons.html" class="hover:text-white transition-colors">Poissons</a></li>
-                    </ul>
-                </div>
+    // ---------- 1. Le ciel et l'horoscope ----------
+    const cielMaintenant = getCiel(new Date());
+    // Ordre de priorité des appels Gemini (plafond par nuit) : demain, semaine, mois, puis articles
+    const { jour: horo, demain: horoDemain } = await H.quotidiens({ apiKey: API_KEY, signs, publicDir: OUT });
+    const horoSemaine = await H.semaine({ apiKey: API_KEY, signs });
+    const horoMois = await H.mois({ apiKey: API_KEY, signs });
+    const ciel = horo.ciel || cielMaintenant;
+    const dispo = { demain: !!horoDemain, semaine: !!horoSemaine, mois: !!horoMois, 2027: true };
+    const quand = horo.genereLe;
+    const merc = periodeMercureRetro(new Date());
+    const mercTexte = merc.enCours
+        ? `Mercure est rétrograde en ce moment, jusqu'au ${L.dateCourte(merc.fin)}.`
+        : `La prochaine période de Mercure rétrograde ira du ${L.dateCourte(merc.debut)} au ${L.dateCourte(merc.fin)}.`;
 
-                <div>
-                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Outils Astraux</h4>
-                    <ul class="space-y-2">
-                        <li><a href="horoscope.html" class="hover:text-white transition-colors">✦ Horoscope du Jour</a></li>
-                        <li><a href="compatibilite-amoureuse.html" class="hover:text-white transition-colors">♥ Compatibilité Amoureuse</a></li>
-                        <li><a href="red-flags.html" class="hover:text-white transition-colors">🚩 Red Flags & Toxicité</a></li>
-                        <li><a href="etude-karmique.html" class="hover:text-[#D4AF37] font-bold transition-colors">🗝️ Cabinet Privé (Étude)</a></li>
-                    </ul>
-                </div>
+    // ---------- 2. Articles à (ré)écrire cette nuit ----------
+    await articlesLib.mettreAJour(API_KEY, articles);
+    const articlesPrets = articles.filter((a) => articlesLib.lireCorps(a.slug));
 
-                <div>
-                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Savoirs Anciens</h4>
-                    <ul class="space-y-2">
-                        <li><a href="signification.html" class="hover:text-white transition-colors">Signification des Signes</a></li>
-                        <li><a href="comprendre-astrologie.html" class="hover:text-white transition-colors">Les 4 Éléments</a></li>
-                        <li><a href="pierres-protectrices.html" class="hover:text-white transition-colors">Lithothérapie & Cristaux</a></li>
-                        <li><a href="le-cosmos.html" class="hover:text-white transition-colors">Astronomie & Cosmos</a></li>
-                        <li><a href="verite-horoscope-mensonge.html" class="hover:text-white transition-colors">Vérité sur l'Horoscope</a></li>
-                    </ul>
-                </div>
+    // ---------- 3. Copie des assets ----------
+    const copier = (src, dst) => {
+        for (const f of fs.readdirSync(src)) {
+            const s = path.join(src, f), d = path.join(dst, f);
+            if (fs.statSync(s).isDirectory()) { fs.mkdirSync(d, { recursive: true }); copier(s, d); } else fs.copyFileSync(s, d);
+        }
+    };
+    copier('./assets', path.join(OUT, 'assets'));
 
-                <div>
-                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Maison Authentique</h4>
-                    <p class="mb-4 italic text-xs">"Les étoiles inclinent, mais ne déterminent pas."</p>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="apropos.html" class="hover:text-white transition-colors">À Propos / Manifeste</a></li>
-                        <li><a href="mentions-legales.html" class="hover:text-white transition-colors">Mentions Légales</a></li>
-                        <li><a href="links.html" class="hover:text-white transition-colors">Liens Rapides</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="text-center pt-8 border-t border-gray-900 text-xs text-gray-600">
-                <p>&copy; Horoscope Authentique. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>`;
+    const ctx = { ciel, signs };
+    const accueilCrumb = { label: 'Accueil', href: './' };
 
-    // --- 1. DÉFINITION DU CARROUSEL DES SIGNES (NAVIGATION RAPIDE) ---
-    const ZODIAC_NAV_HTML = `
-    <section class="py-12 bg-[#FAFAFA] border-t border-gray-200 mt-12">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-8">
-                <h3 class="font-cinzel text-lg md:text-xl font-bold text-gray-800 tracking-[0.2em] uppercase">Consulter un autre signe</h3>
-                <div class="w-12 h-[1px] bg-[#D4AF37] mx-auto mt-4 opacity-50"></div>
-            </div>
-            <div class="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-6">
-                ${signs.map(s => `
-                <a href="${s.slug}.html" class="group flex flex-col items-center justify-center p-2 rounded-lg hover:bg-white hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full p-0.5 border border-gray-200 group-hover:border-[#D4AF37] transition-all mb-2 bg-white">
-                        <img src="./assets/${s.slug}-carte.webp" onerror="this.src='./assets/${s.image}'" alt="${s.name}" class="w-full h-full object-cover rounded-full opacity-60 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-300">
-                    </div>
-                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-400 group-hover:text-black font-bold transition-colors">${s.name}</span>
-                </a>
-                `).join('')}
-            </div>
-        </div>
-    </section>
-    `;
-
-// --- 2. DÉFINITION DES BLOCS CROSS-SELLING (LES PONTS) ---
-    
-    // PONT A : De la Peur (Red Flags) vers l'Espoir (Compatibilité)
-    const PROMO_COMPATIBILITE = `
-    <section class="py-12 bg-white border-t border-gray-100 text-center">
-        <div class="container mx-auto px-4 max-w-2xl">
-            <h3 class="font-cinzel text-xl font-bold text-gray-900 mb-2">Ces défauts sont-ils rédhibitoires ?</h3>
-            <p class="text-gray-500 italic mb-6 font-serif">"L'amour est un équilibre. Vérifiez si vos astres s'alignent malgré tout."</p>
-            <a href="compatibilite-amoureuse.html" class="inline-block border border-[#D4AF37] text-[#D4AF37] px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#D4AF37] hover:text-white transition-colors duration-300">
-                Tester la Compatibilité ♥
-            </a>
-        </div>
-    </section>`;
-
-    // PONT B : Du Rêve (Compatibilité) vers la Réalité (Red Flags)
-    const PROMO_RED_FLAGS = `
-    <section class="py-12 bg-red-50 border-t border-red-100 text-center">
-        <div class="container mx-auto px-4 max-w-2xl">
-            <h3 class="font-cinzel text-xl font-bold text-red-900 mb-2">L'Amour rend aveugle...</h3>
-            <p class="text-red-800/60 italic mb-6 font-serif">"La compatibilité n'est pas tout. Avez-vous repéré les signaux toxiques ?"</p>
-            <a href="red-flags.html" class="inline-block bg-red-900 text-white px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-black transition-colors duration-300">
-                Voir les Red Flags 🚩
-            </a>
-        </div>
-    </section>`;
-
-    // PONT C : Du Savoir (Encyclopédie) vers le Quotidien (Horoscope)
-    const PROMO_HOROSCOPE = `
-    <section class="py-12 bg-[#FAFAFA] border-t border-gray-200 text-center">
-        <div class="container mx-auto px-4 max-w-2xl">
-            <h3 class="font-cinzel text-xl font-bold text-gray-900 mb-2">Assez de théorie...</h3>
-            <p class="text-gray-500 italic mb-6 font-serif">"La connaissance des signes est une clé. Mais que vous réservent les astres aujourd'hui ?"</p>
-            <a href="horoscope.html" class="inline-block border border-gray-900 text-gray-900 px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-black hover:text-[#D4AF37] transition-colors duration-300">
-                Lire mon Horoscope ✦
-            </a>
-        </div>
-    </section>`;
-
-    // --- 3. DÉFINITION DES RICH SNIPPETS (SCHEMA.ORG) ---
-    
-    // SCHEMA A : LE PRODUIT (Pour afficher les étoiles ★★★★★ et le prix sur Google)
-    const SCHEMA_PRODUCT = `
-    <script type="application/ld+json">
+    // ---------- 4. Accueil ----------
     {
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "name": "Étude Céleste & Héritage Karmique",
-      "image": "https://www.horoscope-authentique.fr/assets/cabinet.webp",
-      "description": "Analyse astrologique complète : Thème natal, Héritage familial et Mission de vie. Consultation privée par écrit.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Maison Authentique"
-      },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://www.horoscope-authentique.fr/etude-karmique.html",
-        "priceCurrency": "EUR",
-        "price": "20.00",
-        "availability": "https://schema.org/InStock"
-      }
+        const dial = signs.map((s, i) => {
+            const a = (i / 12) * Math.PI * 2 - Math.PI / 2;
+            const left = (50 + 41 * Math.cos(a)).toFixed(2), top = (50 + 41 * Math.sin(a)).toFixed(2);
+            return `<a class="medal" href="${s.slug}.html" style="left:${left}%;top:${top}%" aria-label="Horoscope ${esc(s.name)} du jour"><img src="./assets/${s.slug}-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">${esc(s.name)}</span></a>`;
+        }).join('');
+        const astres = ciel.astres.map((a) => `<li><span class="n">${a.nom}</span><span class="v">en ${a.signe} <span class="muted small">${a.degre}°</span></span>${a.retrograde ? '<span class="r">rétrograde</span>' : ''}</li>`).join('');
+        const phases = PHASES.map((p, i) => `<li${i === ciel.lune.phaseIndex ? ' class="now"' : ''}>${IMG.lune(i)}<span class="nm">${p}</span>${i === ciel.lune.phaseIndex ? '<span class="tag-now">Ce soir</span>' : ''}</li>`).join('');
+        const semaine = Math.floor(Date.now() / (7 * 86400000));
+        const aLire = [0, 1, 2, 3].map((k) => articlesPrets[(semaine * 4 + k * 7) % articlesPrets.length]).filter((v, i, t) => v && t.indexOf(v) === i);
+        const listeArticles = aLire.map((a) => {
+            const c = articlesLib.cat(a.categorie);
+            return `<a class="aitem" href="${a.slug}.html"><img src="./assets/${c.image}" alt="" width="640" height="731" loading="lazy"><span><span class="c">${esc(c.label)}</span><span class="t">${esc(a.titre)}</span><span class="m">Par Madeleine</span></span></a>`;
+        }).join('');
+        const faq = [
+            { q: "L'horoscope du jour est-il fiable ?", a: "Un horoscope par signe décrit une tendance commune à des millions de personnes : il ne remplace pas un thème natal. Le nôtre part des positions réelles des planètes, calculées chaque nuit, puis les traduit pour chacun des douze signes." },
+            { q: 'Comment les positions des planètes sont-elles calculées ?', a: "Chaque nuit, la Maison calcule la position du Soleil, de la Lune et des huit planètes à partir des éphémérides astronomiques, ainsi que les rétrogradations, la phase de la Lune et les aspects du jour. L'horoscope n'a le droit de citer que ces positions." },
+            { q: 'Quand Mercure sera-t-il rétrograde ?', a: mercTexte + ' La période dure environ trois semaines et revient trois à quatre fois par an.' },
+            { q: 'Pourquoi connaître son ascendant ?', a: "Le signe solaire décrit votre nature profonde ; l'ascendant, calculé avec l'heure et le lieu exacts de naissance, décrit votre manière d'aborder le monde. Deux personnes du même signe peuvent avoir des ascendants très différents." },
+            { q: "Qu'est-ce que l'astrologie karmique ?", a: "Une lecture du thème natal qui cherche les schémas hérités de la lignée et la direction indiquée par le Nœud Nord. C'est la spécialité du Cabinet privé de Madeleine." }
+        ];
+        const main = `
+<section class="wrap hero" aria-labelledby="h1">
+<div class="hero-text">
+<p class="eyebrow">Astrologie · Maison Authentique</p>
+<h1 id="h1" class="display">L'horoscope du jour, calculé sur le <em>ciel réel</em>.</h1>
+<p class="lede">Chaque nuit, la Maison calcule la position du Soleil, de la Lune et des planètes, puis rédige pour chacun des douze signes une lecture en trois temps : amour, travail, bien-être. Choisissez le vôtre sur le cadran.</p>
+<div class="hero-actions"><a class="btn" href="horoscope.html">Lire mon horoscope</a><a class="ulink" href="calcul-ascendant.html">Calculer mon ascendant</a></div>
+<p class="muted small" style="margin:0">Mis à jour le ${L.dateCourte(quand)} à ${L.heure(quand)} · 12 signes · lecture gratuite</p>
+</div>
+<div class="hero-dial"><div class="dial" role="group" aria-label="Cadran des douze signes">
+<div class="orbit r1" aria-hidden="true"></div><div class="orbit r2" aria-hidden="true"></div>
+<div class="centre"><img src="./assets/lune-${ciel.lune.phaseIndex + 1}.webp" alt="${esc(ciel.lune.phase)}" width="240" height="274" fetchpriority="high"><span class="k">Ce soir</span><span class="v">${esc(ciel.lune.phase)}</span><span class="s">${ciel.lune.illumination} % éclairée · en ${esc(ciel.lune.signe)}</span></div>
+${dial}
+</div></div>
+</section>
+
+<section class="section" aria-labelledby="h-ciel"><div class="wrap stack gap-l">
+<div class="head-row"><div class="stack gap-s"><p class="eyebrow">Le ciel du jour</p><h2 id="h-ciel" class="h2">Où sont les planètes aujourd'hui</h2></div>
+<p class="muted" style="margin:0;max-width:30em">Positions calculées pour le ${esc(L.dateLongue(ciel.date).toLowerCase())}. ${esc(mercTexte)}</p></div>
+<ul class="astres">${astres}</ul>
+</div></section>
+
+<section class="section" aria-labelledby="h-lune"><div class="wrap stack gap-l">
+<div class="head-row"><div class="stack gap-s"><p class="eyebrow">Le cycle en cours</p><h2 id="h-lune" class="h2">La Lune, phase après phase</h2></div>
+<p class="muted" style="margin:0;max-width:30em">${ciel.lune.croissante ? 'La Lune croît : un temps pour porter les projets lancés à la nouvelle lune, avant le bilan de la pleine lune.' : 'La Lune décroît : un temps pour trier, terminer et lâcher ce qui ne sert plus, avant le prochain départ.'}</p></div>
+<ol class="phases">${phases}</ol>
+</div></section>
+
+<section class="section" aria-labelledby="h-outils"><div class="wrap stack gap-xl">
+<div class="stack gap-s center" style="align-items:center"><p class="eyebrow">Les outils de la Maison</p><h2 id="h-outils" class="h2">Au-delà du signe solaire</h2></div>
+<div class="tools">
+<a class="tool" href="theme-astral.html">${IMG.obj('cosmos.webp')}<span class="eyebrow">Gratuit</span><h3 class="h3">Thème astral</h3><p>Votre ciel de naissance calculé au centième de degré : ascendant, planètes, maisons.</p></a>
+<a class="tool" href="compatibilite-amoureuse.html">${IMG.obj('compatibilite.webp')}<span class="eyebrow">Amour</span><h3 class="h3">Compatibilité</h3><p>Deux signes, cinq lectures : le quotidien, le désir, la durée, ce qui rapproche et ce qui coince.</p></a>
+<a class="tool" href="horoscope-2027.html">${IMG.obj('entree.webp')}<span class="eyebrow">L'année qui vient</span><h3 class="h3">Horoscope 2027</h3><p>Votre année saison par saison, avec les dates clés calculées sur le vrai ciel.</p></a>
+<a class="tool" href="calendrier-lunaire.html"><img src="./assets/lune-5.webp" alt="" width="240" height="274" loading="lazy" decoding="async" style="width:150px;height:200px;object-fit:contain;margin-bottom:10px"><span class="eyebrow">Lune</span><h3 class="h3">Calendrier lunaire</h3><p>Pleines et nouvelles lunes à l'heure près, et ce qu'elles remuent pour chaque signe.</p></a>
+<a class="tool" href="red-flags.html">${IMG.obj('red-flags.webp')}<span class="eyebrow">L'oracle du chaos</span><h3 class="h3">Red Flags</h3><p>Les alliances toxiques du zodiaque, sans filtre et avec humour.</p></a>
+<a class="tool" href="horoscope-chinois-2027.html">${IMG.obj('elements.webp')}<span class="eyebrow">Chèvre de Feu</span><h3 class="h3">Horoscope chinois</h3><p>Votre signe chinois et votre année 2027, à partir du 6 février.</p></a>
+<a class="tool" href="encyclopedie.html">${IMG.obj('livre.webp')}<span class="eyebrow">Encyclopédie</span><h3 class="h3">La Bibliothèque</h3><p>Ascendant, Lilith, maisons, rétrogrades : les notions qui vont plus loin que le signe.</p></a>
+<a class="tool" href="numerologie-chemin-de-vie.html">${IMG.obj('pierres.webp')}<span class="eyebrow">Numérologie</span><h3 class="h3">Chemin de vie</h3><p>Le nombre de votre date de naissance et ce qu'il dit de votre route.</p></a>
+</div></div></section>
+
+<section class="section" aria-labelledby="h-cabinet"><div class="wrap split">
+<div class="split-media">${IMG.obj('cabinet.webp', 'Encrier de porcelaine et plume dorée du Cabinet privé')}</div>
+<div class="split-text">
+<p class="eyebrow">Le Cabinet privé</p>
+<h2 id="h-cabinet" class="h2">Votre thème complet, lu par <em>Madeleine</em>.</h2>
+<p class="lede" style="font-size:21px">Une étude écrite à partir de votre date, de votre heure et de votre lieu de naissance. Sa spécialité : l'héritage familial, ce que votre ciel porte de la lignée qui vous précède.</p>
+<ul class="offers">
+<li><span class="o-n">L'Essentiel karmique</span><span class="o-t">Thème identitaire, héritage familial, mission de vie, une question.</span><span class="o-p">20 €</span></li>
+<li><span class="o-n">La Boussole annuelle</span><span class="o-t">L'Essentiel, plus la révolution solaire et vos dates clés de l'année.</span><span class="o-p">45 €</span></li>
+<li><span class="o-n">L'Alchimie totale</span><span class="o-t">La Boussole, plus un rituel, une prescription de pierres et une correspondance ouverte.</span><span class="o-p">80 €</span></li>
+</ul>
+<div><a class="btn" href="etude-karmique.html">Commander une étude</a></div>
+</div></div></section>
+
+<section class="section" aria-labelledby="h-biblio"><div class="wrap stack gap-l">
+<div class="head-row"><div class="stack gap-s"><p class="eyebrow">La Bibliothèque</p><h2 id="h-biblio" class="h2">À lire cette semaine</h2></div><a class="ulink" href="encyclopedie.html">Toute l'encyclopédie</a></div>
+<div class="alist">${listeArticles}</div>
+</div></section>
+
+<section class="section" aria-labelledby="h-faq"><div class="wrap-narrow stack gap-l">
+<div class="stack gap-s center" style="align-items:center"><p class="eyebrow">Questions fréquentes</p><h2 id="h-faq" class="h2">Ce qu'on nous demande</h2></div>
+${faqHtml(faq)}
+</div></section>
+
+<section class="section" aria-label="Signature"><div class="wrap-narrow stack gap-m center" style="align-items:center">
+<img src="./assets/entree.webp" alt="" width="640" height="731" loading="lazy" style="width:72px;height:auto">
+<p class="quote">« Les étoiles inclinent, mais ne déterminent pas. »</p>
+<p class="eyebrow" style="color:var(--gris)">Madeleine, fondatrice de la Maison</p>
+</div></section>`;
+        write('index.html', L.page({
+            ...ctx, main,
+            head: {
+                title: 'Horoscope du jour gratuit, calculé sur le ciel réel · Horoscope Authentique',
+                description: 'Horoscope du jour gratuit pour les 12 signes, rédigé chaque nuit à partir des vraies positions des planètes. Amour, travail, bien-être, compatibilités et Cabinet privé.',
+                file: 'index.html',
+                preload: `<link rel="preload" as="image" href="./assets/lune-${ciel.lune.phaseIndex + 1}.webp">`,
+                jsonld: [
+                    { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Horoscope Authentique', alternateName: 'Maison Authentique', url: L.SITE, inLanguage: 'fr-FR' },
+                    { '@context': 'https://schema.org', '@type': 'Organization', name: 'Horoscope Authentique', url: L.SITE, logo: L.SITE + 'assets/icon-192.png', founder: auteur },
+                    faqSchema(faq)
+                ]
+            }
+        }));
     }
-    </script>`;
 
-    // --- GOOGLE ANALYTICS 4 ---
-    const GA_SNIPPET = `
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP733JKXH"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0FP733JKXH');
-    </script>`;
+    // ---------- 5. Pages des signes ----------
+    for (const s of signs) {
+        const d = horo.signes[s.slug];
+        const essentiel = d.essentiel || premierePhrase(d.amour.texte);
+        const { dans, face } = astresPourSigne(ciel, s.slug);
+        const transits = [
+            `Soleil en ${ciel.soleil.signe}`,
+            ...[...dans, ...face].filter((a) => a.id !== 'Sun' && a.id !== 'Moon').map((a) => `${a.nom} en ${a.signe}${a.retrograde ? ' (rétrograde)' : ''}`),
+            `Lune en ${ciel.lune.signe}`
+        ];
+        const lectures = [['Amour', 'I', d.amour], ['Travail', 'II', d.travail], ['Bien-être', 'III', d.bienetre]].map(([lb, n, x]) => `
+<article class="lecture"><p class="lb"><span>${lb}</span><span aria-hidden="true">${n}</span></p>${x.titre ? `<h3 class="h3">${esc(x.titre)}</h3>` : ''}<p class="tx">${esc(x.texte)}</p></article>`).join('');
+        const compat = compatData[s.slug].map((c) => {
+            const o = bySlug[c.with];
+            return `<li><a href="compatibilite-${SLUGS_ORDRE.indexOf(s.slug) <= SLUGS_ORDRE.indexOf(o.slug) ? s.slug + '-' + o.slug : o.slug + '-' + s.slug}.html">${IMG.medal(o.slug)}<span class="info"><span class="duo">${esc(s.name)} × ${esc(o.name)}</span><span class="ti">${esc(phrase(c.titre))}</span><span class="bar" aria-hidden="true"><span style="width:${c.score}%"></span></span></span><span class="sc">${c.score} %</span></a></li>`;
+        }).join('');
+        const top = [...compatData[s.slug]].filter((c) => c.with !== s.slug).sort((a, b) => b.score - a.score).slice(0, 3).map((c) => bySlug[c.with].name);
+        const autres = signs.filter((x) => x.slug !== s.slug).map((x) => `<li><a href="${x.slug}.html">${IMG.medal(x.slug)}<span>${esc(x.name)}</span></a></li>`).join('');
+        const faq = [
+            { q: `Quelles sont les dates du signe ${s.name} ?`, a: `Le signe ${s.name} couvre les naissances du ${dateSigne(s)}. C'est un signe de ${s.element} ${s.mode.toLowerCase()}, gouverné par ${s.planete}.` },
+            { q: `Avec quels signes le ${s.name} est-il le plus compatible ?`, a: `D'après les lectures de la Maison, le ${s.name} s'accorde le mieux avec ${top[0]}, ${top[1]} et ${top[2]}. Chaque alliance est détaillée sur la page compatibilité du signe.` },
+            { q: `Quelle est la pierre du signe ${s.name} ?`, a: `La pierre associée au ${s.name} est ${article(s.pierre)}${s.pierre.toLowerCase()}. Elle se porte sur soi ou se garde à portée de main pour soutenir les forces du signe.` }
+        ];
+        const titre = `Horoscope ${s.name} du jour`;
+        const crumbs = [accueilCrumb, { label: 'Horoscope du jour', href: 'horoscope.html' }, { label: s.name }];
+        const main = `
+<section class="wrap sign-hero" aria-labelledby="h1">
+<div class="media"><img src="./assets/${s.image}" alt="Le ${esc(s.name)}, bas-relief de porcelaine et feuille d'or" width="800" height="1193" fetchpriority="high" decoding="async"></div>
+<div class="text">
+<p class="eyebrow">Horoscope du jour · ${esc(L.dateLongue(ciel.date))}</p>
+<h1 id="h1" class="display">Horoscope <em>${esc(s.name)}</em> du jour</h1>
+<p class="meta-caps"><span>${esc(dateSigne(s))}</span><span>Signe de ${esc(s.element)}</span><span>Gouverné par ${esc(s.planete)}</span></p>
+<div class="essentiel"><p class="eyebrow">L'essentiel du jour</p><p>${esc(essentiel)}</p></div>
+<p class="muted small" style="margin:0">Ciel pris en compte : ${esc(transits.join(' · '))}. Mis à jour à ${L.heure(quand)}.</p>
+</div>
+</section>
+${ongletsSigne(s.slug, 'jour', dispo)}
+<section class="section" aria-labelledby="h-lecture"><div class="wrap stack gap-l">
+<h2 id="h-lecture" class="h2 center">La lecture du jour</h2>
+<div class="lectures">${lectures}</div>
+</div></section>
+<section class="section" aria-labelledby="h-bref"><div class="wrap" style="display:flex;flex-wrap:wrap;gap:48px 80px">
+<div style="flex:1 1 380px;min-width:0" class="stack gap-m">
+<p class="eyebrow">Fiche d'identité</p>
+<h2 id="h-bref" class="h2">Le ${esc(s.name)} en bref</h2>
+<p style="margin:0;color:var(--encre-2);max-width:30em">${esc(s.presentation)}</p>
+<a class="ulink" style="align-self:flex-start" href="signe-${s.slug}.html">Caractère et personnalité ${s.slug === 'gemeaux' || s.slug === 'poissons' ? 'des' : s.slug === 'vierge' || s.slug === 'balance' ? 'de la' : 'du'} ${esc(s.name)}</a>
+</div>
+<dl class="fiche">
+<div><dt>Dates</dt><dd>${esc(dateSigne(s))}</dd></div>
+<div><dt>Élément</dt><dd>${esc(s.element)}</dd></div>
+<div><dt>Mode</dt><dd>${esc(s.mode)}</dd></div>
+<div><dt>Planète maîtresse</dt><dd>${esc(s.planete)}</dd></div>
+<div><dt>Pierre</dt><dd><a class="inlink" href="pierres-protectrices.html">${esc(s.pierre)}</a></dd></div>
+<div><dt>Partie du corps</dt><dd>${esc(s.corps)}</dd></div>
+</dl>
+</div></section>
+<section class="section" aria-labelledby="h-compat"><div class="wrap stack gap-l">
+<div class="head-row"><div class="stack gap-s"><p class="eyebrow">Compatibilités</p><h2 id="h-compat" class="h2">Le ${esc(s.name)} en amour</h2></div>
+<div style="display:flex;flex-wrap:wrap;gap:16px 32px"><a class="ulink" href="compatibilite-${s.slug}.html">Toutes les alliances</a><a class="ulink" href="red-flags-${s.slug}.html">Ses red flags</a></div></div>
+<ul class="compat">${compat}</ul>
+</div></section>
+<section class="section" aria-labelledby="h-faq"><div class="wrap-narrow stack gap-l">
+<h2 id="h-faq" class="h2 center">Questions sur le ${esc(s.name)}</h2>
+${faqHtml(faq)}
+</div></section>
+<section class="section" aria-labelledby="h-cab"><div class="wrap strip" style="padding-top:72px;padding-bottom:72px">
+<div class="l"><img src="./assets/cabinet.webp" alt="" width="640" height="731" loading="lazy"><div class="stack" style="gap:6px"><h2 id="h-cab" class="h2" style="font-size:clamp(28px,2.8vw,38px)">Votre signe n'est qu'un douzième de votre ciel.</h2><p style="margin:0;color:var(--encre-2)">Madeleine lit votre thème complet, ascendant et héritage familial compris. Dès 20 €.</p></div></div>
+<a class="btn" href="etude-karmique.html">Le Cabinet privé</a>
+</div></section>
+<section class="section" aria-labelledby="h-autres"><div class="wrap stack gap-l" style="padding-top:80px;padding-bottom:96px">
+<h2 id="h-autres" class="h2 center" style="font-size:clamp(30px,3vw,42px)">L'horoscope des autres signes</h2>
+<ul class="signs-grid">${autres}</ul>
+</div></section>`;
+        write(`${s.slug}.html`, L.page({
+            ...ctx, main, crumbs, active: 'horoscope',
+            head: {
+                title: `${titre}, ${L.dateCourte(ciel.date)} · Horoscope Authentique`,
+                description: tronquer(`${titre} : ${essentiel} Amour, travail et bien-être selon le ciel réel du ${L.dateCourte(ciel.date)}.`),
+                file: `${s.slug}.html`, ogType: 'article',
+                jsonld: [
+                    { '@context': 'https://schema.org', '@type': 'Article', headline: titre, description: essentiel, datePublished: quand, dateModified: quand, author: auteur, publisher: editeur, image: L.SITE + 'assets/' + s.image, mainEntityOfPage: L.SITE + s.slug + '.html', inLanguage: 'fr-FR' },
+                    L.crumbsSchema(crumbs), faqSchema(faq)
+                ]
+            }
+        }));
+    }
+    console.log('✅ 12 pages signes');
 
-    // Fonction Helper pour injecter GA4 juste avant la fin du <head>
-    function injectGA(htmlContent) {
-        if (htmlContent.includes('googletagmanager.com/gtag')) return htmlContent; // déjà présent
-        return htmlContent.replace('</head>', `${GA_SNIPPET}\n</head>`);
+    // ---------- 6. Hub horoscope ----------
+    {
+        const liste = signs.map((s) => {
+            const d = horo.signes[s.slug];
+            return `<li><a href="${s.slug}.html">${IMG.medal(s.slug)}<span><span class="nm">${esc(s.name)}</span><span class="dt">${esc(dateSigne(s))}</span><span class="es">${esc(d.essentiel || premierePhrase(d.amour.texte))}</span></span></a></li>`;
+        }).join('');
+        const crumbs = [accueilCrumb, { label: 'Horoscope du jour' }];
+        const main = `
+<section class="wrap stack gap-m" style="padding-top:48px;padding-bottom:64px;align-items:center;text-align:center">
+<p class="eyebrow">${esc(L.dateLongue(ciel.date))}</p>
+<h1 class="display">Horoscope du jour</h1>
+<p class="lede">Le Soleil est en ${esc(ciel.soleil.signe)}, la Lune ${esc(ciel.lune.phase.toLowerCase())} en ${esc(ciel.lune.signe)}. Voici l'essentiel de la journée pour chaque signe ; la lecture complète vous attend sur la page de votre signe.</p>
+</section>
+${ongletsHub('jour', dispo)}
+<section class="section"><div class="wrap" style="padding-top:24px;padding-bottom:96px"><ul class="hub">${liste}</ul></div></section>`;
+        write('horoscope.html', L.page({
+            ...ctx, main, crumbs, active: 'horoscope',
+            head: {
+                title: `Horoscope du jour, ${L.dateCourte(ciel.date)} : les 12 signes · Horoscope Authentique`,
+                description: tronquer(`Horoscope du jour du ${L.dateCourte(ciel.date)} pour les 12 signes du zodiaque, calculé sur les vraies positions des planètes. Soleil en ${ciel.soleil.signe}, Lune en ${ciel.lune.signe}.`),
+                file: 'horoscope.html',
+                jsonld: [L.crumbsSchema(crumbs), { '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: signs.map((s, i) => ({ '@type': 'ListItem', position: i + 1, url: L.SITE + s.slug + '.html', name: `Horoscope ${s.name} du jour` })) }]
+            }
+        }));
     }
 
-    // Fonction Helper pour injecter le footer proprement
-    function injectFooter(htmlContent) {
-        // 1. On enlève l'ancien footer s'il existe (pour éviter les doublons)
-        let cleanHtml = htmlContent.replace(/<footer[\s\S]*?<\/footer>/i, '');
-        // 2. On injecte le nouveau juste avant la fin du body
-        return cleanHtml.replace('</body>', `${FAT_FOOTER_HTML}</body>`);
-    }
-
-    // FONCTION HELPER : LE FIL D'ARIANE (BREADCRUMBS) ---
-    function generateBreadcrumb(items) {
-        const BASE = 'https://www.horoscope-authentique.fr/';
-        const nav = `
-        <nav class="container mx-auto px-4 py-2 mt-4 text-[10px] md:text-xs font-serif uppercase tracking-widest text-gray-500">
-            ${items.map(item =>
-                item.url
-                ? `<a href="${item.url}" class="hover:text-[#D4AF37] transition-colors border-b border-transparent hover:border-[#D4AF37]">${item.label}</a>`
-                : `<span class="text-gray-400 font-bold">${item.label}</span>`
-            ).join(' <span class="mx-2 text-[#D4AF37]">✦</span> ')}
-        </nav>`;
-
-        const breadcrumbSchema = `
-        <script type="application/ld+json">
+    // ---------- 7. Pages compatibilité & red flags par signe ----------
+    const enteteSigne = (s, eyebrow, h1, lede, href, cta) => `
+<section class="wrap stack gap-m" style="padding-top:48px;padding-bottom:56px;align-items:center;text-align:center">
+<img src="./assets/${s.slug}-carte.webp" alt="" width="320" height="366" style="width:96px;height:auto">
+<p class="eyebrow">${eyebrow}</p>
+<h1 class="display">${h1}</h1>
+<p class="lede">${lede}</p>
+<a class="ulink" href="${href}">${cta}</a>
+</section>`;
+    for (const s of signs) {
         {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            ${items.map((item, i) => `{
-              "@type": "ListItem",
-              "position": ${i + 1},
-              "name": "${item.label.replace(/"/g, '\\"')}"${item.url ? `,\n              "item": "${BASE}${item.url.split('#')[0]}"` : ''}
-            }`).join(',\n            ')}
-          ]
-        }
-        </script>`;
-
-        return nav + breadcrumbSchema;
-    }
-
-    console.log("🚀 DÉMARRAGE DU DIAGNOSTIC...");
-
-    // 1. VÉRIFICATION IMAGE (Version Corrigée)
-    console.log("📂 Vérification de l'image d'accueil...");
-    
-    // On définit l'image par défaut
-    let entreeImageName = 'entree.webp';
-    
-    // On vérifie si elle existe physiquement dans le dossier assets source
-    // CORRECTION ICI : J'ai retiré le chemin Windows qui s'était collé par erreur
-    const cheminImage = path.join(assetsSrc, entreeImageName);
-
-    if (fs.existsSync(cheminImage)) {
-        console.log(`✅ Image trouvée : ${entreeImageName}`);
-    } else {
-        console.warn(`⚠️ ALERTE : Le fichier '${entreeImageName}' est introuvable dans ${assetsSrc} !`);
-        console.log("🔄 Bascule automatique sur 'belier.webp' (Fallback)");
-        
-        // On s'assure que le fallback existe aussi, sinon on prend le premier signe dispo
-        if (fs.existsSync(path.join(assetsSrc, 'belier.webp'))) {
-            entreeImageName = 'belier.webp';
-        } else {
-            // Si même le bélier n'est pas là, on cherche n'importe quelle image .webp ou .jpg
-            const fichiers = fs.readdirSync(assetsSrc);
-            const imageDispo = fichiers.find(f => f.endsWith('.webp') || f.endsWith('.jpg') || f.endsWith('.png'));
-            entreeImageName = imageDispo || 'aucune_image_trouvee.jpg';
-        }
-    }
-
-    // 2. APPEL API GEMINI (CORRECTIF TEXTE)
-    const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Europe/Paris' };
-    const dateDuJour = now.toLocaleDateString('fr-FR', options);
-    
-    let jsonResult = null;
-
-    if (API_KEY) {
-        try {
-            console.log(`✨ Appel Gemini 2.5 (Mode Gitane) pour le ${dateDuJour}...`);
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
-            
-           const prompt = `
-            RÔLE : Tu es une astrologue complice et un brin taquine (comme une meilleure amie qui sait tout).
-            DATE : ${dateDuJour}.
-            
-            OBJECTIF :
-            Rédiger l'horoscope du jour pour les 12 signes en te basant sur la carte du ciel de cette date.
-            
-            CONSIGNES CRUCIALES :
-            1. CITE LES PLANÈTES : Pour chaque signe, mentionne un vrai transit planétaire du jour (ex: "La Lune taquine Mars aujourd'hui", "Vénus te boude un peu", "Mercure rétrograde te joue des tours").
-            2. TON : Tutoie le lecteur, pas de genre, ("Tu"). Sois piquante, drôle mais encourageante. Pas de phrases plates ! Pas de "**".
-            3. TRADUIS EN RESSENTI : Au lieu de dire "Mars est en opposition", dis plutôt "L'énergie de Mars te rend électrique" ou "Vénus adoucit l'ambiance". On veut de l'émotion, pas des maths !
-            
-            
-            FORMAT JSON STRICT (Ne renvoie QUE le JSON, rien d'autre) :
-            {
-                "Bélier": { "amour": "...", "travail": "...", "sante": "..." },
-                "Taureau": { "amour": "...", "travail": "...", "sante": "..." },
-                ... (pour les 12 signes)
-            }
-            `;
-            
-            // --- AJOUT CRUCIAL : DÉSACTIVATION DES FILTRES DE SÉCURITÉ ---
-            // C'est souvent ça qui bloque le texte "Amour" ou "Mystique"
-            const safetySettings = [
-                { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
-                { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" },
-                { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
-                { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
-            ];
-
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    contents: [{ parts: [{ text: prompt }] }],
-                    safetySettings: safetySettings // On injecte les réglages ici
-                })
-            });
-
-            if (!response.ok) {
-                const errorBody = await response.text();
-                console.error(`❌ ERREUR API GOOGLE (${response.status}) :`, errorBody);
-            } else {
-                const data = await response.json();
-                
-                // Vérification si Gemini a répondu ou s'il a bloqué
-                if (data.candidates && data.candidates[0].content) {
-                    let text = data.candidates[0].content.parts[0].text;
-                    
-                    // Nettoyage JSON (au cas où il mettrait des ```json)
-                    const firstBrace = text.indexOf('{');
-                    const lastBrace = text.lastIndexOf('}');
-                    if (firstBrace !== -1 && lastBrace !== -1) {
-                        text = text.substring(firstBrace, lastBrace + 1);
-                    }
-                    
-                    try {
-                        jsonResult = JSON.parse(text);
-                        console.log("✅ Horoscope reçu et décodé avec succès !");
-                    } catch (e) {
-                        console.error("❌ Erreur de formatage JSON reçu :", e.message);
-                        console.log("Texte reçu brut :", text);
-                    }
-                } else {
-                    console.error("❌ GEMINI A BLOQUÉ LA RÉPONSE (FinishReason) :", data.candidates[0].finishReason);
+            const cartes = compatData[s.slug].map((c) => {
+                const o = bySlug[c.with];
+                return `<article class="duo-card" id="avec-${o.slug}">
+<div class="side">${IMG.medal(o.slug)}<span class="eyebrow" style="color:var(--gris)">${esc(s.name)} &amp; ${esc(o.name)}</span><span class="score">${c.score} %</span><a class="ulink" style="align-self:flex-start;margin-top:6px" href="compatibilite-${SLUGS_ORDRE.indexOf(s.slug) <= SLUGS_ORDRE.indexOf(o.slug) ? s.slug + '-' + o.slug : o.slug + '-' + s.slug}.html">Le couple en détail</a></div>
+<div class="main"><h2 class="h3" style="font-size:32px">${esc(phrase(c.titre))}</h2><dl>
+<div><dt>Au quotidien</dt><dd>${esc(c.quotidien)}</dd></div>
+<div><dt>En amour</dt><dd>${esc(c.amour)}</dd></div>
+<div><dt>Dans la durée</dt><dd>${esc(c.duree)}</dd></div>
+<div><dt>Ce qui vous rapproche</dt><dd>${esc(c.rapproche)}</dd></div>
+<div><dt>Le point épineux</dt><dd>${esc(c.epineux)}</dd></div>
+</dl></div></article>`;
+            }).join('');
+            const top = [...compatData[s.slug]].filter((c) => c.with !== s.slug).sort((a, b) => b.score - a.score).slice(0, 3);
+            const faq = [{ q: `Avec quel signe le ${s.name} est-il le plus compatible ?`, a: `Le ${s.name} s'accorde le mieux avec ${top.map((c) => `${bySlug[c.with].name} (${c.score} %)`).join(', ')}.` }];
+            const crumbs = [accueilCrumb, { label: 'Compatibilité', href: 'compatibilite-amoureuse.html' }, { label: s.name }];
+            const main = enteteSigne(s, 'Compatibilité amoureuse', `Le <em>${esc(s.name)}</em> en amour`, `Avec qui le ${esc(s.name)} s'entend-il vraiment ? Les douze alliances du signe, lues sous cinq angles : le quotidien, le désir, la durée, ce qui rapproche et ce qui coince.`, 'compatibilite-amoureuse.html', 'Tester deux signes') + `
+<section class="section"><div class="wrap duos" style="padding-top:0;padding-bottom:64px">${cartes}</div></section>
+<section class="section"><div class="wrap-narrow stack gap-l">${faqHtml(faq)}</div></section>
+${L.bridge({ eyebrow: 'Le revers de la médaille', title: `Les red flags du ${esc(s.name)}`, text: "L'amour rend aveugle. Les signaux toxiques, eux, ne mentent pas.", href: `red-flags-${s.slug}.html`, cta: 'Voir les red flags' })}`;
+            write(`compatibilite-${s.slug}.html`, L.page({
+                ...ctx, main, crumbs, active: 'compat',
+                head: {
+                    title: `Compatibilité amoureuse du ${s.name} avec les 12 signes · Horoscope Authentique`,
+                    description: tronquer(`Compatibilité du ${s.name} avec chaque signe : quotidien, amour, durée, points forts et points épineux. Meilleures alliances : ${top.map((c) => bySlug[c.with].name).join(', ')}.`),
+                    file: `compatibilite-${s.slug}.html`, ogType: 'article',
+                    jsonld: [{ '@context': 'https://schema.org', '@type': 'Article', headline: `Compatibilité amoureuse du ${s.name}`, author: auteur, publisher: editeur, inLanguage: 'fr-FR', mainEntityOfPage: L.SITE + `compatibilite-${s.slug}.html` }, L.crumbsSchema(crumbs), faqSchema(faq)]
                 }
+            }));
+        }
+        {
+            const cartes = roastData[s.slug].map((c) => {
+                const o = bySlug[c.with];
+                return `<article class="duo-card" id="avec-${o.slug}">
+<div class="side">${IMG.medal(o.slug)}<span class="eyebrow" style="color:var(--gris)">${esc(s.name)} &amp; ${esc(o.name)}</span><span class="score">${esc(String(c.score).replace('%', ' %'))}</span><span class="muted small">Toxicité · ${esc(phrase(c.niveau))}</span></div>
+<div class="main"><h2 class="h3" style="font-size:32px">${esc(phrase(c.titre))}</h2>
+<p style="margin:0;color:var(--encre-2);font-size:20px;line-height:1.6">${esc(c.resume)}</p>
+<dl><div><dt>Le red flag</dt><dd>${esc(c.redflag)}</dd></div></dl></div></article>`;
+            }).join('');
+            const crumbs = [accueilCrumb, { label: 'Red Flags', href: 'red-flags.html' }, { label: s.name }];
+            const main = enteteSigne(s, "L'oracle du chaos", `Les red flags du <em>${esc(s.name)}</em>`, `Pourquoi ça va casser, signe par signe. Les douze couples du ${esc(s.name)}, leur indice de toxicité et le détail qui tue. À lire avec humour.`, 'red-flags.html', 'Lancer le crash test') + `
+<section class="section"><div class="wrap duos" style="padding-top:0;padding-bottom:64px">${cartes}</div></section>
+${L.bridge({ eyebrow: 'Et pourtant…', title: 'Ces défauts sont-ils rédhibitoires ?', text: "L'amour est un équilibre. Vérifiez si vos astres s'alignent malgré tout.", href: `compatibilite-${s.slug}.html`, cta: `Compatibilité du ${s.name}` })}`;
+            write(`red-flags-${s.slug}.html`, L.page({
+                ...ctx, main, crumbs, active: 'redflags',
+                head: {
+                    title: `Red flags du ${s.name} en amour : les 12 couples · Horoscope Authentique`,
+                    description: tronquer(`Les red flags du ${s.name} en couple avec chaque signe, avec leur indice de toxicité. L'oracle du chaos, sans filtre et avec humour.`),
+                    file: `red-flags-${s.slug}.html`, ogType: 'article',
+                    jsonld: [{ '@context': 'https://schema.org', '@type': 'Article', headline: `Les red flags du ${s.name}`, author: auteur, publisher: editeur, inLanguage: 'fr-FR', mainEntityOfPage: L.SITE + `red-flags-${s.slug}.html` }, L.crumbsSchema(crumbs)]
+                }
+            }));
+        }
+    }
+    console.log('✅ 24 pages compatibilité & red flags');
+
+    // ---------- 8. Articles ----------
+    for (const a of articlesPrets) {
+        const c = articlesLib.cat(a.categorie);
+        const meta = articlesLib.lireMeta(a.slug) || {};
+        const { html, toc, minutes } = articlesLib.preparer(articlesLib.lireCorps(a.slug));
+        const enBref = meta.enBref;
+        const extraBref = a.slug === 'mercure-retrograde' ? mercTexte : '';
+        const lies = articlesPrets.filter((x) => x.categorie === a.categorie && x.slug !== a.slug);
+        const pos = articlesPrets.indexOf(a);
+        const suite = [0, 1, 2].map((k) => lies[(pos + k) % lies.length]).filter((v, i, t) => v && t.indexOf(v) === i);
+        const maj = meta.maj || null;
+        const crumbs = [accueilCrumb, { label: 'Encyclopédie', href: 'encyclopedie.html' }, { label: c.label, href: 'encyclopedie.html#' + ancre(c.label) }, { label: a.titre }];
+        const main = `
+<article>
+<header class="wrap-narrow article-head">
+<p class="eyebrow">${esc(c.label)}</p>
+<h1 class="display" style="font-size:clamp(40px,5vw,70px)">${esc(a.titre)}</h1>
+<p class="by"><span>Par <a class="inlink" href="apropos.html">Madeleine</a></span>${maj ? `<span>Mis à jour le ${L.dateCourte(maj)}</span>` : ''}<span>${minutes} min de lecture</span></p>
+<img src="./assets/${c.image}" alt="" width="640" height="731" fetchpriority="high" decoding="async">
+</header>
+<div class="article-layout">
+${toc.length > 1 ? `<aside class="toc" aria-label="Sommaire"><p class="eyebrow" style="margin-bottom:14px">Sommaire</p><ol>${toc.map((t, i) => `<li><a href="#${t.id}"><span>${i + 1}</span><span>${esc(t.label)}</span></a></li>`).join('')}</ol></aside>` : ''}
+<div class="prose">
+${enBref || extraBref ? `<section class="enbref" aria-label="En bref"><p class="eyebrow">En bref</p>${enBref ? `<p class="tx">${esc(enBref)}</p>` : ''}${extraBref ? `<p class="muted" style="margin:0;font-size:19px">${esc(extraBref)}</p>` : ''}</section>` : ''}
+${html}
+<aside class="author" aria-label="L'autrice"><img src="./assets/entree.webp" alt="" width="640" height="731" loading="lazy"><div class="stack" style="gap:4px"><p class="eyebrow">L'autrice</p><p style="margin:0;font-size:27px">Madeleine</p><p style="margin:0;font-size:18px;color:var(--encre-2)">Voix de la Maison Authentique, spécialisée en astrologie karmique et transgénérationnelle. Elle reçoit au <a class="inlink" href="etude-karmique.html">Cabinet privé</a>.</p></div></aside>
+</div>
+</div>
+</article>
+${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class="wrap stack gap-l"><h2 id="h-suite" class="h2 center">Poursuivre la lecture</h2><div class="related">${suite.map((x) => `<a href="${x.slug}.html">${IMG.obj(articlesLib.cat(x.categorie).image)}<span class="eyebrow">${esc(articlesLib.cat(x.categorie).label)}</span><span class="t">${esc(x.titre)}</span></a>`).join('')}</div></div></section>` : ''}`;
+        const desc = enBref || a.sujet;
+        write(`${a.slug}.html`, L.page({
+            ...ctx, main, crumbs, active: 'encyclo', compact: true,
+            head: {
+                title: `${a.titre} · Horoscope Authentique`,
+                description: tronquer(desc),
+                file: `${a.slug}.html`, ogType: 'article', ogImage: c.image,
+                jsonld: [{ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: a.titre, description: tronquer(desc, 300), image: L.SITE + 'assets/' + c.image, author: auteur, publisher: editeur, ...(maj ? { dateModified: maj } : {}), inLanguage: 'fr-FR', mainEntityOfPage: L.SITE + a.slug + '.html', articleSection: c.label }, L.crumbsSchema(crumbs)]
             }
-        } catch (error) {
-            console.error("❌ CRASH TECHNIQUE :", error.message);
-        }
+        }));
     }
+    console.log(`✅ ${articlesPrets.length} articles (${articles.length - articlesPrets.length} en attente de rédaction)`);
 
-    // 3. GÉNÉRATION DES PAGES
-    console.log("📄 Génération des pages...");
-    for (const sign of signs) {
-        let prediction = jsonResult && jsonResult[sign.name] ? jsonResult[sign.name] : null;
-        
-        // Sauvetage accents (Bélier vs Belier)
-        if (!prediction && jsonResult) {
-            const normalized = sign.name.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
-            const foundKey = Object.keys(jsonResult).find(k => k.normalize("NFD").replace(/[\u0300-\u036f]/g, "") === normalized);
-            if (foundKey) prediction = jsonResult[foundKey];
-        }
-
-        if (!prediction) {
-            // C'est ce texte qui s'affiche quand ça plante
-            prediction = { amour: "Les astres murmurent...", travail: "Patience et observation.", sante: "Prenez soin de vous." };
-        }
-
-        const descriptionSigne = `Horoscope ${sign.name} du jour : amour, travail et bien-être selon les vrais transits planétaires. Prédictions authentiques mises à jour chaque jour.`;
-
-        let content = templateSign
-            .replace(/{{name}}/g, sign.name)
-            .replace(/{{slug}}/g, sign.slug)
-            .replace(/{{date}}/g, sign.date)
-            .replace(/{{image}}/g, sign.image)
-            .replace(/{{description}}/g, descriptionSigne)
-            .replace(/{{horoscope_amour}}/g, prediction.amour)
-            .replace(/{{horoscope_travail}}/g, prediction.travail)
-            .replace(/{{horoscope_sante}}/g, prediction.sante);
-
-// --- INJECTION BREADCRUMB (SIGNES) ---
-        const breadcrumbSign = generateBreadcrumb([
-            { label: 'Sanctuaire', url: 'index.html' },
-            { label: 'Horoscope', url: 'horoscope.html' },
-            { label: sign.name, url: null } // Pas de lien sur la page actuelle
-        ]);
-        
-        // On l'insère juste avant la balise <main> pour qu'il soit en haut
-        content = content.replace('<main', `${breadcrumbSign}<main`);
-
-// --- NOUVEAU : Injection de la Navigation Zodiacale (Juste avant le footer) ---
-        if (content.includes('</body>')) {
-            content = content.replace('</body>', `${ZODIAC_NAV_HTML}</body>`);
-        } else {
-            content += ZODIAC_NAV_HTML;
-        }
-
-// AJOUT : Injection du Fat Footer sur les pages signes
-        content = injectFooter(content);
-
-        content = content.replace(
-             /Bienvenue à la maison/gi,
-            '<a href="apropos.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">Bienvenue à la maison</a>'
-        );
-
-        content = injectGA(content);
-
-        fs.writeFileSync(path.join(outputDir, `${sign.slug}.html`), content);
-    }
-
-// Page Grille (AVEC DATE + IMAGES SPÉCIALES "-carte" + RETOUR SANCTUAIRE)
-    const horoscopeHtml = `<!DOCTYPE html><html lang="fr"><head>
-    <link rel="icon" type="image/webp" href="./assets/favicon.webp">
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Horoscope du Jour - Maison Authentique</title><meta name="description" content="Consultez l'horoscope du jour pour les 12 signes du zodiaque : amour, travail et bien-être. Choisissez votre signe pour découvrir vos prédictions astrales.">${GA_SNIPPET}<link rel="stylesheet" href="./assets/style.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]">
-    
-    <header class="text-center pt-10 px-4 mb-8">
-        <a href="index.html" class="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4 hover:text-black transition-colors border-b border-transparent hover:border-black pb-1 inline-block">Retour au Sanctuaire</a>
-        
-        <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">HOROSCOPE DU JOUR</h1>
-        
-        <div id="date-du-jour" class="text-[#D4AF37] text-sm md:text-lg font-bold uppercase tracking-widest mt-3"></div>
-        
-        <div class="w-16 h-[1px] bg-black mx-auto mt-6"></div>
-    </header>
-
-    <main class="container mx-auto px-4 pb-12">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
-            ${signs.map(sign => `
-            <a href="${sign.slug}.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/${sign.slug}-carte.webp" onerror="this.src='./assets/${sign.image}'" alt="Horoscope ${sign.name}" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">${sign.name.toUpperCase()}</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>`).join('')}
-        </div>
-    </main>
-
-    ${FAT_FOOTER_HTML}
-
-    <script>
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        const today = new Date().toLocaleDateString('fr-FR', options);
-        document.getElementById('date-du-jour').textContent = today.charAt(0).toUpperCase() + today.slice(1);
-    </script>
-
-    </body></html>`;
-    
-    fs.writeFileSync(path.join(outputDir, 'horoscope.html'), horoscopeHtml);
-
-// Page Accueil (VERSION CORRIGÉE : OMBRES LIBÉRÉES)
-    const indexHtml = `<!DOCTYPE html><html lang="fr"><head>
-    <title>Horoscope Authentique</title>
-    
-    <link rel="icon" type="image/webp" href="./assets/favicon.webp">
-    <meta name="description" content="Votre horoscope quotidien gratuit et authentique. Découvrez votre avenir amoureux, professionnel et spirituel selon les véritables mouvements planétaires.">
-    <meta name="google-site-verification" content="Y48soU-Rt1uh7fBNj2rRT9c9YFGJZiBpkbEmwbhCydk" />
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    ${GA_SNIPPET}
-    <script type="application/ld+json">
+    // ---------- 9. Encyclopédie ----------
     {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Horoscope Authentique",
-      "alternateName": "Maison Authentique",
-      "url": "https://www.horoscope-authentique.fr/",
-      "logo": "https://www.horoscope-authentique.fr/assets/favicon.webp",
-      "founder": { "@type": "Person", "name": "Livia" },
-      "sameAs": []
-    }
-    </script>
-    <link rel="stylesheet" href="./assets/style.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA] justify-between">
-    
-    <header class="text-center pt-12 px-4">
-        <a href="apropos.html" class="text-xs tracking-[0.4em] uppercase text-gray-400 mb-6 font-bold hover:text-black transition-colors block">Bienvenue à la maison</a>
-        <div class="flex flex-col items-center">
-            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4">HOROSCOPE</h1>
-            <div class="w-24 h-[1px] bg-black mb-4"></div>
-            <h2 class="text-3xl md:text-5xl tracking-[0.2em] font-normal">AUTHENTIQUE</h2>
-        </div>
-    </header>
-
-    <main class="flex-grow w-full flex flex-col items-center justify-center py-6 gap-8 md:gap-12">
-        
-        <div class="flex flex-row flex-wrap justify-center gap-6 w-full px-4">
-            
-            <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
-                <a href="horoscope.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/entree.webp" alt="Horoscope du jour - Votre Oracle" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700">
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">HOROSCOPE</h3>
-                    <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Votre Oracle</p>
-                </a>
-            </div>
-
-            <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
-                <a href="compatibilite-amoureuse.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/compatibilite.webp" onerror="this.src='./assets/belier.webp'" alt="Compatibilité amoureuse entre signes du zodiaque" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.5s;">
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">AMOUR</h3>
-                    <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Compatibilité</p>
-                </a>
-            </div>
-
-            <div class="w-[42vw] md:w-80 text-center group cursor-pointer z-10">
-                <a href="red-flags.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/red-flags.webp" onerror="this.src='./assets/belier.webp'" alt="Red flags et signaux de toxicité par signe astrologique" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.7s;">
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">RED FLAGS</h3>
-                    <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">L'Oracle du Chaos</p>
-                </a>
-            </div>
-
-            <div class="flex flex-row justify-center w-full px-4 -mt-4 mb-4">
-            <div class="w-[50vw] md:w-96 text-center group cursor-pointer z-20">
-                <a href="etude-karmique.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/cabinet.webp" onerror="this.src='./assets/belier.webp'" alt="Cabinet Privé - Étude astrologique céleste et héritage familial" class="w-full h-auto drop-shadow-2xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 0.8s;">
-                        <div class="absolute -bottom-2 right-0 bg-[#D4AF37] text-white text-[10px] md:text-xs font-bold px-3 py-1 uppercase tracking-widest shadow-lg transform -rotate-6">Ouverture</div>
-                    </div>
-                    <h3 class="text-2xl md:text-3xl font-bold text-[#D4AF37] group-hover:text-black transition-colors">CABINET PRIVÉ</h3>
-                    <p class="text-[10px] md:text-xs tracking-widest text-gray-500 mt-1 uppercase">Étude Céleste & Héritage</p>
-                </a>
-            </div>
-        </div>
-        <div class="flex flex-row flex-wrap justify-center gap-4 md:gap-8 w-full px-2 max-w-6xl">
-            
-        </div>
-
-        <div class="flex flex-row flex-wrap justify-center gap-4 md:gap-8 w-full px-2 max-w-6xl">
-            
-            <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
-                <a href="signification.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/livre.webp" onerror="this.src='./assets/belier.webp'" alt="Encyclopédie de la signification des signes astrologiques" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1s;">
-                    </div>
-                    <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">ENCYCLOPÉDIE</h3>
-                    <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Signification</p>
-                </a>
-            </div>
-
-            <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
-                <a href="comprendre-astrologie.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/elements.webp" onerror="this.src='./assets/belier.webp'" alt="Les 4 éléments astrologiques : Feu, Terre, Air, Eau" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.2s;">
-                    </div>
-                    <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">ÉLÉMENTS</h3>
-                    <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Feu, Terre, Air, Eau</p>
-                </a>
-            </div>
-
-            <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
-                <a href="pierres-protectrices.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/pierres.webp" onerror="this.src='./assets/belier.webp'" alt="Pierres protectrices et lithothérapie" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.4s;">
-                    </div>
-                    <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">CRISTAUX</h3>
-                    <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Lithothérapie</p>
-                </a>
-            </div>
-
-            <div class="w-[42vw] md:w-56 text-center group cursor-pointer">
-                <a href="le-cosmos.html" class="block">
-                    <div class="relative mb-4">
-                        <img src="./assets/cosmos.webp" onerror="this.src='./assets/belier.webp'" alt="Astronomie et cosmos, l'écho de l'âme" class="w-full h-auto drop-shadow-xl breathe group-hover:scale-105 transition-transform duration-700" style="animation-delay: 1.6s;">
-                    </div>
-                    <h3 class="text-lg md:text-lg font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">COSMOS</h3>
-                    <p class="text-[10px] tracking-widest text-gray-500 mt-1 uppercase">Astronomie & Âme</p>
-                </a>
-            </div>
-
-        </div>
-
-    </main>
-
-    ${FAT_FOOTER_HTML}</body></html>`;
-    
-    fs.writeFileSync(path.join(outputDir, 'index.html'), indexHtml);
-
-   // COPIE INTELLIGENTE DES PAGES STATIQUES (AVEC INJECTION DU FOOTER)
-    const pagesStatiques = [
-        'apropos.html', 'signification.html', 'comprendre-astrologie.html', 
-        'pierres-protectrices.html', 'le-cosmos.html', 'compatibilite-amoureuse.html', 
-        'mentions-legales.html', 'red-flags.html', 'etude-karmique.html', 
-        'verite-horoscope-mensonge.html', 'links.html'
-    ];
-
-    if (fs.existsSync(assetsSrc)) fs.readdirSync(assetsSrc).forEach(file => fs.copyFileSync(path.join(assetsSrc, file), path.join(assetsDest, file)));
-
-    pagesStatiques.forEach(page => {
-        if (fs.existsSync(`./${page}`)) {
-            let content = fs.readFileSync(`./${page}`, 'utf-8');
-            
-            // --- LOGIQUE CROSS-SELLING (Injection avant le footer) ---
-            
-            // 1. Sur la page Red Flags -> On propose la Compatibilité
-            if (page === 'red-flags.html') {
-                content = content.replace('</body>', `${PROMO_COMPATIBILITE}</body>`);
+        const parCat = {};
+        for (const a of articlesPrets) (parCat[a.categorie] = parCat[a.categorie] || []).push(a);
+        const blocs = Object.keys(parCat).sort((x, y) => articlesLib.cat(x).priorite - articlesLib.cat(y).priorite).map((k) => {
+            const c = articlesLib.cat(k);
+            return `<div class="cat-block stack gap-l" id="${ancre(c.label)}"><h2 class="h2">${esc(c.label)}</h2><div class="alist">${parCat[k].map((a) => `<a class="aitem" href="${a.slug}.html"><img src="./assets/${c.image}" alt="" width="640" height="731" loading="lazy"><span><span class="t">${esc(a.titre)}</span><span class="m">${esc(tronquer((articlesLib.lireMeta(a.slug) || {}).enBref || a.sujet, 110))}</span></span></a>`).join('')}</div></div>`;
+        }).join('');
+        const crumbs = [accueilCrumb, { label: 'Encyclopédie' }];
+        const main = `
+<section class="wrap stack gap-m" style="padding-top:48px;padding-bottom:56px;align-items:center;text-align:center">
+<img src="./assets/livre.webp" alt="" width="640" height="731" style="width:150px;height:auto">
+<p class="eyebrow">La Bibliothèque de la Maison</p>
+<h1 class="display">L'Encyclopédie</h1>
+<p class="lede">Les notions qui vont plus loin que le signe solaire : planètes et transits, astronomie, rituels, lithothérapie. ${articlesPrets.length} articles signés Madeleine.</p>
+</section>
+<section class="section"><div class="wrap" style="padding-top:72px;padding-bottom:100px">${blocs}</div></section>`;
+        write('encyclopedie.html', L.page({
+            ...ctx, main, crumbs, active: 'encyclo',
+            head: {
+                title: "Encyclopédie de l'astrologie : planètes, rituels, pierres · Horoscope Authentique",
+                description: "Ascendant, Lilith, maisons astrologiques, Mercure rétrograde, nébuleuses, lithothérapie : l'encyclopédie de la Maison Authentique, signée Madeleine.",
+                file: 'encyclopedie.html', jsonld: [L.crumbsSchema(crumbs)]
             }
-            
-            // 2. Sur la page Compatibilité -> On propose les Red Flags
-            if (page === 'compatibilite-amoureuse.html') {
-                content = content.replace('</body>', `${PROMO_RED_FLAGS}</body>`);
-            }
-
-            // 3. Sur les pages de Savoir -> On propose l'Horoscope
-            if (['signification.html', 'comprendre-astrologie.html', 'pierres-protectrices.html', 'le-cosmos.html', 'verite-horoscope-mensonge.html'].includes(page)) {
-                content = content.replace('</body>', `${PROMO_HOROSCOPE}</body>`);
-            }
-
-            // --- FIN LOGIQUE CROSS-SELLING ---
-
-// --- INJECTION RICH SNIPPETS (SEO) ---
-            
-            // Sur la page Étude Karmique -> On injecte le Schema Produit (Étoiles + Prix)
-            if (page === 'etude-karmique.html') {
-                // On l'insère juste avant la fin du <head> pour que Google le lise en premier
-                content = content.replace('</head>', `${SCHEMA_PRODUCT}</head>`);
-            }
-
-            // On n'injecte PAS le footer sur links.html (c'est une page spéciale épurée)
-            if (page !== 'links.html') {
-                content = injectFooter(content);
-            }
-
-            content = injectGA(content);
-
-            fs.writeFileSync(path.join(outputDir, page), content);
-            console.log(`✅ Page traitée (avec Cross-Selling) : ${page}`);
-        }
-    });
-
-// --- DIAGNOSTIC SPÉCIAL LINKS.HTML ---
-    const sourceLinks = './links.html';
-    if (fs.existsSync(sourceLinks)) {
-        console.log("✅ VICTOIRE : links.html trouvé à la racine ! Copie en cours...");
-        fs.copyFileSync(sourceLinks, path.join(outputDir, 'links.html'));
-    } else {
-        console.error("❌ ERREUR CRITIQUE : Le script ne voit pas 'links.html' à la racine !");
-        console.log("Voici ce que je vois dans le dossier :", fs.readdirSync('.')); // Liste les fichiers
+        }));
     }
 
+    // ---------- 9 bis. Les nouvelles rubriques ----------
+    const cctx = { ciel, signs, bySlug, compatData, roastData, jour: horo, demain: horoDemain, semaine: horoSemaine, mois: horoMois, genere: quand };
+    const nouvelles = [C.periodes(cctx), C.theme(cctx), C.lune(cctx), C.paires(cctx), C.fiches(cctx), C.chinois(cctx), C.numerologie(cctx)].flatMap((r) => r.urls);
+    console.log(`✅ ${nouvelles.length} pages des nouvelles rubriques`);
 
-// 4. GÉNÉRATION DES ARTICLES DE BLOG (LITHOTHÉRAPIE)
-    console.log("💎 Vérification des articles de blog...");
-    
-    if (fs.existsSync('./articles.json') && fs.existsSync('./template-article.html')) {
-        const articles = require('./articles.json');
-        const templateArticle = fs.readFileSync('./template-article.html', 'utf-8');
-
-        for (const article of articles) {
-            const articlePath = path.join(outputDir, `${article.slug}.html`);
-
-            // Description meta unique par article, dérivée du sujet réel (pas un texte générique lithothérapie)
-            let descriptionArticle = article.sujet.trim();
-            if (descriptionArticle.length > 155) {
-                descriptionArticle = descriptionArticle.slice(0, 155).replace(/\s+\S*$/, '') + '...';
-            }
-
-// CRÉATION DU SCHEMA ARTICLE DYNAMIQUE
-            const schemaArticle = `
-            <script type="application/ld+json">
-            {
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://www.horoscope-authentique.fr/${article.slug}.html"
-              },
-              "headline": "${article.titre}",
-              "image": "https://www.horoscope-authentique.fr/assets/${article.image || 'livre.webp'}",
-              "author": {
-                "@type": "Person",
-                "name": "Livia - Maison Authentique"
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "Horoscope Authentique",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://www.horoscope-authentique.fr/assets/favicon.webp"
-                }
-              },
-              "datePublished": "${new Date().toISOString().split('T')[0]}",
-              "description": "Article complet sur ${article.sujet} : Découvrez les secrets de l'astrologie authentique."
-            }
-            </script>`;
-
-            // PATCH : SI L'ARTICLE EXISTE, ON MET JUSTE À JOUR LE FOOTER (SANS APPEL API)
-            if (fs.existsSync(articlePath)) {
-                console.log(`🔄 Mise à jour du footer pour : ${article.titre}`);
-                let existingContent = fs.readFileSync(articlePath, 'utf-8');
-
-                // 1. On nettoie l'ancien footer
-                existingContent = existingContent.replace(/<footer[\s\S]*?<\/footer>/i, '');
-
-                // 2. On injecte le nouveau FAT FOOTER
-                if(existingContent.includes('</body>')) {
-                    existingContent = existingContent.replace('</body>', `${FAT_FOOTER_HTML}</body>`);
-                } else {
-                    existingContent += FAT_FOOTER_HTML;
-                }
-
-                // 3. On rafraîchit la meta description (l'ancienne était le même texte générique lithothérapie pour tous les articles)
-                existingContent = existingContent.replace(
-                    /<meta name="description" content="[^"]*">/,
-                    `<meta name="description" content="${descriptionArticle.replace(/"/g, '&quot;')}">`
-                );
-
-                // 4. GA4
-                existingContent = injectGA(existingContent);
-
-                // 5. Sortie du CDN Tailwind (perf) vers le CSS compilé local
-                existingContent = existingContent.replace(
-                    '<script src="https://cdn.tailwindcss.com"></script>',
-                    '<link rel="stylesheet" href="./assets/style.css">'
-                );
-
-                // 6. Schema Article (absent des articles générés avant l'ajout de ce bloc)
-                if (!existingContent.includes('"BlogPosting"')) {
-                    existingContent = existingContent.replace('</head>', `${schemaArticle}</head>`);
-                }
-
-                // 7. Fil d'Ariane (absent des articles générés avant l'ajout de ce bloc)
-                if (!existingContent.includes('<nav')) {
-                    const breadcrumbArticlePatch = generateBreadcrumb([
-                        { label: 'Sanctuaire', url: 'index.html' },
-                        { label: 'Bibliothèque', url: 'signification.html#bibliotheque' },
-                        { label: article.categorie || 'Savoirs', url: null },
-                        { label: article.titre.substring(0, 20) + '...', url: null }
-                    ]);
-                    existingContent = existingContent.replace('<main', `${breadcrumbArticlePatch}<main`);
-                }
-
-                fs.writeFileSync(articlePath, existingContent);
-                continue; // On passe au suivant sans appeler Gemini
-            }
-
-            if (API_KEY) {
-                console.log(`✍️  Rédaction par Gemini : ${article.titre}...`);
-                
-                const promptArticle = `
-                RÔLE : Tu es une experte en lithothérapie et spiritualité bienveillante.
-                TACHE : Rédige un article de blog complet (environ 600 mots) sur ce sujet : "${article.sujet}".
-                TON : Mystique, chaleureux, expert mais accessible (pas trop perché). Tu tutoies le lecteur avec compassion, comme un mentor s'adressant à une âme.
-                
-                CONSIGNES IMPORTANTES :
-                1. NE TE PRÉSENTE PAS.
-                2. N'UTILISE PAS D'EMOJIS dans le texte.
-                3. RESTE NEUTRE DE GENRE : Évite les "ma chère", "amie". Parle directement à la personne sans marquer le féminin ou le masculin.
-                4. RENTRE DIRECTEMENT DANS LE SUJET : Pas de "Bonjour à toi" ou d'intro interminable. Commence par l'émotion ou le problème.
-                
-                FORMAT HTML : Utilise uniquement des balises <p>, <h2>, <ul>, <li>, <strong>. N'utilise PAS de <h1> (il est déjà dans le template). N'utilise PAS de balise <html> ou <body>.
-                STRUCTURE :
-                1. Une introduction qui touche le problème émotionnel (le "pourquoi").
-                2. L'explication des énergies de la pierre.
-                3. Un rituel concret ou un conseil d'utilisation pratique.
-                4. Une conclusion inspirante.
-                `;
-
-                try {
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: promptArticle }] }] })
-                    });
-                    const data = await response.json();
-                    
-                    if (data.candidates && data.candidates[0].content) {
-                        let articleBody = data.candidates[0].content.parts[0].text;
-                        
-                        // Nettoyage Markdown éventuel
-                        articleBody = articleBody.replace(/```html/g, '').replace(/```/g, '');
-
-                        // Assemblage final
-                        let finalHtml = templateArticle
-                            .replace(/{{titre}}/g, article.titre)
-                            .replace(/{{image}}/g, article.image)
-                            .replace(/{{categorie}}/g, article.categorie || 'Sagesse Ancestrale') // Nouvelle ligne
-                            .replace(/{{description}}/g, descriptionArticle)
-                            .replace(/{{contenu}}/g, articleBody);
-
-                        finalHtml = injectGA(finalHtml);
-
-                            // INJECTION DU SCHEMA DANS LE HEAD DE L'ARTICLE
-                        finalHtml = finalHtml.replace('</head>', `${schemaArticle}</head>`);
-
-                        // AJOUT du Fat Footer juste avant la fin du body
-                        if(finalHtml.includes('</body>')) {
-                            finalHtml = finalHtml.replace('</body>', `${FAT_FOOTER_HTML}</body>`);
-                        } else {
-                            // Au cas où le template n'a pas de body fermé (rare mais possible)
-                            finalHtml += FAT_FOOTER_HTML;
-                        }
-
-// --- INJECTION BREADCRUMB (ARTICLES) ---
-                        const breadcrumbArticle = generateBreadcrumb([
-                            { label: 'Sanctuaire', url: 'index.html' },
-                            { label: 'Bibliothèque', url: 'signification.html#bibliotheque' },
-                            { label: article.categorie || 'Savoirs', url: null },
-                            { label: article.titre.substring(0, 20) + '...', url: null } // On coupe si le titre est trop long
-                        ]);
-
-                        // Injection avant le main
-                        finalHtml = finalHtml.replace('<main', `${breadcrumbArticle}<main`);
-
-                        fs.writeFileSync(articlePath, finalHtml);
-                        console.log(`✅ Article généré : ${article.slug}.html`);
-                    }
-                } catch (err) {
-                    console.error("❌ Erreur génération article :", err.message);
-                }
-            }
-        }
-    } else {
-        console.log("⚠️ Fichier articles.json ou template-article.html manquant.");
-    }
-
-// --- SEO : GÉNÉRATION SITEMAP & ROBOTS.TXT ---
-    console.log("🔍 Génération du Sitemap et Robots.txt...");
-
-    // ⚠️ IMPORTANT : Mets ici la VRAIE adresse de ton site (sans le slash à la fin)
-    const SITE_URL = "https://www.horoscope-authentique.fr/"; 
-
-    // Liste manuelle des pages principales (contenu regénéré chaque jour -> changefreq daily)
-    const pagesToMap = [
-        '', // Pour la racine (index.html)
-        'horoscope.html'
-    ];
-
-    // Pages statiques (contenu éditorial stable -> changefreq monthly)
-    const pagesStablesSitemap = [
-        'compatibilite-amoureuse.html',
-        'red-flags.html',
-        'signification.html',
-        'comprendre-astrologie.html',
-        'pierres-protectrices.html',
-        'le-cosmos.html',
-        'verite-horoscope-mensonge.html',
-        'etude-karmique.html',
-        'apropos.html',
-        'mentions-legales.html'
-    ];
-
-    // On ajoute automatiquement les 12 pages des signes (regénérées chaque jour)
-    signs.forEach(sign => pagesToMap.push(`${sign.slug}.html`));
-
-    // AJOUT AUTOMATIQUE DES ARTICLES AU SITEMAP (contenu éditorial stable)
-    if (fs.existsSync('./articles.json')) {
-        const articles = require('./articles.json');
-        articles.forEach(art => pagesStablesSitemap.push(`${art.slug}.html`));
-    }
-
-    // Date du jour pour dire à Google que c'est frais
-    const dateModif = new Date().toISOString().split('T')[0];
-
-    // Création du contenu XML
-    let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
-
-    const ajouterUrl = (page, changefreq, priority) => {
-        // Si c'est la racine (''), on met juste l'URL du site, sinon URL+page (SITE_URL a déjà le slash final)
-        const urlPage = page === '' ? SITE_URL : `${SITE_URL}${page}`;
-
-        sitemapContent += `  <url>
-    <loc>${urlPage}</loc>
-    <lastmod>${dateModif}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-  </url>\n`;
+    // ---------- 10. Pages historiques, habillées du nouveau gabarit ----------
+    const historiques = {
+        'apropos.html': { active: null, label: 'Madeleine' },
+        'signification.html': { active: 'encyclo', label: 'Signification des signes' },
+        'comprendre-astrologie.html': { active: 'encyclo', label: 'Les quatre éléments' },
+        'pierres-protectrices.html': { active: 'litho', label: 'Lithothérapie' },
+        'le-cosmos.html': { active: 'encyclo', label: 'Astronomie & cosmos' },
+        'compatibilite-amoureuse.html': { active: 'compat', label: 'Compatibilité amoureuse' },
+        'red-flags.html': { active: 'redflags', label: 'Red Flags' },
+        'etude-karmique.html': { active: 'cabinet', label: 'Cabinet privé' },
+        'verite-horoscope-mensonge.html': { active: null, label: 'Le manifeste' },
+        'mentions-legales.html': { active: null, label: 'Mentions légales' }
+    };
+    const versHoroscope = L.bridge({ eyebrow: 'Assez de théorie', title: "Que vous réservent les astres aujourd'hui ?", href: 'horoscope.html', cta: 'Lire mon horoscope' });
+    const grille = (prefix, titre) => `<section class="section"><div class="wrap stack gap-l"><h2 class="h2 center">${titre}</h2><ul class="signs-grid">${signs.map((x) => `<li><a href="${prefix}${x.slug}.html">${IMG.medal(x.slug)}<span>${esc(x.name)}</span></a></li>`).join('')}</ul></div></section>`;
+    const passerelles = {
+        'red-flags.html': grille('red-flags-', 'Les red flags de chaque signe') + L.bridge({ eyebrow: 'Et pourtant…', title: 'Ces défauts sont-ils rédhibitoires ?', text: "L'amour est un équilibre. Vérifiez si vos astres s'alignent malgré tout.", href: 'compatibilite-amoureuse.html', cta: 'Tester la compatibilité' }),
+        'compatibilite-amoureuse.html': grille('compatibilite-', 'La compatibilité de chaque signe') + L.bridge({ eyebrow: "L'amour rend aveugle", title: 'Avez-vous repéré les signaux toxiques ?', text: "La compatibilité n'est pas tout.", href: 'red-flags.html', cta: 'Voir les red flags' }),
+        'signification.html': grille('', "L'horoscope du jour de chaque signe"),
+        'comprendre-astrologie.html': versHoroscope,
+        'pierres-protectrices.html': versHoroscope,
+        'le-cosmos.html': versHoroscope,
+        'verite-horoscope-mensonge.html': ''
     };
 
-    pagesToMap.forEach(page => ajouterUrl(page, 'daily', page === '' ? '1.0' : '0.8'));
-    pagesStablesSitemap.forEach(page => ajouterUrl(page, 'monthly', '0.6'));
+    for (const [file, conf] of Object.entries(historiques)) {
+        if (!fs.existsSync(file)) { console.warn('⚠️ Page source absente :', file); continue; }
+        const src = fs.readFileSync(file, 'utf-8');
+        const headSrc = src.slice(0, src.indexOf('</head>'));
+        const title = ((headSrc.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || conf.label).replace(/Maison Authentique$/, 'Horoscope Authentique');
+        const desc = (headSrc.match(/<meta name="description" content="([^"]*)"/) || [])[1];
+        const robots = (headSrc.match(/<meta name="robots" content="([^"]*)"/) || [])[1];
+        const styles = (headSrc.match(/<style>[\s\S]*?<\/style>/g) || []).join('\n');
+        const lds = (headSrc.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g) || []).join('\n');
+        const bodyTag = (src.match(/<body([^>]*)>/) || [, ''])[1];
+        const bodyClass = ((bodyTag.match(/class="([^"]*)"/) || [, ''])[1]).replace(/\bmin-h-screen\b|\bbg-\[#FAFAFA\]/g, '').trim();
+        let body = src.slice(src.indexOf('>', src.indexOf('<body')) + 1, src.lastIndexOf('</body>'));
+        body = body.replace(/<!-- Google tag[\s\S]*?<\/script>\s*<script>[\s\S]*?<\/script>/g, '')
+            .replace(/<header[\s\S]*?<\/header>/, '')
+            .replace(/<footer[\s\S]*?<\/footer>/g, '');
+        const extraLd = file === 'etude-karmique.html'
+            ? `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Service', name: 'Étude Céleste & Héritage', serviceType: 'Consultation astrologique écrite', provider: auteur, areaServed: 'FR', offers: { '@type': 'AggregateOffer', priceCurrency: 'EUR', lowPrice: '20', highPrice: '80', offerCount: 3 } })}</script>`
+            : '';
+        const crumbs = [accueilCrumb, { label: conf.label }];
+        const main = `<div class="legacy ${esc(bodyClass)}">${body}</div>${passerelles[file] || ''}`;
+        write(file, L.page({
+            ...ctx, main, crumbs, active: conf.active,
+            head: { title, description: desc, robots, file, jsonld: [L.crumbsSchema(crumbs)], extra: [styles, lds, extraLd].filter(Boolean).join('\n') }
+        }));
+    }
+    if (fs.existsSync('./links.html')) fs.copyFileSync('./links.html', path.join(OUT, 'links.html'));
+    fs.copyFileSync('./vercel.json', path.join(OUT, 'vercel.json')); // en-têtes de sécurité (si Vercel sert le dossier public)
+    console.log('✅ Pages historiques habillées');
 
-    sitemapContent += `</urlset>`;
+    // ---------- 11. Page 404 ----------
+    write('404.html', L.page({
+        ...ctx, crumbs: null,
+        main: `<section class="wrap-narrow stack gap-m center" style="align-items:center;padding-top:72px;padding-bottom:120px"><img src="./assets/lune-1.webp" alt="" width="240" height="274" style="width:110px;height:auto"><p class="eyebrow">Erreur 404</p><h1 class="display">Cette page s'est perdue dans le ciel.</h1><p class="lede">Elle a peut-être changé d'adresse. Le cadran des signes, lui, est toujours là.</p><a class="btn" href="./">Retour à l'accueil</a></section>`,
+        head: { title: 'Page introuvable · Horoscope Authentique', file: '404.html', robots: 'noindex' }
+    }));
 
-    // Écriture du fichier sitemap.xml
-    fs.writeFileSync(path.join(outputDir, 'sitemap.xml'), sitemapContent);
-    console.log("✅ sitemap.xml généré !");
+    // ---------- 11 bis. Filet de sécurité : aucun lien vers une page absente ----------
+    // (ex. « Horoscope de demain » une nuit où Gemini n'a pas répondu)
+    const existe = (h) => fs.existsSync(path.join(OUT, h));
+    let retires = 0;
+    for (const f of fs.readdirSync(OUT).filter((x) => x.endsWith('.html'))) {
+        const src = fs.readFileSync(path.join(OUT, f), 'utf-8');
+        const net = src
+            .replace(/<li><a href="([a-z0-9-]+\.html)"[^>]*>[^<]*<\/a><\/li>/g, (m, h) => (existe(h) ? m : (retires++, '')))
+            .replace(/<a ([^>]*?)href="([a-z0-9-]+\.html)"([^>]*)>([\s\S]*?)<\/a>/g, (m, a, h, b, t) => (existe(h) ? m : (retires++, `<span>${t}</span>`)));
+        if (net !== src) fs.writeFileSync(path.join(OUT, f), net);
+    }
+    if (retires) console.log(`⚠️  ${retires} lien(s) vers des pages absentes neutralisé(s)`);
 
-    // Écriture du fichier robots.txt
-    const robotsContent = `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}sitemap.xml`;
-    fs.writeFileSync(path.join(outputDir, 'robots.txt'), robotsContent);
-    console.log("✅ robots.txt généré !");
-
-    console.log("✅ FIN DU SCRIPT !");
+    // ---------- 12. Sitemap & robots.txt ----------
+    const jour = L.isoJour(quand);
+    const urls = [
+        ['', 'daily', '1.0', jour], ['horoscope.html', 'daily', '0.9', jour],
+        ...signs.map((s) => [`${s.slug}.html`, 'daily', '0.9', jour]),
+        ['encyclopedie.html', 'weekly', '0.7'],
+        ...signs.flatMap((s) => [[`compatibilite-${s.slug}.html`, 'monthly', '0.7'], [`red-flags-${s.slug}.html`, 'monthly', '0.6']]),
+        ...Object.keys(historiques).filter((f) => f !== 'mentions-legales.html').map((f) => [f, 'monthly', '0.6']),
+        ...articlesPrets.map((a) => { const m = articlesLib.lireMeta(a.slug) || {}; return [`${a.slug}.html`, 'monthly', '0.6', m.maj ? L.isoJour(m.maj) : null]; }),
+        ...nouvelles.map(([u, f, p]) => [u, f, p, f === 'daily' ? jour : null])
+    ];
+    write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u, f, p, lm]) => `  <url><loc>${L.SITE}${u}</loc>${lm ? `<lastmod>${lm}</lastmod>` : ''}<changefreq>${f}</changefreq><priority>${p}</priority></url>`).join('\n')}\n</urlset>\n`);
+    write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${L.SITE}sitemap.xml\n`);
+    console.log(`✅ Sitemap : ${urls.length} adresses`);
+    console.log('✅ FIN');
 }
 
-main();
+main().catch((e) => { console.error('❌', e); process.exit(1); });

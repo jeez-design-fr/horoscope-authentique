@@ -1,0 +1,175 @@
+{
+  "annee": 2027,
+  "auteur": "Madeleine",
+  "intro": "2027 s'ouvre sous le signe de la construction : Saturne et Neptune s'installent durablement en Bélier, Uranus poursuit sa route en Gémeaux et Pluton creuse son sillon en Verseau. Jupiter, la planète de l'expansion, quitte le Lion pour la Vierge le 26 juillet, et l'éclipse totale de Soleil du 2 août, en Lion, marque le grand tournant de l'été.",
+  "signes": {
+    "belier": {
+      "essentiel": "L'année où Saturne, installé dans ton signe, transforme ton élan en construction durable.",
+      "intro": "Avec Saturne et Neptune dans ton signe toute l'année, 2027 te demande de choisir ce que tu veux vraiment bâtir. Moins de départs en trombe, plus de fondations : ce que tu poses cette année tiendra des années.",
+      "trimestres": [
+        { "periode": "Janvier → mars", "titre": "Ralentir pour mieux viser", "texte": "Mars, ta planète, recule du 10 janvier au 1er avril. Ton énergie habituelle se fait plus sourde : c'est le moment de revoir un projet plutôt que de le forcer. Ce qui mûrit maintenant partira beaucoup plus loin au printemps." },
+        { "periode": "Avril → juin", "titre": "Le feu revient", "texte": "Mars repart le 1er avril et Jupiter, en Lion, redevient direct le 12 : tout ce qui touche au plaisir, à la création et au cœur se réchauffe. La nouvelle lune du 7 avril dans ton signe est ton vrai nouvel an : lance ce qui te tient à cœur." },
+        { "periode": "Juillet → septembre", "titre": "L'autre en face", "texte": "Mars traverse la Balance, ton signe opposé, du 15 juillet au 2 septembre : les relations demandent du tact, et les désaccords se règlent mieux par la parole que par la force. Jupiter entre en Vierge le 26 juillet et met l'accent sur ton quotidien, ton travail et ta santé." },
+        { "periode": "Octobre → décembre", "titre": "Le bilan de Saturne", "texte": "Saturne recule dans ton signe du 9 août au 23 décembre : il te fait trier ce que tu gardes et ce que tu laisses derrière toi. La pleine lune du 15 octobre en Bélier éclaire le chemin parcouru depuis avril." }
+      ],
+      "amour": "Le premier semestre, porté par Jupiter en Lion, est le plus doux pour les sentiments : rencontres, déclarations, envies de légèreté. L'été, avec Mars en Balance, rappelle qu'une relation se construit à deux.",
+      "travail": "Saturne récompense la constance plutôt que les coups d'éclat. À partir du 26 juillet, Jupiter en Vierge favorise les méthodes, l'organisation et les projets menés jusqu'au bout.",
+      "bienetre": "Ton énergie connaît un creux en début d'année, pendant la rétrogradation de Mars : écoute-la au lieu de la forcer. Le second semestre est idéal pour installer une hygiène de vie qui dure.",
+      "conseil": "Choisis un seul grand chantier et donne-lui toute l'année."
+    },
+    "taureau": {
+      "essentiel": "Une année pour revoir ta sécurité matérielle et laisser Jupiter réveiller ta joie de vivre en fin d'année.",
+      "intro": "Uranus en Gémeaux bouscule ta façon de gagner et de dépenser, pendant que Jupiter passe du Lion à la Vierge, un signe de Terre ami. 2027 commence par le foyer et finit par le plaisir.",
+      "trimestres": [
+        { "periode": "Janvier → mars", "titre": "Remettre le foyer en ordre", "texte": "Jupiter en Lion éclaire ta maison et ta famille : un déménagement, des travaux ou une réconciliation peuvent prendre forme. Avec Uranus en Gémeaux, tes finances demandent souplesse et inventivité." },
+        { "periode": "Avril → juin", "titre": "Ton printemps à toi", "texte": "La nouvelle lune du 6 mai dans ton signe ouvre ton cycle personnel : c'est le moment des bonnes résolutions concrètes. Jupiter redevenu direct le 12 avril soutient les projets liés au chez-soi." },
+        { "periode": "Juillet → septembre", "titre": "La chance change de pièce", "texte": "Jupiter entre en Vierge le 26 juillet, en accord parfait avec ton signe : amour, créativité et plaisirs simples reprennent de la place. Mars en Scorpion, ton signe opposé, à partir du 2 septembre, met de l'intensité dans tes relations." },
+        { "periode": "Octobre → décembre", "titre": "Se parler vraiment", "texte": "Mercure recule en Scorpion du 7 au 28 octobre : malentendus possibles dans le couple ou avec un associé, à désamorcer par la patience. La pleine lune du 14 novembre dans ton signe met en lumière ce que tu as construit." }
+      ],
+      "amour": "Le second semestre est nettement le plus favorable : Jupiter en Vierge t'invite à aimer plus légèrement et à t'amuser. L'automne, avec Mars puis Mercure en Scorpion, demande des conversations franches.",
+      "travail": "Uranus en Gémeaux remet en question tes sources de revenus : une idée neuve peut rapporter, à condition de garder un filet de sécurité. Saturne en Bélier t'invite à travailler en coulisses avant de te montrer.",
+      "bienetre": "Ton corps aime la régularité : le premier semestre, centré sur le foyer, est idéal pour réaménager ton espace et ton sommeil.",
+      "conseil": "Garde une réserve, puis autorise-toi le plaisir sans culpabilité."
+    },
+    "gemeaux": {
+      "essentiel": "Uranus dans ton signe t'invite à te réinventer : 2027 est l'année des surprises que tu provoques toi-même.",
+      "intro": "Uranus traverse ton signe toute l'année, et Mercure, ta planète, recule trois fois. 2027 est une année de réinvention : nouvelle image, nouvelles idées, nouvelles façons de vivre tes liens.",
+      "trimestres": [
+        { "periode": "Janvier → mars", "titre": "Les idées fusent", "texte": "Jupiter en Lion anime tes échanges, tes déplacements et tes apprentissages. Uranus repart en avant dans ton signe le 8 février : une envie de changement longtemps retenue peut enfin s'exprimer. Mercure recule du 9 février au 3 mars : relis tout avant de signer." },
+        { "periode": "Avril → juin", "titre": "Ton propre élan", "texte": "La nouvelle lune du 4 juin dans ton signe ouvre ton année personnelle. Mercure recule de nouveau du 10 juin au 4 juillet, en Cancer puis en Gémeaux : prends le temps de revenir sur une décision d'argent ou de famille." },
+        { "periode": "Juillet → septembre", "titre": "Retour aux racines", "texte": "Jupiter entre en Vierge le 26 juillet et met l'accent sur ton foyer et ta famille. Uranus recule à partir du 14 septembre : tu intègres en profondeur les changements de l'année." },
+        { "periode": "Octobre → décembre", "titre": "Le couple en mouvement", "texte": "Mars traverse le Sagittaire, ton signe opposé, du 16 octobre au 25 novembre : tes relations s'animent, pour le meilleur si tu acceptes le débat. La pleine lune du 13 décembre dans ton signe conclut l'année en beauté." }
+      ],
+      "amour": "Uranus te rend imprévisible et magnétique : on te remarque. L'automne, avec Mars en Sagittaire, apporte de la passion, et parfois des étincelles, dans tes relations.",
+      "travail": "Saturne en Bélier structure tes réseaux : les bonnes alliances professionnelles se construisent lentement mais solidement. Les trois rétrogradations de Mercure sont des moments pour reprendre, corriger et finaliser.",
+      "bienetre": "Ton mental va vite : la Vierge, où entre Jupiter en juillet, t'invite à ralentir et à soigner ton intérieur, au propre comme au figuré.",
+      "conseil": "Ose changer, mais garde une seule boussole pour toute l'année."
+    },
+    "cancer": {
+      "essentiel": "Une année pour asseoir ta place dans le monde : Saturne te demande des choix de carrière, Jupiter remplit ta besace.",
+      "intro": "Saturne en Bélier te pousse à prendre des responsabilités et à affirmer ta place, pendant que Jupiter, du Lion à la Vierge, favorise tes ressources puis tes échanges. 2027 te rend plus solide.",
+      "trimestres": [
+        { "periode": "Janvier → mars", "titre": "Les ressources grandissent", "texte": "Jupiter en Lion soutient tes finances et ta confiance en ta propre valeur. C'est un bon moment pour demander ce que tu mérites. Saturne en Bélier te rappelle que l'ambition se construit pas à pas." },
+        { "periode": "Avril → juin", "titre": "Revenir sur ses pas", "texte": "Mercure recule dans ton signe à partir du 10 juin : relis tes contrats, reprends contact avec quelqu'un du passé, revois une décision prise trop vite. Jupiter redevenu direct le 12 avril relance les projets d'argent." },
+        { "periode": "Juillet → septembre", "titre": "Ton nouvel an", "texte": "La nouvelle lune du 4 juillet dans ton signe ouvre ton cycle personnel. Jupiter entre en Vierge le 26 juillet : tes échanges, tes études et tes déplacements deviennent porteurs. L'éclipse de Lune du 18 juillet en Capricorne met en lumière ton couple." },
+        { "periode": "Octobre → décembre", "titre": "Tenir le cap", "texte": "Saturne recule en Bélier du 9 août au 23 décembre : le moment de vérifier que ta trajectoire professionnelle te ressemble. Mars entre en Capricorne, ton signe opposé, le 25 novembre : tes relations demandent de l'énergie et de la clarté." }
+      ],
+      "amour": "L'éclipse de juillet sur ton axe relationnel et Mars en Capricorne en fin d'année placent le couple au centre : tu sauras ce que tu veux vraiment construire à deux.",
+      "travail": "Saturne en Bélier, au sommet de ton thème solaire, est exigeant mais formateur : responsabilités, reconnaissance, parfois pression. Jupiter en Lion facilite les gains au premier semestre.",
+      "bienetre": "Protège ton énergie émotionnelle : tu portes beaucoup. Le second semestre, plus léger, est propice aux échanges et aux petites escapades.",
+      "conseil": "Demande, négocie, affirme : ta valeur ne se devine pas."
+    },
+    "lion": {
+      "essentiel": "Ton année de lumière : Jupiter dans ton signe jusqu'en juillet, puis une éclipse totale en Lion le 2 août.",
+      "intro": "Jupiter traverse ton signe jusqu'au 26 juillet, Mars y revient au printemps, et l'éclipse totale de Soleil du 2 août tombe en Lion. 2027 est l'année où tu changes de chapitre, à tes conditions.",
+      "trimestres": [
+        { "periode": "Janvier → mars", "titre": "La chance est chez toi", "texte": "Jupiter, dans ton signe, amplifie tout ce que tu entreprends. La pleine lune du 22 janvier en Lion révèle une réussite ou un désir longtemps contenu. Mars revient dans ton signe le 21 février, encore rétrograde : patience avant l'action." },
+        { "periode": "Avril → juin", "titre": "Le grand départ", "texte": "Mars repart le 1er avril et Jupiter le 12 : c'est ton moment, lance les projets qui comptent. Ton énergie et ton charisme sont au plus haut jusqu'au 14 mai, quand Mars quitte ton signe." },
+        { "periode": "Juillet → septembre", "titre": "L'éclipse du 2 août", "texte": "La nouvelle lune du 2 août est une éclipse totale de Soleil dans ton signe, visible à 51 % depuis Paris : un nouveau départ majeur, souvent inattendu. Jupiter passe en Vierge le 26 juillet et met l'accent sur tes ressources." },
+        { "periode": "Octobre → décembre", "titre": "Consolider", "texte": "Après l'élan de l'été, l'automne est fait pour transformer les promesses en résultats concrets, avec Jupiter en Vierge qui favorise les gains. Pluton en Verseau, en face de toi, continue de transformer tes relations en profondeur." }
+      ],
+      "amour": "Jupiter dans ton signe te rend irrésistible au premier semestre. Les éclipses sur l'axe Lion-Verseau, le 6 février et le 17 août, remettent à plat les relations qui ne te ressemblent plus.",
+      "travail": "Tes projets personnels ont le vent en poupe jusqu'en juillet. Après le 26 juillet, Jupiter en Vierge t'aide à faire fructifier ce que tu as lancé.",
+      "bienetre": "Ton énergie est au plus haut au printemps, avec Mars dans ton signe : canalise-la dans le sport plutôt que dans l'impatience.",
+      "conseil": "Prépare l'été dès janvier : l'éclipse du 2 août récompense ceux qui savent ce qu'ils veulent."
+    },
+    "vierge": {
+      "essentiel": "La seconde moitié de l'année t'appartient : Jupiter entre dans ton signe le 26 juillet.",
+      "intro": "2027 commence dans la retenue, avec Mars qui recule dans ton signe en janvier, et s'ouvre en grand l'été, quand Jupiter, la planète de la chance et de l'expansion, entre en Vierge pour un an.",
+      "trimestres": [
+        { "periode": "Janvier → mars", "titre": "Repenser avant d'agir", "texte": "Mars recule dans ton signe à partir du 10 janvier : une période pour réévaluer tes priorités plutôt que de foncer. La pleine lune du 21 février en Vierge est aussi une éclipse : elle te montre ce que tu peux enfin lâcher." },
+        { "periode": "Avril → juin", "titre": "L'énergie revient", "texte": "Mars repart le 1er avril, puis revient dans ton signe le 14 mai : élan, courage, envie de te montrer. C'est le bon moment pour les projets physiques et les décisions personnelles." },
+        { "periode": "Juillet → septembre", "titre": "Jupiter chez toi", "texte": "Jupiter entre dans ton signe le 26 juillet : confiance, opportunités, rencontres. La nouvelle lune du 31 août en Vierge ouvre un cycle de douze mois particulièrement porteur pour toi." },
+        { "periode": "Octobre → décembre", "titre": "Récolter", "texte": "Avec Jupiter dans ton signe, l'automne transforme tes efforts en résultats visibles. Saturne en Bélier, dans ta zone des partages, t'invite à clarifier les questions d'argent commun." }
+      ],
+      "amour": "Mercure, ta planète, recule à partir du 9 février en Poissons, ton signe opposé, jusqu'au 3 mars : prends le temps de bien te faire comprendre. Le second semestre, avec Jupiter dans ton signe, t'ouvre davantage aux autres et te donne confiance.",
+      "travail": "Le premier trimestre est fait pour planifier ; l'été pour agir. Jupiter dans ton signe à partir de juillet favorise les promotions, les lancements et la reconnaissance.",
+      "bienetre": "Mars rétrograde dans ton signe en début d'année réclame du repos ; Mars direct au printemps te redonne du tonus. Écoute ces deux rythmes.",
+      "conseil": "Garde ton énergie pour l'été : c'est là que tout s'ouvre."
+    },
+    "balance": {
+      "essentiel": "Une année de vérité dans tes relations : Saturne, en face de toi, garde ce qui est solide et écarte le reste.",
+      "intro": "Saturne et Neptune traversent le Bélier, ton signe opposé, toute l'année : tes relations et tes engagements passent au premier plan. 2027 trie, consolide et clarifie tes liens.",
+      "trimestres": [
+        { "periode": "Janvier → mars", "titre": "Des amis précieux", "texte": "Jupiter en Lion anime tes amitiés et tes projets collectifs : un réseau, une association ou un groupe peut changer ta trajectoire. La pleine lune du 22 mars dans ton signe révèle ce que tu veux vraiment dans un couple." },
+        { "periode": "Avril → juin", "titre": "Engagements", "texte": "Saturne en Bélier te pousse à clarifier tes engagements : contrats, couple, associations. Les liens solides se renforcent, les relations floues demandent une décision." },
+        { "periode": "Juillet → septembre", "titre": "L'élan de Mars", "texte": "Mars traverse ton signe du 15 juillet au 2 septembre : tu oses enfin t'affirmer, dire non, prendre l'initiative. Jupiter entre en Vierge le 26 juillet et t'invite à te ressourcer en coulisses. La nouvelle lune du 30 septembre en Balance ouvre ton cycle personnel." },
+        { "periode": "Octobre → décembre", "titre": "Le bilan des liens", "texte": "Saturne recule du 9 août au 23 décembre : le temps de faire le point sur tes relations avant de repartir. Mercure redevient direct dans ton signe le 28 octobre : les malentendus de l'automne se dissipent." }
+      ],
+      "amour": "C'est l'année des relations sérieuses : Saturne en face de toi récompense la sincérité et la constance. Si une relation dure, elle se consolide ; si elle est bancale, elle te le fera savoir.",
+      "travail": "Les associations et les collaborations sont au cœur de 2027. Choisis tes partenaires avec soin : Saturne demande des contrats clairs.",
+      "bienetre": "Mars dans ton signe l'été te redonne de l'énergie. Le second semestre, avec Jupiter en Vierge, appelle davantage de calme et de solitude choisie.",
+      "conseil": "Un oui sincère vaut mieux que dix promesses : engage-toi là où tu crois vraiment."
+    },
+    "scorpion": {
+      "essentiel": "L'année où ta carrière prend de la hauteur, avec Jupiter au sommet de ton ciel jusqu'en juillet.",
+      "intro": "Jupiter en Lion éclaire ta carrière et ta réputation jusqu'au 26 juillet, puis tes amitiés et tes projets. À l'automne, Mars, ta planète traditionnelle, traverse ton signe : 2027 se termine en puissance.",
+      "trimestres": [
+        { "periode": "Janvier → mars", "titre": "Visibilité", "texte": "Jupiter en Lion met ta vie professionnelle en lumière : opportunités, responsabilités, reconnaissance. Saturne en Bélier t'invite à structurer ton quotidien de travail pour tenir la distance." },
+        { "periode": "Avril → juin", "titre": "Deux pleines lunes chez toi", "texte": "Les pleines lunes du 21 avril et du 20 mai tombent dans ton signe : deux moments de révélation, sur toi et sur tes relations. Jupiter, direct le 12 avril, relance tes ambitions." },
+        { "periode": "Juillet → septembre", "titre": "Le pouvoir revient", "texte": "Jupiter entre en Vierge le 26 juillet et met l'accent sur tes amitiés et tes projets à long terme. Mars entre dans ton signe le 2 septembre : intensité, courage et force de décision jusqu'au 16 octobre." },
+        { "periode": "Octobre → décembre", "titre": "Repenser avant de renaître", "texte": "Mercure recule dans ton signe du 7 octobre, puis en Balance jusqu'au 28 : relis, réfléchis, ne signe rien dans l'urgence. La nouvelle lune du 29 octobre en Scorpion ouvre ensuite ton nouveau cycle." }
+      ],
+      "amour": "Les pleines lunes de printemps dans ton signe révèlent la vérité de tes relations. L'automne, avec Mars chez toi, te rend magnétique.",
+      "travail": "C'est l'une de tes meilleures années pour la carrière jusqu'en juillet. Saturne en Bélier demande de la rigueur dans l'organisation : délègue ce qui t'épuise.",
+      "bienetre": "Saturne dans ta zone du quotidien t'invite à installer des habitudes saines et régulières. Ton énergie est maximale à l'automne.",
+      "conseil": "Saisis les opportunités du premier semestre : elles ne repasseront pas de sitôt."
+    },
+    "sagittaire": {
+      "essentiel": "Une année de feu : Jupiter, ta planète, et Saturne en Bélier soutiennent ton goût de l'aventure et de l'amour.",
+      "intro": "Jupiter, ta planète maîtresse, traverse le Lion, un signe de Feu comme toi, jusqu'au 26 juillet : voyages, études, horizons nouveaux. Saturne en Bélier donne de la profondeur à tes amours et à ta créativité.",
+      "trimestres": [
+        { "periode": "Janvier → mars", "titre": "L'appel du large", "texte": "Jupiter en Lion ouvre tes horizons : voyage, formation, projet à l'étranger, publication. Uranus repart en avant en Gémeaux, ton signe opposé, le 8 février : tes relations te réservent des surprises." },
+        { "periode": "Avril → juin", "titre": "Créer, aimer", "texte": "Saturne en Bélier t'invite à t'engager dans ce qui te passionne : un projet créatif, un amour, un enfant, un talent. La pleine lune du 19 juin dans ton signe révèle ce que tu as construit." },
+        { "periode": "Juillet → septembre", "titre": "Cap sur la carrière", "texte": "Jupiter entre en Vierge le 26 juillet, au sommet de ton ciel : responsabilités et ambitions professionnelles prennent le relais du voyage. Uranus recule en Gémeaux à partir du 14 septembre : tu prends du recul sur tes liens." },
+        { "periode": "Octobre → décembre", "titre": "Ton énergie reprend feu", "texte": "Mars traverse ton signe du 16 octobre au 25 novembre : dynamisme, courage, envie d'action. La nouvelle lune du 28 novembre en Sagittaire ouvre ton cycle personnel sous les meilleurs auspices." }
+      ],
+      "amour": "Saturne en Bélier, dans ta zone des amours, rend tes sentiments plus sérieux et plus durables. Uranus en face de toi apporte de l'imprévu dans tes relations.",
+      "travail": "Le premier semestre favorise tout ce qui élargit ton champ : études, international, transmission. Le second semestre, avec Jupiter en Vierge, met ta carrière à l'honneur.",
+      "bienetre": "Mars dans ton signe à l'automne te donne un tonus remarquable : profites-en pour un défi sportif ou un voyage actif.",
+      "conseil": "Pars loin au printemps, construis haut à l'automne."
+    },
+    "capricorne": {
+      "essentiel": "Saturne, ta planète, consolide tes fondations : 2027 est l'année du foyer solide et des horizons élargis.",
+      "intro": "Saturne, ta planète maîtresse, traverse le Bélier toute l'année : il travaille tes racines, ta maison, ta famille. Jupiter, en Vierge à partir du 26 juillet, t'ouvre ensuite de nouveaux horizons.",
+      "trimestres": [
+        { "periode": "Janvier → mars", "titre": "Ton nouvel an", "texte": "La nouvelle lune du 7 janvier dans ton signe ouvre ton année sous le signe de l'intention. Jupiter en Lion touche tes ressources partagées : héritages, prêts, investissements demandent ton attention." },
+        { "periode": "Avril → juin", "titre": "Les fondations", "texte": "Saturne en Bélier te pousse à consolider ton chez-toi : achat, travaux, réorganisation familiale. Mercure recule à partir du 10 juin en Cancer, ton signe opposé, jusqu'au 4 juillet : tes conversations de couple demandent de la patience." },
+        { "periode": "Juillet → septembre", "titre": "Ouvrir l'horizon", "texte": "La pleine lune du 18 juillet dans ton signe est aussi une éclipse : elle révèle un équilibre à trouver entre ta vie privée et tes ambitions. Jupiter entre en Vierge le 26 juillet, un signe de Terre ami : voyages, études, sens de la vie." },
+        { "periode": "Octobre → décembre", "titre": "L'énergie de fin d'année", "texte": "Saturne recule jusqu'au 23 décembre : le temps de vérifier que tes bases sont solides. Mars entre dans ton signe le 25 novembre : tu termines l'année avec force et détermination." }
+      ],
+      "amour": "L'éclipse de juillet et Mercure rétrograde en Cancer placent ton couple au centre : parle de l'avenir, du foyer, des projets communs.",
+      "travail": "Saturne te demande d'équilibrer ambition et vie privée. Le second semestre, avec Jupiter en Vierge, favorise les formations et les projets à l'étranger.",
+      "bienetre": "Ton chez-toi est ta ressource principale cette année : investis dans un intérieur qui te repose vraiment.",
+      "conseil": "Construis d'abord ta maison intérieure : le reste suivra."
+    },
+    "verseau": {
+      "essentiel": "Pluton dans ton signe et deux éclipses en Verseau : 2027 est une année de transformation profonde.",
+      "intro": "Pluton poursuit sa traversée de ton signe, et les éclipses du 6 février et du 17 août tombent en Verseau. Jupiter en Lion, en face de toi jusqu'en juillet, ouvre grand la porte des relations.",
+      "trimestres": [
+        { "periode": "Janvier → mars", "titre": "L'éclipse dans ton signe", "texte": "La nouvelle lune du 6 février en Verseau est une éclipse annulaire de Soleil, le jour du Nouvel An chinois : un nouveau départ personnel majeur. Jupiter en Lion, ton signe opposé, attire vers toi des rencontres et des partenaires importants." },
+        { "periode": "Avril → juin", "titre": "Les autres en miroir", "texte": "Mars repart en Lion le 1er avril et Jupiter le 12 : tes relations s'animent, parfois avec des étincelles. Saturne en Bélier t'invite à soigner ta parole et tes apprentissages." },
+        { "periode": "Juillet → septembre", "titre": "Le grand tournant", "texte": "L'éclipse totale de Soleil du 2 août, en Lion, puis l'éclipse de Lune du 17 août dans ton signe redessinent ton équilibre entre toi et les autres. Jupiter entre en Vierge le 26 juillet et touche tes ressources partagées." },
+        { "periode": "Octobre → décembre", "titre": "Renaître", "texte": "Pluton redevient direct dans ton signe le 17 octobre : ce qui s'est transformé en toi cette année devient visible. Uranus en Gémeaux, un signe d'Air ami, soutient ta créativité et tes amours." }
+      ],
+      "amour": "Jupiter en face de toi au premier semestre est l'un des plus beaux passages pour les rencontres et les engagements. Les éclipses de l'été trient ce qui doit l'être.",
+      "travail": "Pluton te pousse à te réinventer : un changement d'orientation mûri cette année peut être décisif. Saturne en Bélier récompense la formation et la précision.",
+      "bienetre": "Les éclipses demandent beaucoup d'énergie : garde des temps de repos autour du 6 février et du 2 août.",
+      "conseil": "Laisse partir ce qui ne te ressemble plus : la place libérée sera vite occupée."
+    },
+    "poissons": {
+      "essentiel": "Une année pour construire ta sécurité et laisser Jupiter, en face de toi dès juillet, ouvrir la porte des rencontres.",
+      "intro": "Neptune, ta planète maîtresse, et Saturne traversent le Bélier, ta zone des ressources : 2027 te demande de structurer ton argent et ta valeur. À partir du 26 juillet, Jupiter en Vierge, ton signe opposé, met tes relations à l'honneur.",
+      "trimestres": [
+        { "periode": "Janvier → mars", "titre": "Bien se faire comprendre", "texte": "Mercure recule dans ton signe à partir du 9 février : relis, clarifie, reprends une conversation inachevée. La nouvelle lune du 8 mars en Poissons ouvre ton cycle personnel avec douceur." },
+        { "periode": "Avril → juin", "titre": "Ta valeur", "texte": "Saturne et Neptune en Bélier t'invitent à revoir ton rapport à l'argent : poser des limites, demander ce que tu vaux, épargner. Mars en Vierge, en face de toi à partir du 14 mai, réveille tes relations." },
+        { "periode": "Juillet → septembre", "titre": "L'autre arrive", "texte": "Jupiter entre en Vierge, ton signe opposé, le 26 juillet : rencontres, associations, engagements. La pleine lune du 16 septembre dans ton signe éclaire ce que tu veux vraiment partager." },
+        { "periode": "Octobre → décembre", "titre": "Consolider à deux", "texte": "Avec Jupiter en Vierge, l'automne est porteur pour les projets communs et les contrats. Neptune redevient direct en Bélier le 14 décembre : tes intuitions financières se précisent." }
+      ],
+      "amour": "Le second semestre est l'un des plus beaux depuis longtemps pour les relations : Jupiter en face de toi favorise les rencontres sincères et les engagements.",
+      "travail": "Saturne en Bélier structure tes finances : c'est l'année pour assainir, négocier et bâtir une sécurité durable.",
+      "bienetre": "Mercure rétrograde dans ton signe en février appelle le calme. Protège ta sensibilité et garde des moments de retraite.",
+      "conseil": "Sécurise ton socle au premier semestre pour accueillir les autres au second."
+    }
+  }
+}

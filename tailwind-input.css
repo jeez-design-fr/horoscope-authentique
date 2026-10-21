@@ -1,3 +1,391 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* =====================================================================
+   MAISON AUTHENTIQUE — « Porcelaine & feuille d'or »
+   Deux familles seulement : Cormorant Garamond (titres + texte)
+   et Cinzel (petites capitales : navigation, étiquettes, pied de page).
+   Polices auto-hébergées (plus rapide, et rien n'est envoyé à Google).
+   ===================================================================== */
+
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300;font-display:swap;src:url(fonts/cormorant-garamond-latin-300-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300;font-display:swap;src:url(fonts/cormorant-garamond-latin-300-italic.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-italic.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Cinzel';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/cinzel-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Cinzel';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cinzel-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Cinzel';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/cinzel-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Cinzel';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/cinzel-latin-700-normal.woff2) format('woff2')}
+
+:root{
+  --fond:#FFFFFF;
+  --encre:#1C1A17;
+  --encre-2:#4A453E;
+  --gris:#6B655B;
+  --or:#8A6A22;
+  --or-clair:#C9A54A;
+  --filet:#E8DDBF;
+  --filet-2:#EEEAE2;
+  --survol:#FBF9F4;
+  --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --caps:'Cinzel', 'Cormorant Garamond', Georgia, serif;
+}
+
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--fond) !important;color:var(--encre);font-family:var(--serif);font-size:20px;font-weight:500;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--or)}
+:focus-visible{outline:2px solid var(--or);outline-offset:4px}
+::selection{background:#F1E6C8;color:var(--encre)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ---------- Typographie ---------- */
+.wrap{max-width:1240px;margin:0 auto;padding-left:24px;padding-right:24px}
+.wrap-narrow{max-width:860px;margin:0 auto;padding-left:24px;padding-right:24px}
+.eyebrow{margin:0;font-family:var(--caps);font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.caps{font-family:var(--caps);font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+.display{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(44px,5.6vw,80px);line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+.display em,.h2 em{font-style:italic;color:var(--or)}
+.h2{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(34px,3.6vw,50px);line-height:1.08;text-wrap:balance}
+.h3{margin:0;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.15}
+.lede{margin:0;max-width:34em;color:var(--encre-2);font-size:22px;line-height:1.55}
+.muted{color:var(--gris)}
+.small{font-size:16px}
+.center{text-align:center}
+.stack{display:flex;flex-direction:column}
+.gap-s{gap:12px}.gap-m{gap:22px}.gap-l{gap:40px}.gap-xl{gap:56px}
+.head-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 48px}
+
+/* ---------- Boutons & liens ---------- */
+.btn{display:inline-block;padding:18px 30px;background:var(--encre);color:#FFFFFF;font-family:var(--caps);font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;transition:background .3s}
+.btn:hover{background:var(--or);color:#FFFFFF}
+.ulink{font-family:var(--caps);font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--or-clair);padding-bottom:4px}
+.ulink:hover{border-bottom-color:var(--or)}
+.inlink{border-bottom:1px solid var(--or-clair)}
+.inlink:hover{border-bottom-color:var(--or)}
+
+/* ---------- Bandeau du ciel, en-tête, navigation ---------- */
+.ciel-bar{border-bottom:1px solid var(--filet-2)}
+.ciel-bar .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;padding-top:10px;padding-bottom:10px;font-family:var(--caps);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris)}
+.site-header{display:flex;flex-direction:column;align-items:center;gap:24px;padding-top:32px}
+.site-header .logo{display:block;width:min(290px,68vw)}
+.site-header .logo img{width:100%;height:auto}
+.site-header.compact{padding-top:22px;gap:18px}
+.site-header.compact .logo{width:min(210px,56vw)}
+.nav{width:100%;border-top:1px solid var(--filet);border-bottom:1px solid var(--filet)}
+.nav ul{list-style:none;margin:0;padding:15px 0;display:flex;justify-content:center;gap:12px 38px;font-family:var(--caps);font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+.nav a[aria-current="page"]{color:var(--or)}
+.nav .accent{color:var(--or)}
+@media (max-width:820px){
+  .nav ul{justify-content:flex-start;overflow-x:auto;white-space:nowrap;padding:14px 24px;gap:28px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent)}
+  .nav ul::-webkit-scrollbar{display:none}
+}
+.crumbs{padding-top:26px}
+.crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--caps);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+.crumbs li+li::before{content:"/";color:var(--or-clair);margin-right:8px}
+.crumbs [aria-current]{color:var(--encre)}
+
+/* ---------- Sections ---------- */
+.section{border-top:1px solid var(--filet-2)}
+.section>.wrap,.section>.wrap-narrow{padding-top:100px;padding-bottom:100px}
+@media (max-width:720px){.section>.wrap,.section>.wrap-narrow{padding-top:68px;padding-bottom:68px}}
+
+/* ---------- Accueil : héro + cadran ---------- */
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:56px 64px;padding-top:64px;padding-bottom:96px}
+.hero-text{flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:26px}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px;padding-top:6px}
+.hero-dial{flex:1 1 480px;min-width:0;display:flex;justify-content:center}
+.dial{position:relative;width:min(600px,100%);aspect-ratio:1/1}
+.dial .orbit{position:absolute;border:1px solid var(--filet);border-radius:50%}
+.dial .orbit.r1{left:9%;top:9%;width:82%;height:82%}
+.dial .orbit.r2{left:26%;top:26%;width:48%;height:48%;border-color:#F1EAD6}
+.dial .centre{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:40%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px}
+.dial .centre img{width:56%;height:auto}
+.dial .centre .k{font-family:var(--caps);font-size:clamp(9px,1vw,11px);letter-spacing:.2em;text-transform:uppercase;color:var(--or)}
+.dial .centre .v{font-size:clamp(15px,1.7vw,22px);line-height:1.15}
+.dial .centre .s{font-size:clamp(12px,1.1vw,15px);color:var(--gris)}
+.dial .medal{position:absolute;display:block;width:15%;transform:translate(-50%,-50%)}
+.dial .medal img{width:100%;height:auto;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.dial .medal:hover img{transform:scale(1.07)}
+.dial .medal span{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:2px;white-space:nowrap;font-family:var(--caps);font-size:clamp(8px,1vw,11px);letter-spacing:.14em;text-transform:uppercase}
+
+/* ---------- Le ciel du jour ---------- */
+.astres{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border-top:1px solid var(--filet)}
+.astres li{display:flex;flex-direction:column;gap:2px;padding:18px 16px 18px 0;border-bottom:1px solid var(--filet)}
+.astres .n{font-family:var(--caps);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris)}
+.astres .v{font-size:25px;line-height:1.2}
+.astres .r{font-size:15px;font-style:italic;color:var(--or)}
+
+/* ---------- Cycle lunaire ---------- */
+.phases{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:28px 16px}
+.phases li{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.phases img{width:76px;height:auto;opacity:.5}
+.phases li.now img{opacity:1}
+.phases .nm{font-size:19px;line-height:1.2}
+.tag-now{font-family:var(--caps);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#FFFFFF;background:var(--encre);padding:4px 10px}
+
+/* ---------- Outils ---------- */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:48px 32px}
+.tool{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+.tool img{width:180px;height:200px;object-fit:contain;margin-bottom:10px;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.tool:hover img{transform:translateY(-6px)}
+.tool p{margin:0;color:var(--encre-2);font-size:19px;max-width:20em}
+
+/* ---------- Split (image + texte) ---------- */
+.split{display:flex;flex-wrap:wrap;align-items:center;gap:56px 80px}
+.split-media{flex:1 1 340px;display:flex;justify-content:center}
+.split-media img{width:min(420px,100%);height:auto}
+.split-text{flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:22px}
+.offers{list-style:none;margin:8px 0 0;padding:0;border-top:1px solid var(--filet)}
+.offers li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 24px;padding:20px 0;border-bottom:1px solid var(--filet)}
+.offers .o-n{flex:1 1 220px;font-size:25px;line-height:1.2}
+.offers .o-t{flex:2 1 240px;color:var(--encre-2);font-size:18px}
+.offers .o-p{font-size:27px;font-variant-numeric:tabular-nums;color:var(--or)}
+
+/* ---------- Listes d'articles ---------- */
+.alist{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:0 56px}
+.aitem{display:flex;gap:24px;align-items:center;padding:24px 0;border-top:1px solid var(--filet-2)}
+.aitem img{width:96px;height:110px;object-fit:contain;flex:none}
+.aitem .t{display:block;font-size:26px;line-height:1.15}
+.aitem .m{display:block;font-size:16px;color:var(--gris)}
+.aitem .c{display:block;font-family:var(--caps);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--or);margin-bottom:4px}
+
+/* ---------- FAQ ---------- */
+.faq{border-top:1px solid var(--filet)}
+.faq details{border-bottom:1px solid var(--filet)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;font-size:26px;line-height:1.25}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .plus{flex:none;font-family:var(--caps);font-size:22px;color:var(--or);transition:transform .3s}
+.faq details[open] .plus{transform:rotate(45deg)}
+.faq .rep{margin:0;padding:0 0 26px;color:var(--encre-2);max-width:40em}
+
+/* ---------- Citation ---------- */
+.quote{margin:0;font-style:italic;font-weight:300;font-size:clamp(30px,3.4vw,44px);line-height:1.2;text-wrap:balance}
+
+/* ---------- Pied de page ---------- */
+.site-footer{border-top:1px solid var(--filet)}
+.site-footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px 32px;padding-top:72px}
+.site-footer h2{margin:0 0 16px;font-family:var(--caps);font-weight:500;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--or)}
+.site-footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:19px}
+.site-footer ul.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 16px}
+.site-footer .devise{margin:0 0 14px;font-style:italic;color:var(--encre-2);font-size:19px}
+.site-footer .bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:56px;padding:26px 0 40px;border-top:1px solid var(--filet-2);font-family:var(--caps);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris)}
+.site-footer .bottom img{width:150px;height:auto}
+
+/* ---------- Fiche signe ---------- */
+.sign-hero{display:flex;flex-wrap:wrap;align-items:center;gap:56px 80px;padding-top:44px;padding-bottom:88px}
+.sign-hero .media{flex:1 1 340px;display:flex;justify-content:center}
+.sign-hero .media img{width:min(400px,100%);height:auto}
+.sign-hero .text{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:22px}
+.meta-caps{margin:0;display:flex;flex-wrap:wrap;gap:6px 22px;font-family:var(--caps);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris)}
+.essentiel{border-top:1px solid var(--filet);border-bottom:1px solid var(--filet);padding:26px 0;display:flex;flex-direction:column;gap:10px}
+.essentiel p:last-child{margin:0;font-style:italic;font-weight:300;font-size:clamp(26px,2.6vw,34px);line-height:1.25;text-wrap:balance}
+.lectures{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px 56px}
+.lecture{border-top:1px solid var(--or-clair);padding-top:26px;display:flex;flex-direction:column;gap:14px}
+.lecture .lb{margin:0;display:flex;justify-content:space-between;font-family:var(--caps);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.lecture .tx{margin:0;font-size:22px;line-height:1.55;color:#3A362F}
+.fiche{flex:1 1 440px;min-width:0;margin:0;border-top:1px solid var(--filet)}
+.fiche>div{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 0;border-bottom:1px solid var(--filet)}
+.fiche dt{font-family:var(--caps);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris)}
+.fiche dd{margin:0;font-size:25px;text-align:right}
+.compat{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:0 48px}
+.compat li{border-top:1px solid var(--filet-2)}
+.compat a{display:flex;align-items:center;gap:18px;padding:16px 8px;transition:background .3s}
+.compat a:hover{background:var(--survol)}
+.compat img{width:52px;height:auto;flex:none}
+.compat .info{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:2px}
+.compat .duo{font-family:var(--caps);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris)}
+.compat .ti{font-size:23px;line-height:1.2}
+.compat .bar{display:block;height:2px;background:#F1EAD6;margin-top:8px}
+.compat .bar span{display:block;height:2px;background:var(--or-clair)}
+.compat .sc{flex:none;font-size:27px;font-variant-numeric:tabular-nums;color:var(--or)}
+.strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px 48px}
+.strip .l{display:flex;align-items:center;gap:28px;flex:1 1 520px;min-width:0}
+.strip .l img{width:96px;height:auto;flex:none}
+.signs-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:28px 12px}
+.signs-grid a{display:flex;flex-direction:column;align-items:center;gap:10px}
+.signs-grid img{width:68px;height:auto;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.signs-grid a:hover img{transform:scale(1.07)}
+.signs-grid span{font-family:var(--caps);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+
+/* ---------- Hub horoscope ---------- */
+.hub{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:0 56px}
+.hub li{border-top:1px solid var(--filet-2)}
+.hub a{display:flex;gap:22px;align-items:flex-start;padding:26px 0}
+.hub img{width:72px;height:auto;flex:none}
+.hub .nm{display:block;font-size:30px;line-height:1.1}
+.hub .dt{display:block;font-family:var(--caps);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris);margin:4px 0 8px}
+.hub .es{display:block;font-style:italic;font-size:21px;line-height:1.4;color:var(--encre-2)}
+
+/* ---------- Pages résumé compatibilité / red flags ---------- */
+.duos{display:flex;flex-direction:column}
+.duo-card{border-top:1px solid var(--filet);padding:40px 0;display:flex;flex-wrap:wrap;gap:24px 48px}
+.duo-card .side{flex:0 1 260px;display:flex;flex-direction:column;gap:8px}
+.duo-card .side img{width:64px;height:auto}
+.duo-card .main{flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.duo-card dl{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px 32px}
+.duo-card dt{font-family:var(--caps);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--or);margin-bottom:4px}
+.duo-card dd{margin:0;color:var(--encre-2);font-size:19px;line-height:1.5}
+.score{font-size:40px;line-height:1;font-variant-numeric:tabular-nums;color:var(--or)}
+
+/* ---------- Article ---------- */
+.article-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;padding-top:52px;padding-bottom:36px}
+.article-head .dek{margin:0;max-width:30em;font-style:italic;font-size:clamp(22px,2.2vw,28px);line-height:1.35;color:var(--encre-2)}
+.article-head .by{margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 20px;font-size:17px;color:var(--gris)}
+.article-head img{width:min(260px,66%);height:auto;margin-top:16px}
+.article-layout{max-width:1100px;margin:0 auto;padding:24px 24px 96px;display:flex;flex-wrap:wrap;gap:48px 72px}
+.toc{flex:0 1 240px;min-width:0}
+.toc ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--filet)}
+.toc li{border-bottom:1px solid var(--filet-2)}
+.toc a{display:flex;gap:12px;padding:11px 0;font-family:var(--caps);font-size:11px;letter-spacing:.14em;text-transform:uppercase;line-height:1.5}
+.toc a span:first-child{color:var(--or);font-variant-numeric:tabular-nums}
+.enbref{border-top:1px solid var(--or-clair);border-bottom:1px solid var(--or-clair);padding:26px 0;display:flex;flex-direction:column;gap:10px}
+.enbref .tx{margin:0;font-size:24px;line-height:1.5}
+.prose{flex:1 1 560px;min-width:0;max-width:700px;display:flex;flex-direction:column;gap:22px;font-size:21px;line-height:1.75}
+.prose p{margin:0}
+.prose h2{margin:22px 0 0;font-weight:400;font-size:36px;line-height:1.15;scroll-margin-top:24px}
+.prose h3{margin:12px 0 0;font-weight:500;font-size:26px}
+.prose ul,.prose ol.list{margin:0;padding:0;list-style:none;border-top:1px solid var(--filet-2)}
+.prose ul li,.prose ol.list li{padding:14px 0 14px 28px;border-bottom:1px solid var(--filet-2);position:relative}
+.prose ul li::before{content:"";position:absolute;left:4px;top:30px;width:8px;height:1px;background:var(--or)}
+.prose strong{font-weight:600}
+.prose blockquote{margin:12px 0;padding:6px 0 6px 28px;border-left:1px solid var(--or-clair);font-style:italic;font-weight:300;font-size:32px;line-height:1.3}
+.prose .lettrine::first-letter{font-size:4.4em;float:left;line-height:.8;margin:8px 12px 0 0;color:var(--or);font-weight:300}
+.author{margin-top:28px;padding:30px 0;border-top:1px solid var(--filet);border-bottom:1px solid var(--filet);display:flex;gap:24px;align-items:flex-start}
+.author img{width:64px;height:auto;flex:none}
+.related{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px 40px}
+.related a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.related img{width:150px;height:170px;object-fit:contain;margin-bottom:8px;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.related a:hover img{transform:translateY(-6px)}
+.related .t{font-size:27px;line-height:1.15;max-width:14em}
+
+/* ---------- Encyclopédie ---------- */
+.cat-block+.cat-block{margin-top:72px}
+
+/* ---------- Pages historiques (calculateurs, cabinet…) ---------- */
+.legacy{background:transparent !important}
+.legacy .porcelain-card{border-radius:0 !important;box-shadow:none !important;border:1px solid var(--filet) !important}
+
+/* ---------- Passerelles entre pages ---------- */
+.bridge .wrap-narrow{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+.bridge p.q{margin:0;font-style:italic;color:var(--encre-2);font-size:22px}
+
+/* ---------- Ajustements téléphone ---------- */
+@media (max-width:720px){
+  .hero{padding-top:28px;gap:36px}
+  .hero-dial{order:-1}
+  .site-header .logo{width:min(210px,58vw)}
+  .site-header{padding-top:24px;gap:18px}
+  .ciel-bar .wrap span:last-child{display:none}
+  .display{font-size:clamp(40px,11vw,56px)}
+  .lede{font-size:20px}
+}
+
+/* ---------- Titres des pages historiques alignés sur le nouveau style ---------- */
+.legacy h1{font-family:var(--serif) !important;font-weight:300 !important;font-size:clamp(42px,5.4vw,76px) !important;line-height:1.04 !important;letter-spacing:-.01em !important;text-transform:none !important;text-wrap:balance;margin-top:48px !important;color:var(--encre)}
+.legacy h1+h2,.legacy h1+p{font-family:var(--serif) !important;font-style:italic;font-weight:400 !important;font-size:clamp(22px,2.2vw,28px) !important;letter-spacing:0 !important;text-transform:none !important;color:var(--encre-2) !important}
+.legacy h2,.legacy h3{font-family:var(--serif);font-weight:400;letter-spacing:0}
+
+/* =====================================================================
+   NOUVELLES RUBRIQUES
+   ===================================================================== */
+
+/* ---------- Onglets de période ---------- */
+.onglets ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 36px;border-bottom:1px solid var(--filet)}
+.onglets a{display:block;padding:14px 2px;font-family:var(--caps);font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gris);border-bottom:1px solid transparent;margin-bottom:-1px}
+.onglets a:hover{color:var(--encre)}
+.onglets a[aria-current="page"]{color:var(--or);border-bottom-color:var(--or)}
+@media (max-width:720px){.onglets ul{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:24px}.onglets ul::-webkit-scrollbar{display:none}.onglets a{white-space:nowrap}}
+.trimestres{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px 44px}
+
+/* ---------- Agenda (listes datées) ---------- */
+.agenda{list-style:none;margin:0;padding:0;border-top:1px solid var(--filet)}
+.agenda li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 28px;padding:15px 0;border-bottom:1px solid var(--filet)}
+.agenda .ag-d{flex:0 0 190px;font-family:var(--caps);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--or)}
+.agenda .ag-t{flex:1 1 300px;font-size:21px;line-height:1.45}
+.phases-liste li{align-items:center}
+.phases-liste img{width:40px;height:auto;flex:none}
+
+/* ---------- Formulaires ---------- */
+.form-theme{border-top:1px solid var(--or-clair);border-bottom:1px solid var(--or-clair);padding:34px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px 40px;align-items:start}
+.champ-bloc{display:flex;flex-direction:column;gap:6px;min-width:0}
+.champ-lb{font-family:var(--caps);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris)}
+.champ{border:0;border-bottom:1px solid var(--or-clair);background:transparent;font-family:var(--serif);font-size:24px;font-weight:500;padding:8px 0;color:var(--encre);width:100%;border-radius:0}
+.champ:focus{outline:none;border-bottom-color:var(--encre)}
+.champ:disabled{opacity:.4}
+.champ-aide{font-size:16px;color:var(--gris)}
+.ville-bloc{position:relative}
+.ville-liste{position:absolute;z-index:20;top:76px;left:0;right:0;margin:0;padding:6px 0;list-style:none;background:#FFFFFF;border:1px solid var(--filet);box-shadow:0 18px 40px -20px rgba(28,26,23,.25);max-height:320px;overflow:auto}
+.ville-liste li{padding:9px 14px;cursor:pointer;font-size:19px}
+.ville-liste li:hover,.ville-liste li[aria-selected="true"]{background:var(--survol);color:var(--or)}
+.form-pied{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+.case{display:flex;align-items:center;gap:10px;font-size:18px;color:var(--encre-2);cursor:pointer}
+.case input{width:18px;height:18px;accent-color:var(--or)}
+.erreur{grid-column:1/-1;margin:0;color:#9B2C2C;font-size:18px}
+.erreur:empty{display:none}
+.lien-bouton{background:none;border:0;padding:0;font:inherit;color:var(--or);border-bottom:1px solid var(--or-clair);cursor:pointer}
+.credits{padding-top:28px;padding-bottom:40px;font-size:14px}
+.outil-mini{display:flex;flex-wrap:wrap;align-items:end;justify-content:center;gap:20px 28px;width:100%;max-width:560px}
+.outil-mini .champ-bloc{flex:1 1 240px;text-align:left}
+.outil-res{margin:0;font-size:22px;min-height:1.4em}
+
+/* ---------- Thème astral ---------- */
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:44px 40px}
+.trio-carte{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.trio-carte img{width:112px;height:auto}
+.trio-carte p{margin:0;max-width:21em;color:var(--encre-2)}
+.trio-deg{font-size:21px;color:var(--or)}
+.theme-grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:48px 64px;align-items:start;padding-top:88px;padding-bottom:88px}
+.roue{position:relative;width:min(520px,100%);aspect-ratio:1/1;margin:0 auto}
+.roue .orbit{position:absolute;border:1px solid var(--filet);border-radius:50%}
+.roue .orbit.r1{left:7%;top:7%;width:86%;height:86%}
+.roue .orbit.r3{left:15%;top:15%;width:70%;height:70%;border-color:#F1EAD6}
+.roue-svg{position:absolute;inset:0;width:100%;height:100%}
+.roue-signe{position:absolute;width:10%;transform:translate(-50%,-50%)}
+.roue-signe img{width:100%;height:auto}
+.roue-astre{position:absolute;transform:translate(-50%,-50%);width:clamp(22px,5.4%,30px);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#FFFFFF;border:1px solid var(--or-clair);font-family:var(--caps);font-size:clamp(8px,1.6vw,10px);letter-spacing:.04em;color:var(--encre)}
+.roue-axe{position:absolute;transform:translate(-50%,-50%);font-family:var(--caps);font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--or);background:#FFFFFF;padding:0 3px}
+.table-scroll{overflow-x:auto}
+.table-theme{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.table-theme th{text-align:left;padding:0 14px 10px 0;font-family:var(--caps);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gris)}
+.table-theme td{padding:12px 14px 12px 0;border-top:1px solid var(--filet);font-size:20px;vertical-align:top}
+.table-theme td.num{color:var(--or);white-space:nowrap}
+.table-theme td.sens{font-size:17px;color:var(--encre-2);min-width:220px}
+.retro{font-family:var(--caps);font-size:10px;color:var(--or);border:1px solid var(--or-clair);border-radius:50%;padding:0 4px}
+
+/* ---------- Lune ---------- */
+.lune-hero{display:flex;flex-wrap:wrap;align-items:center;gap:48px 80px;padding-top:44px;padding-bottom:80px}
+.lune-visuel{flex:0 1 260px;display:flex;justify-content:center}
+.lune-visuel img{width:min(220px,60vw);height:auto}
+.lune-hero>.stack{flex:1 1 460px}
+.prochaine{flex:0 1 360px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;border-top:1px solid var(--or-clair);border-bottom:1px solid var(--or-clair);padding:30px 0}
+.prochaine img{width:110px;height:auto}
+.pr-d{font-size:30px;line-height:1.15}
+.lune-signes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:0 48px}
+.lune-signes li{display:flex;gap:18px;align-items:flex-start;padding:20px 0;border-top:1px solid var(--filet-2)}
+.lune-signes img{width:56px;height:auto;flex:none}
+.lune-signes p{margin:4px 0 0;color:var(--encre-2);font-size:19px;line-height:1.5}
+.lune-nav{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:40px;padding-bottom:64px}
+.archives{list-style:none;margin:0;padding:0;columns:2 260px;column-gap:40px}
+.archives li{padding:6px 0;break-inside:avoid}
+
+/* ---------- Paires, fiches ---------- */
+.duo-medailles{display:flex;align-items:center;gap:18px;font-family:var(--serif);font-style:italic;font-size:30px;color:var(--or)}
+.duo-medailles img{width:96px;height:auto}
+.score-grand{margin:0;font-size:clamp(56px,7vw,88px);font-weight:300;line-height:1;color:var(--or);font-variant-numeric:tabular-nums}
+.puces{list-style:none;margin:0;padding:0;border-top:1px solid var(--filet)}
+.puces li{padding:14px 0 14px 26px;border-bottom:1px solid var(--filet);position:relative;font-size:21px}
+.puces li::before{content:"";position:absolute;left:4px;top:29px;width:8px;height:1px;background:var(--or)}
+
+/* ---------- Astrologie chinoise & numérologie ---------- */
+.hanzi{display:inline-flex;align-items:center;justify-content:center;width:120px;height:120px;border-radius:50%;background:#FFFFFF;border:2px solid var(--or-clair);box-shadow:inset 0 0 0 6px #FFFFFF,inset 0 0 0 7px var(--filet);font-family:"Noto Serif SC","Songti SC","SimSun","Microsoft YaHei",serif;font-size:56px;color:var(--or);line-height:1}
+.hanzi.petit{width:68px;height:68px;font-size:32px;box-shadow:inset 0 0 0 4px #FFFFFF,inset 0 0 0 5px var(--filet)}
+.hub .hanzi.petit{flex:none}
+.nombre{display:inline-flex;align-items:center;justify-content:center;width:120px;height:120px;border-radius:50%;border:2px solid var(--or-clair);box-shadow:inset 0 0 0 6px #FFFFFF,inset 0 0 0 7px var(--filet);font-size:58px;font-weight:300;color:var(--or);font-variant-numeric:tabular-nums}
+.nombre.petit{width:64px;height:64px;font-size:28px;box-shadow:inset 0 0 0 4px #FFFFFF,inset 0 0 0 5px var(--filet)}
+.nombres-grille{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:32px 16px}
+.nombres-grille a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;font-size:19px}

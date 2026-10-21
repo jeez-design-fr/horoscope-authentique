@@ -1,0 +1,358 @@
+{
+  "genereLe": "2026-10-21T11:01:25.483Z",
+  "source": "migration",
+  "ciel": {
+    "date": "2026-10-21T11:01:25.462Z",
+    "astres": [
+      {
+        "id": "Sun",
+        "nom": "Soleil",
+        "art": "le Soleil",
+        "longitude": 208.07,
+        "signe": "Balance",
+        "signeSlug": "balance",
+        "degre": 28,
+        "retrograde": false
+      },
+      {
+        "id": "Moon",
+        "nom": "Lune",
+        "art": "la Lune",
+        "longitude": 329.18,
+        "signe": "Verseau",
+        "signeSlug": "verseau",
+        "degre": 29,
+        "retrograde": false
+      },
+      {
+        "id": "Mercury",
+        "nom": "Mercure",
+        "art": "Mercure",
+        "longitude": 230.48,
+        "signe": "Scorpion",
+        "signeSlug": "scorpion",
+        "degre": 20,
+        "retrograde": false
+      },
+      {
+        "id": "Venus",
+        "nom": "Vénus",
+        "art": "Vénus",
+        "longitude": 212.38,
+        "signe": "Scorpion",
+        "signeSlug": "scorpion",
+        "degre": 2,
+        "retrograde": true
+      },
+      {
+        "id": "Mars",
+        "nom": "Mars",
+        "art": "Mars",
+        "longitude": 133.15,
+        "signe": "Lion",
+        "signeSlug": "lion",
+        "degre": 13,
+        "retrograde": false
+      },
+      {
+        "id": "Jupiter",
+        "nom": "Jupiter",
+        "art": "Jupiter",
+        "longitude": 142.92,
+        "signe": "Lion",
+        "signeSlug": "lion",
+        "degre": 22,
+        "retrograde": false
+      },
+      {
+        "id": "Saturn",
+        "nom": "Saturne",
+        "art": "Saturne",
+        "longitude": 10,
+        "signe": "Bélier",
+        "signeSlug": "belier",
+        "degre": 10,
+        "retrograde": true
+      },
+      {
+        "id": "Uranus",
+        "nom": "Uranus",
+        "art": "Uranus",
+        "longitude": 65.03,
+        "signe": "Gémeaux",
+        "signeSlug": "gemeaux",
+        "degre": 5,
+        "retrograde": true
+      },
+      {
+        "id": "Neptune",
+        "nom": "Neptune",
+        "art": "Neptune",
+        "longitude": 2.33,
+        "signe": "Bélier",
+        "signeSlug": "belier",
+        "degre": 2,
+        "retrograde": true
+      },
+      {
+        "id": "Pluto",
+        "nom": "Pluton",
+        "art": "Pluton",
+        "longitude": 303.07,
+        "signe": "Verseau",
+        "signeSlug": "verseau",
+        "degre": 3,
+        "retrograde": false
+      }
+    ],
+    "aspects": [
+      {
+        "a": "Vénus",
+        "b": "Pluton",
+        "aspect": "carré",
+        "orbe": 0.7
+      },
+      {
+        "a": "Neptune",
+        "b": "Pluton",
+        "aspect": "sextile",
+        "orbe": 0.7
+      },
+      {
+        "a": "Soleil",
+        "b": "Lune",
+        "aspect": "trigone",
+        "orbe": 1.1
+      },
+      {
+        "a": "Uranus",
+        "b": "Pluton",
+        "aspect": "trigone",
+        "orbe": 2
+      },
+      {
+        "a": "Mercure",
+        "b": "Jupiter",
+        "aspect": "carré",
+        "orbe": 2.4
+      },
+      {
+        "a": "Uranus",
+        "b": "Neptune",
+        "aspect": "sextile",
+        "orbe": 2.7
+      },
+      {
+        "a": "Mars",
+        "b": "Saturne",
+        "aspect": "trigone",
+        "orbe": 3.1
+      },
+      {
+        "a": "Soleil",
+        "b": "Vénus",
+        "aspect": "conjonction",
+        "orbe": 4.3
+      }
+    ],
+    "lune": {
+      "phaseIndex": 3,
+      "phase": "Gibbeuse croissante",
+      "illumination": 76,
+      "signe": "Verseau",
+      "croissante": true
+    },
+    "soleil": {
+      "id": "Sun",
+      "nom": "Soleil",
+      "art": "le Soleil",
+      "longitude": 208.07,
+      "signe": "Balance",
+      "signeSlug": "balance",
+      "degre": 28,
+      "retrograde": false
+    }
+  },
+  "signes": {
+    "belier": {
+      "essentiel": null,
+      "amour": {
+        "titre": null,
+        "texte": "Le Soleil en face de toi met l'accent sur l'autre, alors tu as envie de clarté dans tes relations. Saturne en Bélier, lui, te souffle de te positionner sans hésiter. C'est le moment de revoir tes limites, ma belle !"
+      },
+      "travail": {
+        "titre": null,
+        "texte": "Tes initiatives sont boostées par Mars en Sagittaire, fonce ! Mais attention à ne pas trop t'éparpiller, Saturne te rappelle à l'ordre : structure et discipline sont tes alliées."
+      },
+      "bienetre": {
+        "titre": null,
+        "texte": "Tu débordes d'énergie mais la tension peut vite monter. Respire, et ne laisse pas les pressions extérieures affecter ton moral. Une bonne séance de sport t'aiderait à canaliser cette fougue !"
+      }
+    },
+    "taureau": {
+      "essentiel": null,
+      "amour": {
+        "titre": null,
+        "texte": "Vénus en Scorpion, juste en face de toi, promet des rencontres intenses ou une profondeur inattendue dans tes liens existants. C'est passionnant mais exigeant. Prépare-toi à plonger dans l'émotion !"
+      },
+      "travail": {
+        "titre": null,
+        "texte": "Uranus rétrograde chez toi te fait reconsidérer tes valeurs et ta manière de travailler. Des changements internes se préparent, sois ouverte ! Ne crains pas de bousculer tes routines pour le meilleur."
+      },
+      "bienetre": {
+        "titre": null,
+        "texte": "Fais attention à ne pas te laisser emporter par les émotions intenses que Vénus te murmure. Trouve des activités qui t'ancrent et te calment, comme le jardinage ou un bon repas fait maison."
+      }
+    },
+    "gemeaux": {
+      "essentiel": null,
+      "amour": {
+        "titre": null,
+        "texte": "Avec Mars en Sagittaire en opposition, les discussions peuvent s'enflammer. C'est l'occasion de dire ce que tu as sur le cœur, mais avec diplomatie, s'il te plaît ! Évite les feux d'artifice inutiles."
+      },
+      "travail": {
+        "titre": null,
+        "texte": "Mercure en Scorpion aiguise ton esprit et te permet de percer les mystères. Idéal pour les enquêtes ou les projets qui demandent de la profondeur. Ton flair est ton super pouvoir aujourd'hui !"
+      },
+      "bienetre": {
+        "titre": null,
+        "texte": "L'énergie est là mais l'agitation mentale peut te fatiguer. Écoute ton corps et offre-lui des pauses, surtout si Jupiter rétrograde en Cancer te pousse à la réflexion. Ton cerveau a besoin de souffler !"
+      }
+    },
+    "cancer": {
+      "essentiel": null,
+      "amour": {
+        "titre": null,
+        "texte": "La Lune en Poissons rend tes émotions encore plus palpables. C'est une journée pour te connecter profondément à tes proches, avec une touche de rêverie. Laisse parler ton cœur de guimauve !"
+      },
+      "travail": {
+        "titre": null,
+        "texte": "Jupiter rétrograde est toujours chez toi, t'invitant à revoir tes projets avec sagesse. Ne te précipite pas, la réflexion t'apportera de meilleurs résultats. La patience est ta meilleure amie."
+      },
+      "bienetre": {
+        "titre": null,
+        "texte": "Tes intuitions sont fortes, écoute-les ! C'est le moment de prendre soin de ton bien-être émotionnel, peut-être avec une bonne séance de relaxation ou un bain moussant. Cocooning à fond !"
+      }
+    },
+    "lion": {
+      "essentiel": null,
+      "amour": {
+        "titre": null,
+        "texte": "Avec Pluton rétrograde en face de toi, tes relations sont sous le microscope. C'est le moment de faire un grand nettoyage et de laisser partir ce qui ne te sert plus. Courage, tu es plus forte que ça !"
+      },
+      "travail": {
+        "titre": null,
+        "texte": "Mars en Sagittaire t'offre un dynamisme incroyable, surtout pour les projets créatifs ou les voyages d'affaires. Rayonne, c'est ta scène ! Les feux de la rampe t'attendent."
+      },
+      "bienetre": {
+        "titre": null,
+        "texte": "L'énergie est au top, mais le stress lié aux relations peut te peser. Trouve une activité pour te défouler et libérer les tensions, comme une danse endiablée ou une longue marche."
+      }
+    },
+    "vierge": {
+      "essentiel": null,
+      "amour": {
+        "titre": null,
+        "texte": "Avec Vénus en Scorpion, tes relations se transforment en quelque chose de plus profond. Les conversations intimes et les secrets partagés sont à l'honneur. Prépare-toi à des connexions intenses !"
+      },
+      "travail": {
+        "titre": null,
+        "texte": "Ton esprit analytique est boosté par Mercure en Scorpion. Tu peux débusquer la moindre faille et optimiser tes méthodes. Un vrai Sherlock Holmes, mais pour ton boulot !"
+      },
+      "bienetre": {
+        "titre": null,
+        "texte": "Ton mental est très sollicité. Pense à des pauses pour te déconnecter et ne pas te laisser envahir par les pensées trop intenses. Une petite méditation, ça ne fait jamais de mal."
+      }
+    },
+    "balance": {
+      "essentiel": null,
+      "amour": {
+        "titre": null,
+        "texte": "Saturne en Bélier en face de toi te demande de poser des limites claires dans tes relations. C'est peut-être le moment de prendre des décisions importantes. Le Soleil est encore chez toi, alors assume tes choix !"
+      },
+      "travail": {
+        "titre": null,
+        "texte": "Avec Mercure et Vénus en Scorpion, tes finances partagées ou tes partenariats sont au centre de tes préoccupations. Négocier avec profondeur sera ton super pouvoir, mais gare aux manipulations !"
+      },
+      "bienetre": {
+        "titre": null,
+        "texte": "Tu es pleine d'énergie mais l'équilibre peut être délicat à trouver. Accorde-toi des moments de calme pour recharger tes batteries et écouter tes besoins. Priorise ta paix intérieure."
+      }
+    },
+    "scorpion": {
+      "essentiel": null,
+      "amour": {
+        "titre": null,
+        "texte": "Vénus vient d'entrer chez toi, te donnant un charme fou et une capacité à communiquer avec une intensité captivante. Profite-en, mais gare aux drames si tu en fais trop ! Le mystère est ton atout."
+      },
+      "travail": {
+        "titre": null,
+        "texte": "Tu es dans une phase de transformation profonde, surtout si Pluton rétrograde en Verseau te pousse à revoir ta fondation. C'est le moment de te réinventer, sans peur des changements."
+      },
+      "bienetre": {
+        "titre": null,
+        "texte": "Ton énergie est puissante, mais elle peut te consumer si tu ne la gères pas bien. Lâche prise sur le contrôle et fais confiance à ton intuition. Évite de tout garder pour toi, ça bouillonne !"
+      }
+    },
+    "sagittaire": {
+      "essentiel": null,
+      "amour": {
+        "titre": null,
+        "texte": "Tu as envie d'aventure et de franchise, mais la Lune et Neptune en Poissons peuvent créer un petit flou artistique dans tes relations. Parle avec ton cœur, mais clairement, s'il te plaît !"
+      },
+      "travail": {
+        "titre": null,
+        "texte": "Mars est chez toi, c'est le grand coup de boost que tu attendais ! C'est le moment d'oser et de te lancer dans de nouveaux projets. Ton optimisme est contagieux, utilise-le à bon escient."
+      },
+      "bienetre": {
+        "titre": null,
+        "texte": "Tu as une énergie de feu, mais attention aux excès ! Neptune rétrograde en Poissons peut te rendre plus sensible, alors écoute les signaux de ton corps. Modération, c'est le maître mot."
+      }
+    },
+    "capricorne": {
+      "essentiel": null,
+      "amour": {
+        "titre": null,
+        "texte": "Jupiter rétrograde en face de toi te pousse à réévaluer tes partenariats. C'est le moment de voir ce qui fonctionne vraiment et ce qui a besoin d'être ajusté. La sagesse du recul te sera précieuse."
+      },
+      "travail": {
+        "titre": null,
+        "texte": "Saturne en Bélier met la pression sur ta fondation personnelle et te demande de bousculer tes vieilles habitudes. Des défis peuvent surgir, mais c'est pour mieux construire et affirmer ta légitimité."
+      },
+      "bienetre": {
+        "titre": null,
+        "texte": "La tension peut être palpable entre tes responsabilités et ton besoin de sécurité. Trouve des moments pour te recentrer et ne pas te laisser déborder. Un peu de méditation ne ferait pas de mal !"
+      }
+    },
+    "verseau": {
+      "essentiel": null,
+      "amour": {
+        "titre": null,
+        "texte": "Avec Mercure et Vénus en Scorpion en carré, les conversations amoureuses peuvent être intenses, voire un peu électriques. Évite les jeux de pouvoir et mise sur l'honnêteté, c'est plus simple !"
+      },
+      "travail": {
+        "titre": null,
+        "texte": "Pluton rétrograde est chez toi et ça te secoue ! C'est une période de métamorphose profonde. Tu es en train de redéfinir ta mission de vie et ton rôle dans le monde. Prépare-toi à renaître de tes cendres."
+      },
+      "bienetre": {
+        "titre": null,
+        "texte": "Tu as une énergie mentale débordante, mais attention à ne pas surcharger ton système nerveux. La méditation ou des activités calmes t'aideront à te recentrer. Évite la surchauffe cérébrale."
+      }
+    },
+    "poissons": {
+      "essentiel": null,
+      "amour": {
+        "titre": null,
+        "texte": "La Lune est chez toi aujourd'hui, et avec Neptune rétrograde dans ton signe, ton intuition amoureuse est à son comble. Tu ressens tout intensément, mais attention aux illusions ! Cherche la clarté."
+      },
+      "travail": {
+        "titre": null,
+        "texte": "Mars en Sagittaire en carré peut créer des tensions entre ta vie professionnelle et ton bien-être personnel. Trouve un équilibre pour ne pas te sentir submergée. Ton côté rêveur a besoin de sa bulle."
+      },
+      "bienetre": {
+        "titre": null,
+        "texte": "Tes rêves sont riches et tes perceptions aiguisées. C'est le moment de prendre soin de ton corps et de ton esprit, en douceur, car tu es très sensible. Un bon bain chaud et des tisanes sont tes meilleurs amis."
+      }
+    }
+  }
+}

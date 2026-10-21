@@ -1,203 +1,89 @@
-<!DOCTYPE html><html lang="fr"><head>
-    <link rel="icon" type="image/webp" href="./assets/favicon.webp">
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Horoscope du Jour - Maison Authentique</title><meta name="description" content="Consultez l'horoscope du jour pour les 12 signes du zodiaque : amour, travail et bien-être. Choisissez votre signe pour découvrir vos prédictions astrales.">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP733JKXH"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0FP733JKXH');
-    </script><link rel="stylesheet" href="./assets/style.css"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"><style>body{background-color:#FAFAFA;font-family:'Cinzel',serif} .breathe{animation:breathe 4s infinite ease-in-out} @keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.02);opacity:1}}</style></head><body class="min-h-screen flex flex-col bg-[#FAFAFA]">
-    
-    <header class="text-center pt-10 px-4 mb-8">
-        <a href="index.html" class="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4 hover:text-black transition-colors border-b border-transparent hover:border-black pb-1 inline-block">Retour au Sanctuaire</a>
-        
-        <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">HOROSCOPE DU JOUR</h1>
-        
-        <div id="date-du-jour" class="text-[#D4AF37] text-sm md:text-lg font-bold uppercase tracking-widest mt-3"></div>
-        
-        <div class="w-16 h-[1px] bg-black mx-auto mt-6"></div>
-    </header>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horoscope du jour, 21 octobre 2026 : les 12 signes · Horoscope Authentique</title>
+<meta name="description" content="Horoscope du jour du 21 octobre 2026 pour les 12 signes du zodiaque, calculé sur les vraies positions des planètes. Soleil en Balance, Lune en Verseau.">
 
-    <main class="container mx-auto px-4 pb-12">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
-            
-            <a href="belier.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/belier-carte.webp" onerror="this.src='./assets/belier.webp'" alt="Horoscope Bélier" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">BÉLIER</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>
-            <a href="taureau.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/taureau-carte.webp" onerror="this.src='./assets/taureau.webp'" alt="Horoscope Taureau" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">TAUREAU</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>
-            <a href="gemeaux.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/gemeaux-carte.webp" onerror="this.src='./assets/gemeaux.webp'" alt="Horoscope Gémeaux" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">GÉMEAUX</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>
-            <a href="cancer.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/cancer-carte.webp" onerror="this.src='./assets/cancer.webp'" alt="Horoscope Cancer" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">CANCER</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>
-            <a href="lion.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/lion-carte.webp" onerror="this.src='./assets/lion.webp'" alt="Horoscope Lion" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">LION</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>
-            <a href="vierge.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/vierge-carte.webp" onerror="this.src='./assets/vierge.webp'" alt="Horoscope Vierge" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">VIERGE</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>
-            <a href="balance.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/balance-carte.webp" onerror="this.src='./assets/balance.webp'" alt="Horoscope Balance" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">BALANCE</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>
-            <a href="scorpion.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/scorpion-carte.webp" onerror="this.src='./assets/scorpion.webp'" alt="Horoscope Scorpion" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">SCORPION</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>
-            <a href="sagittaire.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/sagittaire-carte.webp" onerror="this.src='./assets/sagittaire.webp'" alt="Horoscope Sagittaire" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">SAGITTAIRE</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>
-            <a href="capricorne.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/capricorne-carte.webp" onerror="this.src='./assets/capricorne.webp'" alt="Horoscope Capricorne" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">CAPRICORNE</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>
-            <a href="verseau.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/verseau-carte.webp" onerror="this.src='./assets/verseau.webp'" alt="Horoscope Verseau" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">VERSEAU</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>
-            <a href="poissons.html" class="block group">
-                <div class="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37] transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 mb-4 overflow-hidden rounded-full border-2 border-transparent group-hover:border-[#D4AF37] transition-colors p-1">
-                        <img src="./assets/poissons-carte.webp" onerror="this.src='./assets/poissons.webp'" alt="Horoscope Poissons" class="w-full h-full object-cover rounded-full opacity-80 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#D4AF37] transition-colors">POISSONS</h2>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Découvrir</p>
-                </div>
-            </a>
-        </div>
-    </main>
+<link rel="canonical" href="https://www.horoscope-authentique.fr/horoscope.html">
+<meta property="og:site_name" content="Horoscope Authentique">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Horoscope du jour, 21 octobre 2026 : les 12 signes · Horoscope Authentique">
+<meta property="og:description" content="Horoscope du jour du 21 octobre 2026 pour les 12 signes du zodiaque, calculé sur les vraies positions des planètes. Soleil en Balance, Lune en Verseau.">
+<meta property="og:url" content="https://www.horoscope-authentique.fr/horoscope.html">
+<meta property="og:image" content="https://www.horoscope-authentique.fr/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="preload" href="./assets/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/cinzel-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 
-    
-    <footer class="bg-[#050505] text-gray-300 py-12 border-t border-[#D4AF37] mt-12 w-full relative z-40">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-8 text-sm text-left">
-                
-                <div>
-                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Les 12 Signes</h4>
-                    <ul class="space-y-2 grid grid-cols-2">
-                        <li><a href="belier.html" class="hover:text-white transition-colors">Bélier</a></li>
-                        <li><a href="taureau.html" class="hover:text-white transition-colors">Taureau</a></li>
-                        <li><a href="gemeaux.html" class="hover:text-white transition-colors">Gémeaux</a></li>
-                        <li><a href="cancer.html" class="hover:text-white transition-colors">Cancer</a></li>
-                        <li><a href="lion.html" class="hover:text-white transition-colors">Lion</a></li>
-                        <li><a href="vierge.html" class="hover:text-white transition-colors">Vierge</a></li>
-                        <li><a href="balance.html" class="hover:text-white transition-colors">Balance</a></li>
-                        <li><a href="scorpion.html" class="hover:text-white transition-colors">Scorpion</a></li>
-                        <li><a href="sagittaire.html" class="hover:text-white transition-colors">Sagittaire</a></li>
-                        <li><a href="capricorne.html" class="hover:text-white transition-colors">Capricorne</a></li>
-                        <li><a href="verseau.html" class="hover:text-white transition-colors">Verseau</a></li>
-                        <li><a href="poissons.html" class="hover:text-white transition-colors">Poissons</a></li>
-                    </ul>
-                </div>
+<link rel="stylesheet" href="./assets/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP733JKXH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0FP733JKXH');</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.horoscope-authentique.fr/"},{"@type":"ListItem","position":2,"name":"Horoscope du jour"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://www.horoscope-authentique.fr/belier.html","name":"Horoscope Bélier du jour"},{"@type":"ListItem","position":2,"url":"https://www.horoscope-authentique.fr/taureau.html","name":"Horoscope Taureau du jour"},{"@type":"ListItem","position":3,"url":"https://www.horoscope-authentique.fr/gemeaux.html","name":"Horoscope Gémeaux du jour"},{"@type":"ListItem","position":4,"url":"https://www.horoscope-authentique.fr/cancer.html","name":"Horoscope Cancer du jour"},{"@type":"ListItem","position":5,"url":"https://www.horoscope-authentique.fr/lion.html","name":"Horoscope Lion du jour"},{"@type":"ListItem","position":6,"url":"https://www.horoscope-authentique.fr/vierge.html","name":"Horoscope Vierge du jour"},{"@type":"ListItem","position":7,"url":"https://www.horoscope-authentique.fr/balance.html","name":"Horoscope Balance du jour"},{"@type":"ListItem","position":8,"url":"https://www.horoscope-authentique.fr/scorpion.html","name":"Horoscope Scorpion du jour"},{"@type":"ListItem","position":9,"url":"https://www.horoscope-authentique.fr/sagittaire.html","name":"Horoscope Sagittaire du jour"},{"@type":"ListItem","position":10,"url":"https://www.horoscope-authentique.fr/capricorne.html","name":"Horoscope Capricorne du jour"},{"@type":"ListItem","position":11,"url":"https://www.horoscope-authentique.fr/verseau.html","name":"Horoscope Verseau du jour"},{"@type":"ListItem","position":12,"url":"https://www.horoscope-authentique.fr/poissons.html","name":"Horoscope Poissons du jour"}]}</script>
 
-                <div>
-                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Outils Astraux</h4>
-                    <ul class="space-y-2">
-                        <li><a href="horoscope.html" class="hover:text-white transition-colors">✦ Horoscope du Jour</a></li>
-                        <li><a href="compatibilite-amoureuse.html" class="hover:text-white transition-colors">♥ Compatibilité Amoureuse</a></li>
-                        <li><a href="red-flags.html" class="hover:text-white transition-colors">🚩 Red Flags & Toxicité</a></li>
-                        <li><a href="etude-karmique.html" class="hover:text-[#D4AF37] font-bold transition-colors">🗝️ Cabinet Privé (Étude)</a></li>
-                    </ul>
-                </div>
+</head>
+<body>
+<a class="sr-only" href="#contenu">Aller au contenu</a>
+<div class="ciel-bar"><div class="wrap">
+<span>Mercredi 21 octobre 2026</span>
+<span>Soleil en Balance · Lune gibbeuse croissante en Verseau</span>
+</div></div>
+<header class="wrap site-header">
+<a class="logo" href="./" aria-label="Horoscope Authentique, accueil"><img src="./assets/logo.svg" alt="Horoscope Authentique" width="752" height="200"></a>
+<nav class="nav" aria-label="Navigation principale"><ul><li><a href="horoscope.html" aria-current="page">Horoscope</a></li><li><a href="theme-astral.html">Thème astral</a></li><li><a href="compatibilite-amoureuse.html">Compatibilité</a></li><li><a href="calendrier-lunaire.html">Lune</a></li><li><a href="encyclopedie.html">Encyclopédie</a></li><li><a href="etude-karmique.html" class="accent">Cabinet privé</a></li></ul></nav>
+</header>
+<nav class="wrap crumbs" aria-label="Fil d'Ariane"><ol><li><a href="./">Accueil</a></li><li aria-current="page">Horoscope du jour</li></ol></nav>
+<main id="contenu">
 
-                <div>
-                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Savoirs Anciens</h4>
-                    <ul class="space-y-2">
-                        <li><a href="signification.html" class="hover:text-white transition-colors">Signification des Signes</a></li>
-                        <li><a href="comprendre-astrologie.html" class="hover:text-white transition-colors">Les 4 Éléments</a></li>
-                        <li><a href="pierres-protectrices.html" class="hover:text-white transition-colors">Lithothérapie & Cristaux</a></li>
-                        <li><a href="le-cosmos.html" class="hover:text-white transition-colors">Astronomie & Cosmos</a></li>
-                        <li><a href="verite-horoscope-mensonge.html" class="hover:text-white transition-colors">Vérité sur l'Horoscope</a></li>
-                    </ul>
-                </div>
+<section class="wrap stack gap-m" style="padding-top:48px;padding-bottom:64px;align-items:center;text-align:center">
+<p class="eyebrow">Mercredi 21 octobre 2026</p>
+<h1 class="display">Horoscope du jour</h1>
+<p class="lede">Le Soleil est en Balance, la Lune gibbeuse croissante en Verseau. Voici l'essentiel de la journée pour chaque signe ; la lecture complète vous attend sur la page de votre signe.</p>
+</section>
+<nav class="wrap onglets" aria-label="Période"><ul><li><a href="horoscope.html" aria-current="page">Aujourd'hui</a></li><li><a href="horoscope-2027.html">2027</a></li></ul></nav>
+<section class="section"><div class="wrap" style="padding-top:24px;padding-bottom:96px"><ul class="hub"><li><a href="belier.html"><img src="./assets/belier-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async"><span><span class="nm">Bélier</span><span class="dt">21 mars – 19 avril</span><span class="es">Le Soleil en face de toi met l'accent sur l'autre, alors tu as envie de clarté dans tes relations.</span></span></a></li><li><a href="taureau.html"><img src="./assets/taureau-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async"><span><span class="nm">Taureau</span><span class="dt">20 avril – 20 mai</span><span class="es">Vénus en Scorpion, juste en face de toi, promet des rencontres intenses ou une profondeur inattendue dans tes liens existants.</span></span></a></li><li><a href="gemeaux.html"><img src="./assets/gemeaux-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async"><span><span class="nm">Gémeaux</span><span class="dt">21 mai – 20 juin</span><span class="es">Avec Mars en Sagittaire en opposition, les discussions peuvent s'enflammer.</span></span></a></li><li><a href="cancer.html"><img src="./assets/cancer-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async"><span><span class="nm">Cancer</span><span class="dt">21 juin – 22 juillet</span><span class="es">La Lune en Poissons rend tes émotions encore plus palpables.</span></span></a></li><li><a href="lion.html"><img src="./assets/lion-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async"><span><span class="nm">Lion</span><span class="dt">23 juillet – 22 août</span><span class="es">Avec Pluton rétrograde en face de toi, tes relations sont sous le microscope.</span></span></a></li><li><a href="vierge.html"><img src="./assets/vierge-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async"><span><span class="nm">Vierge</span><span class="dt">23 août – 22 septembre</span><span class="es">Avec Vénus en Scorpion, tes relations se transforment en quelque chose de plus profond.</span></span></a></li><li><a href="balance.html"><img src="./assets/balance-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async"><span><span class="nm">Balance</span><span class="dt">23 septembre – 22 octobre</span><span class="es">Saturne en Bélier en face de toi te demande de poser des limites claires dans tes relations.</span></span></a></li><li><a href="scorpion.html"><img src="./assets/scorpion-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async"><span><span class="nm">Scorpion</span><span class="dt">23 octobre – 21 novembre</span><span class="es">Vénus vient d'entrer chez toi, te donnant un charme fou et une capacité à communiquer avec une intensité captivante.</span></span></a></li><li><a href="sagittaire.html"><img src="./assets/sagittaire-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async"><span><span class="nm">Sagittaire</span><span class="dt">22 novembre – 21 décembre</span><span class="es">Tu as envie d'aventure et de franchise, mais la Lune et Neptune en Poissons peuvent créer un petit flou artistique dans tes relations.</span></span></a></li><li><a href="capricorne.html"><img src="./assets/capricorne-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async"><span><span class="nm">Capricorne</span><span class="dt">22 décembre – 19 janvier</span><span class="es">Jupiter rétrograde en face de toi te pousse à réévaluer tes partenariats.</span></span></a></li><li><a href="verseau.html"><img src="./assets/verseau-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async"><span><span class="nm">Verseau</span><span class="dt">20 janvier – 18 février</span><span class="es">Avec Mercure et Vénus en Scorpion en carré, les conversations amoureuses peuvent être intenses, voire un peu électriques.</span></span></a></li><li><a href="poissons.html"><img src="./assets/poissons-carte.webp" alt="" width="320" height="366" loading="lazy" decoding="async"><span><span class="nm">Poissons</span><span class="dt">19 février – 20 mars</span><span class="es">La Lune est chez toi aujourd'hui, et avec Neptune rétrograde dans ton signe, ton intuition amoureuse est à son comble.</span></span></a></li></ul></div></section>
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><h2>Les douze signes</h2><ul class="two"><li><a href="belier.html">Bélier</a></li><li><a href="taureau.html">Taureau</a></li><li><a href="gemeaux.html">Gémeaux</a></li><li><a href="cancer.html">Cancer</a></li><li><a href="lion.html">Lion</a></li><li><a href="vierge.html">Vierge</a></li><li><a href="balance.html">Balance</a></li><li><a href="scorpion.html">Scorpion</a></li><li><a href="sagittaire.html">Sagittaire</a></li><li><a href="capricorne.html">Capricorne</a></li><li><a href="verseau.html">Verseau</a></li><li><a href="poissons.html">Poissons</a></li></ul></div>
+<div><h2>Horoscopes</h2><ul>
+<li><a href="horoscope.html">Horoscope du jour</a></li>
 
-                <div>
-                    <h4 class="text-[#D4AF37] font-bold uppercase tracking-widest mb-4">Maison Authentique</h4>
-                    <p class="mb-4 italic text-xs">"Les étoiles inclinent, mais ne déterminent pas."</p>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="apropos.html" class="hover:text-white transition-colors">À Propos / Manifeste</a></li>
-                        <li><a href="mentions-legales.html" class="hover:text-white transition-colors">Mentions Légales</a></li>
-                        <li><a href="links.html" class="hover:text-white transition-colors">Liens Rapides</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="text-center pt-8 border-t border-gray-900 text-xs text-gray-600">
-                <p>&copy; Horoscope Authentique. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
 
-    <script>
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        const today = new Date().toLocaleDateString('fr-FR', options);
-        document.getElementById('date-du-jour').textContent = today.charAt(0).toUpperCase() + today.slice(1);
-    </script>
 
-    </body></html>
+<li><a href="horoscope-2027.html">Horoscope 2027</a></li>
+<li><a href="horoscope-chinois-2027.html">Horoscope chinois 2027</a></li>
+</ul></div>
+<div><h2>Outils</h2><ul>
+<li><a href="theme-astral.html">Thème astral gratuit</a></li>
+<li><a href="calcul-ascendant.html">Calcul de l'ascendant</a></li>
+<li><a href="compatibilite-amoureuse.html">Compatibilité amoureuse</a></li>
+<li><a href="red-flags.html">Red Flags</a></li>
+<li><a href="numerologie-chemin-de-vie.html">Numérologie</a></li>
+<li><a href="calendrier-lunaire.html">Calendrier lunaire</a></li>
+</ul></div>
+<div><h2>Savoirs</h2><ul>
+<li><a href="encyclopedie.html">Encyclopédie</a></li>
+<li><a href="signification.html">Signification des signes</a></li>
+<li><a href="ciel-2027.html">Le ciel de 2027</a></li>
+<li><a href="pierres-protectrices.html">Lithothérapie</a></li>
+<li><a href="le-cosmos.html">Astronomie &amp; cosmos</a></li>
+</ul></div>
+<div><h2>La Maison</h2><p class="devise">« Les étoiles inclinent, mais ne déterminent pas. »</p><ul>
+<li><a href="verite-horoscope-mensonge.html">Le manifeste</a></li>
+<li><a href="apropos.html">Madeleine</a></li>
+<li><a href="etude-karmique.html">Cabinet privé</a></li>
+<li><a href="mentions-legales.html">Mentions légales</a></li>
+</ul></div>
+</div>
+<div class="bottom"><img src="./assets/logo-ligne.svg" alt="Horoscope Authentique" width="1740" height="100" loading="lazy"><span>© 2026 Horoscope Authentique</span></div>
+</div></footer>
+
+</body>
+</html>
