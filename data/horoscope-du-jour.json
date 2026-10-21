@@ -192,10 +192,10 @@
       }
     },
     "taureau": {
-      "essentiel": "Vénus rétrograde en face te invite à revisiter tes liens et tes désirs profonds.",
+      "essentiel": "Vénus rétrograde en face t'invite à revisiter tes liens et tes désirs profonds.",
       "amour": {
         "titre": "Revoir ses classiques",
-        "texte": "Ton maître Vénus et Mercure se trouvent en face de toi, avec Vénus qui fait marche arrière. C est le moment parfait pour discuter des vieilles rancoeurs et remettre les pendules à l heure. La tendresse demande un peu de patience."
+        "texte": "Ton maître Vénus et Mercure se trouvent en face de toi, avec Vénus qui fait marche arrière. C'est le moment parfait pour discuter des vieilles rancoeurs et remettre les pendules à l'heure. La tendresse demande un peu de patience."
       },
       "travail": {
         "titre": "Négocier en douceur",
@@ -203,29 +203,29 @@
       },
       "bienetre": {
         "titre": "Écouter son corps",
-        "texte": "La rétrogradation de Vénus peut te donner envie de tout lâcher pour une sieste. Offre à ton corps le confort qu il réclame sans culpabiliser. Un bon repas et du calme suffisent à rééquilibrer la machine."
+        "texte": "La rétrogradation de Vénus peut te donner envie de tout lâcher pour une sieste. Offre à ton corps le confort qu'il réclame sans culpabiliser. Un bon repas et du calme suffisent à rééquilibrer la machine."
       }
     },
     "gemeaux": {
       "essentiel": "Uranus rétrograde chez toi bouscule tes petites habitudes intellectuelles.",
       "amour": {
-        "titre": "Surprises dans l air",
-        "texte": "Ton maître Mercure est bien occupé en Scorpion, tandis qu Uranus rétrograde dans ton signe te rend imprévisible. Tes proches devront s accrocher pour suivre le fil de tes pensées. Laisse de la place à la fantaisie."
+        "titre": "Surprises dans l'air",
+        "texte": "Ton maître Mercure est bien occupé en Scorpion, tandis qu'Uranus rétrograde dans ton signe te rend imprévisible. Tes proches devront s'accrocher pour suivre le fil de tes pensées. Laisse de la place à la fantaisie."
       },
       "travail": {
         "titre": "Idées en ébullition",
-        "texte": "Uranus apporte son lot de remises en question professionnelles soudaines. Même si la méthode change, ta curiosité naturelle trouve toujours une parade. Garde l esprit ouvert face aux imprévus."
+        "texte": "Uranus apporte son lot de remises en question professionnelles soudaines. Même si la méthode change, ta curiosité naturelle trouve toujours une parade. Garde l'esprit ouvert face aux imprévus."
       },
       "bienetre": {
         "titre": "Canaliser le mental",
-        "texte": "Le passage d Uranus dans ton signe secoue un peu tes nerfs. Prends l air pour dissiper la surcharge cognitive. Une marche rapide fait des merveilles pour retrouver tes esprits."
+        "texte": "Le passage d'Uranus dans ton signe secoue un peu tes nerfs. Prends l'air pour dissiper la surcharge cognitive. Une marche rapide fait des merveilles pour retrouver tes esprits."
       }
     },
     "cancer": {
       "essentiel": "La Lune gibbeuse croissante éclaire ton ciel intérieur avec une belle intuition.",
       "amour": {
         "titre": "Vagues de douceur",
-        "texte": "La Lune grandit dans le ciel et nourrit ta sensibilité naturelle. Tu ressens les besoins des autres avant même qu ils ne parlent. Profite de cette complicité pour resserrer les liens."
+        "texte": "La Lune grandit dans le ciel et nourrit ta sensibilité naturelle. Tu ressens les besoins des autres avant même qu'ils ne parlent. Profite de cette complicité pour resserrer les liens."
       },
       "travail": {
         "titre": "Intuition aux commandes",
@@ -240,26 +240,26 @@
       "essentiel": "Mars et Jupiter dans ton signe font rugir ton ambition, mais attention aux excès.",
       "amour": {
         "titre": "Grandes passions",
-        "texte": "Avec Mars et Jupiter chez toi, tu ne passes inaperçu nulle part. En face, la Lune et Pluton remuent un peu ton jardin secret et exigent de l authenticité. Dis les choses avec le cœur plutôt qu avec orgueil."
+        "texte": "Avec Mars et Jupiter chez toi, tu ne passes inaperçu nulle part. En face, la Lune et Pluton remuent un peu ton jardin secret et exigent de l'authenticité. Dis les choses avec le cœur plutôt qu'avec orgueil."
       },
       "travail": {
         "titre": "Coup de boost royal",
-        "texte": "Le duo Mars et Jupiter te pousse à voir grand et à soulever des montagnes. Ton maître le Soleil veille au grain en Balance pour garder un brin de diplomatie. C est le moment de briller sans écraser."
+        "texte": "Le duo Mars et Jupiter te pousse à voir grand et à soulever des montagnes. Ton maître le Soleil veille au grain en Balance pour garder un brin de diplomatie. C'est le moment de briller sans écraser."
       },
       "bienetre": {
-        "titre": "Débordement d énergie",
-        "texte": "Tu débordes de vitalité grâce à tes invités de marque, Mars et Jupiter. Veille juste à ne pas t éparpiller dans trop de projets. Canalise ta force dans une activité physique."
+        "titre": "Débordement d'énergie",
+        "texte": "Tu débordes de vitalité grâce à tes invités de marque, Mars et Jupiter. Veille juste à ne pas t'éparpiller dans trop de projets. Canalise ta force dans une activité physique."
       }
     },
     "vierge": {
       "essentiel": "Ton maître Mercure en Scorpion creuse tes pensées et cherche la vérité.",
       "amour": {
         "titre": "Mots profonds",
-        "texte": "Ton maître Mercure t invite à aller au fond des choses avec tes proches. Pas question de rester en surface ou de faire semblant. La sincérité paie toujours sur le long terme."
+        "texte": "Ton maître Mercure t'invite à aller au fond des choses avec tes proches. Pas question de rester en surface ou de faire semblant. La sincérité paie toujours sur le long terme."
       },
       "travail": {
         "titre": "Analyse chirurgicale",
-        "texte": "Mercure en Scorpion aiguise ton sens de l observation. Tu repères la petite faille que personne n avait vue. Utilise cette acuité pour régler les dossiers complexes."
+        "texte": "Mercure en Scorpion aiguise ton sens de l'observation. Tu repères la petite faille que personne n'avait vue. Utilise cette acuité pour régler les dossiers complexes."
       },
       "bienetre": {
         "titre": "Silence et calme",
@@ -267,63 +267,63 @@
       }
     },
     "balance": {
-      "essentiel": "Le Soleil brille dans ton signe et s associe à Vénus pour un charme irrésistible.",
+      "essentiel": "Le Soleil brille dans ton signe et s'associe à Vénus pour un charme irrésistible.",
       "amour": {
         "titre": "Harmonie retrouvée",
-        "texte": "Ton maître Vénus croise le Soleil dans ton signe malgré sa rétrogradation. C est le moment idéal pour régler un malentendu avec tact et élégance. Ton pouvoir de séduction fait des étincelles."
+        "texte": "Ton maître Vénus croise le Soleil dans ton signe malgré sa rétrogradation. C'est le moment idéal pour régler un malentendu avec tact et élégance. Ton pouvoir de séduction fait des étincelles."
       },
       "travail": {
         "titre": "Art de la négociation",
-        "texte": "Le Soleil illumine ton signe et t aide à trouver de superbes compromis. Face à toi, Saturne et Neptune demandent toutefois de la rigueur sur les engagements. Ne signe rien les yeux fermés."
+        "texte": "Le Soleil illumine ton signe et t'aide à trouver de superbes compromis. Face à toi, Saturne et Neptune demandent toutefois de la rigueur sur les engagements. Ne signe rien les yeux fermés."
       },
       "bienetre": {
         "titre": "Équilibre fragile",
-        "texte": "Entre le Soleil qui t insuffle de la vitalité et Vénus qui réclame du repos, trouve le juste milieu. Prends soin de ton apparence pour booster ton moral. Un peu de beauté fait du bien."
+        "texte": "Entre le Soleil qui t'insuffle de la vitalité et Vénus qui réclame du repos, trouve le juste milieu. Prends soin de ton apparence pour booster ton moral. Un peu de beauté fait du bien."
       }
     },
     "scorpion": {
-      "essentiel": "Mercure et Vénus rétrograde dans ton signe plongent ton monde dans l introspection.",
+      "essentiel": "Mercure et Vénus rétrograde dans ton signe plongent ton monde dans l'introspection.",
       "amour": {
         "titre": "Intimité sous tension",
-        "texte": "Avec ton maître Pluton d un côté et Vénus rétrograde chez toi, le cœur est à la question. Mercure t aide à poser les mots justes, même si c est intense. Creuse, mais évite de piquer."
+        "texte": "Avec ton maître Pluton d'un côté et Vénus rétrograde chez toi, le cœur est à la question. Mercure t'aide à poser les mots justes, même si c'est intense. Creuse, mais évite de piquer."
       },
       "travail": {
         "titre": "Stratégie secrète",
         "texte": "Mercure et Vénus dans ton signe ralentissent tes élans pour mieux les affiner. Tu observes le jeu des autres avant de placer tes pions. Cette patience stratégique portera ses fruits."
       },
       "bienetre": {
-        "titre": "Besoin d ombre",
-        "texte": "L énergie de Pluton et de Vénus rétrograde demande de la ressource psychologique. N hésite pas à te mettre un peu en retrait du monde. Le calme est ton meilleur refuge."
+        "titre": "Besoin d'ombre",
+        "texte": "L'énergie de Pluton et de Vénus rétrograde demande de la ressource psychologique. N'hésite pas à te mettre un peu en retrait du monde. Le calme est ton meilleur refuge."
       }
     },
     "sagittaire": {
-      "essentiel": "Ton maître Jupiter en Lion t envoie du punch malgré l agitation d Uranus en face.",
+      "essentiel": "Ton maître Jupiter en Lion t'envoie du punch malgré l'agitation d'Uranus en face.",
       "amour": {
-        "titre": "Envie d ailleurs",
-        "texte": "Uranus rétrograde en face de ton signe bouscule un peu tes certitudes relationnelles. Ton maître Jupiter en Lion te redonne heureusement l envie de rire et de voir grand. Partage tes rêves sans tout révolutionner."
+        "titre": "Envie d'ailleurs",
+        "texte": "Uranus rétrograde en face de ton signe bouscule un peu tes certitudes relationnelles. Ton maître Jupiter en Lion te redonne heureusement l'envie de rire et de voir grand. Partage tes rêves sans tout révolutionner."
       },
       "travail": {
         "titre": "Vision lointaine",
-        "texte": "Jupiter te pousse à viser toujours plus haut, mais les impréunis d Uranus demandent de la souplesse. Adapte ton plan de vol sans perdre ton enthousiasme légendaire. Tout finit par s aligner."
+        "texte": "Jupiter te pousse à viser toujours plus haut, mais les impréunis d'Uranus demandent de la souplesse. Adapte ton plan de vol sans perdre ton enthousiasme légendaire. Tout finit par s'aligner."
       },
       "bienetre": {
-        "titre": "Bouffée d oxygène",
-        "texte": "Le feu de Jupiter te dynamise, mais la journée demande de lâcher prise sur les détails. File prendre l air et fais le vide. Le mouvement guérit tout."
+        "titre": "Bouffée d'oxygène",
+        "texte": "Le feu de Jupiter te dynamise, mais la journée demande de lâcher prise sur les détails. File prendre l'air et fais le vide. Le mouvement guérit tout."
       }
     },
     "capricorne": {
-      "essentiel": "Ton maître Saturne rétrograde en Bélier pose les bases d un bilan constructif.",
+      "essentiel": "Ton maître Saturne rétrograde en Bélier pose les bases d'un bilan constructif.",
       "amour": {
         "titre": "Patience payante",
         "texte": "Ton maître Saturne rétrograde te demande de consolider tes bases affectives. Pas de place pour les faux-semblants, tu veux du solide. Montre un peu plus ta vulnérabilité."
       },
       "travail": {
         "titre": "Rigueur et structure",
-        "texte": "Saturne t invite à revoir ta copie sur un projet de longue haleine. Tu avances lentement mais sûrement, avec la méthode qui te caractérise. Rien ne perturbe ton grand plan."
+        "texte": "Saturne t'invite à revoir ta copie sur un projet de longue haleine. Tu avances lentement mais sûrement, avec la méthode qui te caractérise. Rien ne perturbe ton grand plan."
       },
       "bienetre": {
         "titre": "Cadre protecteur",
-        "texte": "L influence de Saturne peut te donner une sensation de lourdeur passagère. Installe une routine stricte mais bienveillante pour ton corps. Le repos fait partie du travail."
+        "texte": "L'influence de Saturne peut te donner une sensation de lourdeur passagère. Installe une routine stricte mais bienveillante pour ton corps. Le repos fait partie du travail."
       }
     },
     "verseau": {
@@ -333,16 +333,16 @@
         "texte": "La Lune illumine ton signe aux côtés de ton maître Pluton. En face, Mars et Jupiter créent des étincelles dans tes relations. Exprime ta différence sans chercher à provoquer."
       },
       "travail": {
-        "titre": "Idées d avant-garde",
+        "titre": "Idées d'avant-garde",
         "texte": "Pluton dans ton signe creuse ton besoin de tout réinventer. Face au Lion qui pousse fort, tu imposes ta vision originale. Tes projets sortent clairement du lot."
       },
       "bienetre": {
         "titre": "Énergie électrique",
-        "texte": "La Lune et Pluton brassent pas mal d énergie à l intérieur de toi. Évite la surchauffe mentale en coupant les écrans. Un peu de solitude créative te remettra sur pieds."
+        "texte": "La Lune et Pluton brassent pas mal d'énergie à l'intérieur de toi. Évite la surchauffe mentale en coupant les écrans. Un peu de solitude créative te remettra sur pieds."
       }
     },
     "poissons": {
-      "essentiel": "Ton maître Neptune rétrograde en Bélier t invite à écouter ton monde subtil.",
+      "essentiel": "Ton maître Neptune rétrograde en Bélier t'invite à écouter ton monde subtil.",
       "amour": {
         "titre": "Romantisme subtil",
         "texte": "Ton maître Neptune rétrograde te plonge dans une bulle de nostalgie ou de douceur rêveuse. Laisse couler les émotions sans chercher à les rationaliser. Tes proches captent ta belle énergie."
@@ -353,7 +353,7 @@
       },
       "bienetre": {
         "titre": "Bulles de douceur",
-        "texte": "La sensibilité est à fleur de peau avec l influence de Neptune. Offre-toi une pause artistique, de la musique ou de l eau pour te ressourcer. Ton corps a besoin de fluidité."
+        "texte": "La sensibilité est à fleur de peau avec l'influence de Neptune. Offre-toi une pause artistique, de la musique ou de l'eau pour te ressourcer. Ton corps a besoin de fluidité."
       }
     }
   }
