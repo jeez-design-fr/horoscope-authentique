@@ -11,6 +11,7 @@ const path = require('path');
 const { getCiel, astresPourSigne, periodeMercureRetro, PHASES } = require('./lib/ciel');
 const H = require('./lib/horoscope');
 const C = require('./lib/chantiers');
+const P = require('./lib/promotion');
 const U = require('./lib/ui');
 const articlesLib = require('./lib/articles');
 const L = require('./lib/layout');
@@ -425,6 +426,8 @@ ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class=
     const cctx = { ciel, signs, bySlug, compatData, roastData, jour: horo, demain: horoDemain, semaine: horoSemaine, mois: horoMois, genere: quand };
     const nouvelles = [C.periodes(cctx), C.theme(cctx), C.lune(cctx), C.paires(cctx), C.fiches(cctx), C.chinois(cctx), C.numerologie(cctx)].flatMap((r) => r.urls);
     console.log(`✅ ${nouvelles.length} pages des nouvelles rubriques`);
+    nouvelles.push(...P.widget(cctx));
+    P.pourLesMoteurs(cctx);
 
     // ---------- 10. Pages historiques, habillées du nouveau gabarit ----------
     const historiques = {
@@ -486,6 +489,10 @@ ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class=
         main: `<section class="wrap-narrow stack gap-m center" style="align-items:center;padding-top:72px;padding-bottom:120px"><img src="./assets/lune-1.webp" alt="" width="240" height="274" style="width:110px;height:auto"><p class="eyebrow">Erreur 404</p><h1 class="display">Cette page s'est perdue dans le ciel.</h1><p class="lede">Elle a peut-être changé d'adresse. Le cadran des signes, lui, est toujours là.</p><a class="btn" href="./">Retour à l'accueil</a></section>`,
         head: { title: 'Page introuvable · Horoscope Authentique', file: '404.html', robots: 'noindex' }
     }));
+
+    // ---------- 11. Aperçus de partage et épingles Pinterest (images générées) ----------
+    await P.apercus(cctx);
+    await P.pinterest(cctx);
 
     // ---------- 11 bis. Filet de sécurité : aucun lien vers une page absente ----------
     // (ex. « Horoscope de demain » une nuit où Gemini n'a pas répondu)

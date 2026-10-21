@@ -1,0 +1,53 @@
+# Horoscope Authentique
+
+> Site français d'astrologie. L'horoscope quotidien des douze signes y est rédigé chaque nuit à partir des positions réelles des planètes (éphémérides calculées, vérifiées automatiquement), sous la plume de Madeleine, l'astrologue éditoriale de la Maison. Le site propose aussi des calculateurs gratuits (thème astral, ascendant, signe chinois, chemin de vie) qui fonctionnent dans le navigateur, sans collecte de données de naissance.
+
+## Horoscopes
+- [Horoscope du jour des 12 signes](https://www.horoscope-authentique.fr/horoscope.html) : mis à jour chaque nuit
+- [Horoscope de demain](https://www.horoscope-authentique.fr/horoscope-demain.html)
+- [Horoscope de la semaine](https://www.horoscope-authentique.fr/horoscope-semaine.html)
+- [Horoscope du mois](https://www.horoscope-authentique.fr/horoscope-mois.html)
+- [Horoscope 2027](https://www.horoscope-authentique.fr/horoscope-2027.html) : les grandes tendances de l’année pour chaque signe
+- [Horoscope Bélier du jour](https://www.horoscope-authentique.fr/belier.html)
+- [Horoscope Taureau du jour](https://www.horoscope-authentique.fr/taureau.html)
+- [Horoscope Gémeaux du jour](https://www.horoscope-authentique.fr/gemeaux.html)
+- [Horoscope Cancer du jour](https://www.horoscope-authentique.fr/cancer.html)
+- [Horoscope Lion du jour](https://www.horoscope-authentique.fr/lion.html)
+- [Horoscope Vierge du jour](https://www.horoscope-authentique.fr/vierge.html)
+- [Horoscope Balance du jour](https://www.horoscope-authentique.fr/balance.html)
+- [Horoscope Scorpion du jour](https://www.horoscope-authentique.fr/scorpion.html)
+- [Horoscope Sagittaire du jour](https://www.horoscope-authentique.fr/sagittaire.html)
+- [Horoscope Capricorne du jour](https://www.horoscope-authentique.fr/capricorne.html)
+- [Horoscope Verseau du jour](https://www.horoscope-authentique.fr/verseau.html)
+- [Horoscope Poissons du jour](https://www.horoscope-authentique.fr/poissons.html)
+
+## Calculateurs gratuits
+- [Thème astral gratuit](https://www.horoscope-authentique.fr/theme-astral.html) : positions réelles, maisons Placidus, interprétation
+- [Calcul de l’ascendant](https://www.horoscope-authentique.fr/calcul-ascendant.html)
+- [Horoscope chinois 2027 et calcul du signe chinois](https://www.horoscope-authentique.fr/horoscope-chinois-2027.html)
+- [Chemin de vie en numérologie](https://www.horoscope-authentique.fr/numerologie-chemin-de-vie.html)
+
+## Le ciel
+- [Calendrier lunaire](https://www.horoscope-authentique.fr/calendrier-lunaire.html) : pleines lunes, nouvelles lunes et éclipses à l’heure près (Paris)
+- [Le ciel de 2027](https://www.horoscope-authentique.fr/ciel-2027.html) : rétrogrades, éclipses et changements de signe
+- [Mercure rétrograde 2027](https://www.horoscope-authentique.fr/mercure-retrograde-2027.html)
+
+## Signes et compatibilités
+- [Bélier : caractère et décans](https://www.horoscope-authentique.fr/signe-belier.html)
+- [Taureau : caractère et décans](https://www.horoscope-authentique.fr/signe-taureau.html)
+- [Gémeaux : caractère et décans](https://www.horoscope-authentique.fr/signe-gemeaux.html)
+- [Cancer : caractère et décans](https://www.horoscope-authentique.fr/signe-cancer.html)
+- [Lion : caractère et décans](https://www.horoscope-authentique.fr/signe-lion.html)
+- [Vierge : caractère et décans](https://www.horoscope-authentique.fr/signe-vierge.html)
+- [Balance : caractère et décans](https://www.horoscope-authentique.fr/signe-balance.html)
+- [Scorpion : caractère et décans](https://www.horoscope-authentique.fr/signe-scorpion.html)
+- [Sagittaire : caractère et décans](https://www.horoscope-authentique.fr/signe-sagittaire.html)
+- [Capricorne : caractère et décans](https://www.horoscope-authentique.fr/signe-capricorne.html)
+- [Verseau : caractère et décans](https://www.horoscope-authentique.fr/signe-verseau.html)
+- [Poissons : caractère et décans](https://www.horoscope-authentique.fr/signe-poissons.html)
+- [Compatibilité amoureuse des 78 couples de signes](https://www.horoscope-authentique.fr/compatibilite-amoureuse.html)
+
+## La Maison
+- [Madeleine, l’astrologue de la Maison](https://www.horoscope-authentique.fr/apropos.html)
+- [Le Cabinet privé (études personnalisées)](https://www.horoscope-authentique.fr/etude-karmique.html)
+- [Widget horoscope gratuit pour les sites](https://www.horoscope-authentique.fr/widget-horoscope.html)

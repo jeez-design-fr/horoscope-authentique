@@ -1,0 +1,26 @@
+[
+  {
+    "id": "2026-10-21-verseau",
+    "date": "2026-10-21",
+    "titre": "Horoscope Verseau du 21 octobre 2026",
+    "description": "La Lune termine sa course dans ton signe en harmonie avec le Soleil. Réinvente ton quotidien tout en respectant le rythme des autres. Amour, travail, bien-être et ta mission du jour : l’horoscope Verseau complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "verseau.html",
+    "image": "pins/2026-10-21-verseau.jpg"
+  },
+  {
+    "id": "2026-10-21-poissons",
+    "date": "2026-10-21",
+    "titre": "Horoscope Poissons du 21 octobre 2026",
+    "description": "Tes intuitions poétiques s'accordent avec les mouvements subtils du ciel. Laisse ton imagination s'exprimer sans te perdre dans les mirages. Amour, travail, bien-être et ta mission du jour : l’horoscope Poissons complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "poissons.html",
+    "image": "pins/2026-10-21-poissons.jpg"
+  },
+  {
+    "id": "2026-10-21-couple-cancer-vierge",
+    "date": "2026-10-21",
+    "titre": "Cancer & Vierge · Le jardin secret : ce que vit vraiment ce couple",
+    "description": "Compatibilité Cancer et Vierge en amour : points forts, frictions et conseils de Madeleine pour que ce couple dure.",
+    "lien": "compatibilite-cancer-vierge.html",
+    "image": "pins/2026-10-21-couple-cancer-vierge.jpg"
+  }
+]

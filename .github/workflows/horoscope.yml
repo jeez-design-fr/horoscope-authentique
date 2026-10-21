@@ -42,6 +42,13 @@ jobs:
         git commit -m "🔮 Mise à jour quotidienne des astres" || echo "Pas de changement"
         git push
 
+    # Prévient Bing / ChatGPT / Copilot des pages modifiées (IndexNow, gratuit).
+    # On laisse 2 minutes à Vercel pour mettre la nouvelle version en ligne.
+    - name: Signaler les pages à Bing (IndexNow)
+      run: |
+        sleep 120
+        node indexnow.js
+
     - name: Publier sur Bluesky
       env:
         BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}

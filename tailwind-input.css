@@ -392,3 +392,6 @@ a:hover{color:var(--or)}
 .nombre.petit{width:64px;height:64px;font-size:28px;box-shadow:inset 0 0 0 4px #FFFFFF,inset 0 0 0 5px var(--filet)}
 .nombres-grille{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:32px 16px}
 .nombres-grille a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;font-size:19px}
+
+/* Widget : code à copier */
+.code-widget{margin:0;padding:18px 20px;background:var(--survol);border:1px solid var(--filet);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-all;color:var(--encre-2)}

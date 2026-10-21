@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Widget horoscope du jour gratuit pour votre site · Horoscope Authentique</title>
+<meta name="description" content="Ajoutez gratuitement l’horoscope du jour des 12 signes à votre site ou blog : un encadré élégant, mis à jour chaque matin, à copier-coller.">
+
+<link rel="canonical" href="https://www.horoscope-authentique.fr/widget-horoscope.html">
+<meta property="og:site_name" content="Horoscope Authentique">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Widget horoscope du jour gratuit pour votre site · Horoscope Authentique">
+<meta property="og:description" content="Ajoutez gratuitement l’horoscope du jour des 12 signes à votre site ou blog : un encadré élégant, mis à jour chaque matin, à copier-coller.">
+<meta property="og:url" content="https://www.horoscope-authentique.fr/widget-horoscope.html">
+<meta property="og:image" content="https://www.horoscope-authentique.fr/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="preload" href="./assets/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/cinzel-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="./assets/style.css?v=1446993e">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0FP733JKXH"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0FP733JKXH');</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.horoscope-authentique.fr/"},{"@type":"ListItem","position":2,"name":"Widget horoscope"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Le widget est-il vraiment gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui, entièrement. Il suffit de garder la petite mention « Horoscope du jour offert par Horoscope Authentique » sous l’encadré."}},{"@type":"Question","name":"Le texte se met-il à jour tout seul ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Chaque matin, le widget affiche automatiquement le nouvel horoscope du jour, sans rien faire de votre côté."}},{"@type":"Question","name":"Peut-on choisir le signe affiché ?","acceptedAnswer":{"@type":"Answer","text":"Oui : remplacez « belier » par le signe voulu dans le code (taureau, gemeaux, cancer, lion, vierge, balance, scorpion, sagittaire, capricorne, verseau, poissons). Le visiteur peut aussi changer de signe dans le menu du widget."}}]}</script>
+
+</head>
+<body>
+<a class="sr-only" href="#contenu">Aller au contenu</a>
+<div class="ciel-bar"><div class="wrap">
+<span>Mercredi 21 octobre 2026</span>
+<span>Soleil en Balance · Lune gibbeuse croissante en Verseau</span>
+</div></div>
+<header class="wrap site-header">
+<a class="logo" href="./" aria-label="Horoscope Authentique, accueil"><img src="./assets/logo.svg" alt="Horoscope Authentique" width="752" height="200"></a>
+<nav class="nav" aria-label="Navigation principale"><ul><li><a href="horoscope.html">Horoscope</a></li><li><a href="theme-astral.html">Thème astral</a></li><li><a href="compatibilite-amoureuse.html">Compatibilité</a></li><li><a href="calendrier-lunaire.html">Lune</a></li><li><a href="encyclopedie.html">Encyclopédie</a></li><li><a href="etude-karmique.html" class="accent">Cabinet privé</a></li></ul></nav>
+</header>
+<nav class="wrap crumbs" aria-label="Fil d'Ariane"><ol><li><a href="./">Accueil</a></li><li aria-current="page">Widget horoscope</li></ol></nav>
+<main id="contenu">
+<section class="wrap-narrow stack gap-m center" style="align-items:center;padding-top:48px;padding-bottom:24px">
+<p class="eyebrow">Pour les blogs et les sites</p>
+<h1 class="display">Ajoutez <em>l’horoscope du jour</em> à votre site</h1>
+<p class="lede">Un encadré élégant, mis à jour chaque matin, avec l’horoscope des douze signes écrit par Madeleine. Gratuit, sans inscription, à copier-coller en dix secondes.</p>
+</section>
+<section class="section"><div class="wrap-narrow stack gap-l" style="padding-top:56px;padding-bottom:56px">
+<h2 class="h2 center">Aperçu</h2>
+<div class="horoscope-authentique" data-signe="belier"></div>
+<h2 class="h2 center" style="margin-top:24px">Le code à copier</h2>
+<pre class="code-widget" id="code-widget">&lt;div class=&quot;horoscope-authentique&quot; data-signe=&quot;belier&quot;&gt;&lt;/div&gt;
+&lt;script src=&quot;https://www.horoscope-authentique.fr/widget/horoscope.js&quot; async&gt;&lt;/script&gt;
+&lt;p style=&quot;font-size:13px&quot;&gt;Horoscope du jour offert par &lt;a href=&quot;https://www.horoscope-authentique.fr/&quot;&gt;Horoscope Authentique&lt;/a&gt;&lt;/p&gt;</pre>
+<p class="center"><button type="button" class="btn" id="copier-widget">Copier le code</button></p>
+<script>document.getElementById('copier-widget').addEventListener('click',function(){var b=this;navigator.clipboard.writeText(document.getElementById('code-widget').textContent).then(function(){b.textContent='Code copié';setTimeout(function(){b.textContent='Copier le code'},2000)})});</script>
+</div></section>
+<section class="section"><div class="wrap-narrow stack gap-l"><div class="faq"><details open><summary><span>Le widget est-il vraiment gratuit ?</span><span class="plus" aria-hidden="true">+</span></summary><p class="rep">Oui, entièrement. Il suffit de garder la petite mention « Horoscope du jour offert par Horoscope Authentique » sous l’encadré.</p></details><details><summary><span>Le texte se met-il à jour tout seul ?</span><span class="plus" aria-hidden="true">+</span></summary><p class="rep">Oui. Chaque matin, le widget affiche automatiquement le nouvel horoscope du jour, sans rien faire de votre côté.</p></details><details><summary><span>Peut-on choisir le signe affiché ?</span><span class="plus" aria-hidden="true">+</span></summary><p class="rep">Oui : remplacez « belier » par le signe voulu dans le code (taureau, gemeaux, cancer, lion, vierge, balance, scorpion, sagittaire, capricorne, verseau, poissons). Le visiteur peut aussi changer de signe dans le menu du widget.</p></details></div></div></section>
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="cols">
+<div><h2>Les douze signes</h2><ul class="two"><li><a href="belier.html">Bélier</a></li><li><a href="taureau.html">Taureau</a></li><li><a href="gemeaux.html">Gémeaux</a></li><li><a href="cancer.html">Cancer</a></li><li><a href="lion.html">Lion</a></li><li><a href="vierge.html">Vierge</a></li><li><a href="balance.html">Balance</a></li><li><a href="scorpion.html">Scorpion</a></li><li><a href="sagittaire.html">Sagittaire</a></li><li><a href="capricorne.html">Capricorne</a></li><li><a href="verseau.html">Verseau</a></li><li><a href="poissons.html">Poissons</a></li></ul></div>
+<div><h2>Horoscopes</h2><ul>
+<li><a href="horoscope.html">Horoscope du jour</a></li>
+<li><a href="horoscope-demain.html">Horoscope de demain</a></li>
+<li><a href="horoscope-semaine.html">Horoscope de la semaine</a></li>
+<li><a href="horoscope-mois.html">Horoscope du mois</a></li>
+<li><a href="horoscope-2027.html">Horoscope 2027</a></li>
+<li><a href="horoscope-chinois-2027.html">Horoscope chinois 2027</a></li>
+</ul></div>
+<div><h2>Outils</h2><ul>
+<li><a href="theme-astral.html">Thème astral gratuit</a></li>
+<li><a href="calcul-ascendant.html">Calcul de l'ascendant</a></li>
+<li><a href="compatibilite-amoureuse.html">Compatibilité amoureuse</a></li>
+<li><a href="red-flags.html">Red Flags</a></li>
+<li><a href="numerologie-chemin-de-vie.html">Numérologie</a></li>
+<li><a href="calendrier-lunaire.html">Calendrier lunaire</a></li>
+</ul></div>
+<div><h2>Savoirs</h2><ul>
+<li><a href="encyclopedie.html">Encyclopédie</a></li>
+<li><a href="signification.html">Signification des signes</a></li>
+<li><a href="ciel-2027.html">Le ciel de 2027</a></li>
+<li><a href="pierres-protectrices.html">Lithothérapie</a></li>
+<li><a href="le-cosmos.html">Astronomie &amp; cosmos</a></li>
+</ul></div>
+<div><h2>La Maison</h2><p class="devise">« Les étoiles inclinent, mais ne déterminent pas. »</p><ul>
+<li><a href="verite-horoscope-mensonge.html">Le manifeste</a></li>
+<li><a href="apropos.html">Madeleine</a></li>
+<li><a href="etude-karmique.html">Cabinet privé</a></li>
+<li><a href="widget-horoscope.html">Widget pour votre site</a></li>
+<li><a href="mentions-legales.html">Mentions légales</a></li>
+</ul></div>
+</div>
+<div class="bottom"><img src="./assets/logo-ligne.svg" alt="Horoscope Authentique" width="1740" height="100" loading="lazy"><span>© 2026 Horoscope Authentique</span></div>
+</div></footer>
+<script src="./widget/horoscope.js" async></script>
+</body>
+</html>
