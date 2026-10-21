@@ -67,7 +67,7 @@ async function main() {
         const dial = signs.map((s, i) => {
             const a = (i / 12) * Math.PI * 2 - Math.PI / 2;
             const left = (50 + 41 * Math.cos(a)).toFixed(2), top = (50 + 41 * Math.sin(a)).toFixed(2);
-            return `<a class="medal" href="${s.slug}.html" style="left:${left}%;top:${top}%" aria-label="Horoscope ${esc(s.name)} du jour"><img src="./assets/${s.slug}-carte.webp" alt="" width="320" height="366" decoding="async"><span aria-hidden="true">${esc(s.name)}</span></a>`;
+            return `<a class="medal" href="${s.slug}.html" style="left:${left}%;top:${top}%" aria-label="Horoscope ${esc(s.name)} du jour"><span class="m"><img src="./assets/${s.slug}-carte.webp" alt="" width="320" height="366" decoding="async"><span class="nm" aria-hidden="true">${esc(s.name)}</span></span></a>`;
         }).join('');
         const astres = ciel.astres.map((a) => `<li><span class="n">${a.nom}</span><span class="v">en ${a.signe} <span class="muted small">${a.degre}°</span></span>${a.retrograde ? '<span class="r">rétrograde</span>' : ''}</li>`).join('');
         const phases = PHASES.map((p, i) => `<li${i === ciel.lune.phaseIndex ? ' class="now"' : ''}>${IMG.lune(i)}<span class="nm">${p}</span>${i === ciel.lune.phaseIndex ? '<span class="tag-now">Ce soir</span>' : ''}</li>`).join('');
@@ -96,7 +96,7 @@ async function main() {
 <div class="hero-dial"><div class="dial" role="group" aria-label="Cadran des douze signes">
 <div class="orbit r1" aria-hidden="true"></div><div class="orbit r2" aria-hidden="true"></div>
 <div class="centre"><img src="./assets/lune-${ciel.lune.phaseIndex + 1}.webp" alt="${esc(ciel.lune.phase)}" width="240" height="274" fetchpriority="high"><span class="k">Ce soir</span><span class="v">${esc(ciel.lune.phase)}</span><span class="s">${ciel.lune.illumination} % éclairée · en ${esc(ciel.lune.signe)}</span></div>
-${dial}
+<div class="ronde">${dial}</div>
 </div></div>
 </section>
 
@@ -113,16 +113,16 @@ ${dial}
 </div></section>
 
 <section class="section" aria-labelledby="h-outils"><div class="wrap stack gap-xl">
-<div class="stack gap-s center" style="align-items:center"><p class="eyebrow">Les outils de la Maison</p><h2 id="h-outils" class="h2">Au-delà du signe solaire</h2></div>
+<div class="stack gap-s center" style="align-items:center"><p class="eyebrow">Les outils de la Maison</p><h2 id="h-outils" class="h2">Au-delà du signe solaire</h2><p class="glisser" aria-hidden="true">Faites glisser →</p></div>
 <div class="tools">
-<a class="tool" href="theme-astral.html">${IMG.obj('cosmos.webp')}<span class="eyebrow">Gratuit</span><h3 class="h3">Thème astral</h3><p>Votre ciel de naissance calculé au centième de degré : ascendant, planètes, maisons.</p></a>
-<a class="tool" href="compatibilite-amoureuse.html">${IMG.obj('compatibilite.webp')}<span class="eyebrow">Amour</span><h3 class="h3">Compatibilité</h3><p>Deux signes, cinq lectures : le quotidien, le désir, la durée, ce qui rapproche et ce qui coince.</p></a>
-<a class="tool" href="horoscope-2027.html">${IMG.obj('entree.webp')}<span class="eyebrow">L'année qui vient</span><h3 class="h3">Horoscope 2027</h3><p>Votre année saison par saison, avec les dates clés calculées sur le vrai ciel.</p></a>
-<a class="tool" href="calendrier-lunaire.html"><img src="./assets/lune-5.webp" alt="" width="240" height="274" loading="lazy" decoding="async" style="width:150px;height:200px;object-fit:contain;margin-bottom:10px"><span class="eyebrow">Lune</span><h3 class="h3">Calendrier lunaire</h3><p>Pleines et nouvelles lunes à l'heure près, et ce qu'elles remuent pour chaque signe.</p></a>
-<a class="tool" href="red-flags.html">${IMG.obj('red-flags.webp')}<span class="eyebrow">L'oracle du chaos</span><h3 class="h3">Red Flags</h3><p>Les alliances toxiques du zodiaque, sans filtre et avec humour.</p></a>
-<a class="tool" href="horoscope-chinois-2027.html">${IMG.obj('elements.webp')}<span class="eyebrow">Chèvre de Feu</span><h3 class="h3">Horoscope chinois</h3><p>Votre signe chinois et votre année 2027, à partir du 6 février.</p></a>
-<a class="tool" href="encyclopedie.html">${IMG.obj('livre.webp')}<span class="eyebrow">Encyclopédie</span><h3 class="h3">La Bibliothèque</h3><p>Ascendant, Lilith, maisons, rétrogrades : les notions qui vont plus loin que le signe.</p></a>
-<a class="tool" href="numerologie-chemin-de-vie.html">${IMG.obj('pierres.webp')}<span class="eyebrow">Numérologie</span><h3 class="h3">Chemin de vie</h3><p>Le nombre de votre date de naissance et ce qu'il dit de votre route.</p></a>
+<a class="tool" href="theme-astral.html"><span class="socle">${IMG.obj('cosmos.webp')}</span><span class="eyebrow">Gratuit</span><h3 class="h3">Thème astral</h3><p>Votre ciel de naissance calculé au centième de degré : ascendant, planètes, maisons.</p></a>
+<a class="tool" href="compatibilite-amoureuse.html"><span class="socle">${IMG.obj('compatibilite.webp')}</span><span class="eyebrow">Amour</span><h3 class="h3">Compatibilité</h3><p>Deux signes, cinq lectures : le quotidien, le désir, la durée, ce qui rapproche et ce qui coince.</p></a>
+<a class="tool" href="horoscope-2027.html"><span class="socle">${IMG.obj('entree.webp')}</span><span class="eyebrow">L'année qui vient</span><h3 class="h3">Horoscope 2027</h3><p>Votre année saison par saison, avec les dates clés calculées sur le vrai ciel.</p></a>
+<a class="tool" href="calendrier-lunaire.html"><span class="socle socle-lune"><img src="./assets/lune-5.webp" alt="" width="240" height="274" loading="lazy" decoding="async"></span><span class="eyebrow">Lune</span><h3 class="h3">Calendrier lunaire</h3><p>Pleines et nouvelles lunes à l'heure près, et ce qu'elles remuent pour chaque signe.</p></a>
+<a class="tool" href="red-flags.html"><span class="socle">${IMG.obj('red-flags.webp')}</span><span class="eyebrow">L'oracle du chaos</span><h3 class="h3">Red Flags</h3><p>Les alliances toxiques du zodiaque, sans filtre et avec humour.</p></a>
+<a class="tool" href="horoscope-chinois-2027.html"><span class="socle">${IMG.obj('elements.webp')}</span><span class="eyebrow">Chèvre de Feu</span><h3 class="h3">Horoscope chinois</h3><p>Votre signe chinois et votre année 2027, à partir du 6 février.</p></a>
+<a class="tool" href="encyclopedie.html"><span class="socle">${IMG.obj('livre.webp')}</span><span class="eyebrow">Encyclopédie</span><h3 class="h3">La Bibliothèque</h3><p>Ascendant, Lilith, maisons, rétrogrades : les notions qui vont plus loin que le signe.</p></a>
+<a class="tool" href="numerologie-chemin-de-vie.html"><span class="socle">${IMG.obj('pierres.webp')}</span><span class="eyebrow">Numérologie</span><h3 class="h3">Chemin de vie</h3><p>Le nombre de votre date de naissance et ce qu'il dit de votre route.</p></a>
 </div></div></section>
 
 <section class="section" aria-labelledby="h-cabinet"><div class="wrap split">

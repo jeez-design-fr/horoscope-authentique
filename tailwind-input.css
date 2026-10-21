@@ -100,6 +100,7 @@ a:hover{color:var(--or)}
 .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px;padding-top:6px}
 .hero-dial{flex:1 1 480px;min-width:0;display:flex;justify-content:center}
 .dial{position:relative;width:min(600px,100%);aspect-ratio:1/1}
+html,body{overflow-x:clip}
 .dial .orbit{position:absolute;border:1px solid var(--filet);border-radius:50%}
 .dial .orbit.r1{left:9%;top:9%;width:82%;height:82%}
 .dial .orbit.r2{left:26%;top:26%;width:48%;height:48%;border-color:#F1EAD6}
@@ -108,10 +109,19 @@ a:hover{color:var(--or)}
 .dial .centre .k{font-family:var(--caps);font-size:clamp(9px,1vw,11px);letter-spacing:.2em;text-transform:uppercase;color:var(--or)}
 .dial .centre .v{font-size:clamp(15px,1.7vw,22px);line-height:1.15}
 .dial .centre .s{font-size:clamp(12px,1.1vw,15px);color:var(--gris)}
-.dial .medal{position:absolute;display:block;width:15%;transform:translate(-50%,-50%)}
-.dial .medal img{width:100%;height:auto;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.dial .medal:hover img{transform:scale(1.07)}
-.dial .medal span{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:2px;white-space:nowrap;font-family:var(--caps);font-size:clamp(8px,1vw,11px);letter-spacing:.14em;text-transform:uppercase}
+.dial .ronde{position:absolute;inset:0;animation:tourne 180s linear infinite}
+.dial .medal{position:absolute;display:block;width:15%;transform:translate(-50%,-50%);z-index:1}
+.dial .medal .m{display:block;position:relative;animation:tourne 180s linear infinite reverse}
+.dial:hover .ronde,.dial:hover .medal .m,.dial:focus-within .ronde,.dial:focus-within .medal .m{animation-play-state:paused}
+.dial .medal img{display:block;width:100%;height:auto;transition:transform .55s cubic-bezier(.2,.8,.25,1.25),filter .55s ease}
+.dial .medal:hover,.dial .medal:focus-visible{z-index:3}
+.dial .medal:hover img,.dial .medal:focus-visible img{transform:scale(1.42);filter:drop-shadow(0 12px 18px rgba(138,106,34,.30))}
+.dial .medal:hover+.medal img,.dial .medal:has(+.medal:hover) img{transform:scale(1.12)}
+.dial .medal .nm{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:2px;white-space:nowrap;font-family:var(--caps);font-size:clamp(8px,1vw,11px);letter-spacing:.14em;text-transform:uppercase;transition:transform .55s cubic-bezier(.2,.8,.25,1.25),color .3s}
+.dial .medal:hover .nm,.dial .medal:focus-visible .nm{color:var(--or);transform:translate(-50%,26%) scale(1.15)}
+.dial .centre img{animation:respire 9s ease-in-out infinite}
+@keyframes tourne{to{transform:rotate(360deg)}}
+@keyframes respire{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
 /* ---------- Le ciel du jour ---------- */
 .astres{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border-top:1px solid var(--filet)}
@@ -129,11 +139,33 @@ a:hover{color:var(--or)}
 .tag-now{font-family:var(--caps);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#FFFFFF;background:var(--encre);padding:4px 10px}
 
 /* ---------- Outils ---------- */
-.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:48px 32px}
+/* Outils : objets de porcelaine posés sur un socle, qui flottent doucement */
+.tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:64px 36px}
+@media (max-width:960px){.tools{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .tool{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
-.tool img{width:180px;height:200px;object-fit:contain;margin-bottom:10px;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.tool:hover img{transform:translateY(-6px)}
+.tool .socle{position:relative;display:flex;align-items:flex-end;justify-content:center;width:220px;height:250px;margin-bottom:14px}
+.tool .socle::before{content:"";position:absolute;left:50%;top:46%;width:210px;height:210px;transform:translate(-50%,-50%) scale(.92);border-radius:50%;background:radial-gradient(circle,#FBF4E2 0%,rgba(251,244,226,.55) 45%,rgba(255,255,255,0) 70%);transition:transform .7s cubic-bezier(.2,.8,.25,1.2),opacity .7s;opacity:.85}
+.tool .socle::after{content:"";position:absolute;left:50%;bottom:-6px;width:120px;height:14px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(138,106,34,.22) 0%,rgba(138,106,34,0) 70%);animation:ombre 7s ease-in-out infinite;transition:width .7s}
+.tool .socle img{position:relative;width:190px;height:220px;object-fit:contain;margin:0;animation:flotte 7s ease-in-out infinite;transition:transform .7s cubic-bezier(.2,.8,.25,1.25),filter .7s}
+.tool.socle-lune img,.tool .socle-lune img{width:150px;height:190px}
+.tool:nth-child(2n) .socle img,.tool:nth-child(2n) .socle::after{animation-delay:-2.3s}
+.tool:nth-child(3n) .socle img,.tool:nth-child(3n) .socle::after{animation-delay:-4.6s}
+.tool:hover .socle img,.tool:focus-visible .socle img{animation-play-state:paused;transform:scale(1.18) translateY(-10px);filter:drop-shadow(0 18px 22px rgba(138,106,34,.25))}
+.tool:hover .socle::before,.tool:focus-visible .socle::before{transform:translate(-50%,-50%) scale(1.12);opacity:1}
+.tool:hover .socle::after{width:150px}
+.tool .h3{transition:color .3s}
+.tool:hover .h3{color:var(--or)}
 .tool p{margin:0;color:var(--encre-2);font-size:19px;max-width:20em}
+@keyframes flotte{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes ombre{0%,100%{opacity:1;scale:1}50%{opacity:.6;scale:.85}}
+.glisser{display:none;margin:0;font-family:var(--caps);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--or)}
+/* Mobile : un carrousel qu'on fait glisser du doigt */
+@media (max-width:640px){.glisser{display:block}}
+@media (max-width:640px){
+  .tools{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;margin:0 -24px;padding:8px 24px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .tools::-webkit-scrollbar{display:none}
+  .tool{flex:0 0 78%;scroll-snap-align:center}
+}
 
 /* ---------- Split (image + texte) ---------- */
 .split{display:flex;flex-wrap:wrap;align-items:center;gap:56px 80px}
