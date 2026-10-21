@@ -74,7 +74,8 @@
         "titre": "Survivre à Mercure Rétrograde (Sans Paniquer)",
         "sujet": "Dédramatiser ce phénomène. Ce n'est pas une malédiction, mais un temps pour 'Re' (revoir, réparer, repenser). Conseils pratiques.",
         "image": "livre.webp",
-        "categorie": "BIBLIOTHÈQUE INTERDITE"
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "urgent": true
     },
     {
         "slug": "maisons-astrologiques",
@@ -224,13 +225,6 @@
         "categorie": "L'OBSERVATOIRE"
     },
     {
-        "slug": "verite-horoscope-mensonge",
-        "titre": "Pourquoi votre Horoscope ne marche jamais (La Vérité Révélée)",
-        "sujet": "Article 'Manifeste'. Dénonce l'effet Barnum des horoscopes magazines qui restent vagues pour plaire à tout le monde. Explique la différence entre l'astrologie de divertissement et l'astrologie authentique (basée sur les degrés exacts). Tease l'arrivée imminente de l'Espace Premium : 'Horoscope Authentique' ouvrira bientôt ses consultations privées sur mesure. Plusieurs formats d'analyses ultra-précises seront proposés (Thème Natal complet, Révolution Solaire, Étude Karmique...), accessibles à partir de 20€ pour permettre à chacun de découvrir sa véritable carte du ciel.",
-        "image": "livre.webp",
-        "categorie": "BIBLIOTHÈQUE INTERDITE"
-    },
-    {
         "slug": "noeud-nord-mission-de-vie",
         "titre": "Nœud Nord vs Nœud Sud : Votre Mission de Vie Karmique",
         "sujet": "Explique la différence entre le Nœud Sud (la zone de confort héritée, presque une addiction karmique) et le Nœud Nord (la direction que l'âme doit apprendre à prendre, souvent inconfortable au début). Donne des exemples concrets de blocages liés au Nœud Sud et comment amorcer le mouvement vers le Nœud Nord. Ton bienveillant, jamais moralisateur.",
@@ -284,7 +278,8 @@
         "titre": "Vénus Rétrograde : Ce Qu'elle Vient Réparer en Amour",
         "sujet": "Explique ce qu'est Vénus rétrograde (période récurrente d'environ 6 semaines tous les 18 mois) et pourquoi les ex reviennent souvent à ce moment-là, pourquoi on réévalue ses relations et son rapport à l'argent. Conseils concrets : quoi faire et ne pas faire pendant cette période (éviter les nouvelles relations, les grosses dépenses beauté).",
         "image": "cosmos.webp",
-        "categorie": "L'OBSERVATOIRE"
+        "categorie": "L'OBSERVATOIRE",
+        "urgent": true
     },
     {
         "slug": "pleine-lune-rituel-lacher-prise",

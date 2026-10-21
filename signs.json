@@ -1,98 +1,62 @@
 [
   {
-    "slug": "belier",
-    "name": "Bélier",
-    "date": "21 mars - 19 avril",
-    "element": "Feu",
-    "color_theme": "from-red-600 to-orange-500",
-    "image": "belier.webp"
+    "slug": "belier", "name": "Bélier", "date": "21 mars - 19 avril", "element": "Feu", "image": "belier.webp",
+    "mode": "Cardinal", "planete": "Mars", "pierre": "Cornaline", "corps": "La tête", "oppose": "balance",
+    "presentation": "Premier signe du zodiaque, le Bélier ouvre le printemps : élan, franchise, impatience. Signe de Feu gouverné par Mars, il avance à l'instinct et s'ennuie dès que l'action retombe."
   },
   {
-    "slug": "taureau",
-    "name": "Taureau",
-    "date": "20 avril - 20 mai",
-    "element": "Terre",
-    "color_theme": "from-green-600 to-emerald-500",
-    "image": "taureau.webp"
+    "slug": "taureau", "name": "Taureau", "date": "20 avril - 20 mai", "element": "Terre", "image": "taureau.webp",
+    "mode": "Fixe", "planete": "Vénus", "pierre": "Émeraude", "corps": "La gorge", "oppose": "scorpion",
+    "presentation": "Signe de Terre gouverné par Vénus, le Taureau construit lentement ce qui doit durer. Sensuel et fidèle, il cherche la sécurité, le confort et les plaisirs simples, quitte à camper sur ses positions."
   },
   {
-    "slug": "gemeaux",
-    "name": "Gémeaux",
-    "date": "21 mai - 20 juin",
-    "element": "Air",
-    "color_theme": "from-yellow-400 to-orange-300",
-    "image": "gemeaux.webp"
+    "slug": "gemeaux", "name": "Gémeaux", "date": "21 mai - 20 juin", "element": "Air", "image": "gemeaux.webp",
+    "mode": "Mutable", "planete": "Mercure", "pierre": "Citrine", "corps": "Les bras et les poumons", "oppose": "sagittaire",
+    "presentation": "Signe d'Air gouverné par Mercure, les Gémeaux vivent par la parole et la curiosité. Vifs, drôles et changeants, ils ont besoin de mouvement, d'échanges et de nouveauté pour se sentir vivants."
   },
   {
-    "slug": "cancer",
-    "name": "Cancer",
-    "date": "21 juin - 22 juillet",
-    "element": "Eau",
-    "color_theme": "from-gray-200 to-gray-400",
-    "image": "cancer.webp"
+    "slug": "cancer", "name": "Cancer", "date": "21 juin - 22 juillet", "element": "Eau", "image": "cancer.webp",
+    "mode": "Cardinal", "planete": "La Lune", "pierre": "Pierre de lune", "corps": "La poitrine et l'estomac", "oppose": "capricorne",
+    "presentation": "Signe d'Eau gouverné par la Lune, le Cancer ressent avant de penser. Protecteur et attaché aux siens, il se cache derrière sa carapace quand il se sent menacé, mais se donne entièrement quand il a confiance."
   },
   {
-    "slug": "lion",
-    "name": "Lion",
-    "date": "23 juillet - 22 août",
-    "element": "Feu",
-    "color_theme": "from-yellow-500 to-amber-600",
-    "image": "lion.webp"
+    "slug": "lion", "name": "Lion", "date": "23 juillet - 22 août", "element": "Feu", "image": "lion.webp",
+    "mode": "Fixe", "planete": "Le Soleil", "pierre": "Œil de tigre", "corps": "Le cœur et le dos", "oppose": "verseau",
+    "presentation": "Signe de Feu gouverné par le Soleil, le Lion rayonne et veut être reconnu. Généreux, loyal et théâtral, il donne beaucoup de chaleur mais supporte mal l'indifférence."
   },
   {
-    "slug": "vierge",
-    "name": "Vierge",
-    "date": "23 août - 22 septembre",
-    "element": "Terre",
-    "color_theme": "from-green-700 to-green-900",
-    "image": "vierge.webp"
+    "slug": "vierge", "name": "Vierge", "date": "23 août - 22 septembre", "element": "Terre", "image": "vierge.webp",
+    "mode": "Mutable", "planete": "Mercure", "pierre": "Jaspe", "corps": "L'intestin", "oppose": "poissons",
+    "presentation": "Signe de Terre gouverné par Mercure, la Vierge observe, trie et perfectionne. Précise et serviable, elle trouve la paix dans l'ordre, au risque de trop se juger elle-même."
   },
   {
-    "slug": "balance",
-    "name": "Balance",
-    "date": "23 septembre - 22 octobre",
-    "element": "Air",
-    "color_theme": "from-pink-300 to-rose-400",
-    "image": "balance.webp"
+    "slug": "balance", "name": "Balance", "date": "23 septembre - 22 octobre", "element": "Air", "image": "balance.webp",
+    "mode": "Cardinal", "planete": "Vénus", "pierre": "Quartz rose", "corps": "Les reins", "oppose": "belier",
+    "presentation": "Signe d'Air gouverné par Vénus, la Balance cherche l'harmonie, la beauté et la justice. Diplomate et sociable, elle pèse chaque décision, parfois jusqu'à hésiter trop longtemps."
   },
   {
-    "slug": "scorpion",
-    "name": "Scorpion",
-    "date": "23 octobre - 21 novembre",
-    "element": "Eau",
-    "color_theme": "from-slate-800 to-black",
-    "image": "scorpion.webp"
+    "slug": "scorpion", "name": "Scorpion", "date": "23 octobre - 21 novembre", "element": "Eau", "image": "scorpion.webp",
+    "mode": "Fixe", "planete": "Pluton et Mars", "pierre": "Obsidienne", "corps": "Le bassin", "oppose": "taureau",
+    "presentation": "Signe d'Eau gouverné par Pluton et Mars, le Scorpion vit tout avec intensité. Magnétique et lucide, il ne fait pas les choses à moitié : il se transforme à chaque crise et pardonne difficilement la trahison."
   },
   {
-    "slug": "sagittaire",
-    "name": "Sagittaire",
-    "date": "22 novembre - 21 décembre",
-    "element": "Feu",
-    "color_theme": "from-purple-600 to-indigo-600",
-    "image": "sagittaire.webp"
+    "slug": "sagittaire", "name": "Sagittaire", "date": "22 novembre - 21 décembre", "element": "Feu", "image": "sagittaire.webp",
+    "mode": "Mutable", "planete": "Jupiter", "pierre": "Turquoise", "corps": "Les hanches et les cuisses", "oppose": "gemeaux",
+    "presentation": "Signe de Feu gouverné par Jupiter, le Sagittaire vise loin : voyages, idées, sens de la vie. Optimiste et franc, il a besoin d'horizon et fuit tout ce qui ressemble à une cage."
   },
   {
-    "slug": "capricorne",
-    "name": "Capricorne",
-    "date": "22 décembre - 19 janvier",
-    "element": "Terre",
-    "color_theme": "from-stone-600 to-stone-800",
-    "image": "capricorne.webp"
+    "slug": "capricorne", "name": "Capricorne", "date": "22 décembre - 19 janvier", "element": "Terre", "image": "capricorne.webp",
+    "mode": "Cardinal", "planete": "Saturne", "pierre": "Onyx", "corps": "Les genoux et les os", "oppose": "cancer",
+    "presentation": "Signe de Terre gouverné par Saturne, le Capricorne gravit la montagne pas à pas. Ambitieux, endurant et pudique, il gagne en légèreté avec les années."
   },
   {
-    "slug": "verseau",
-    "name": "Verseau",
-    "date": "20 janvier - 18 février",
-    "element": "Air",
-    "color_theme": "from-sky-400 to-blue-500",
-    "image": "verseau.webp"
+    "slug": "verseau", "name": "Verseau", "date": "20 janvier - 18 février", "element": "Air", "image": "verseau.webp",
+    "mode": "Fixe", "planete": "Uranus et Saturne", "pierre": "Améthyste", "corps": "Les chevilles", "oppose": "lion",
+    "presentation": "Signe d'Air gouverné par Uranus et Saturne, le Verseau pense en avance sur son temps. Indépendant et fraternel, il tient à sa liberté autant qu'à ses idéaux."
   },
   {
-    "slug": "poissons",
-    "name": "Poissons",
-    "date": "19 février - 20 mars",
-    "element": "Eau",
-    "color_theme": "from-cyan-500 to-blue-600",
-    "image": "poissons.webp"
+    "slug": "poissons", "name": "Poissons", "date": "19 février - 20 mars", "element": "Eau", "image": "poissons.webp",
+    "mode": "Mutable", "planete": "Neptune et Jupiter", "pierre": "Aigue-marine", "corps": "Les pieds", "oppose": "vierge",
+    "presentation": "Dernier signe du zodiaque, les Poissons sont gouvernés par Neptune et Jupiter. Intuitifs, empathiques et rêveurs, ils absorbent les émotions du monde et ont besoin de refuges pour se retrouver."
   }
 ]

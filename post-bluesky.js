@@ -24,17 +24,17 @@ async function main() {
     const dayOfYear = Math.floor((Date.now() - startOfYear) / 86400000);
     const sign = signs[dayOfYear % signs.length];
 
-    const pagePath = `./public/${sign.slug}.html`;
-    if (!fs.existsSync(pagePath)) {
-        console.error(`❌ Page introuvable : ${pagePath}, publication annulée.`);
+    // Texte du jour : lu dans data/horoscope-du-jour.json (écrit par le générateur juste avant)
+    const dataPath = './data/horoscope-du-jour.json';
+    if (!fs.existsSync(dataPath)) {
+        console.error('❌ data/horoscope-du-jour.json introuvable, publication annulée.');
         return;
     }
-
-    const html = fs.readFileSync(pagePath, 'utf-8');
-    const match = html.match(/Amour<\/h2>[\s\S]*?italic">([\s\S]*?)<\/p>/);
-    let extrait = match ? match[1].replace(/\s+/g, ' ').trim() : "Découvrez les prédictions du jour.";
-    if (extrait.length > 150) {
-        extrait = extrait.slice(0, 150).replace(/\s+\S*$/, '') + '…';
+    const jour = JSON.parse(fs.readFileSync(dataPath, 'utf-8')).signes[sign.slug];
+    let extrait = (jour && (jour.essentiel || (jour.amour && jour.amour.texte))) || 'Découvrez les prédictions du jour.';
+    extrait = extrait.replace(/\s+/g, ' ').trim();
+    if (extrait.length > 180) {
+        extrait = extrait.slice(0, 180).replace(/\s+\S*$/, '') + '…';
     }
 
     const url = `${SITE_URL}/${sign.slug}.html`;

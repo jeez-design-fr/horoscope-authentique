@@ -22,12 +22,14 @@ jobs:
         node-version: '22'
 
     - name: Installer les dépendances
-      run: npm install
+      run: npm ci
 
     - name: Compiler le CSS (Tailwind)
       run: npm run build:css
 
-    - name: Générer les Horoscopes
+    # Calcule le ciel réel (astronomy-engine), fait rédiger l'horoscope par Gemini
+    # à partir de ces positions, réécrit quelques articles, puis régénère le site.
+    - name: Générer le site
       env:
         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
       run: node generator.js
@@ -36,7 +38,7 @@ jobs:
       run: |
         git config --global user.name "Oracle Automatique"
         git config --global user.email "oracle@horoscope-authentique.fr"
-        git add public/*.html public/assets/style.css public/sitemap.xml public/robots.txt
+        git add public data content assets/style.css
         git commit -m "🔮 Mise à jour quotidienne des astres" || echo "Pas de changement"
         git push
 
