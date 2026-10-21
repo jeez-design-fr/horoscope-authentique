@@ -1,26 +1,50 @@
 [
   {
+    "id": "2026-10-21-capricorne",
+    "date": "2026-10-21",
+    "image": "pins/2026-10-21-capricorne.jpg",
+    "titre": "Horoscope Capricorne du 21 octobre 2026",
+    "description": "La méthode et la patience restent tes meilleures alliées. Construis l'avenir sur du solide grâce au bel accord de Saturne. Amour, travail, bien-être et ta mission du jour : l’horoscope Capricorne complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "capricorne.html"
+  },
+  {
     "id": "2026-10-21-verseau",
     "date": "2026-10-21",
+    "image": "pins/2026-10-21-verseau.jpg",
     "titre": "Horoscope Verseau du 21 octobre 2026",
     "description": "La Lune termine sa course dans ton signe en harmonie avec le Soleil. Réinvente ton quotidien tout en respectant le rythme des autres. Amour, travail, bien-être et ta mission du jour : l’horoscope Verseau complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "verseau.html",
-    "image": "pins/2026-10-21-verseau.jpg"
+    "lien": "verseau.html"
   },
   {
     "id": "2026-10-21-poissons",
     "date": "2026-10-21",
+    "image": "pins/2026-10-21-poissons.jpg",
     "titre": "Horoscope Poissons du 21 octobre 2026",
     "description": "Tes intuitions poétiques s'accordent avec les mouvements subtils du ciel. Laisse ton imagination s'exprimer sans te perdre dans les mirages. Amour, travail, bien-être et ta mission du jour : l’horoscope Poissons complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "poissons.html",
-    "image": "pins/2026-10-21-poissons.jpg"
+    "lien": "poissons.html"
+  },
+  {
+    "id": "2026-10-21-mission-cancer",
+    "date": "2026-10-21",
+    "image": "pins/2026-10-21-mission-cancer.jpg",
+    "titre": "Ta mission du jour, Cancer",
+    "description": "Préparer ta boisson chaude préférée et la savourer les yeux fermés en ne pensant qu'au plaisir de l'instant. La petite mission de Madeleine pour le signe Cancer, avec ton horoscope complet du jour.",
+    "lien": "cancer.html"
   },
   {
     "id": "2026-10-21-couple-cancer-vierge",
     "date": "2026-10-21",
+    "image": "pins/2026-10-21-couple-cancer-vierge.jpg",
     "titre": "Cancer & Vierge · Le jardin secret : ce que vit vraiment ce couple",
     "description": "Compatibilité Cancer et Vierge en amour : points forts, frictions et conseils de Madeleine pour que ce couple dure.",
-    "lien": "compatibilite-cancer-vierge.html",
-    "image": "pins/2026-10-21-couple-cancer-vierge.jpg"
+    "lien": "compatibilite-cancer-vierge.html"
+  },
+  {
+    "id": "2026-10-21-article-sirius-soleil-spirituel",
+    "date": "2026-10-21",
+    "image": "pins/2026-10-21-article-sirius-soleil-spirituel.jpg",
+    "titre": "Sirius : Éveille ta Lumière Intérieure",
+    "description": "Sirius : Éveille ta Lumière Intérieure : l’article de Madeleine, astrologue de la Maison Authentique.",
+    "lien": "sirius-soleil-spirituel.html"
   }
 ]

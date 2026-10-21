@@ -423,7 +423,7 @@ ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class=
     }
 
     // ---------- 9 bis. Les nouvelles rubriques ----------
-    const cctx = { ciel, signs, bySlug, compatData, roastData, jour: horo, demain: horoDemain, semaine: horoSemaine, mois: horoMois, genere: quand };
+    const cctx = { ciel, signs, bySlug, compatData, roastData, jour: horo, demain: horoDemain, semaine: horoSemaine, mois: horoMois, genere: quand, articles: articlesPrets };
     const nouvelles = [C.periodes(cctx), C.theme(cctx), C.lune(cctx), C.paires(cctx), C.fiches(cctx), C.chinois(cctx), C.numerologie(cctx)].flatMap((r) => r.urls);
     console.log(`✅ ${nouvelles.length} pages des nouvelles rubriques`);
     nouvelles.push(...P.widget(cctx));
