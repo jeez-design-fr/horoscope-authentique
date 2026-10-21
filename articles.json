@@ -229,5 +229,68 @@
         "sujet": "Article 'Manifeste'. Dénonce l'effet Barnum des horoscopes magazines qui restent vagues pour plaire à tout le monde. Explique la différence entre l'astrologie de divertissement et l'astrologie authentique (basée sur les degrés exacts). Tease l'arrivée imminente de l'Espace Premium : 'Horoscope Authentique' ouvrira bientôt ses consultations privées sur mesure. Plusieurs formats d'analyses ultra-précises seront proposés (Thème Natal complet, Révolution Solaire, Étude Karmique...), accessibles à partir de 20€ pour permettre à chacun de découvrir sa véritable carte du ciel.",
         "image": "livre.webp",
         "categorie": "BIBLIOTHÈQUE INTERDITE"
+    },
+    {
+        "slug": "noeud-nord-mission-de-vie",
+        "titre": "Nœud Nord vs Nœud Sud : Votre Mission de Vie Karmique",
+        "sujet": "Explique la différence entre le Nœud Sud (la zone de confort héritée, presque une addiction karmique) et le Nœud Nord (la direction que l'âme doit apprendre à prendre, souvent inconfortable au début). Donne des exemples concrets de blocages liés au Nœud Sud et comment amorcer le mouvement vers le Nœud Nord. Ton bienveillant, jamais moralisateur.",
+        "image": "livre.webp",
+        "categorie": "BIBLIOTHÈQUE INTERDITE"
+    },
+    {
+        "slug": "chiron-blessure-sacree",
+        "titre": "Chiron : La Blessure qui Devient un Don",
+        "sujet": "Explique ce qu'est Chiron en astrologie (le 'guérisseur blessé') et comment repérer sa position dans un thème révèle la blessure la plus ancienne, souvent transmise avant même la naissance. Montre comment cette même zone de fragilité devient, une fois traversée, la plus grande force et la capacité à aider les autres sur ce sujet précis.",
+        "image": "livre.webp",
+        "categorie": "BIBLIOTHÈQUE INTERDITE"
+    },
+    {
+        "slug": "retour-de-saturne",
+        "titre": "Retour de Saturne : Pourquoi 29 Ans Change Tout",
+        "sujet": "Explique le Retour de Saturne (vers 29 ans, puis 58 ans) : le moment où Saturne revient à sa position de naissance et force à grandir pour de vrai. Pourquoi tant de gens vivent une crise, une rupture ou un changement de cap radical à cet âge, et comment traverser cette période comme une initiation plutôt que comme une punition.",
+        "image": "livre.webp",
+        "categorie": "BIBLIOTHÈQUE INTERDITE"
+    },
+    {
+        "slug": "shungite-anti-ondes",
+        "titre": "Shungite : Le Bouclier Anti-Ondes du Quotidien",
+        "sujet": "Présente la Shungite, pierre noire réputée pour absorber les ondes électromagnétiques du quotidien (téléphone, wifi, écrans). Pour les hypersensibles électromagnétiques ou celles qui passent leur journée devant un ordinateur. Explique où la placer (près du routeur, dans la poche du téléphone) et comment la recharger.",
+        "image": "pierres.webp",
+        "categorie": "LITHOTHÉRAPIE & RITUELS"
+    },
+    {
+        "slug": "grenat-ancrage-desir",
+        "titre": "Grenat : La Pierre de l'Ancrage et du Désir",
+        "sujet": "Présente le Grenat, pierre rouge profond liée à la vitalité, à la libido et à l'ancrage dans le corps. Pour celles qui se sentent coupées de leurs sensations physiques ou en manque d'élan vital. Explique la différence avec la Cornaline (plus solaire, plus vive) et un petit rituel pour se reconnecter au corps.",
+        "image": "pierres.webp",
+        "categorie": "LITHOTHÉRAPIE & RITUELS"
+    },
+    {
+        "slug": "selenite-purifier-ses-pierres",
+        "titre": "Sélénite : Purifier Ses Pierres Sans les Épuiser",
+        "sujet": "Article pratique : comment purifier et recharger l'ensemble de sa collection de pierres grâce à la Sélénite, qui a la particularité de ne jamais avoir besoin d'être nettoyée elle-même. Étapes concrètes, fréquence recommandée, erreurs à éviter (eau, soleil direct sur certaines pierres fragiles).",
+        "image": "pierres.webp",
+        "categorie": "LITHOTHÉRAPIE & RITUELS"
+    },
+    {
+        "slug": "howlite-mental-apaise",
+        "titre": "Howlite : Calmer un Mental qui Tourne en Boucle",
+        "sujet": "Présente l'Howlite, pierre blanche veinée de gris, réputée pour calmer l'hyperactivité mentale, les ruminations et les insomnies liées au stress. Pour celles qui n'arrivent pas à 'éteindre' leur cerveau le soir. Différence avec l'Améthyste (plus spirituelle) et un rituel simple avant le coucher.",
+        "image": "pierres.webp",
+        "categorie": "LITHOTHÉRAPIE & RITUELS"
+    },
+    {
+        "slug": "venus-retrograde-amour",
+        "titre": "Vénus Rétrograde : Ce Qu'elle Vient Réparer en Amour",
+        "sujet": "Explique ce qu'est Vénus rétrograde (période récurrente d'environ 6 semaines tous les 18 mois) et pourquoi les ex reviennent souvent à ce moment-là, pourquoi on réévalue ses relations et son rapport à l'argent. Conseils concrets : quoi faire et ne pas faire pendant cette période (éviter les nouvelles relations, les grosses dépenses beauté).",
+        "image": "cosmos.webp",
+        "categorie": "L'OBSERVATOIRE"
+    },
+    {
+        "slug": "pleine-lune-rituel-lacher-prise",
+        "titre": "Pleine Lune : Le Rituel de Lâcher-Prise à Faire Chaque Mois",
+        "sujet": "Article pratique et récurrent : explique l'énergie de la pleine lune (aboutissement, libération, ce qui doit partir) par opposition à la nouvelle lune (intentions, débuts). Donne un rituel simple et reproductible chaque mois : écrire ce dont on veut se libérer, le brûler ou le jeter, le lien avec le signe astrologique où tombe la pleine lune du mois.",
+        "image": "cosmos.webp",
+        "categorie": "L'OBSERVATOIRE"
     }
 ]
