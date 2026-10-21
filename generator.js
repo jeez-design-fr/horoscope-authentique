@@ -11,6 +11,7 @@ const path = require('path');
 const { getCiel, astresPourSigne, periodeMercureRetro, PHASES } = require('./lib/ciel');
 const H = require('./lib/horoscope');
 const C = require('./lib/chantiers');
+const U = require('./lib/ui');
 const articlesLib = require('./lib/articles');
 const L = require('./lib/layout');
 const { esc } = L;
@@ -208,6 +209,7 @@ ${ongletsSigne(s.slug, 'jour', dispo)}
 <section class="section" aria-labelledby="h-lecture"><div class="wrap stack gap-l">
 <h2 id="h-lecture" class="h2 center">La lecture du jour</h2>
 <div class="lectures">${lectures}</div>
+${U.mission(d.mission)}
 </div></section>
 <section class="section" aria-labelledby="h-bref"><div class="wrap" style="display:flex;flex-wrap:wrap;gap:48px 80px">
 <div style="flex:1 1 380px;min-width:0" class="stack gap-m">
