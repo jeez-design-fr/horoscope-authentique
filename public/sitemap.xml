@@ -58,7 +58,7 @@
   <url><loc>https://www.horoscope-authentique.fr/lapis-lazuli-verite.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.horoscope-authentique.fr/ascendant-masque.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.horoscope-authentique.fr/lilith-ombre.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.horoscope-authentique.fr/mercure-retrograde.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/mercure-retrograde.html</loc><lastmod>2026-10-21</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.horoscope-authentique.fr/maisons-astrologiques.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.horoscope-authentique.fr/synastrie-ames-soeurs.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.horoscope-authentique.fr/astro-medicale.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -80,6 +80,47 @@
   <url><loc>https://www.horoscope-authentique.fr/eclipse-ombre.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.horoscope-authentique.fr/voie-lactee-ancetres.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.horoscope-authentique.fr/aurores-magie.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/noeud-nord-mission-de-vie.html</loc><lastmod>2026-10-21</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/venus-retrograde-amour.html</loc><lastmod>2026-10-21</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/belier-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/taureau-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/gemeaux-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/cancer-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/lion-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/vierge-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/balance-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/scorpion-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/sagittaire-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/capricorne-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/verseau-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/poissons-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/horoscope-demain.html</loc><lastmod>2026-10-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/belier-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/taureau-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/gemeaux-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/cancer-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/lion-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/vierge-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/balance-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/scorpion-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/sagittaire-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/capricorne-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/verseau-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/poissons-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/horoscope-semaine.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/belier-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/taureau-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/gemeaux-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/cancer-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/lion-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/vierge-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/balance-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/scorpion-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/sagittaire-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/capricorne-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/verseau-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/poissons-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.horoscope-authentique.fr/horoscope-mois.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.horoscope-authentique.fr/belier-2027.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.horoscope-authentique.fr/taureau-2027.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.horoscope-authentique.fr/gemeaux-2027.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>

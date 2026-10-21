@@ -1,0 +1,359 @@
+{
+  "date": "2026-10-22",
+  "genereLe": "2026-10-21T13:40:50.672Z",
+  "source": "gemini",
+  "ciel": {
+    "date": "2026-10-22T11:00:00.000Z",
+    "astres": [
+      {
+        "id": "Sun",
+        "nom": "Soleil",
+        "art": "le Soleil",
+        "longitude": 209.06,
+        "signe": "Balance",
+        "signeSlug": "balance",
+        "degre": 29,
+        "retrograde": false
+      },
+      {
+        "id": "Moon",
+        "nom": "Lune",
+        "art": "la Lune",
+        "longitude": 341.9,
+        "signe": "Poissons",
+        "signeSlug": "poissons",
+        "degre": 11,
+        "retrograde": false
+      },
+      {
+        "id": "Mercury",
+        "nom": "Mercure",
+        "art": "Mercure",
+        "longitude": 230.76,
+        "signe": "Scorpion",
+        "signeSlug": "scorpion",
+        "degre": 20,
+        "retrograde": false
+      },
+      {
+        "id": "Venus",
+        "nom": "Vénus",
+        "art": "Vénus",
+        "longitude": 211.78,
+        "signe": "Scorpion",
+        "signeSlug": "scorpion",
+        "degre": 1,
+        "retrograde": true
+      },
+      {
+        "id": "Mars",
+        "nom": "Mars",
+        "art": "Mars",
+        "longitude": 133.68,
+        "signe": "Lion",
+        "signeSlug": "lion",
+        "degre": 13,
+        "retrograde": false
+      },
+      {
+        "id": "Jupiter",
+        "nom": "Jupiter",
+        "art": "Jupiter",
+        "longitude": 143.06,
+        "signe": "Lion",
+        "signeSlug": "lion",
+        "degre": 23,
+        "retrograde": false
+      },
+      {
+        "id": "Saturn",
+        "nom": "Saturne",
+        "art": "Saturne",
+        "longitude": 9.93,
+        "signe": "Bélier",
+        "signeSlug": "belier",
+        "degre": 9,
+        "retrograde": true
+      },
+      {
+        "id": "Uranus",
+        "nom": "Uranus",
+        "art": "Uranus",
+        "longitude": 65,
+        "signe": "Gémeaux",
+        "signeSlug": "gemeaux",
+        "degre": 5,
+        "retrograde": true
+      },
+      {
+        "id": "Neptune",
+        "nom": "Neptune",
+        "art": "Neptune",
+        "longitude": 2.3,
+        "signe": "Bélier",
+        "signeSlug": "belier",
+        "degre": 2,
+        "retrograde": true
+      },
+      {
+        "id": "Pluto",
+        "nom": "Pluton",
+        "art": "Pluton",
+        "longitude": 303.08,
+        "signe": "Verseau",
+        "signeSlug": "verseau",
+        "degre": 3,
+        "retrograde": false
+      }
+    ],
+    "aspects": [
+      {
+        "a": "Neptune",
+        "b": "Pluton",
+        "aspect": "sextile",
+        "orbe": 0.8
+      },
+      {
+        "a": "Vénus",
+        "b": "Pluton",
+        "aspect": "carré",
+        "orbe": 1.3
+      },
+      {
+        "a": "Uranus",
+        "b": "Pluton",
+        "aspect": "trigone",
+        "orbe": 1.9
+      },
+      {
+        "a": "Mercure",
+        "b": "Jupiter",
+        "aspect": "carré",
+        "orbe": 2.3
+      },
+      {
+        "a": "Soleil",
+        "b": "Vénus",
+        "aspect": "conjonction",
+        "orbe": 2.7
+      },
+      {
+        "a": "Uranus",
+        "b": "Neptune",
+        "aspect": "sextile",
+        "orbe": 2.7
+      },
+      {
+        "a": "Mars",
+        "b": "Saturne",
+        "aspect": "trigone",
+        "orbe": 3.8
+      },
+      {
+        "a": "Soleil",
+        "b": "Pluton",
+        "aspect": "carré",
+        "orbe": 4
+      }
+    ],
+    "lune": {
+      "phaseIndex": 3,
+      "phase": "Gibbeuse croissante",
+      "illumination": 84,
+      "signe": "Poissons",
+      "croissante": true
+    },
+    "soleil": {
+      "id": "Sun",
+      "nom": "Soleil",
+      "art": "le Soleil",
+      "longitude": 209.06,
+      "signe": "Balance",
+      "signeSlug": "balance",
+      "degre": 29,
+      "retrograde": false
+    }
+  },
+  "signes": {
+    "belier": {
+      "essentiel": "Saturne et Neptune rétrogrades chez toi te demandent du calme face au Soleil en face.",
+      "amour": {
+        "titre": "Entre ombre et lumière",
+        "texte": "Ton maître Mars forme un solide trigone avec Saturne, ce qui pose de bonnes bases. Mais avec le Soleil juste en face de ton signe, les discussions de couple demandent de la mesure. Garde la tête froide."
+      },
+      "travail": {
+        "titre": "Construire sur du solide",
+        "texte": "Mars et Saturne t'offrent une endurance remarquable pour finaliser tes dossiers. Ne cherche pas à tout bousculer trop vite. La rigueur paie."
+      },
+      "bienetre": {
+        "titre": "Respirer et ralentir",
+        "texte": "Saturne et Neptune dans ton espace personnel invitent à la pause. Prends le temps de souffler et d'écouter ton corps. Le repos fait partie du travail."
+      }
+    },
+    "taureau": {
+      "essentiel": "Vénus rétrograde et Mercure en face brassent tes émotions, trouve ton ancrage.",
+      "amour": {
+        "titre": "Le retour du passé",
+        "texte": "Ton maître Vénus est rétrograde en face de toi et subit un carré de Pluton. Les vieilles rancœurs ressurgissent peut-être sans prévenir. Accueille cela avec détachement."
+      },
+      "travail": {
+        "titre": "Peser chaque mot",
+        "texte": "Mercure en face de ton signe complique un peu les échanges professionnels. Un carré avec Jupiter vient pimenter les négociations. Vérifie deux fois tes contrats."
+      },
+      "bienetre": {
+        "titre": "Apaiser les tensions",
+        "texte": "La Lune gibbeuse croissante éclaire tes nuits d'une énergie un peu trop vibrante. Offre-toi un bon repas et une soirée au calme pour retrouver ta stabilité."
+      }
+    },
+    "gemeaux": {
+      "essentiel": "Uranus rétrograde dans ton signe bouscule tes habitudes, reste flexible.",
+      "amour": {
+        "titre": "Surprise dans l'air",
+        "texte": "Ton maître Mercure en Scorpion cherche la petite bête et se frotte à Jupiter. Tes échanges amoureux manquent parfois de simplicité. Souris aux imprévus."
+      },
+      "travail": {
+        "titre": "Idées en ébullition",
+        "texte": "Uranus rétrograde chez toi se connecte à Pluton et insuffle un vent de changement inattendu. Tes méthodes habituelles cèdent la place à du neuf. Suis ton intuition."
+      },
+      "bienetre": {
+        "titre": "Éviter la dispersion",
+        "texte": "Ton mental tourne à plein régime et la Lune en Poissons n'aide pas à cadrer tes pensées. Pose ton téléphone et va marcher un peu pour te vider la tête."
+      }
+    },
+    "cancer": {
+      "essentiel": "La Lune dans ton secteur ami insuffle une douce intuition, écoute ton cœur.",
+      "amour": {
+        "titre": "Tendresse et intuition",
+        "texte": "La Lune en Poissons illumine ton ciel et favorise les élans du cœur. Tu ressens les besoins de ton entourage avant même qu'ils ne parlent. Profite de cette bulle de douceur."
+      },
+      "travail": {
+        "titre": "Créativité inspirée",
+        "texte": "Sans astre lourd dans ton signe, tu navigues avec souplesse et écoutes tes intuitions pour avancer. Tes projets artistiques ou humains trouvent un écho favorable."
+      },
+      "bienetre": {
+        "titre": "Bain de réconfort",
+        "texte": "La phase lunaire actuelle te recharge en énergie émotionnelle. Offre-toi un moment au plus près de l'eau ou sous une couverture chaude pour buller."
+      }
+    },
+    "lion": {
+      "essentiel": "Mars et Jupiter dans ton signe te donnent des ailes malgré Pluton en face.",
+      "amour": {
+        "titre": "Passions et éclats",
+        "texte": "Mars et Jupiter boostent ton charme naturel et ton magnétisme. Mais attention au carré de Pluton qui peut rendre les échanges un peu trop intenses. Calme le jeu si besoin."
+      },
+      "travail": {
+        "titre": "Ambitions XXL",
+        "texte": "Le duo Mars et Jupiter dans ton signe déplace des montagnes. Tu as l'énergie pour porter de grands projets. Veille juste à ne pas écraser les autres en chemin."
+      },
+      "bienetre": {
+        "titre": "Briller sans s'épuiser",
+        "texte": "L'énergie est au plus haut mais le carré de Pluton demande de doser tes efforts. Dépense-toi physiquement pour évacuer le trop-plein de pression."
+      }
+    },
+    "vierge": {
+      "essentiel": "La Lune en face de toi demande de lâcher un peu le contrôle.",
+      "amour": {
+        "titre": "Écoute attentive",
+        "texte": "La Lune en Poissons se trouve exactement en face de ton signe et met l'autre au centre. Tes proches ont besoin de ton écoute bienveillante. Laisse de côté ta critique."
+      },
+      "travail": {
+        "titre": "Rigueur et nuance",
+        "texte": "Ton maître Mercure en Scorpion forme un carré avec Jupiter, ce qui peut rendre les estimations un peu trop optimistes. Reste fidèle à ta méthode habituelle."
+      },
+      "bienetre": {
+        "titre": "Lâcher prise",
+        "texte": "La Lune en face de toi te rend un peu plus perméable aux ambiances extérieures. Prends du temps pour trier tes pensées et ne garde que l'essentiel."
+      }
+    },
+    "balance": {
+      "essentiel": "Le Soleil dans ton signe s'allie à Vénus, mais gare aux tensions avec Pluton.",
+      "amour": {
+        "titre": "Conjonction lumineuse",
+        "texte": "Le Soleil et Vénus sont collés serrés dans ton signe pour illuminer tes relations. C'est le moment idéal pour exprimer ta flamme. Attention toutefois au carré de Pluton qui guette."
+      },
+      "travail": {
+        "titre": "Négociations serrées",
+        "texte": "Saturne et Neptune rétrogrades en face de ton signe te rappellent à l'ordre sur tes engagements. Ne signe rien sans lire les petites lignes. La prudence est ton amie."
+      },
+      "bienetre": {
+        "titre": "Trouver l'équilibre",
+        "texte": "La lumière du Soleil t'enveloppe mais les aspects tendus demandent des pauses. Ménage des sas de décompression dans ta journée pour garder ton calme."
+      }
+    },
+    "scorpion": {
+      "essentiel": "Mercure et Vénus rétrograde dans ton signe brassent ton monde intérieur.",
+      "amour": {
+        "titre": "Profondeur et mystère",
+        "texte": "Vénus rétrograde et Mercure habitent ton signe. Le carré de Vénus à ton maître Pluton réveille des passions ou des doutes intenses. Dis les choses avec tact."
+      },
+      "travail": {
+        "titre": "Enquêter en sous-marin",
+        "texte": "Mercure chez toi analyse tout avec une précision redoutable. Même si un carré avec Jupiter complique la communication, tu gardes une longueur d'avance."
+      },
+      "bienetre": {
+        "titre": "Buller en silence",
+        "texte": "L'intensité de ta planète maîtresse Pluton te pousse à l'introspection. Isole-toi un moment pour recharger tes batteries loin du bruit du monde."
+      }
+    },
+    "sagittaire": {
+      "essentiel": "Jupiter ton maître s'accroche à Mercure, garde le cap de l'optimisme.",
+      "amour": {
+        "titre": "Envie d'ailleurs",
+        "texte": "Uranus rétrograde en face de ton signe insuffle un vent de liberté dans tes relations. Tu as besoin d'espace et de grands projets communs. Parles-en avec ton entourage."
+      },
+      "travail": {
+        "titre": "Vues larges",
+        "texte": "Ton maître Jupiter forme un carré avec Mercure, ce qui peut brouiller les pistes administratives. Vise grand, mais garde un œil sur les détails pratiques."
+      },
+      "bienetre": {
+        "titre": "Bouger pour s'ancrer",
+        "texte": "La Lune gibbeuse stimule ton besoin de mouvement. Une longue marche ou une activité en plein air te fera le plus grand bien pour canaliser ton énergie."
+      }
+    },
+    "capricorne": {
+      "essentiel": "Saturne ton maître en trigone avec Mars te donne une force tranquille.",
+      "amour": {
+        "titre": "Stabilité rassurante",
+        "texte": "Ton maître Saturne rétrograde forme un beau trigone avec Mars, consolidant tes liens affectifs. Pas besoin de grands discours, tes actes parlent pour toi."
+      },
+      "travail": {
+        "titre": "Efficacité redoutable",
+        "texte": "L'alliance de Saturne et de Mars te permet de abattre une quantité impressionnante de travail. Tu structures l'avenir avec méthode. Continue sur cette lancée."
+      },
+      "bienetre": {
+        "titre": "Prendre de la hauteur",
+        "texte": "Saturne t'invite à structurer ton temps de repos aussi sérieusement que ton travail. Offre-toi une vraie coupure pour détendre tes épaules."
+      }
+    },
+    "verseau": {
+      "essentiel": "Pluton chez toi s'associe à Neptune et Uranus, prépare-toi au renouveau.",
+      "amour": {
+        "titre": "Connexions inattendues",
+        "texte": "Mars et Jupiter en face de ton signe font monter la température dans tes relations. Le trigone d'Uranus à Pluton t'invite à casser les vieux schémas amoureux."
+      },
+      "travail": {
+        "titre": "Visionnaire inspiré",
+        "texte": "Pluton dans ton signe s'harmonise magnifiquement avec Neptune. Tes idées novatrices trouvent un terreau fertile. N'aie pas peur de proposer des solutions audacieuses."
+      },
+      "bienetre": {
+        "titre": "Électron libre",
+        "texte": "L'énergie de Pluton et d'Uranus bouscule ton système nerveux. Prends le temps de respirer profondément pour intégrer toutes ces transformations en douceur."
+      }
+    },
+    "poissons": {
+      "essentiel": "La Lune dans ton signe amplifie ta sensibilité, écoute ta petite voix.",
+      "amour": {
+        "titre": "Vagues d'émotion",
+        "texte": "La Lune visite ton signe et te rend particulièrement réceptif ou réceptive aux ambiances. Ton maître Neptune, en bon aspect avec Pluton, magnifie ta vie intime et ta poésie."
+      },
+      "travail": {
+        "titre": "Intuition créative",
+        "texte": "Neptune rétrograde dans ton signe allié à Pluton te pousse à réinventer ta façon de travailler. Fais confiance à ton flair plutôt qu'aux règles strictes."
+      },
+      "bienetre": {
+        "titre": "Éponge émotionnelle",
+        "texte": "La Lune gibbeuse amplifie tes perceptions. Si la fatigue s'installe, isole-toi dans un endroit calme pour retrouver ta bulle de paix."
+      }
+    }
+  }
+}
