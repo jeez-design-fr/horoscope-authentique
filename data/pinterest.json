@@ -24,6 +24,78 @@
     "lien": "gemeaux.html"
   },
   {
+    "id": "2026-10-22-cancer",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-cancer.jpg",
+    "titre": "Horoscope Cancer du 22 octobre 2026",
+    "description": "Toi qui protèges ton cœur dans ta jolie carapace, la Lune illumine ton secteur des partenariats pour réchauffer ton univers. Amour, travail, bien-être et ta mission du jour : l’horoscope Cancer complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "cancer.html"
+  },
+  {
+    "id": "2026-10-22-lion",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-lion.jpg",
+    "titre": "Horoscope Lion du 22 octobre 2026",
+    "description": "Toi qui brilles de mille feux, Mars et Jupiter dans ton signe amplifient ton charisme tout en te demandant un peu de mesure. Amour, travail, bien-être et ta mission du jour : l’horoscope Lion complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "lion.html"
+  },
+  {
+    "id": "2026-10-22-vierge",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-vierge.jpg",
+    "titre": "Horoscope Vierge du 22 octobre 2026",
+    "description": "Toi qui pèses chaque détail avec minutie, la Lune en face de ton signe t'invite à lâcher le contrôle. Amour, travail, bien-être et ta mission du jour : l’horoscope Vierge complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "vierge.html"
+  },
+  {
+    "id": "2026-10-22-balance",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-balance.jpg",
+    "titre": "Horoscope Balance du 22 octobre 2026",
+    "description": "Toi qui cherches toujours l'harmonie parfaite, le Soleil dans ton signe t'invite à te placer au centre de ta vie. Amour, travail, bien-être et ta mission du jour : l’horoscope Balance complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "balance.html"
+  },
+  {
+    "id": "2026-10-22-scorpion",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-scorpion.jpg",
+    "titre": "Horoscope Scorpion du 22 octobre 2026",
+    "description": "Toi qui ressens tout avec une intensité folle, Mercure et Vénus dans ton signe éclairent ton monde secret. Amour, travail, bien-être et ta mission du jour : l’horoscope Scorpion complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "scorpion.html"
+  },
+  {
+    "id": "2026-10-22-sagittaire",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-sagittaire.jpg",
+    "titre": "Horoscope Sagittaire du 22 octobre 2026",
+    "description": "Toi qui cours toujours vers de nouveaux horizons, le ciel t'invite à ralentir pour savourer l'instant présent. Amour, travail, bien-être et ta mission du jour : l’horoscope Sagittaire complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "sagittaire.html"
+  },
+  {
+    "id": "2026-10-22-capricorne",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-capricorne.jpg",
+    "titre": "Horoscope Capricorne du 22 octobre 2026",
+    "description": "Toi, le pilier infatigable, le ciel t'offre une journée propice à la consolidation silencieuse de tes grands projets. Amour, travail, bien-être et ta mission du jour : l’horoscope Capricorne complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "capricorne.html"
+  },
+  {
+    "id": "2026-10-22-verseau",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-verseau.jpg",
+    "titre": "Horoscope Verseau du 22 octobre 2026",
+    "description": "Toi, l'esprit libre et visionnaire, Pluton dans ton signe te transforme en profondeur tout en stimulant ta curiosité. Amour, travail, bien-être et ta mission du jour : l’horoscope Verseau complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "verseau.html"
+  },
+  {
+    "id": "2026-10-22-poissons",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-poissons.jpg",
+    "titre": "Horoscope Poissons du 22 octobre 2026",
+    "description": "Toi le poète des grands oceans émotionnels, la Lune dans ton signe t'enveloppe d'une grâce infinie. Amour, travail, bien-être et ta mission du jour : l’horoscope Poissons complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "poissons.html"
+  },
+  {
     "id": "2026-10-22-mission-balance",
     "date": "2026-10-22",
     "image": "pins/2026-10-22-mission-balance.jpg",
