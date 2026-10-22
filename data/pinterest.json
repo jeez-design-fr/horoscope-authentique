@@ -1,5 +1,62 @@
 [
   {
+    "id": "2026-10-22-belier",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-belier.jpg",
+    "titre": "Horoscope Bélier du 22 octobre 2026",
+    "description": "Toi qui brûles d'envie de tout faire en même temps, ce jeudi te demande de respirer un grand coup ! Amour, travail, bien-être et ta mission du jour : l’horoscope Bélier complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "belier.html"
+  },
+  {
+    "id": "2026-10-22-taureau",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-taureau.jpg",
+    "titre": "Horoscope Taureau du 22 octobre 2026",
+    "description": "Toi qui aimes tant tes petites habitudes bien ancrées, le ciel t'invite à regarder tes relations sous un autre angle. Amour, travail, bien-être et ta mission du jour : l’horoscope Taureau complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "taureau.html"
+  },
+  {
+    "id": "2026-10-22-gemeaux",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-gemeaux.jpg",
+    "titre": "Horoscope Gémeaux du 22 octobre 2026",
+    "description": "Toi qui papillonnes d'une idée à l'autre, Uranus dans ton signe te pousse à embrasser le changement avec enthousiasme. Amour, travail, bien-être et ta mission du jour : l’horoscope Gémeaux complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "gemeaux.html"
+  },
+  {
+    "id": "2026-10-22-mission-balance",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-mission-balance.jpg",
+    "titre": "Ta mission du jour, Balance",
+    "description": "Fais-toi un beau cadeau symbolique ou offre-toi un joli bouquet de fleurs pour célébrer ton rayonnement. La petite mission de Madeleine pour le signe Balance, avec ton horoscope complet du jour.",
+    "lien": "balance.html"
+  },
+  {
+    "id": "2026-10-22-couple-cancer-balance",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-couple-cancer-balance.jpg",
+    "titre": "Cancer & Balance · La diplomatie du cœur : ce que vit vraiment ce couple",
+    "description": "Compatibilité Cancer et Balance en amour : points forts, frictions et conseils de Madeleine pour que ce couple dure.",
+    "lien": "compatibilite-cancer-balance.html"
+  },
+  {
+    "id": "2026-10-22-article-oeil-tigre-protection",
+    "date": "2026-10-22",
+    "image": "pins/2026-10-22-article-oeil-tigre-protection.jpg",
+    "titre": "Oeil de Tigre : Le Bouclier contre le Mauvais Œil",
+    "description": "Oeil de Tigre : Le Bouclier contre le Mauvais Œil : l’article de Madeleine, astrologue de la Maison Authentique.",
+    "lien": "oeil-tigre-protection.html"
+  },
+  {
+    "id": "2026-10-22-or-capricorne",
+    "date": "2026-10-22",
+    "image": "assets/pinterest-stock/or-capricorne.jpg",
+    "hauteur": 1778,
+    "titre": "Capricorne : caractère, qualités et défauts",
+    "description": "Le portrait complet du Capricorne par Madeleine : caractère, qualités, défauts, amour et décans. Signe Capricorne en astrologie.",
+    "lien": "signe-capricorne.html"
+  },
+  {
     "id": "2026-10-21-capricorne",
     "date": "2026-10-21",
     "image": "pins/2026-10-21-capricorne.jpg",
