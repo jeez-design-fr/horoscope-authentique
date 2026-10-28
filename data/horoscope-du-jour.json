@@ -1,46 +1,46 @@
 {
   "version": 3,
-  "date": "2026-10-27",
-  "genereLe": "2026-10-27T08:45:06.149Z",
+  "date": "2026-10-28",
+  "genereLe": "2026-10-28T09:24:38.447Z",
   "source": "veille",
   "ciel": {
-    "date": "2026-10-27T11:00:00.000Z",
+    "date": "2026-10-28T11:00:00.000Z",
     "astres": [
       {
         "id": "Sun",
         "nom": "Soleil",
         "art": "le Soleil",
-        "longitude": 214.04,
+        "longitude": 215.04,
         "signe": "Scorpion",
         "signeSlug": "scorpion",
-        "degre": 4,
+        "degre": 5,
         "retrograde": false
       },
       {
         "id": "Moon",
         "nom": "Lune",
         "art": "la Lune",
-        "longitude": 51.42,
-        "signe": "Taureau",
-        "signeSlug": "taureau",
-        "degre": 21,
+        "longitude": 66.11,
+        "signe": "Gémeaux",
+        "signeSlug": "gemeaux",
+        "degre": 6,
         "retrograde": false
       },
       {
         "id": "Mercury",
         "nom": "Mercure",
         "art": "Mercure",
-        "longitude": 230.28,
+        "longitude": 229.74,
         "signe": "Scorpion",
         "signeSlug": "scorpion",
-        "degre": 20,
+        "degre": 19,
         "retrograde": true
       },
       {
         "id": "Venus",
         "nom": "Vénus",
         "art": "Vénus",
-        "longitude": 208.74,
+        "longitude": 208.16,
         "signe": "Balance",
         "signeSlug": "balance",
         "degre": 28,
@@ -50,7 +50,7 @@
         "id": "Mars",
         "nom": "Mars",
         "art": "Mars",
-        "longitude": 136.3,
+        "longitude": 136.82,
         "signe": "Lion",
         "signeSlug": "lion",
         "degre": 16,
@@ -60,7 +60,7 @@
         "id": "Jupiter",
         "nom": "Jupiter",
         "art": "Jupiter",
-        "longitude": 143.75,
+        "longitude": 143.88,
         "signe": "Lion",
         "signeSlug": "lion",
         "degre": 23,
@@ -70,7 +70,7 @@
         "id": "Saturn",
         "nom": "Saturne",
         "art": "Saturne",
-        "longitude": 9.58,
+        "longitude": 9.51,
         "signe": "Bélier",
         "signeSlug": "belier",
         "degre": 9,
@@ -80,7 +80,7 @@
         "id": "Uranus",
         "nom": "Uranus",
         "art": "Uranus",
-        "longitude": 64.84,
+        "longitude": 64.8,
         "signe": "Gémeaux",
         "signeSlug": "gemeaux",
         "degre": 4,
@@ -90,7 +90,7 @@
         "id": "Neptune",
         "nom": "Neptune",
         "art": "Neptune",
-        "longitude": 2.19,
+        "longitude": 2.16,
         "signe": "Bélier",
         "signeSlug": "belier",
         "degre": 2,
@@ -109,12 +109,6 @@
     ],
     "aspects": [
       {
-        "a": "Soleil",
-        "b": "Pluton",
-        "aspect": "carré",
-        "orbe": 0.9
-      },
-      {
         "a": "Neptune",
         "b": "Pluton",
         "aspect": "sextile",
@@ -127,246 +121,246 @@
         "orbe": 1.7
       },
       {
+        "a": "Soleil",
+        "b": "Pluton",
+        "aspect": "carré",
+        "orbe": 1.9
+      },
+      {
         "a": "Uranus",
         "b": "Neptune",
         "aspect": "sextile",
-        "orbe": 2.7
-      },
-      {
-        "a": "Mercure",
-        "b": "Jupiter",
-        "aspect": "carré",
-        "orbe": 3.5
+        "orbe": 2.6
       },
       {
         "a": "Mercure",
         "b": "Mars",
         "aspect": "carré",
-        "orbe": 4
+        "orbe": 2.9
+      },
+      {
+        "a": "Mercure",
+        "b": "Jupiter",
+        "aspect": "carré",
+        "orbe": 4.1
       },
       {
         "a": "Vénus",
         "b": "Pluton",
         "aspect": "carré",
-        "orbe": 4.4
-      },
-      {
-        "a": "Soleil",
-        "b": "Vénus",
-        "aspect": "conjonction",
-        "orbe": 5.3
+        "orbe": 4.9
       }
     ],
     "lune": {
-      "phaseIndex": 4,
-      "phase": "Pleine lune",
-      "illumination": 98,
-      "signe": "Taureau",
+      "phaseIndex": 5,
+      "phase": "Gibbeuse décroissante",
+      "illumination": 93,
+      "signe": "Gémeaux",
       "croissante": false
     },
     "soleil": {
       "id": "Sun",
       "nom": "Soleil",
       "art": "le Soleil",
-      "longitude": 214.04,
+      "longitude": 215.04,
       "signe": "Scorpion",
       "signeSlug": "scorpion",
-      "degre": 4,
+      "degre": 5,
       "retrograde": false
     }
   },
   "signes": {
     "belier": {
-      "essentiel": "Toi qui fonces tête baissée, demain te demande de ralentir un instant. Avec Saturne et Neptune dans ton signe, la patience devient une alliée précieuse.",
+      "essentiel": "La vie te demande de ralentir un peu la cadence aujourd'hui. Prends le temps de respirer, d'écouter les autres et de poser les choses avec calme.",
       "amour": {
-        "titre": "Regarder dans la même direction",
-        "texte": "Toi qui as l'habitude de tout mener tambour battant, tu pourrais ressentir un besoin soudain de clarté dans tes relations. Vénus rétrograde en face de ton signe met un coup de projecteur sur ce qui coince un peu avec les autres. C'est le moment idéal pour poser tes valises émotionnelles et écouter vraiment l'autre sans vouloir avoir le dernier mot. Le ciel t'invite à réparer ce qui s'est effiloché ces derniers temps avec beaucoup de douceur. Prends le temps de savourer un regard ou un silence partagé sans chercher à tout analyser tout de suite. Les liens profonds se construisent aussi dans ces moments de vulnérabilité assumée et partagée. Laisse la place à la tendresse pure pour réchauffer ton cœur un peu fatigué par les tempêtes récentes."
+        "titre": "Laisser du temps au cœur",
+        "texte": "Toi qui préfères foncer tête baissée, les sentiments réclament aujourd'hui un brin de nuance. En face de chez toi, Vénus rétrograde en Balance remue de vieux souvenirs ou des discussions laissées en suspens. Elle forme une tension avec Pluton, ce qui peut réveiller une petite peur de perdre le contrôle dans le lien à l'autre. Il n'y a aucun drame à l'horizon, rassure-toi. C'est simplement une invitation à nommer tes besoins réels sans hausser le ton. Saturne et Neptune séjournent dans ton signe en marche arrière, t'aidant à poser des limites plus saines sans rien bousculer. Écoute ce silence habité entre deux phrases au cours du dîner."
       },
       "travail": {
-        "titre": "Construire sur du solide",
-        "texte": "La présence de Saturne rétrograde dans ton signe agit comme un rappel à l'ordre bienveillant pour structurer tes projets. Tu as parfois envie de tout révolutionner en une seule journée mais le ciel te conseille la prudence. Prends le temps de relire tes dossiers et de vérifier les détails qui t'auraient échappé dans la précipitation. Ce mardi ressemble à une journée de révision où chaque brique posée solidement garantit la réussite future. Ne te laisse pas agacer par les petits retards administratifs ou les lenteurs de ton entourage professionnel. Chaque obstacle est une invitation à affiner ta stratégie plutôt qu'à forcer les portes avec violence. Fais confiance à ton intuition pour trouver les solutions durables qui te permettront d'avancer sereinement."
+        "titre": "Canaliser le feu de l'action",
+        "texte": "Tu as cette façon unique de vouloir régler trois dossiers avant même la fin de ton café. Pourtant, ton maître Mars se trouve en Lion et subit un carré de Mercure rétrograde depuis le Scorpion. Cette configuration planétaire signale des malentendus faciles ou des mails lus de travers par tes collègues. Si un échange s'enflamme pour un détail technique, garde la tête froide et évite la riposte immédiate. Prends le temps de reformuler chaque consigne avant de valider un projet d'équipe. Rien ne presse autant que tu le crois en cette fin de matinée. Ta meilleure stratégie reste la patience active, crayon en main."
       },
       "bienetre": {
-        "titre": "Soffrir une vraie pause",
-        "texte": "Avec Neptune qui flotte dans ton signe, ton corps réclame peut-être un peu plus de repos que d'habitude. Tu portes beaucoup de choses sur tes épaules et la fatigue finit par se faire sentir au réveil. Accorde-toi une plage de silence dans ta journée, loin des écrans et du bruit ambiant qui t'épuisent. Une promenade lente dans un parc ou un moment passé à écouter ta musique préférée fera des miracles. Ne culpabilise surtout pas si tu as l'impression de faire moins de choses que prévu demain. Ton organisme a simplement besoin de recharger ses batteries pour retrouver toute son étincelle naturelle. Prends soin de ton sommeil et offre-toi une infusion chaude pour apaiser ton esprit bouillonnant."
+        "titre": "Ralentir pour mieux recharger",
+        "texte": "Ton énergie légendaire a parfois besoin d'une vraie trêve, même si tu détestes t'avouer la moindre fatigue. Avec Saturne qui recule lentement dans ton signe, ton corps réclame de la régularité et des pauses bien définies. Neptune rétrograde à ses côtés te propose de relâcher la pression mentale qui s'accumule sans prévenir. Au lieu de courir après mille tâches, accorde-toi une vraie marche sans téléphone pendant la pause déjeuner. Regarde le ciel, respire à pleins poumons et laisse les tensions musculaires glisser le long de ton dos. Ce répit salutaire te redonnera toute ta vitalité pour les jours à venir."
       },
-      "mission": "Éteins ton téléphone pendant une heure entière pour ne faire absolument rien, et savoure ce grand vide."
+      "mission": "Compter jusqu'à cinq avant de répondre à ce message qui titille un peu trop ta fierté matinale."
     },
     "taureau": {
-      "essentiel": "Toi qui aimes tes repères bien ancrés, la Pleine Lune dans ton signe éclaire ta vie intime. Avec le Soleil et Mercure rétrograde en face, la communication demande un peu de tact.",
+      "essentiel": "Le dialogue prend une place centrale aujourd'hui. Fais confiance à ta solidité naturelle pour désamorcer les non-dits et avancer pas à pas avec ton entourage.",
       "amour": {
-        "titre": "Mettre des mots doux",
-        "texte": "La puissante Pleine Lune qui illumine ton signe te met dans une lumière particulièrement sensible et magnétique. En face de toi, le Soleil et Mercure rétrograde secouent un peu le dialogue avec les personnes chères. Tu pourrais avoir l'impression qu'on ne te comprend pas du premier coup ou que les quiproquos s'enchaînent. C'est le moment idéal pour abandonner ta légendaire têtue et proposer un compromis chaleureux. Exprime ce que tu ressens avec des mots simples plutôt que de t'enfermer dans un silence boudeur. Une discussion posée autour d'un bon repas permettra de dissiper tous les petits nuages de la semaine. L'amour demande parfois de descendre de son piémont pour venir serrer l'autre dans ses bras."
+        "titre": "Accueillir les vérités douces",
+        "texte": "Toi qui aimes par-dessus tout la quiétude d'un foyer sans remous, les astres viennent gentiment secouer tes certitudes. Juste en face de ton signe, le Soleil et Mercure rétrograde illuminent le Scorpion pour explorer les recoins de tes attachements. Ta planète maîtresse Vénus rétrograde en Balance forme une dissonance avec Pluton, réclamant de la sincérité sur tes attentes affectives. Si une ancienne conversation refait surface, ne te replie pas dans ton mutisme habituel. Les échanges sincères permettent souvent de nettoyer les quiproquos qui traînaient depuis trop longtemps. Propose une promenade tranquille pour aborder ces sujets sans le moindre artifice. La tendresse retrouvée récompensera largement ton courage."
       },
       "travail": {
-        "titre": "Réviser ses petits plans",
-        "texte": "Mercure rétrograde en face de ton signe te suggère de regarder de plus près les contrats et les accords en cours. Ne signe rien les yeux fermés et prends le temps de relire chaque ligne avec attention. Ta rigueur habituelle sera ton meilleur bouclier contre les étourderies et les petits cafouillages logistiques. Si un projet stagne un peu, vois cela comme une chance de l'améliorer plutôt que comme un échec. Ton sens pratique t'aidera à débloquer une situation qui semblait figée depuis plusieurs jours déjà. Travaille à ton rythme sans te laisser impressionner par l'agitation ambiante qui règne autour de toi. La tortue gagne toujours la course, surtout quand le ciel s'emmêle les pinceaux."
+        "titre": "Vérifier chaque virgule",
+        "texte": "Rien ne t'agace plus que le désordre ou l'urgence artificielle créée par autrui. Avec Mercure rétrograde en Scorpion qui défie Mars et Jupiter en Lion, les promesses professionnelles s'emballent un peu trop vite autour de toi. On pourrait te présenter des plannings irréalistes ou des chiffres qui manquent étrangement de rigueur. Utilise ton fameux bon sens terrien pour poser les questions précises que personne d'autre n'ose formuler à voix haute. Ne signe aucun document engageant avant d'en avoir relu tranquillement chaque paragraphe. En restant ce pilier imperturbable sur qui l'on peut compter, tu évites de lourdes erreurs au collectif. Ton calme fera école."
       },
       "bienetre": {
-        "titre": "Écouter son corps sage",
-        "texte": "La Pleine Lune dans ton signe amplifie toutes tes sensations physiques et tes besoins de confort douillet. Ton corps t'envoie des signaux clairs pour te rappeler qu'il a besoin de calme et de douceur. Offre-toi un moment rien qu'à toi, que ce soit un bain chaud ou une sieste improvisée. Prends le temps de cuisiner un plat qui te réconforte et de le déguster en pleine conscience. Évite les discussions trop animées le soir pour préserver la qualité de ton sommeil et de ton équilibre. Tes pieds bien ancrés sur la terre ferme te rappellent que tu sais exactement comment retrouver ton centre. Laisse la fatigue s'évaporer à mesure que la lumière de la lune entre par ta fenêtre."
+        "titre": "Un ancrage réconfortant",
+        "texte": "La Lune en Gémeaux passe la journée à disperser les pensées, ce qui contrarie ta soif de stabilité. Pour garder les pieds bien ancrés dans le sol, rien ne vaut une attention particulière portée à tes sensations physiques. Choisis un repas réconfortant à base de bons produits simples plutôt que d'avaler un sandwich sur le pouce. Coupe court aux discussions stériles qui drainent ton énergie sans jamais rien construire de concret. En fin de journée, un bain chaud ou quelques étirements lents dénoueront la nuque et les épaules. Prends soin de ton espace intime comme d'un sanctuaire inviolable. Tu le mérites amplement."
       },
-      "mission": "Prépare-toi ton plat préféré et mange-le sans regarder aucun écran pour apprécier chaque bouchée."
+      "mission": "Préparer une vraie boisson chaude dans ta tasse préférée et la déguster les yeux fermés, sans aucun écran."
     },
     "gemeaux": {
-      "essentiel": "Toi qui papillonnes d'une idée à l'autre, Uranus rétrograde dans ton signe bouscule tes habitudes. Avec ton maître Mercure en difficulté, un peu de méthode s'impose pour garder le cap.",
+      "essentiel": "Ton ciel bouillonne de mille idées et d'émotions vives. Canalise cette belle vivacité pour trier tes priorités sans te laisser disperser par le vent.",
       "amour": {
-        "titre": "Clarifier les petits malentendus",
-        "texte": "Avec Uranus rétrograde qui secoue ton signe, tu as l'impression que tes pensées vont à cent à l'heure. Tes relations traversent une zone de turbulences passagères où les mots peuvent dépasser ta pensée. Mercure rétrograde n'aidant pas à la clarté, fais l'effort de répéter ou de reformuler tes intentions. Ne prends pas chaque remarque de travers et accorde le bénéfice du doute à ton entourage. Un message inattendu pourrait bien relancer une conversation que tu croyais définitivement enterrée. Prends le temps d'écouter vraiment ce que l'autre essaie de te dire entre deux éclats de rire. La légèreté reste ton meilleur atout pour traverser les petits imbroquois de cette journée."
+        "titre": "Dépasser les simples jeux de mots",
+        "texte": "Toi qui manies l'humour comme un bouclier pour éviter les drames, le ciel te propose un exercice plus intime. La Lune traverse ton signe tout près d'Uranus rétrograde, amplifiant ton besoin viscéral d'espace et de légèreté. Cependant, ton maître Mercure rétrograde en Scorpion forme un carré avec Mars et Jupiter, provoquant des paroles plus vives que prévu. Un mot jeté en l'air sur le ton de la plaisanterie pourrait toucher une corde sensible chez l'autre. Prends le temps d'expliquer ce que tu ressens vraiment au lieu de fuir par une boutade. La vulnérabilité partagée ouvre souvent la porte à des complicités bien plus profondes. Ose te livrer sans détour."
       },
       "travail": {
-        "titre": "Remettre un peu d'ordre",
-        "texte": "Les carrés que reçoit Mercure compliquent un peu ta gestion des priorités et des plannings professionnels. Tu as mille projets en tête mais tu risques de t'éparpiller si tu tentes tout en même temps. Choisis une seule tâche importante et mène-la à bien avant de passer à autre chose. Si un désaccord surgit lors d'une réunion, évite de monter sur tes grands chevaux tout de suite. Un peu d'humour et beaucoup de diplomatie te permettront de désamorcer n'importe quelle tension ambiante. Fais confiance à ton agilité mentale pour rebondir du bon côté de la barrière."
+        "titre": "Faire le tri dans le tumulte",
+        "texte": "Ton bureau ressemble peut-être à une ruche en pleine effervescence avec trente onglets ouverts simultanément. Uranus rétrograde chez toi s'associe par trigone à Pluton, stimulant une formidable inventivité pour moderniser tes méthodes de travail. Pourtant, Mercure rétrograde en tension avec Mars risque de créer des malentendus avec des supérieurs ou des collaborateurs très pressés. Évite d'envoyer des mails impulsifs sous le coup de l'agacement ou de la précipitation. Note toutes tes trouvailles géniales dans un carnet dédié avant de vouloir tout appliquer d'un coup. En hiérarchisant tes priorités du jour, tu montreras une rigueur qui surprendra agréablement ton entourage. Concentre-toi sur un dossier unique."
       },
       "bienetre": {
-        "titre": "Aérer ton esprit curieux",
-        "texte": "Ton cerveau bouillonne d'informations et la surcharge mentale guette si tu ne fais pas le tri. Uranus rétrograde dans ton signe te pousse à changer tes routines pour retrouver un second souffle. Sors prendre l'air frais pendant ta pause pour laisser tes pensées vagabonder sans contrainte aucune. Évite de surcharger tes soirées avec trop d'engagements sociaux qui finiraient par t'épuiser complètement. Un bon livre ou un podcast inspirant t'aidera à nourrir ton esprit sans le fatiguer inutilement. Accorde-toi le droit de ne pas tout savoir et de ne pas tout faire parfaitement aujourd'hui. Ton système nerveux te remerciera d'avoir appuyé sur le bouton pause."
+        "titre": "Calmer le moulin à pensées",
+        "texte": "Cette Lune gibbeuse dans ton signe a tendance à faire tourner tes méninges à mille à l'heure dès l'aube. Avec le sextile que forme Uranus avec Neptune, ton imagination est fertile mais elle peut aussi générer une certaine nervosité diffuse. Pour éviter la saturation intellectuelle, offre à tes yeux un véritable repos loin de la lumière bleue des écrans. Va marcher un quart d'heure d'un bon pas en respirant au rythme de tes foulées. Bois de l'eau régulièrement pour hydrater ton organisme en surchauffe mentale. En accordant des plages de vrai silence à ta journée, ton esprit retrouvera toute sa lucidité pétillante. Ménage ton sommeil dès ce soir."
       },
-      "mission": "Range ton bureau ou ton espace de travail en y mettant de la couleur pour stimuler ta créativité."
+      "mission": "Fermer tous les onglets inutiles de ton navigateur avant midi pour ne garder que l'essentiel absolu."
     },
     "cancer": {
-      "essentiel": "Toi qui protèges ton cœur dans ta jolie carapace, le ciel te sourit par sa tranquillité. Profite de cette journée pour nourrir ton jardin secret et savourer la paix.",
+      "essentiel": "Ton intuition t'offre une précieuse boussole dans une journée un peu agitée. Préserve ton cocon, écoute tes ressentis profonds et avance avec confiance.",
       "amour": {
-        "titre": "Bulle de douceur partagée",
-        "texte": "Aucun astre direct ne vient perturber ton signe, ce qui t'offre une bulle de sérénité bienvenue. Tu peux te reposer sur l'épaule de ceux qui t'aiment sans craindre les drames inutiles. C'est le moment idéal pour exprimer ta vulnérabilité et dire tout ton amour à ton entourage. Une soirée cocooning à la maison saura combler ton besoin viscéral de sécurité et de chaleur. Laisse la magie des petits gestes du quotidien illuminer ta relation de couple ou d'amitié. Si tu es en quête de renouveau, ton charme naturel opère en douceur et sans effort apparent. Savoure ce calme plat comme une chance rare de te ressourcer au plus profond de toi."
+        "titre": "Protéger la tendresse partagée",
+        "texte": "Toi qui aimes tant choyer tes proches comme un trésor inestimable, le climat astral réclame une sage prise de recul. Ta planète maîtresse, la Lune, traverse les Gémeaux dans une phase gibbeuse décroissante qui invite naturellement à l'introspection discrète. Le Soleil en Scorpion forme un carré avec Pluton, réveillant parfois des doutes enfouis ou des non-dits dans la relation amoureuse. Ne laisse pas ces vagues émotionnelles troubler ton calme intérieur sans raison valable. Exprime avec douceur ce qui te tient à cœur sans chercher à deviner ce que pense l'autre. Un geste tendre a souvent beaucoup plus d'impact qu'un long discours maladroit."
       },
       "travail": {
-        "titre": "Avancer à ton rythme",
-        "texte": "Dans ta bulle de tranquillité, tu avances dans ton travail avec une efficacité redoutable et discrète. Personne ne vient perturber ta concentration, ce qui te permet de boucler tes dossiers en retard. Ton intuition légendaire t'aide à sentir les mouvements de fond avant tout le monde au bureau. Profite de cette journée sans vagues pour planifier la suite de tes projets à long terme. Si un collègue vient te demander de l'aide, ton écoute attentive fera des miracles. Tu inspires confiance et cela se voit dans la manière dont on te confie de nouvelles responsabilités. Garde le cap de ta bienveillance naturelle, c'est ta plus grande force professionnelle."
+        "titre": "Observer avant d'agir",
+        "texte": "Tu perçois toujours l'ambiance d'un bureau avant même que quiconque ait ouvert la bouche pour parler. Alors que Mercure rétrograde en Scorpion se heurte à Mars et Jupiter en Lion, l'ambiance professionnelle pourrait s'avérer théâtrale et inutilement compétitive. Laisse les collègues s'agiter pour des questions d'amour-propre ou de pouvoir sans entrer dans la mêlée. Ton atout réside aujourd'hui dans ta discrétion et ta capacité à faire avancer les dossiers de fond en coulisses. Ne prends aucune décision financière d'envergure sous le coup d'une pression extérieure. Ton rythme méthodique garantit la solidité de tes réalisations. Travaille en paix dans ton espace."
       },
       "bienetre": {
-        "titre": "Retrouver son port d'attache",
-        "texte": "Ton foyer est ton sanctuaire et la journée s'y prête particulièrement pour recharger tes batteries. Prends soin de ton espace de vie en y ajoutant une touche de réconfort supplémentaire. Un bain moussant, une boisson chaude et une couverture douce suffisent à ton bonheur absolu. Écoute l'eau couler ou le bruit de la pluie pour apaiser ton monde émotionnel intérieur. Tu n'as pas besoin de courir partout pour exister et cette journée te le rappelle gentiment. Laisse ton corps se détendre complètement en relâchant les tensions accumulées dans ta nuque. La paix intérieure est à portée de main si tu acceptes de ralentir le pas."
+        "titre": "Une bulle de sérénité",
+        "texte": "Les turbulences extérieures n'ont pas à franchir le seuil de ta maison si tu décides de poser des frontières claires. La Lune en Gémeaux invite à aérer ton espace de vie pour faire entrer de la nouveauté et chasser les miasmes. Allume une bougie, écoute de la musique douce et prépare un repas qui réchauffe le corps autant que l'esprit. Neptune rétrograde en harmonie avec Pluton soutient une belle guérison émotionnelle si tu acceptes d'évacuer les vieux regrets. Offre-toi un temps de repos sans culpabilité dès le retour chez toi. Ton énergie vitale dépend directement du sanctuaire que tu te crées chaque soir."
       },
-      "mission": "Envoie un message tendre et inattendu à une personne que tu n'as pas vue depuis longtemps."
+      "mission": "Refuser poliment une sollicitation sociale facultative pour savourer une soirée calme en chaussons chez toi."
     },
     "lion": {
-      "essentiel": "Toi qui brilles de mille feux, Mars et Jupiter dans ton signe te donnent une énergie de lion. Mais attention au carré de Pluton en face qui demande un peu de mesure.",
+      "essentiel": "De grands projets animent ton esprit, mais la prudence reste de mise. Prends de la hauteur face aux provocations et fais briller ta générosité naturelle.",
       "amour": {
-        "titre": "Passions et grands éclats",
-        "texte": "Avec Mars et Jupiter qui électrisent ton signe, ton magnétisme est tout simplement irrésistible. En revanche, le Soleil et Vénus conjoints en face de Pluton peuvent faire monter la moutarde au nez. Tu veux tout, tout de suite, et tu as parfois du mal à accepter qu'on te dise non. C'est le moment de doser ta flamme pour qu'elle réchauffe sans brûler ceux que tu aimes. Un grand élan de générosité amoureuse viendra balayer les petites tensions de la matinée. Montre ton grand cœur en faisant le premier pas pour apaiser une discussion un peu vive. L'amour n'est pas un territoire à conquérir mais un espace magnifique à partager ensemble."
+        "titre": "Apaiser les susceptibilités",
+        "texte": "Toi qui donnes ton cœur avec tant de panache, le ciel met aujourd'hui un brin de piment dans tes échanges. Mars et Jupiter campent dans ton signe, t'offrant un magnétisme éclatant mais aussi une fâcheuse tendance à t'enflammer pour des riens. En face, Pluton en Verseau forme un carré avec ton maître le Soleil en Scorpion, titillant directement ton amour-propre. Si une remarque te semble injuste, choisis la noblesse d'âme plutôt que la riposte cinglante. Vénus rétrograde en Balance t'encourage à rechercher la nuance et l'harmonie plutôt que d'avoir absolument raison. En désamorçant le conflit par un sourire désarmant, tu gagnes un respect immense. L'amour grandit dans la conciliation."
       },
       "travail": {
-        "titre": "Roi de la jungle active",
-        "texte": "Tu débordes d'idées audacieuses et ton enthousiasme fait des étagères au bureau grâce à Jupiter. Mars te pousse à prendre des initiatives spectaculaires que personne n'osait tenter avant toi. Cependant, le carré entre le Soleil et Pluton te met en garde contre l'orgueil mal placé. N'essaie pas de forcer le passage si un partenaire ou un supérieur montre des résistances. Utilise ton charisme naturel pour fédérer plutôt que pour imposer ta vision de force. Tes projets avancent à grand pas si tu acceptes de déléguer une partie de la charge. Tu as l'étoffe d'un grand meneur, à condition d'écouter aussi les idées des autres."
+        "titre": "Modérer l'enthousiasme conquérant",
+        "texte": "Tu as une furieuse envie de déplacer des montagnes et de montrer à tous de quoi tu es capable. Pourtant, Mercure rétrograde en Scorpion s'oppose violemment à l'énergie de Mars et Jupiter installés dans ton signe. Ce bras de fer cosmique avertit contre les décisions impulsives, les promesses intenables ou les clashs d'autorité inutiles. Prends le temps de consulter ton équipe avant d'imposer une nouvelle méthode de travail. Un retard imprévu dans un calendrier n'est pas une défaite personnelle mais une opportunité d'ajuster ta trajectoire. Reste dans la collaboration constructive sans chercher à tout contrôler. La véritable force sait écouter les autres."
       },
       "bienetre": {
-        "titre": "Canaliser le trop-plein",
-        "texte": "L'énergie combinée de Mars et Jupiter dans ton signe te donne l'impression de pouvoir soulever des montagnes. Mais ton corps peut accuser le coup si tu ne canalises pas cette fournaise intérieure. Pense à faire de l'exercice physique pour dépenser ce surplus d'énergie qui t'agite les nerfs. Une bonne séance de sport ou une danse effrénée dans ton salon te fera le plus grand bien. Veille cependant à ne pas t'épuiser dans des batailles d'ego qui ne valent pas la peine. Offre à ton corps un moment de récupération bien mérité après l'effort intense de la journée. Ta vitalité légendaire a besoin d'un sommeil réparateur pour briller à nouveau demain."
+        "titre": "Dépenser l'énergie avec justesse",
+        "texte": "Avec deux planètes aussi toniques que Mars et Jupiter sous ton toit, ton moteur tourne à très haut régime. Le risque est d'accumuler une tension physique qui se loge directement dans le dos ou les cervicales sans que tu t'en aperçoives. Une séance de sport modérée ou une marche rapide sera parfaite pour évacuer ce trop-plein sans te blesser. Pense également à boire suffisamment tout au long de la journée pour tempérer ce feu intérieur. En soirée, baisse la lumière et choisis une activité relaxante qui ne sollicite pas ton esprit de compétition. Ménage ton cœur pour qu'il batte sur un rythme serein."
       },
-      "mission": "Complimente sincèrement une personne sur un détail que tout le monde oublie de remarquer."
+      "mission": "Laisser la dernière parole à un interlocuteur un peu têtu sans chercher à rectifier le moindre détail."
     },
     "vierge": {
-      "essentiel": "Toi qui pèses le pour et le contre avec minutie, le ciel t'offre une belle accalmie. Profite de cette journée pour remettre de l'ordre dans tes pensées sans te mettre la pression.",
+      "essentiel": "Le ciel te pousse à relâcher ton besoin de tout maîtriser. Accepte les petits imprévus avec philosophie et fais confiance à ton sens de l'adaptation.",
       "amour": {
-        "titre": "La tendresse des détails",
-        "texte": "Aucun astre direct ne vient perturber ton signe, ce qui te laisse une belle liberté d'action. Tu peux observer tes relations avec ton sens de l'analyse habituel, mais sans excès de critique. C'est le moment parfait pour offrir un service attentionné ou une aide précieuse à ton partenaire. L'amour se niche pour toi dans les petites actions du quotidien et les gestes discrets. Si un petit désaccord se profile, ta capacité d'écoute permettra de tout remettre en place. Laisse tomber ton exigence de perfection pour accepter que l'autre fasse de son mieux. La simplicité est la plus belle preuve d'affection que tu puisses offrir aujourd'hui."
+        "titre": "Lâcher prise sur la perfection",
+        "texte": "Toi qui cherches toujours à bien faire et à tout organiser pour les êtres chers, le ciel t'invite à la détente. Ton maître Mercure rétrograde en Scorpion se heurte à Mars et Jupiter, ce qui peut te rendre un peu trop critique envers ton entourage. Vénus rétrograde en Balance forme une tension avec Pluton, soulignant des insécurités qui n'ont pas lieu d'être dans tes liens du cœur. La personne qui partage ta vie ou tes proches ne cherchent pas un partenaire irréprochable, mais une présence chaleureuse. Range tes listes de reproches et laisse la spontanéité s'inviter dans tes conversations. Un fou rire partagé réparera tout en un instant."
       },
       "travail": {
-        "titre": "Efficacité et clarté d'esprit",
-        "texte": "Dans le silence et le calme de ta bulle, tu abats un travail remarquable et très soigné. Ton sens de l'organisation fait des merveilles pendant que d'autres s'agitent dans tous les sens. Tu repères les erreurs potentielles avant tout le monde et tu corriges le tir avec brio. C'est le moment idéal pour classer, trier et finaliser les dossiers qui traînent sur ton bureau. Ne te laisse pas submerger par ton propre perfectionnisme qui cherche toujours à faire plus. Un travail bien fait est un travail terminé, alors sache t'arrêter quand il le faut. Tes collègues admirent ta fiabilité légendaire et ta constance à toute épreuve."
+        "titre": "Démêler les fils du dialogue",
+        "texte": "Ton souci du détail est légendaire, mais aujourd'hui, les autres semblent avoir du mal à suivre tes raisonnements impeccables. Avec la rétrogradation de ton maître Mercure en carré avec Mars, les consignes risquent d'être brouillées ou mal interprétées par tes partenaires de travail. Ne monte pas sur tes grands chevaux si un dossier revient avec des erreurs évidentes. Prends le temps d'expliquer calmement les démarches à suivre sans faire sentir ta supériorité technique. La Lune en Gémeaux t'aide à trouver des arguments souples et diplomates pour rectifier le tir sans froisser personne. Reste dans l'accompagnement bienveillant et la pédagogie patiente."
       },
       "bienetre": {
-        "titre": "Prendre soin de son mental",
-        "texte": "Ton esprit analyse tout en permanence et cela peut parfois fatiguer ton système nerveux. Accorde-toi une pause bien méritée en te tournant vers des activités manuelles et simples. Une promenade dans la nature ou un moment de lecture au calme te remettront d'aplomb. Veille à détendre tes épaules et ta mâchoire, deux zones où tu stockes tes petites tensions. Prends le temps de respirer profondément en ouvrant ta fenêtre pour faire le plein d'air pur. Ton corps a besoin de régularité et de sommeil pour retrouver son équilibre parfait. Sois douce et bienveillante avec toi-même, tu fais déjà de ton mieux."
+        "titre": "Offrir une trêve au mental",
+        "texte": "Ton système nerveux a tendance à tourner en boucle dès que les choses ne se déroulent pas exactement comme prévu. Uranus en Gémeaux forme un sextile avec Neptune, t'ouvrant une belle porte de sortie pour apaiser tes angoisses du quotidien. Offre-toi une pause loin des tableaux de chiffres et des notifications qui n'en finissent plus de sonner. Respire profondément par le ventre pour détendre cette zone digestive qui absorbe tes contrariétés de la journée. Un repas simple, composé d'ingrédients sains et dégusté dans le calme, fera de véritables miracles sur ton moral. Sois indulgente avec toi-même aujourd'hui."
       },
-      "mission": "Range un seul tiroir ou un seul dossier qui te tracasse, puis admire le résultat accompli."
+      "mission": "Laisser délibérément un objet traîner au mauvais endroit sans le ranger avant demain matin."
     },
     "balance": {
-      "essentiel": "Toi qui recherches l'harmonie par-dessus tout, Vénus rétrograde dans ton signe te demande un retour sur toi. En face, Saturne et Neptune rappellent que l'équilibre demande des choix.",
+      "essentiel": "Ta planète maîtresse recule dans ton signe pour t'aider à clarifier tes désirs. Écoute tes besoins réels avant de vouloir faire plaisir à tout le monde.",
       "amour": {
-        "titre": "Réajuster la balance du cœur",
-        "texte": "Vénus rétrograde dans ton signe te pousse à revisiter ta façon d'aimer et de t'engager. En face, Saturne et Neptune exigent de la maturité et de la clarté dans tes liens. C'est le moment idéal pour clarifier tes limites avec douceur mais avec beaucoup de fermeté. Dis ce que tu penses vraiment sans craindre de briser l'harmonie artificielle de surface. Les relations qui résistent à cette introspection en sortent grandies et beaucoup plus solides. Offre-toi l'honnêteté d'un cœur qui choisit enfin sa propre direction amoureuse."
+        "titre": "S'aimer d'abord pour mieux aimer",
+        "texte": "Toi qui as le don incomparable d'arrondir les angles, le cosmos te demande de penser d'abord à toi. Vénus rétrograde séjourne dans ton signe et forme une dissonance avec Pluton en Verseau, remettant en question certains compromis affectifs. Tu as peut-être trop souvent cédé pour préserver la paix au détriment de ta propre tranquillité d'esprit. Saturne et Neptune rétrogrades dans le signe opposé au tien soulignent qu'une relation durable exige des règles claires et respectées. N'aie pas peur d'exprimer un désaccord ou un refus avec le sourire qui te caractérise si bien. Les sentiments sincères ne s'envoleront pas face à ta vérité. Choisis ton alignement personnel."
       },
       "travail": {
-        "titre": "Trancher avec élégance",
-        "texte": "Le duo formé par Saturne et Neptune en face de ton signe te met face à tes responsabilités professionnelles. Tu as parfois du mal à trancher par peur de froisser un collègue ou un supérieur. Pourtant, le moment est venu de faire des choix clairs et d'assumer tes prises de position. Vénus rétrograde t'invite à réévaluer tes collaborations et tes associations en cours. Ne signe rien sans avoir bien vérifié les termes et les conditions des accords proposés. Ta diplomatie naturelle t'aidera à faire passer la pilule si tu dois refuser une proposition. Fais confiance à ton sens inné de la justice pour arbitrer les situations délicates."
+        "titre": "Poser des limites équitables",
+        "texte": "On vient souvent solliciter ta diplomatie pour éteindre les incendies entre collègues ou pour gérer les dossiers sensibles. Cependant, avec la tension entre Vénus et Pluton couplée à Saturne en face de chez toi, tu ne peux pas porter les responsabilités de chacun. Si l'on te confie une charge de travail excessive sous prétexte de ton efficacité, apprends à dire non avec courtoisie. Exige la transparence dans les négociations et ne signe aucun accord ambigu sous la contrainte temporelle. La Lune en Gémeaux t'offre une belle éloquence pour faire valoir tes droits sans déclencher de conflit. Fais respecter ton temps de travail."
       },
       "bienetre": {
-        "titre": "Retrouver son propre axe",
-        "texte": "À force de vouloir contenter tout le monde, tu oublies parfois de t'écouter en premier. Vénus rétrograde dans ton signe est une invitation à te recentrer sur tes propres besoins essentiels. Offre-toi une parenthèse artistique, qu'il s'agisse de musique, de peinture ou de beaux paysages. Ton corps réclame du repos et un sommeil de qualité pour effacer la fatigue accumulée. Évite les environnements trop bruyants ou conflictuels qui vident ta précieuse énergie vitale. Prends le temps de t'habiller de manière confortable et de te faire plaisir sans culpabilité. Retrouver ton équilibre intérieur est le plus beau cadeau que tu puisses te faire."
+        "titre": "Retrouver une belle harmonie",
+        "texte": "Quand l'atmosphère devient trop lourde, ton corps réagit immédiatement par une sensation de déséquilibre ou de grande fatigue. Uranus en Gémeaux soutient Pluton par un trigone fluide, t'invitant à rompre avec de vieilles habitudes qui ne te nourrissent plus. Offre-toi un moment dédié à la beauté sous toutes ses formes, qu'il s'agisse d'art, de musique ou d'une promenade dans un beau parc. Évite de ressasser les conflits professionnels une fois la journée terminée en coupant toute communication professionnelle. Accorde à ton espace intime des senteurs apaisantes et une lumière tamisée pour régénérer ton énergie. Tu retrouveras ainsi ta sérénité légendaire."
       },
-      "mission": "Dis non à une petite sollicitation qui ne te tente pas, sans t'excuser ni te justifier."
+      "mission": "Dire un « non » très doux mais totalement ferme à une demande qui ne te convient absolument pas."
     },
     "scorpion": {
-      "essentiel": "Toi qui explores les profondeurs avec intensité, le Soleil et Mercure rétrograde sont dans ton signe. En face, la Pleine Lune en Taureau éclaire ton besoin de sécurité.",
+      "essentiel": "Le Soleil illumine ton signe tandis que Mercure t'invite à la réflexion intérieure. Transforme l'intensité de ta journée en une force constructive.",
       "amour": {
-        "titre": "Plongée au cœur des sentiments",
-        "texte": "Le Soleil et Mercure rétrograde dans ton signe font de toi l'étoile la plus magnétique du zodiaque. En face, la Pleine Lune en Taureau met en lumière tes attentes en matière d'amour durable. Tu ressens tout de manière amplifiée et tu cherches la vérité absolue dans tes relations. Attention cependant au carré entre ton maître Pluton et le Soleil qui peut créer des paranoïas. Dis les choses avec franchise mais sans piquant inutile pour ne pas blesser ton partenaire. Une conversation nocturne permettra de lever un voile sur un secret ou un non-dit persistant. Laisse la lumière de la lune adoucir ton immense besoin de contrôle affectif."
+        "titre": "Dévoiler ses secrets avec calme",
+        "texte": "Toi qui vis chaque émotion avec une profondeur océanique, la journée promet de remuer quelques vagues intérieures. Le Soleil brille dans ton signe mais affronte ton maître Pluton en Verseau, réveillant un fort besoin de contrôle sur la relation. De plus, Mercure rétrograde chez toi forme un carré avec Mars et Jupiter, ce qui peut rendre tes paroles piquantes si tu te sens incompris. Prends conscience que l'autre ne lit pas dans tes pensées les plus secrètes. Plutôt que de t'enfermer dans un silence mystérieux ou de lancer une remarque assassine, explique calmement tes craintes du moment. La tendresse naît du désarmement consenti. Ose faire confiance."
       },
       "travail": {
-        "titre": "Flairer la bonne stratégie",
-        "texte": "Mercure rétrograde dans ton signe te pousse à réviser tes projets professionnels en profondeur. Tu vois clair dans le jeu des autres et rien ne t'échappe grâce à ton flair légendaire. Le carré entre ton maître Pluton et le Soleil te demande toutefois de lâcher le besoin de tout régenter. Travends en coulisses et prépare tes coups avec méthode sans chercher à briller tout de suite. Si un imprévu survient, ton adaptabilité te permettra de retomber habilement sur tes pattes. Fais confiance à ton intuition pour déjouer les pièges administratifs ou les rivalités de bureau. Ta perspicacité fait de toi une personne incontournable dans les dossiers complexes."
+        "titre": "Canaliser une volonté d'acier",
+        "texte": "Tu possèdes une détermination sans pareille pour mener à bien les projets complexes que les autres abandonnent par découragement. Toutefois, Mercure rétrograde dans ton signe te conseille de vérifier deux fois tes analyses avant de trancher publiquement. Les tensions entre Mercure, Mars et Jupiter signalent un risque de confrontation directe avec une hiérarchie ou des partenaires sourds à tes arguments. Choisis tes batailles avec une souveraine intelligence plutôt que de vouloir forcer les barrages aujourd'hui. Laisse les preuves matérielles parler d'elles-mêmes sans monter le ton d'un cran. Ta lucidité stratégique aura le dernier mot si tu sais patienter. La victoire se prépare méthodiquement."
       },
       "bienetre": {
-        "titre": "Évacuer les tensions de l'ombre",
-        "texte": "Tu absorbes les énergies comme une éponge et ton corps a besoin de relâcher la pression. Le Soleil et Mercure rétrograde dans ton signe peuvent te fatiguer mentalement et nerveusement. Prends le temps de t'isoler dans le calme pour faire le vide dans tes pensées intenses. Un bain chaud ou l'écoute d'une musique profonde t'aideront à nettoyer ton espace énergétique. N'aie pas peur de pleurer ou de libérer une émotion refoulée depuis trop longtemps déjà. Ton corps se détoxifie quand tu acceptes de lâcher prise sur ce que tu ne contrôles pas. Offre-toi une nuit de sommeil réparateur pour retrouver ta puissance intacte au réveil."
+        "titre": "Purifier les émotions stagnantes",
+        "texte": "Une telle concentration d'énergies planétaires autour de ton signe demande un exutoire physique pour éviter l'explosion sous cloche. Ne laisse pas les non-dits s'accumuler dans ton organisme sous forme de nœuds à l'estomac ou de migraines lancinantes. Une séance d'étirements profonds ou une longue douche tiède t'aidera à évacuer les toxines émotionnelles de la journée. Neptune rétrograde en Bélier en harmonie avec Pluton t'encourage à abandonner les vieilles rancunes qui pèsent sur tes épaules. Offre-toi un temps de silence complet en fin de soirée pour laisser décanter les tensions accumulées. Renais à toi-même avec une belle vitalité."
       },
-      "mission": "Écris sur un papier ce qui te pèse, puis déchire-le en mille morceaux pour t'en libérer."
+      "mission": "Écrire sur un papier ce qui t'agace le plus aujourd'hui avant de le déchirer soigneusement en petits morceaux."
     },
     "sagittaire": {
-      "essentiel": "Toi qui cours après l'horizon et la liberté, le ciel te pousse à regarder un peu en arrière. Avec Uranus rétrograde en face de ton signe, l'inattendu vient chatouiller tes certitudes.",
+      "essentiel": "Les relations s'animent face à toi et demandent un peu de nuance. Tempère tes grands discours pour savourer la richesse des échanges du quotidien.",
       "amour": {
-        "titre": "Surprises et grands espaces",
-        "texte": "Aucun astre direct ne se trouve dans ton signe, mais Uranus rétrograde en face secoue tes relations. Tu pourrais croiser la route d'une personne du passé ou vivre un rebondissement inattendu. Ton besoin de liberté entre en collision avec le désir de stabilité de ton entourage proche. C'est le moment d'aborder les choses avec le sourire et beaucoup de philosophie. Ne prends pas les changements de programme comme des contraintes mais comme des aventures inédites. Exprime ton affection avec l'enthousiasme communicatif qui fait tout ton charme légendaire. L'amour t'invite à lâcher tes grands principes pour vivre l'instant présent simplement."
+        "titre": "Écouter l'autre sans philosopher",
+        "texte": "Toi qui as toujours le regard fixé vers un horizon lointain, les sentiments te ramènent au présent le plus immédiat. Juste en face de ton signe, la Lune et Uranus rétrograde en Gémeaux créent un climat de surprise et d'agitation relationnelle. Ton maître Jupiter en Lion subit une tension de Mercure rétrograde, ce qui pourrait te pousser à minimiser les ressentis d'autrui par de grands discours théoriques. Ne balaie pas une inquiétude amoureuse d'un simple revers de main optimiste. Sois présent pour écouter les doutes de l'autre sans chercher à donner des leçons de morale. Cette empathie concrète renforcera l'attachement mutuel de manière spectaculaire. Sois complice avant tout."
       },
       "travail": {
-        "titre": "Revoir la boussole",
-        "texte": "Uranus rétrograde en face de ton signe te bouscule un peu dans tes habitudes de travail. Un projet que tu croyais acquis pourrait prendre une direction totalement inattendue. Ne t'énerve pas et vois cela comme une opportunité de réinventer ta méthode quotidienne. Ton optimisme légendaire t'aidera à remotiver tes troupes si le moral est un peu bas. C'est le bon moment pour faire le point sur tes ambitions à long terme sans te disperser. Évite de t'engager dans trop de directions à la fois sous prétexte que tout t'intéresse. Garde le cap sur l'essentiel et fais confiance à ton inusable bonne étoile professionnelle."
+        "titre": "Garder les pieds sur terre",
+        "texte": "Ton enthousiasme habituel a tendance à voir les projets en format géant, ce qui fait souvent ta superbe réputation. Pourtant, le carré entre Jupiter en Lion et Mercure rétrograde en Scorpion met en garde contre les engagements pris à la légère. Un contrat ou un accord informel pourrait comporter des contraintes cachées que tu n'as pas voulu regarder en face. Avant d'embarquer ton équipe dans une nouvelle aventure ambitieuse, vérifie la faisabilité technique de chaque étape. Uranus en face de toi apporte une idée brillante, mais elle demande un travail de structuration sérieux. Fais relire tes propositions par une personne méthodique. La rigueur paiera."
       },
       "bienetre": {
-        "titre": "Bouger pour mieux souffler",
-        "texte": "Ton corps a besoin de grands espaces et de mouvement pour évacuer la petite fatigue ambiante. Sors t'oxygener au grand air, que ce soit à pied, à vélo ou en courant dans un parc. Le changement d'air te fera le plus grand bien pour chasser les idées fixes et moroses. Veille toutefois à ne pas t'épuiser dans des excès d'enthousiasme physique trop intempestifs. Prends le temps de t'hydrater et de t'accorder de vrais moments de calme chez toi le soir. Ton feu intérieur has besoin de bois sec et non de s'enflammer pour rien. Savoure le silence pour recharger tes batteries avant ta prochaine grande aventure."
+        "titre": "Trouver un rythme équilibré",
+        "texte": "La dispersion mentale guette avec cette Lune en Gémeaux qui saute sans arrêt d'un sujet à un autre. Prends le temps de faire de véritables pauses au lieu de grignoter debout en consultant tes messages professionnels. Une activité sportive en plein air te permettrait de canaliser cette sève généreuse tout en aérant tes pensées. Évite les excès à table ce soir afin de préserver ton foie et ton confort digestif. Accorde-toi une nuit réparatrice pour recharger tes batteries généreuses."
       },
-      "mission": "Change ton trajet habituel pour aller quelque part, juste pour découvrir une nouvelle rue."
+      "mission": "Écouter une personne te raconter sa journée pendant trois minutes complètes sans jamais l'interrompre."
     },
     "capricorne": {
-      "essentiel": "Toi qui bâtis ton empire avec patience et sagesse, le ciel t'offre une journée paisible. Profite de ce calme pour consolider tes acquis et savourer le travail accompli.",
+      "essentiel": "La patience reste ton meilleur bouclier face à l'agitation ambiante. Avance pas à pas sur tes projets de fond, sans te soucier des bruits de couloir.",
       "amour": {
-        "titre": "La chaleur des fondations",
-        "texte": "Aucun astre direct ne vient perturber ton signe, ce qui te procure une belle assise émotionnelle. Tu peux enfin poser ta casquette de chef de chantier pour te détendre avec les tiens. C'est le moment idéal pour témoigner ton affection par des actes concrets et solides. Une conversation sincère autour d'un thé permettra de renforcer les liens de confiance mutuelle. Si tu es célibataire, ta prestance naturelle et ton sérieux séduisent en toute discrétion. N'hésite pas à montrer ton côté plus vulnérable et tendre qui se cache sous ta carapace. Les relations durables se construisent dans ce calme et cette authenticité partagée."
+        "titre": "Déposer l'armure de réserve",
+        "texte": "Toi qui construis tes attachements sur le roc solide de la fidélité, le ciel t'invite à un peu plus de souplesse affective. Vénus rétrograde en Balance forme un carré avec Pluton, réveillant peut-être une crainte diffuse de trahison ou un manque de reconnaissance. Ton maître Saturne recule lentement en Bélier, te rappelant que la rigidité ne protège pas toujours des déceptions de la vie. Ose faire un pas vers l'autre en exprimant ta tendresse sans attendre de garanties absolues au préalable. Un mot simple, un sourire spontané ou une attention discrète valent mille démonstrations de force. Laisse parler ton cœur d'or sans peur du ridicule."
       },
       "travail": {
-        "titre": "Maîtrise et avancement serein",
-        "texte": "Dans le silence et la concentration, tu avances tes pions avec une stratégie irréprochable au bureau. Personne ne peut te déstabiliser tant ton ancrage professionnel est solide et reconnu. C'est le jour parfait pour finaliser les gros dossiers qui demandent de la méthode. Tu poses les jalons de ta réussite future sans précipitation et avec une rigueur exemplaire. Si l'on te demande ton avis, ta sagesse saura guider ton équipe vers de meilleurs choix. Prends le temps de savourer ton efficacité sans chercher tout de suite la montagne suivante. Ton sens du devoir est ta plus belle boussole pour traverser cette journée."
+        "titre": "Construire malgré les délais",
+        "texte": "Ton sens des responsabilités est précieux alors que l'agitation gagne le reste de l'équipe autour de toi. Avec Mercure rétrograde en Scorpion qui heurte Mars et Jupiter, les réunions professionnelles pourraient tourner à la foire d'empoigne ou brasser beaucoup de vent pour rien. Reste en retrait de ces démonstrations stériles et concentre-toi sur tes missions prioritaires avec ta méthode irréprochable habituelle. Ne t'agace pas si des validations administratives prennent plus de retard que prévu aujourd'hui. Profite de ces délais imprévus pour peaufiner les détails techniques qui feront la différence plus tard. Ta persévérance tranquille emportera l'adhésion générale."
       },
       "bienetre": {
-        "titre": "Honorer le besoin de repos",
-        "texte": "Tu as tendance à porter le monde sur tes épaules et la fatigue finit par peser lourd. Ton corps te réclame un peu de répit et l'absence d'obstructions célestes t'y invite. Offre-toi une soirée de repos total, bien au chaud sous un plaid avec un bon livre. Évite de ramener du travail à la maison et coupe tes notifications professionnelles. Prends soin de tes articulations et de ton dos en t'étirant doucement avant de dormir. Le sommeil est ton meilleur allié pour régénérer ton énergie inépuisable. Respecte ton rythme et accepte de ne pas tout contrôler pendant vingt-quatre heures."
+        "titre": "Détendre les épaules et l'esprit",
+        "texte": "Tu as cette fâcheuse habitude de porter le poids du monde sur tes seules épaules sans jamais demander d'aide extérieure. Le sextile entre Uranus et Neptune rétrograde t'encourage à alléger ton emploi du temps d'au moins une obligation inutile. Prends soin de ton dos et de tes articulations en faisant quelques mouvements doux dès la fin de journée. Une marche solitaire dans un parc ou un moment de lecture réconfortant apaisera cette exigence intérieure qui te pousse constamment à produire. Permets-toi de ne rien faire d'utile pendant une demi-heure entière. Ton corps te remerciera par un regain de forme bienvenu."
       },
-      "mission": "Offre-toi une boisson chaude que tu bois très lentement en regardant par la fenêtre."
+      "mission": "Déléguer une corvée quotidienne à quelqu'un d'autre sans repasser derrière pour vérifier le résultat."
     },
     "verseau": {
-      "essentiel": "Toi qui as toujours une longueur d'avance sur ton époque, Pluton est dans ton signe. En face, Mars et Jupiter stimulent ta vie sociale mais demandent un peu de mesure.",
+      "essentiel": "De puissantes transformations se préparent sous ton ciel. Garde ton calme face aux querelles d'ego et cultive ta belle vision d'avenir sans précipitation.",
       "amour": {
-        "titre": "Étincelles et grands débats",
-        "texte": "Avec Pluton qui transforme ton signe en profondeur, tu vis les relations avec intensité. En face de toi, Mars et Jupiter chauffent l'ambiance et provoquent des échanges très animés. Tu pourrais avoir envie de révolutionner tes habitudes de couple ou de bousculer tes amis. Attention toutefois à ne pas passer en force dans tes arguments sous peine de froisser. Écoute le point de vue des autres avec autant de passion que tu défends le tien. Une discussion surprenante pourrait bien ouvrir ton esprit à une perspective totalement inédite. L'amour est un terrain de jeu où la liberté de chacun se nourrit du respect mutuel."
+        "titre": "Choisir l'authenticité sans lutte",
+        "texte": "Toi qui chéris ta liberté par-dessus tout, les relations demandent aujourd'hui de la lucidité et beaucoup de mesure. Pluton séjourne dans ton signe et subit un carré du Soleil en Scorpion, tandis que Vénus rétrograde en Balance le défie également. En face, Mars et Jupiter en Lion peuvent susciter des querelles d'ego ou des revendications affectives un peu théâtrales chez ton partenaire. Ne réagis pas par une froideur blessante ou un sarcasme qui ne ferait qu'envenimer les tensions. Reconnais les besoins de l'autre tout en affirmant calmement ton propre espace d'indépendance. La vérité partagée permet de consolider les liens sur des bases enfin saines et solides. Reste toi-même."
       },
       "travail": {
-        "titre": "Idées révolutionnaires en chantier",
-        "texte": "Pluton dans ton signe te pousse à revoir ta façon d'aborder ta carrière et tes projets. En face, Mars et Jupiter boostent ta créativité et ton envie de proposer du neuf. Tu débordes d'innovations, mais le défi sera de les faire accepter par ta hiérarchie. Ne brusque pas ton entourage professionnel qui a besoin de temps pour digérer tes visions. Présente tes projets de manière pragmatique pour convaincre les plus sceptiques du groupe. Ta capacité à penser hors du cadre est un atout majeur si tu l'accompagnes de méthode. Fais équipe avec des profils plus structurés pour mener tes grandes idées à bien."
+        "titre": "Négocier sans braquer",
+        "texte": "Tes idées d'avant-garde ont souvent dix longueurs d'avance sur celles de ton entourage professionnel, ce qui peut créer de l'incompréhension. Ton maître Uranus rétrograde en Gémeaux s'accorde merveilleusement bien par trigone à Pluton dans ton signe, confirmant la pertinence de tes intuitions novatrices. Pourtant, avec Mars et Jupiter face à toi heurtés par Mercure rétrograde, vouloir imposer tes vues de force déclencherait une vive résistance hiérarchique. Présente tes propositions sous forme d'expérimentations progressives plutôt que de révolutions brutales. Évite les débats houleux pendant les réunions de l'après-midi. Laisse mûrir tes concepts avec patience, le temps travaille pour toi."
       },
       "bienetre": {
-        "titre": "Apaiser le système électrique",
-        "texte": "Ton système nerveux est soumis à rude épreuve avec toutes ces énergies de transformation intense. Pluton, Mars et Jupiter t' donnent une électricité interne qui peut fatiguer ton corps. Prends le temps de déconnecter de tous les écrans et des réseaux sociaux le soir venu. Une marche nocturne ou un exercice de respiration profonde t'aideront à relâcher la pression. Ne cherche pas à tout comprendre tout de suite et laisse ton esprit vagabonder librement. Ton corps a besoin de silence pour intégrer les grands changements qui s'opèrent en toi. Offre-toi une nuit de sommeil profond pour recharger ton inventivité débordante."
+        "titre": "Canaliser l'électricité mentale",
+        "texte": "Cette puissante configuration astrale centrée sur ton signe peut se traduire par une tension nerveuse particulièrement intense. Pour éviter les insomnies ou la fatigue oculaire, limite drastiquement le temps passé devant les réseaux sociaux et les écrans ce soir. Le sextile entre Uranus et Neptune rétrograde t'invite à explorer des techniques de respiration consciente pour faire descendre l'énergie dans le corps. Offre-toi un temps de marche le nez au vent pour laisser circuler l'air dans tes idées. Hydrate-toi régulièrement avec des tisanes calmantes plutôt qu'en buvant trop de caféine. Préserve ton sommeil comme un trésor précieux."
       },
-      "mission": "Teste une nouvelle application, un nouveau chemin ou une recette inédite pour réveiller ton originalité."
+      "mission": "Poser ton smartphone dans une autre pièce pendant toute la durée de ton dîner ce soir."
     },
     "poissons": {
-      "essentiel": "Toi qui navigues dans les eaux infinies de l'imaginaire, Neptune rétrograde dans ton signe t'invite au rêve. Le ciel t'offre une parenthèse de douceur pour recharger ton âme sensible.",
+      "essentiel": "Ton intuition est particulièrement fine aujourd'hui. Fais confiance à tes ressentis tout en gardant les pieds sur terre face aux bruits du monde extérieur.",
       "amour": {
-        "titre": "Océan de tendresse complice",
-        "texte": "Avec Neptune rétrograde dans ton signe, tu es dans une bulle de sensibilité et de poésie. Aucun astre brutal ne vient perturber ton monde intime, ce qui te procure une paix royale. C'est le moment idéal pour exprimer tes sentiments par la musique, l'art ou un simple regard. Tu captes les émotions des autres avant même qu'ils n'aient ouvert la bouche pour parler. Si tu es en couple, partage un moment de complicité hors du temps et du monde. Si tu es en quête d'amour, ton aura mystérieuse et douce attire les bonnes personnes."
+        "titre": "Naviguer au cœur des émotions",
+        "texte": "Toi qui ressens les marées de l'âme comme personne, cette journée te propose de belles révélations si tu restes sereine. Ton maître Neptune rétrograde en Bélier forme un magnifique sextile avec Pluton en Verseau, soutenant une métamorphose subtile de ta façon d'aimer. En revanche, le Soleil en signe ami Scorpion affronte Pluton, ce qui peut réveiller de vieilles peurs d'abandon ou de rejet totalement infondées. Ne te laisse pas emporter par des scénarios imaginaires qui n'existent que dans ton esprit agité. Pose des questions directes et bienveillantes plutôt que d'interpréter le silence de l'autre. La confiance mutuelle se nourrit d'une communication simple et transparente. Tout va bien."
       },
       "travail": {
-        "titre": "Créativité inspirée et fluide",
-        "texte": "Neptune rétrograde dans ton signe stimule ton intuition artistique et ta vision globale des projets. Tu trouves des solutions créatives là où les autres ne voient que des impasses logiques. Même si la rigueur administrative n'est pas ta tasse de thé du jour, ton charme opère. Travail dans une ambiance musicale feutrée pour stimuler ton inspiration naturelle au maximum. Ne te laisse pas noyer sous les détails techniques et délègue ce qui t'ennuie profondément. Tes collègues apprécient ta douceur et ta capacité à apaiser les tensions de l'équipe. Fais confiance à ton sixième sens pour mener ta barque à bon port."
+        "titre": "Démêler l'illusion du réel",
+        "texte": "Ton imagination débordante t'offre de magnifiques pistes créatives, mais la prudence reste de rigueur pour les aspects matériels. Ton second maître Jupiter en Lion subit une forte tension de Mercure rétrograde en Scorpion, ce qui complique les signatures d'accords ou les promesses d'avancement. Méfie-toi des propositions trop alléchantes qui manquent de clarté sur les engagements réciproques. Prends des notes écrites de toutes les directives reçues pour éviter les malentendus ultérieurs avec ta hiérarchie. La Lune en Gémeaux conseille d'organiser ton poste de travail pour gagner en efficacité pratique. Reste rigoureuse sur tes horaires et tes dossiers en cours. Tu avanceras ainsi sans stress."
       },
       "bienetre": {
-        "titre": "Se ressourcer près de l'eau",
-        "texte": "Ton élément de prédilection est l'eau et ton corps te réclame un bain ou une douche relaxante. Neptune rétrograde dans ton signe amplifie ton besoin de fusionner avec le calme absolu. Évite les ambiances trop bruyantes ou les personnes négatives qui vident ton énergie vitale. Prends le temps de rêver éveillée, c'est ta manière à toi de te reposer vraiment. Une séance de méditation ou de yoga doux t'aidera à retrouver ton centre émotionnel. Couche-toi tôt avec une belle histoire à lire pour t'endormir le cœur léger. Ton monde intérieur est un havre de paix magnifique, prends-en grand soin."
+        "titre": "S'offrir un refuge poétique",
+        "texte": "Le monde extérieur a parfois des contours un peu trop rugueux pour ta grande sensibilité naturelle. Le sextile fluide entre Uranus en Gémeaux et ton maître Neptune te fournit une merveilleuse échappatoire à travers l'art ou la contemplation. Écoute une musique qui t'émeut, dessine ou plonge-toi dans un roman inspirant pour nourrir ton âme d'images bienfaisantes. Fais attention à ne pas absorber les angoisses de ton entourage comme une véritable éponge émotionnelle. Prends un bain aux sels minéraux ou lave-toi les mains à l'eau froide pour te délester des énergies lourdes. Chéris ta paix intérieure par-dessus tout le reste."
       },
-      "mission": "Écoute ton morceau de musique préféré en fermant les yeux et en imaginant un paysage marin."
+      "mission": "Mettre une goutte d'huile essentielle apaisante sur tes poignets et prendre trois profondes inspirations les yeux fermés."
     }
   }
 }
