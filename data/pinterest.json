@@ -1,5 +1,134 @@
 [
   {
+    "id": "2026-10-29-belier",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-belier.jpg",
+    "titre": "Horoscope Bélier du 29 octobre 2026",
+    "description": "Ralentir n'est pas reculer : c'est simplement donner à tes pas le temps de savourer le chemin parcouru. Amour, travail, bien-être et ta mission du jour : l’horoscope Bélier complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "belier.html"
+  },
+  {
+    "id": "2026-10-29-taureau",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-taureau.jpg",
+    "titre": "Horoscope Taureau du 29 octobre 2026",
+    "description": "Quand le monde s'agite autour de ta tasse de café, ton calme souverain devient le plus beau des refuges. Amour, travail, bien-être et ta mission du jour : l’horoscope Taureau complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "taureau.html"
+  },
+  {
+    "id": "2026-10-29-gemeaux",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-gemeaux.jpg",
+    "titre": "Horoscope Gémeaux du 29 octobre 2026",
+    "description": "La Lune illumine tes idées : laisse vagabonder ton esprit tout en ancrant tes pas dans la réalité. Amour, travail, bien-être et ta mission du jour : l’horoscope Gémeaux complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "gemeaux.html"
+  },
+  {
+    "id": "2026-10-29-cancer",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-cancer.jpg",
+    "titre": "Horoscope Cancer du 29 octobre 2026",
+    "description": "Ton intuition t'oriente toujours vers les havres de paix : écoute ce murmure intérieur qui ne se trompe jamais. Amour, travail, bien-être et ta mission du jour : l’horoscope Cancer complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "cancer.html"
+  },
+  {
+    "id": "2026-10-29-lion",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-lion.jpg",
+    "titre": "Horoscope Lion du 29 octobre 2026",
+    "description": "Ton éclat naturel attire les regards, mais c'est par ton écoute que tu feras aujourd'hui la plus belle impression. Amour, travail, bien-être et ta mission du jour : l’horoscope Lion complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "lion.html"
+  },
+  {
+    "id": "2026-10-29-vierge",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-vierge.jpg",
+    "titre": "Horoscope Vierge du 29 octobre 2026",
+    "description": "La perfection n'existe que dans les livres : fais confiance au charme délicieux des petites imperfections du réel. Amour, travail, bien-être et ta mission du jour : l’horoscope Vierge complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "vierge.html"
+  },
+  {
+    "id": "2026-10-29-balance",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-balance.jpg",
+    "titre": "Horoscope Balance du 29 octobre 2026",
+    "description": "Ton harmonie ne dépend pas de l'approbation d'autrui : elle s'épanouit d'abord dans la fidélité à tes propres désirs. Amour, travail, bien-être et ta mission du jour : l’horoscope Balance complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "balance.html"
+  },
+  {
+    "id": "2026-10-29-scorpion",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-scorpion.jpg",
+    "titre": "Horoscope Scorpion du 29 octobre 2026",
+    "description": "Ta puissance réside dans ta lucidité : traverse les remous avec le calme de l'eau profonde qui sait où elle va. Amour, travail, bien-être et ta mission du jour : l’horoscope Scorpion complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "scorpion.html"
+  },
+  {
+    "id": "2026-10-29-sagittaire",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-sagittaire.jpg",
+    "titre": "Horoscope Sagittaire du 29 octobre 2026",
+    "description": "Garde les yeux fixés vers l'horizon lointain, mais prends le temps de regarder où tu poses les pieds aujourd'hui. Amour, travail, bien-être et ta mission du jour : l’horoscope Sagittaire complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "sagittaire.html"
+  },
+  {
+    "id": "2026-10-29-capricorne",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-capricorne.jpg",
+    "titre": "Horoscope Capricorne du 29 octobre 2026",
+    "description": "La montagne ne craint pas le vent : ta constance silencieuse est le repère rassurant dont tout le monde a besoin. Amour, travail, bien-être et ta mission du jour : l’horoscope Capricorne complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "capricorne.html"
+  },
+  {
+    "id": "2026-10-29-verseau",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-verseau.jpg",
+    "titre": "Horoscope Verseau du 29 octobre 2026",
+    "description": "Tes intuitions d'avant-garde ouvrent la voie : avance avec confiance sans te soucier des bruits du monde. Amour, travail, bien-être et ta mission du jour : l’horoscope Verseau complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "verseau.html"
+  },
+  {
+    "id": "2026-10-29-poissons",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-poissons.jpg",
+    "titre": "Horoscope Poissons du 29 octobre 2026",
+    "description": "Ta sensibilité poétique est un cadeau pour le monde : laisse flotter tes rêves sans perdre ton ancrage bienveillant. Amour, travail, bien-être et ta mission du jour : l’horoscope Poissons complet de Madeleine, calculé sur le vrai ciel.",
+    "lien": "poissons.html"
+  },
+  {
+    "id": "2026-10-29-mission-cancer",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-mission-cancer.jpg",
+    "titre": "Ta mission du jour, Cancer",
+    "description": "Allumer une bougie parfumée à la tombée du jour et formuler en pensée un vœu de paix. La petite mission de Madeleine pour le signe Cancer, avec ton horoscope complet du jour.",
+    "lien": "cancer.html"
+  },
+  {
+    "id": "2026-10-29-couple-lion-vierge",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-couple-lion-vierge.jpg",
+    "titre": "Lion & Vierge · Le roi et l'intendant : ce que vit vraiment ce couple",
+    "description": "Compatibilité Lion et Vierge en amour : points forts, frictions et conseils de Madeleine pour que ce couple dure.",
+    "lien": "compatibilite-lion-vierge.html"
+  },
+  {
+    "id": "2026-10-29-article-lilith-ombre",
+    "date": "2026-10-29",
+    "image": "pins/2026-10-29-article-lilith-ombre.jpg",
+    "titre": "La Lune Noire (Lilith) : Votre Côté Sauvage",
+    "description": "La Lune Noire (Lilith) : Votre Côté Sauvage : l’article de Madeleine, astrologue de la Maison Authentique.",
+    "lien": "lilith-ombre.html"
+  },
+  {
+    "id": "2026-10-29-duel-cancer-verseau-1",
+    "date": "2026-10-29",
+    "image": "assets/pinterest-stock/duel-cancer-verseau-1.jpg",
+    "hauteur": 1778,
+    "titre": "Cancer vs Verseau : les red flags du couple",
+    "description": "Cancer et Verseau : les points de friction, les red flags et les conseils de Madeleine pour s’en sortir.",
+    "lien": "compatibilite-cancer-verseau.html"
+  },
+  {
     "id": "2026-10-28-belier",
     "date": "2026-10-28",
     "image": "pins/2026-10-28-belier.jpg",
@@ -674,135 +803,6 @@
     "image": "pins/2026-10-23-gemeaux.jpg",
     "titre": "Horoscope Gémeaux du 23 octobre 2026",
     "description": "Uranus insuffle un vent de liberté dans ton signe. Canalise ton enthousiasme communicatif pour faire rayonner tes idées les plus inspirées. Amour, travail, bien-être et ta mission du jour : l’horoscope Gémeaux complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "gemeaux.html"
-  },
-  {
-    "id": "2026-10-23-cancer",
-    "date": "2026-10-23",
-    "image": "pins/2026-10-23-cancer.jpg",
-    "titre": "Horoscope Cancer du 23 octobre 2026",
-    "description": "La Lune en Poissons enveloppe ta journée d'une douceur magique. Écoute ton intuition infaillible pour chouchouter tes proches et ton esprit. Amour, travail, bien-être et ta mission du jour : l’horoscope Cancer complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "cancer.html"
-  },
-  {
-    "id": "2026-10-23-lion",
-    "date": "2026-10-23",
-    "image": "pins/2026-10-23-lion.jpg",
-    "titre": "Horoscope Lion du 23 octobre 2026",
-    "description": "Mars et Jupiter chez toi boostent ton magnétisme. Canalise cette force impressionnante avec modération pour rayonner sans imposer ta volonté. Amour, travail, bien-être et ta mission du jour : l’horoscope Lion complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "lion.html"
-  },
-  {
-    "id": "2026-10-23-vierge",
-    "date": "2026-10-23",
-    "image": "pins/2026-10-23-vierge.jpg",
-    "titre": "Horoscope Vierge du 23 octobre 2026",
-    "description": "La Lune en Poissons en face de toi apporte une pincée de poésie. Laisse de côté la perfection absolue pour accueillir la magie de l'imprévu. Amour, travail, bien-être et ta mission du jour : l’horoscope Vierge complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "vierge.html"
-  },
-  {
-    "id": "2026-10-23-balance",
-    "date": "2026-10-23",
-    "image": "pins/2026-10-23-balance.jpg",
-    "titre": "Horoscope Balance du 23 octobre 2026",
-    "description": "Vénus en Scorpion t'invite à l'authenticité sentimentale. Ose exprimer tes besoins réels sans peur de rompre l'harmonie ambiante. Amour, travail, bien-être et ta mission du jour : l’horoscope Balance complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "balance.html"
-  },
-  {
-    "id": "2026-10-23-scorpion",
-    "date": "2026-10-23",
-    "image": "pins/2026-10-23-scorpion.jpg",
-    "titre": "Horoscope Scorpion du 23 octobre 2026",
-    "description": "Le Soleil entre dans ton signe accompagné de Vénus et Mercure. Une journée puissante pour te régénérer et transformer tes doutes en forces. Amour, travail, bien-être et ta mission du jour : l’horoscope Scorpion complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "scorpion.html"
-  },
-  {
-    "id": "2026-10-23-sagittaire",
-    "date": "2026-10-23",
-    "image": "pins/2026-10-23-sagittaire.jpg",
-    "titre": "Horoscope Sagittaire du 23 octobre 2026",
-    "description": "Jupiter stimule ton enthousiasme communicatif tandis qu'Uranus t'ouvre de nouveaux horizons. Garde les pieds sur terre pour maximiser tes réussites. Amour, travail, bien-être et ta mission du jour : l’horoscope Sagittaire complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "sagittaire.html"
-  },
-  {
-    "id": "2026-10-23-capricorne",
-    "date": "2026-10-23",
-    "image": "pins/2026-10-23-capricorne.jpg",
-    "titre": "Horoscope Capricorne du 23 octobre 2026",
-    "description": "Saturne s'allie à Mars pour te donner une force tranquille remarquable. Une journée idéale pour faire avancer tes projets les plus précieux. Amour, travail, bien-être et ta mission du jour : l’horoscope Capricorne complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "capricorne.html"
-  },
-  {
-    "id": "2026-10-23-verseau",
-    "date": "2026-10-23",
-    "image": "pins/2026-10-23-verseau.jpg",
-    "titre": "Horoscope Verseau du 23 octobre 2026",
-    "description": "Pluton dans ton signe communique puissamment avec Uranus. Ton esprit visionnaire inspire ton entourage, à condition d'y mettre les formes. Amour, travail, bien-être et ta mission du jour : l’horoscope Verseau complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "verseau.html"
-  },
-  {
-    "id": "2026-10-23-poissons",
-    "date": "2026-10-23",
-    "image": "pins/2026-10-23-poissons.jpg",
-    "titre": "Horoscope Poissons du 23 octobre 2026",
-    "description": "La Lune illumine ton signe avec douceur. Laisse parler ton imagination et ta grande bienveillance pour vivre une journée pleine de sérénité. Amour, travail, bien-être et ta mission du jour : l’horoscope Poissons complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "poissons.html"
-  },
-  {
-    "id": "2026-10-23-mission-capricorne",
-    "date": "2026-10-23",
-    "image": "pins/2026-10-23-mission-capricorne.jpg",
-    "titre": "Ta mission du jour, Capricorne",
-    "description": "Accorde-toi une pause de cinq minutes pour étirer délicatement ton dos et relâcher la nuque. La petite mission de Madeleine pour le signe Capricorne, avec ton horoscope complet du jour.",
-    "lien": "capricorne.html"
-  },
-  {
-    "id": "2026-10-23-couple-cancer-scorpion",
-    "date": "2026-10-23",
-    "image": "pins/2026-10-23-couple-cancer-scorpion.jpg",
-    "titre": "Cancer & Scorpion · L'océan profond : ce que vit vraiment ce couple",
-    "description": "Compatibilité Cancer et Scorpion en amour : points forts, frictions et conseils de Madeleine pour que ce couple dure.",
-    "lien": "compatibilite-cancer-scorpion.html"
-  },
-  {
-    "id": "2026-10-23-saison-scorpion",
-    "date": "2026-10-23",
-    "image": "pins/2026-10-23-saison-scorpion.jpg",
-    "titre": "La saison du Scorpion commence · Ce qu’elle change pour chaque signe",
-    "description": "Le Soleil entre en Scorpion : la saison du Scorpion commence. Caractère du signe, dates et ce que cette période change pour toi, par Madeleine.",
-    "lien": "signe-scorpion.html"
-  },
-  {
-    "id": "2026-10-23-couple-taureau-vierge-4",
-    "date": "2026-10-23",
-    "image": "assets/pinterest-stock/couple-taureau-vierge-4.jpg",
-    "hauteur": 1778,
-    "titre": "Taureau & Vierge : compatibilité amoureuse",
-    "description": "Taureau et Vierge en amour : ce qui les attire, ce qui coince et comment ce couple peut durer, par Madeleine.",
-    "lien": "compatibilite-taureau-vierge.html"
-  },
-  {
-    "id": "2026-10-22-belier",
-    "date": "2026-10-22",
-    "image": "pins/2026-10-22-belier.jpg",
-    "titre": "Horoscope Bélier du 22 octobre 2026",
-    "description": "Toi qui brûles d'envie de tout faire en même temps, ce jeudi te demande de respirer un grand coup ! Amour, travail, bien-être et ta mission du jour : l’horoscope Bélier complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "belier.html"
-  },
-  {
-    "id": "2026-10-22-taureau",
-    "date": "2026-10-22",
-    "image": "pins/2026-10-22-taureau.jpg",
-    "titre": "Horoscope Taureau du 22 octobre 2026",
-    "description": "Toi qui aimes tant tes petites habitudes bien ancrées, le ciel t'invite à regarder tes relations sous un autre angle. Amour, travail, bien-être et ta mission du jour : l’horoscope Taureau complet de Madeleine, calculé sur le vrai ciel.",
-    "lien": "taureau.html"
-  },
-  {
-    "id": "2026-10-22-gemeaux",
-    "date": "2026-10-22",
-    "image": "pins/2026-10-22-gemeaux.jpg",
-    "titre": "Horoscope Gémeaux du 22 octobre 2026",
-    "description": "Toi qui papillonnes d'une idée à l'autre, Uranus dans ton signe te pousse à embrasser le changement avec enthousiasme. Amour, travail, bien-être et ta mission du jour : l’horoscope Gémeaux complet de Madeleine, calculé sur le vrai ciel.",
     "lien": "gemeaux.html"
   }
 ]
