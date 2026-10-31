@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "enBref": "L'année personnelle se calcule en additionnant le jour et le mois de naissance avec l'année en cours, réduits à un chiffre de 1 à 9. Exemple : 14 mars en 2027 donne 1 + 4 + 3 + 2 + 0 + 2 + 7 = 19, puis 10, puis 1.",
+  "maj": "2026-10-31T12:31:26.799Z",
+  "auteur": "maison"
+}
