@@ -13,6 +13,7 @@ const H = require('./lib/horoscope');
 const C = require('./lib/chantiers');
 const P = require('./lib/promotion');
 const E = require('./lib/esoterisme');
+const CAB = require('./lib/cabinet');
 const U = require('./lib/ui');
 const articlesLib = require('./lib/articles');
 const L = require('./lib/layout');
@@ -83,7 +84,7 @@ async function main() {
             { q: 'Comment les positions des planètes sont-elles calculées ?', a: "Chaque nuit, la Maison calcule la position du Soleil, de la Lune et des huit planètes à partir des éphémérides astronomiques, ainsi que les rétrogradations, la phase de la Lune et les aspects du jour. L'horoscope n'a le droit de citer que ces positions." },
             { q: 'Quand Mercure sera-t-il rétrograde ?', a: mercTexte + ' La période dure environ trois semaines et revient trois à quatre fois par an.' },
             { q: 'Pourquoi connaître son ascendant ?', a: "Le signe solaire décrit votre nature profonde ; l'ascendant, calculé avec l'heure et le lieu exacts de naissance, décrit votre manière d'aborder le monde. Deux personnes du même signe peuvent avoir des ascendants très différents." },
-            { q: "Qu'est-ce que l'astrologie karmique ?", a: "Une lecture du thème natal qui cherche les schémas hérités de la lignée et la direction indiquée par le Nœud Nord. C'est la spécialité du Cabinet privé de Madeleine." }
+            { q: "Qu'est-ce que l'astrologie karmique ?", a: "Une lecture du thème natal qui cherche les schémas hérités de la lignée et la direction indiquée par le Nœud Nord. C'est l'une des lectures proposées par le Cabinet privé." }
         ];
         const main = `
 <section class="wrap hero" aria-labelledby="h1">
@@ -132,14 +133,14 @@ async function main() {
 <div class="split-media">${IMG.obj('cabinet.webp', 'Encrier de porcelaine et plume dorée du Cabinet privé')}</div>
 <div class="split-text">
 <p class="eyebrow">Le Cabinet privé</p>
-<h2 id="h-cabinet" class="h2">Votre thème complet, lu par <em>Madeleine</em>.</h2>
-<p class="lede" style="font-size:21px">Une étude écrite à partir de votre date, de votre heure et de votre lieu de naissance. Sa spécialité : l'héritage familial, ce que votre ciel porte de la lignée qui vous précède.</p>
+<h2 id="h-cabinet" class="h2">Une étude qui ne parle <em>que de vous</em>.</h2>
+<p class="lede" style="font-size:21px">Votre ciel entier, calculé à partir de votre date, de votre heure et de votre lieu de naissance, et une réponse approfondie à ce qui vous occupe vraiment. Envoyée sous 24 h.</p>
 <ul class="offers">
-<li><span class="o-n">L'Essentiel karmique</span><span class="o-t">Thème identitaire, héritage familial, mission de vie, une question.</span><span class="o-p">20 €</span></li>
-<li><span class="o-n">La Boussole annuelle</span><span class="o-t">L'Essentiel, plus la révolution solaire et vos dates clés de l'année.</span><span class="o-p">45 €</span></li>
-<li><span class="o-n">L'Alchimie totale</span><span class="o-t">La Boussole, plus un rituel, une prescription de pierres et une correspondance ouverte.</span><span class="o-p">80 €</span></li>
+<li><span class="o-n">L'Essentiel karmique</span><span class="o-t">Votre thème natal expliqué, votre chemin de vie, la réponse à votre question.</span><span class="o-p">20 €</span></li>
+<li><span class="o-n">La Boussole annuelle</span><span class="o-t">L'Essentiel, plus vos douze prochains mois et vos périodes clés, datées.</span><span class="o-p">45 €</span></li>
+<li><span class="o-n">L'Alchimie totale</span><span class="o-t">La Boussole, plus votre héritage familial, vos pierres et le Livre ouvert.</span><span class="o-p">80 €</span></li>
 </ul>
-<div><a class="btn" href="etude-karmique.html">Commander une étude</a></div>
+<div><a class="btn" href="etude-karmique.html">Découvrir les études</a></div>
 </div></div></section>
 
 <section class="section" aria-labelledby="h-biblio"><div class="wrap stack gap-l">
@@ -365,7 +366,7 @@ ${L.bridge({ eyebrow: 'Et pourtant…', title: 'Ces défauts sont-ils rédhibito
     };
     // Une invitation douce au Cabinet privé, un article sur deux, sur les sujets qui s'y prêtent
     const cabinetArticle = (a, pos) => (['LES GRANDES QUESTIONS', 'BIBLIOTHÈQUE INTERDITE'].includes(a.categorie) && pos % 2 === 0)
-        ? U.bandeauCabinet('Envie d’une lecture qui ne parle que de vous ?', 'Votre signe n’est qu’une partie de l’histoire. Confiez votre date, votre heure et votre lieu de naissance : Madeleine étudie votre thème complet et vous répond personnellement.', 'Découvrir le Cabinet privé')
+        ? U.bandeauCabinet('Envie d’une lecture qui ne parle que de vous ?', 'Votre signe n’est qu’une partie de l’histoire. Confiez-nous votre date, votre heure et votre lieu de naissance : nous lisons votre thème complet et répondons à votre question, rien que pour vous.', 'Découvrir le Cabinet privé')
         : '';
 
     // ---------- 8. Articles ----------
@@ -446,7 +447,7 @@ ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class=
 
     // ---------- 9 bis. Les nouvelles rubriques ----------
     const cctx = { ciel, signs, bySlug, compatData, roastData, jour: horo, demain: horoDemain, semaine: horoSemaine, mois: horoMois, genere: quand, articles: articlesPrets };
-    const nouvelles = [C.periodes(cctx), C.theme(cctx), C.lune(cctx), C.paires(cctx), C.fiches(cctx), C.chinois(cctx), C.numerologie(cctx), E.heuresMiroirs(cctx), E.nombresAngeliques(cctx), E.tarot(cctx)].flatMap((r) => r.urls);
+    const nouvelles = [C.periodes(cctx), C.theme(cctx), C.lune(cctx), C.paires(cctx), C.fiches(cctx), C.chinois(cctx), C.numerologie(cctx), E.heuresMiroirs(cctx), E.nombresAngeliques(cctx), E.tarot(cctx), CAB.cabinet(cctx)].flatMap((r) => r.urls);
     console.log(`✅ ${nouvelles.length} pages des nouvelles rubriques`);
     nouvelles.push(...P.widget(cctx));
     P.pourLesMoteurs(cctx);
@@ -460,7 +461,6 @@ ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class=
         'le-cosmos.html': { active: 'encyclo', label: 'Astronomie & cosmos' },
         'compatibilite-amoureuse.html': { active: 'compat', label: 'Compatibilité amoureuse' },
         'red-flags.html': { active: 'redflags', label: 'Red Flags' },
-        'etude-karmique.html': { active: 'cabinet', label: 'Cabinet privé' },
         'verite-horoscope-mensonge.html': { active: null, label: 'Le manifeste' },
         'mentions-legales.html': { active: null, label: 'Mentions légales' }
     };
@@ -491,9 +491,7 @@ ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class=
         body = body.replace(/<!-- Google tag[\s\S]*?<\/script>\s*<script>[\s\S]*?<\/script>/g, '')
             .replace(/<header[\s\S]*?<\/header>/, '')
             .replace(/<footer[\s\S]*?<\/footer>/g, '');
-        const extraLd = file === 'etude-karmique.html'
-            ? `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'Service', name: 'Étude Céleste & Héritage', serviceType: 'Consultation astrologique écrite', provider: auteur, areaServed: 'FR', offers: { '@type': 'AggregateOffer', priceCurrency: 'EUR', lowPrice: '20', highPrice: '80', offerCount: 3 } })}</script>`
-            : '';
+        const extraLd = '';
         const crumbs = [accueilCrumb, { label: conf.label }];
         const main = `<div class="legacy ${esc(bodyClass)}">${body}</div>${passerelles[file] || ''}`;
         write(file, L.page({
