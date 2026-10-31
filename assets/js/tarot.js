@@ -20,6 +20,7 @@
     return t.slice(0, 7);
   }
   function face(c) {
+    if (c.img) return '<img class="tj-img" src="./assets/' + c.img + '" alt="' + esc(c.n) + '">';
     return '<span class="carte-tarot"><span class="ct-num">' + esc(c.r || '') + '</span><span class="ct-sym"></span><span class="ct-nom">' + esc(c.n) + '</span></span>';
   }
 
@@ -36,13 +37,13 @@
     var cs = choisies.map(function (i) { return tirage[i]; });
     if (mode === 1) {
       var c = cs[0];
-      resultat.innerHTML = '<div class="tr-un"><p class="eyebrow">Votre réponse</p><p class="tr-oui">' + esc(REPONSE[c.on]) + '</p>' +
+      resultat.innerHTML = '<div class="tr-un">' + (c.img ? '<img class="tr-img" src="./assets/' + c.img.replace('-mini', '') + '" alt="' + esc(c.n) + '">' : '') + '<p class="eyebrow">Votre réponse</p><p class="tr-oui">' + esc(REPONSE[c.on]) + '</p>' +
         '<h3 class="h2">' + esc(c.n) + '</h3><p class="tr-k">' + esc(c.k) + '</p><p>' + esc(c.sens) + '</p>' +
         '<p><strong>En amour :</strong> ' + esc(c.amour) + '</p><p><strong>Le conseil :</strong> ' + esc(c.conseil) + '</p>' +
         '<a class="ulink" href="arcane-' + c.s + '.html">Tout savoir sur ' + esc(c.n) + '</a></div>';
     } else {
       resultat.innerHTML = '<div class="tr-trois">' + cs.map(function (c, k) {
-        return '<div class="tr-pos"><p class="eyebrow">' + POSITIONS[k] + '</p><h3 class="h3">' + esc(c.n) + '</h3><p class="tr-k">' + esc(c.k) + '</p><p>' + esc(c.sens) + '</p><a class="ulink" href="arcane-' + c.s + '.html">Lire la carte</a></div>';
+        return '<div class="tr-pos">' + (c.img ? '<img class="tr-img petite" src="./assets/' + c.img + '" alt="' + esc(c.n) + '">' : '') + '<p class="eyebrow">' + POSITIONS[k] + '</p><h3 class="h3">' + esc(c.n) + '</h3><p class="tr-k">' + esc(c.k) + '</p><p>' + esc(c.sens) + '</p><a class="ulink" href="arcane-' + c.s + '.html">Lire la carte</a></div>';
       }).join('') + '</div>';
     }
     if (window.gtag) window.gtag('event', 'tirage_tarot', { mode: mode });
