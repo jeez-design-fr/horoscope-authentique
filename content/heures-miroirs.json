@@ -1,0 +1,198 @@
+{
+  "intro": "Une heure miroir est une heure dont les heures et les minutes sont identiques : 11h11, 22h22, 00h00. Selon la tradition symbolique, la remarquer au bon moment invite à s'arrêter sur la pensée qui vous traversait l'esprit. La Maison la lit à travers la numérologie du nombre répété : une grille de réflexion, jamais une prédiction.",
+  "pourquoi": "Si l'on voit souvent les mêmes heures, c'est d'abord parce que l'attention est sélective : une fois qu'une heure a retenu notre regard, le cerveau la repère plus facilement. Le psychiatre Carl Gustav Jung appelait « synchronicité » ces coïncidences qui prennent un sens pour celui qui les vit. Lire une heure miroir, c'est donc s'offrir une pause : que pensiez-vous, que ressentiez-vous, à cet instant précis ?",
+  "heures": [
+    {
+      "h": "00h00", "theme": "Le grand recommencement",
+      "message": "Minuit pile marque la page blanche. Le zéro est le nombre de tous les possibles, celui qui contient tout sans encore rien affirmer. Voir 00h00, c'est sentir qu'un cycle s'achève et qu'un autre attend d'être écrit. L'heure invite à laisser derrière soi ce qui a pesé dans la journée pour repartir l'esprit clair.",
+      "amour": "Une relation peut prendre un nouveau départ, ou vous pouvez enfin tourner une page qui traînait. Célibataire, gardez le cœur ouvert : le vide n'est pas un manque, c'est de la place.",
+      "travail": "Bon moment pour faire le point avant de lancer un projet : ce qui n'a plus de sens peut être arrêté sans culpabilité.",
+      "spirituel": "Le zéro évoque l'unité, le cercle complet. On y lit une invitation au silence, à la méditation, à l'écoute de soi.",
+      "conseil": "Écrivez une seule intention pour le cycle qui commence, puis allez dormir."
+    },
+    {
+      "h": "01h01", "theme": "L'élan de la volonté",
+      "message": "Le 1 est le nombre du départ, de l'affirmation de soi et du courage. Le croiser deux fois en pleine nuit, c'est être rappelé à sa propre force : vous avez la capacité de commencer quelque chose seul, sans attendre l'accord des autres.",
+      "amour": "Osez exprimer ce que vous voulez vraiment plutôt que d'attendre que l'autre devine. Une initiative de votre part peut tout débloquer.",
+      "travail": "Une idée personnelle mérite d'être défendue. Prenez la parole, proposez, lancez.",
+      "spirituel": "Le 1 rappelle que l'on est le premier artisan de sa vie : la confiance en soi est une pratique quotidienne.",
+      "conseil": "Notez l'idée que vous aviez en tête : c'est peut-être la graine d'un projet."
+    },
+    {
+      "h": "02h02", "theme": "L'appel de l'autre",
+      "message": "Le 2 est le nombre du couple, de l'écoute et de la coopération. Vu au cœur de la nuit, il parle souvent d'une relation qui occupe vos pensées : un lien à consolider, un malentendu à apaiser, une personne à qui vous n'avez pas encore tout dit.",
+      "amour": "La douceur fait plus que la confrontation en ce moment. Un message sincère peut rapprocher deux personnes qui s'éloignaient.",
+      "travail": "Les alliances valent mieux que les cavaliers seuls : cherchez le bon partenaire, la bonne collaboration.",
+      "spirituel": "Le 2 rappelle l'équilibre entre donner et recevoir, entre soi et les autres.",
+      "conseil": "Demandez-vous à qui vous pensiez à cet instant, et pourquoi."
+    },
+    {
+      "h": "03h03", "theme": "La parole libérée",
+      "message": "Le 3 est le nombre de l'expression, de la créativité et de la joie de communiquer. À 3 heures du matin, il ressemble souvent à une pensée qui tourne en boucle et qui demande à sortir : il est temps de mettre des mots sur ce que vous gardez pour vous.",
+      "amour": "Dites les choses avec légèreté plutôt que de les ruminer. Un éclat de rire partagé vaut parfois une longue discussion.",
+      "travail": "Votre créativité est votre meilleur atout : écrivez, dessinez, proposez une idée différente.",
+      "spirituel": "Le 3 relie le corps, le cœur et l'esprit. Il invite à exprimer qui l'on est, sans se censurer.",
+      "conseil": "Videz votre tête sur papier pour retrouver le sommeil."
+    },
+    {
+      "h": "04h04", "theme": "Les fondations solides",
+      "message": "Le 4 est le nombre du carré, de la stabilité, du travail patient. Le voir répété, c'est recevoir un rappel au concret : vos rêves ont besoin de structure, d'organisation et d'un peu de discipline pour prendre forme.",
+      "amour": "La confiance se construit par des gestes réguliers plus que par de grandes déclarations. Misez sur la fiabilité.",
+      "travail": "Bonne période pour planifier, ranger, consolider. Ce que vous bâtissez maintenant tiendra longtemps.",
+      "spirituel": "Le 4 évoque les quatre éléments et les quatre points cardinaux : se sentir ancré avant de s'élever.",
+      "conseil": "Choisissez une seule tâche concrète à accomplir demain, et faites-la."
+    },
+    {
+      "h": "05h05", "theme": "Le vent du changement",
+      "message": "Le 5 est le nombre du mouvement, de la liberté et de l'aventure. Au petit matin, il annonce souvent qu'une routine ne vous convient plus. Quelque chose demande à bouger : un lieu, une habitude, une façon de voir.",
+      "amour": "Un peu d'imprévu ravive la flamme. Célibataire, sortez de vos chemins habituels.",
+      "travail": "Restez souple face aux changements : ils peuvent ouvrir une porte inattendue.",
+      "spirituel": "Le 5 rappelle les cinq sens : vivre pleinement l'instant présent.",
+      "conseil": "Changez une petite chose dès aujourd'hui, même minime."
+    },
+    {
+      "h": "06h06", "theme": "Le foyer et le cœur",
+      "message": "Le 6 est le nombre de l'harmonie, de la famille et de la responsabilité affective. Le voir doublé au réveil invite à prendre soin de ceux que vous aimez, mais aussi de vous-même, sans vous oublier dans le service aux autres.",
+      "amour": "L'heure de la tendresse et de l'engagement. Un geste attentionné compte davantage qu'un discours.",
+      "travail": "L'ambiance d'équipe compte : apaiser une tension peut tout changer.",
+      "spirituel": "Le 6 parle de beauté et d'équilibre : un intérieur rangé apaise aussi l'esprit.",
+      "conseil": "Appelez quelqu'un de votre famille ou de votre entourage proche."
+    },
+    {
+      "h": "07h07", "theme": "La voix intérieure",
+      "message": "Le 7 est le nombre de la réflexion, de la sagesse et de la quête de sens. À 7 heures, il vous invite à écouter votre intuition plutôt que le bruit extérieur. La réponse que vous cherchez est peut-être déjà en vous.",
+      "amour": "Prenez le temps de comprendre ce que vous ressentez vraiment avant d'agir.",
+      "travail": "Étudiez, approfondissez, vérifiez : votre analyse fera la différence.",
+      "spirituel": "Le 7 est le nombre de la contemplation : quelques minutes de calme le matin changent une journée.",
+      "conseil": "Gardez cinq minutes de silence avant d'ouvrir vos messages."
+    },
+    {
+      "h": "08h08", "theme": "La force et l'abondance",
+      "message": "Le 8 est le nombre de la puissance, de la réussite matérielle et de l'équilibre entre donner et recevoir. Couché, il dessine le signe de l'infini. Le voir doublé suggère que vos efforts peuvent porter leurs fruits si vous osez prendre votre place.",
+      "amour": "Une relation équilibrée, où chacun reçoit autant qu'il donne, se construit maintenant.",
+      "travail": "Bonne énergie pour négocier, demander ce que vous valez, gérer votre argent avec lucidité.",
+      "spirituel": "L'infini du 8 rappelle que ce que l'on sème revient : semez juste.",
+      "conseil": "Faites un point simple sur vos finances ou vos objectifs."
+    },
+    {
+      "h": "09h09", "theme": "La fin d'un cycle",
+      "message": "Le 9 est le dernier des chiffres : il évoque l'accomplissement, la générosité et le lâcher-prise. Le voir doublé indique souvent qu'une étape se termine. Ce n'est pas une perte : c'est la place libérée pour ce qui vient.",
+      "amour": "Pardonner, ou simplement accepter, permet d'avancer le cœur plus léger.",
+      "travail": "Terminez ce qui traîne avant de commencer autre chose.",
+      "spirituel": "Le 9 est le nombre de l'altruisme : aider quelqu'un sans rien attendre en retour.",
+      "conseil": "Rangez, donnez ou terminez une chose qui vous encombre."
+    },
+    {
+      "h": "10h10", "theme": "Un nouveau départ assuré",
+      "message": "Le 10 réunit le 1 de l'initiative et le 0 du potentiel infini ; réduit, il redonne 1. Voir 10h10, c'est être encouragé à commencer quelque chose avec confiance : le terrain est prêt, il manque seulement le premier pas.",
+      "amour": "Une rencontre ou un renouveau dans le couple peut naître d'une simple initiative.",
+      "travail": "Proposez, candidatez, lancez : votre détermination est remarquée.",
+      "spirituel": "La Roue de Fortune est le 10e arcane du tarot : tout tourne, et le mouvement est de votre côté.",
+      "conseil": "Faites aujourd'hui la démarche que vous repoussez depuis des semaines."
+    },
+    {
+      "h": "11h11", "theme": "L'éveil et l'intuition",
+      "message": "11h11 est l'heure miroir la plus recherchée en France. Le 11 est un nombre maître en numérologie : il ne se réduit pas et porte une vibration d'inspiration, d'intuition et d'éveil. Le voir, c'est être invité à faire confiance à ce que vous pressentez, même sans preuve.",
+      "amour": "Un lien à forte résonance, une rencontre qui semble évidente, ou une prise de conscience sur ce que vous attendez vraiment de l'amour.",
+      "travail": "Une idée originale mérite votre attention : notez-la tout de suite.",
+      "spirituel": "Beaucoup y voient un moment propice pour formuler un vœu : non pas par magie, mais parce que nommer un désir aide à le poursuivre.",
+      "conseil": "Formulez un vœu précis et positif, puis faites un geste concret dans sa direction."
+    },
+    {
+      "h": "12h12", "theme": "L'équilibre retrouvé",
+      "message": "Le 12 évoque les douze signes, les douze mois, un cycle complet ; réduit, il donne 3, le nombre de l'expression. À midi passé, il invite à harmoniser votre vie personnelle et vos obligations, et à vous exprimer avec optimisme.",
+      "amour": "Un dialogue ouvert remet de l'équilibre dans la relation.",
+      "travail": "Bon moment pour clarifier vos priorités et présenter votre travail.",
+      "spirituel": "Le 12 rappelle que chaque étape de la vie a sa place dans un grand cycle.",
+      "conseil": "Faites une vraie pause pour déjeuner, loin des écrans."
+    },
+    {
+      "h": "13h13", "theme": "La transformation",
+      "message": "On craint souvent le 13, pourtant il porte un message de transformation : réduit, il donne 4, la construction. L'arcane XIII du tarot, sans nom, ne parle pas de mort physique mais de mue. Voir 13h13, c'est accepter qu'une page se tourne pour reconstruire mieux.",
+      "amour": "Une relation évolue : ce qui ne fonctionne plus peut se transformer plutôt que se répéter.",
+      "travail": "Un changement de méthode ou d'orientation s'annonce bénéfique.",
+      "spirituel": "Toute renaissance commence par un lâcher-prise.",
+      "conseil": "Identifiez une habitude à abandonner, et remplacez-la par une meilleure."
+    },
+    {
+      "h": "14h14", "theme": "La liberté maîtrisée",
+      "message": "Le 14 se réduit en 5, le nombre du changement, mais il garde le 4 de la structure. C'est l'heure de la tempérance, comme le 14e arcane du tarot : bouger sans se disperser, oser sans tout bousculer.",
+      "amour": "Trouvez le juste milieu entre votre besoin d'indépendance et celui de l'autre.",
+      "travail": "Adaptez-vous avec méthode : la souplesse organisée paie.",
+      "spirituel": "Tempérance mélange les eaux de deux vases : l'équilibre est un mouvement, pas un point fixe.",
+      "conseil": "Évitez les excès cet après-midi, dans un sens comme dans l'autre."
+    },
+    {
+      "h": "15h15", "theme": "Le désir et le lien",
+      "message": "Le 15 se réduit en 6, le nombre du cœur, et rappelle le 15e arcane, Le Diable, symbole des attaches et des passions. Voir 15h15, c'est observer ce qui vous attire, et vérifier que cela vous fait du bien plutôt que de vous enchaîner.",
+      "amour": "Le désir est au rendez-vous : vivez-le pleinement, sans jeu de pouvoir.",
+      "travail": "Méfiez-vous d'une dépendance à la validation des autres.",
+      "spirituel": "Reconnaître ses attaches, c'est déjà commencer à s'en libérer.",
+      "conseil": "Demandez-vous : est-ce que ce qui m'occupe l'esprit me rend plus libre ?"
+    },
+    {
+      "h": "16h16", "theme": "La remise en question",
+      "message": "Le 16 se réduit en 7, la réflexion, et évoque La Maison Dieu, 16e arcane : une structure qui se fissure pour laisser passer la lumière. Voir 16h16 invite à revoir une certitude qui ne tient plus.",
+      "amour": "Une vérité qui éclate peut assainir la relation, si elle est dite avec respect.",
+      "travail": "Un imprévu oblige à revoir vos plans : la nouvelle version sera plus solide.",
+      "spirituel": "Ce qui s'effondre n'était pas bâti pour durer.",
+      "conseil": "Ne luttez pas contre un changement déjà en marche : accompagnez-le."
+    },
+    {
+      "h": "17h17", "theme": "L'espoir et la confiance",
+      "message": "17h17 fait partie des heures miroirs les plus recherchées. Le 17 se réduit en 8, l'accomplissement, et rappelle L'Étoile, 17e arcane du tarot, symbole d'espoir et de guérison. Après l'effort, la confiance revient.",
+      "amour": "Un apaisement, une réconciliation ou un sentiment qui renaît.",
+      "travail": "Vos efforts sont sur le point d'être reconnus : continuez.",
+      "spirituel": "L'Étoile verse ses eaux sans compter : ayez foi dans le chemin parcouru.",
+      "conseil": "Accordez-vous un moment de douceur en fin de journée."
+    },
+    {
+      "h": "18h18", "theme": "L'intuition et les émotions",
+      "message": "Le 18 se réduit en 9 et rappelle La Lune, 18e arcane : le monde des rêves, des émotions et des doutes. Voir 18h18 invite à démêler ce qui relève de l'intuition et ce qui relève de la peur.",
+      "amour": "Ne laissez pas un doute grandir dans le silence : posez la question.",
+      "travail": "Vérifiez les informations avant de décider.",
+      "spirituel": "Notez vos rêves cette nuit : ils peuvent éclairer une situation.",
+      "conseil": "Séparez les faits de ce que vous imaginez."
+    },
+    {
+      "h": "19h19", "theme": "La joie et la réussite",
+      "message": "Le 19 se réduit en 10 puis en 1, et rappelle Le Soleil, 19e arcane, la carte la plus lumineuse du tarot. Voir 19h19 annonce symboliquement une période de clarté, de succès et de joie partagée.",
+      "amour": "Complicité, rires, sincérité : profitez de ce qui va bien.",
+      "travail": "Un projet arrive à maturité : montrez-le.",
+      "spirituel": "La joie est une forme de gratitude : savourez-la sans culpabilité.",
+      "conseil": "Partagez une bonne nouvelle avec quelqu'un qui compte."
+    },
+    {
+      "h": "20h20", "theme": "Le réveil et le jugement juste",
+      "message": "Le 20 se réduit en 2, le nombre du lien, et rappelle Le Jugement, 20e arcane : un appel à se réveiller, à faire un bilan et à pardonner. Voir 20h20 invite à regarder votre parcours avec bienveillance.",
+      "amour": "Une seconde chance est possible, ou une décision mûrie depuis longtemps.",
+      "travail": "Faites le bilan de votre année : vous avez fait plus que vous ne le pensez.",
+      "spirituel": "Le pardon libère d'abord celui qui pardonne.",
+      "conseil": "Écrivez trois réussites de votre journée, même petites."
+    },
+    {
+      "h": "21h21", "theme": "L'accomplissement",
+      "message": "21h21 figure parmi les heures miroirs les plus vues. Le 21 se réduit en 3 et rappelle Le Monde, 21e et dernier arcane majeur : la réussite, l'aboutissement, l'ouverture sur l'horizon. Voir 21h21, c'est sentir qu'un cycle trouve sa conclusion heureuse.",
+      "amour": "Une relation trouve son équilibre, ou vous trouvez votre plénitude par vous-même.",
+      "travail": "Un projet aboutit : célébrez avant de passer au suivant.",
+      "spirituel": "Le Monde danse au centre d'une couronne : vous êtes à votre place.",
+      "conseil": "Prenez un moment pour mesurer le chemin parcouru."
+    },
+    {
+      "h": "22h22", "theme": "Le bâtisseur et l'harmonie à deux",
+      "message": "22h22 est l'une des heures miroirs les plus célèbres. Le 22 est un nombre maître, celui du « maître bâtisseur » : il transforme une vision en réalité concrète. Et 2 + 2 parle d'harmonie à deux. Voir 22h22, c'est être encouragé à bâtir quelque chose de grand, souvent avec quelqu'un.",
+      "amour": "Un projet commun, un engagement, une confiance qui se consolide.",
+      "travail": "Pensez grand mais avancez pas à pas : vos plans sont réalisables.",
+      "spirituel": "Le 22 relie le rêve et la matière : votre idéal peut prendre forme.",
+      "conseil": "Écrivez les trois prochaines étapes concrètes d'un projet qui vous tient à cœur."
+    },
+    {
+      "h": "23h23", "theme": "La créativité avant le repos",
+      "message": "Le 23 se réduit en 5, le nombre du changement, et combine le 2 de la relation et le 3 de l'expression. Tard le soir, il invite à laisser venir les idées sans les juger, puis à confier la suite à la nuit.",
+      "amour": "Un échange spontané, un message envoyé du fond du cœur.",
+      "travail": "Une solution peut surgir là où vous ne l'attendiez plus.",
+      "spirituel": "La nuit porte conseil : laissez votre esprit trier pour vous.",
+      "conseil": "Posez votre téléphone et laissez la journée se refermer."
+    }
+  ]
+}

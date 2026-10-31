@@ -12,6 +12,7 @@ const { getCiel, astresPourSigne, periodeMercureRetro, PHASES } = require('./lib
 const H = require('./lib/horoscope');
 const C = require('./lib/chantiers');
 const P = require('./lib/promotion');
+const E = require('./lib/esoterisme');
 const U = require('./lib/ui');
 const articlesLib = require('./lib/articles');
 const L = require('./lib/layout');
@@ -122,6 +123,8 @@ async function main() {
 <a class="tool" href="red-flags.html"><span class="socle">${IMG.obj('red-flags.webp')}</span><span class="eyebrow">L'oracle du chaos</span><h3 class="h3">Red Flags</h3><p>Les alliances toxiques du zodiaque, sans filtre et avec humour.</p></a>
 <a class="tool" href="horoscope-chinois-2027.html"><span class="socle">${IMG.obj('elements.webp')}</span><span class="eyebrow">Chèvre de Feu</span><h3 class="h3">Horoscope chinois</h3><p>Votre signe chinois et votre année 2027, à partir du 6 février.</p></a>
 <a class="tool" href="encyclopedie.html"><span class="socle">${IMG.obj('livre.webp')}</span><span class="eyebrow">Encyclopédie</span><h3 class="h3">La Bibliothèque</h3><p>Ascendant, Lilith, maisons, rétrogrades : les notions qui vont plus loin que le signe.</p></a>
+<a class="tool" href="heures-miroirs.html"><span class="socle"><img src="./assets/miroir-1111.webp" alt="" width="720" height="969" loading="lazy" decoding="async"></span><span class="eyebrow">11h11, 22h22…</span><h3 class="h3">Heures miroirs</h3><p>La signification des 24 heures miroirs et des nombres angéliques, en amour et au travail.</p></a>
+<a class="tool" href="tirage-tarot-gratuit.html"><span class="socle"><img src="./assets/tarot-dos.webp" alt="" width="720" height="1047" loading="lazy" decoding="async"></span><span class="eyebrow">Gratuit</span><h3 class="h3">Tirage du tarot</h3><p>Oui ou non, passé, présent, futur : les 22 arcanes majeurs, sans inscription.</p></a>
 <a class="tool" href="numerologie-chemin-de-vie.html"><span class="socle">${IMG.obj('pierres.webp')}</span><span class="eyebrow">Numérologie</span><h3 class="h3">Chemin de vie</h3><p>Le nombre de votre date de naissance et ce qu'il dit de votre route.</p></a>
 </div></div></section>
 
@@ -428,7 +431,7 @@ ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class=
 
     // ---------- 9 bis. Les nouvelles rubriques ----------
     const cctx = { ciel, signs, bySlug, compatData, roastData, jour: horo, demain: horoDemain, semaine: horoSemaine, mois: horoMois, genere: quand, articles: articlesPrets };
-    const nouvelles = [C.periodes(cctx), C.theme(cctx), C.lune(cctx), C.paires(cctx), C.fiches(cctx), C.chinois(cctx), C.numerologie(cctx)].flatMap((r) => r.urls);
+    const nouvelles = [C.periodes(cctx), C.theme(cctx), C.lune(cctx), C.paires(cctx), C.fiches(cctx), C.chinois(cctx), C.numerologie(cctx), E.heuresMiroirs(cctx), E.nombresAngeliques(cctx), E.tarot(cctx)].flatMap((r) => r.urls);
     console.log(`✅ ${nouvelles.length} pages des nouvelles rubriques`);
     nouvelles.push(...P.widget(cctx));
     P.pourLesMoteurs(cctx);

@@ -77,10 +77,11 @@ a:hover{color:var(--or)}
 .site-header.compact{padding-top:22px;gap:18px}
 .site-header.compact .logo{width:min(210px,56vw)}
 .nav{width:100%;border-top:1px solid var(--filet);border-bottom:1px solid var(--filet)}
-.nav ul{list-style:none;margin:0;padding:15px 0;display:flex;justify-content:center;gap:12px 38px;font-family:var(--caps);font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+.nav ul{list-style:none;margin:0;padding:15px 0;display:flex;justify-content:center;gap:12px clamp(18px,2.4vw,38px);font-family:var(--caps);font-size:12px;font-weight:500;letter-spacing:clamp(.12em,.4vw,.2em);text-transform:uppercase}
+.nav a{white-space:nowrap}
 .nav a[aria-current="page"]{color:var(--or)}
 .nav .accent{color:var(--or)}
-@media (max-width:820px){
+@media (max-width:1020px){
   .nav ul{justify-content:flex-start;overflow-x:auto;white-space:nowrap;padding:14px 24px;gap:28px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent)}
   .nav ul::-webkit-scrollbar{display:none}
 }
@@ -140,7 +141,8 @@ html,body{overflow-x:clip}
 
 /* ---------- Outils ---------- */
 /* Outils : objets de porcelaine posés sur un socle, qui flottent doucement */
-.tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:64px 36px}
+.tools{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:64px 30px}
+@media (max-width:1180px){.tools{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (max-width:960px){.tools{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .tool{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
 .tool .socle{position:relative;display:flex;align-items:flex-end;justify-content:center;width:220px;height:250px;margin-bottom:14px}
@@ -432,3 +434,76 @@ html,body{overflow-x:clip}
 
 /* Widget : code à copier */
 .code-widget{margin:0;padding:18px 20px;background:var(--survol);border:1px solid var(--filet);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-all;color:var(--encre-2)}
+
+/* =====================================================================
+   HEURES MIROIRS, NOMBRES ANGÉLIQUES, TAROT
+   ===================================================================== */
+.esot-hero{padding-top:48px;padding-bottom:80px}
+.carte-photo{display:block;width:min(400px,100%);height:auto;margin:0 auto;filter:drop-shadow(0 22px 30px rgba(28,26,23,.10));transition:transform .8s cubic-bezier(.2,.8,.25,1.2)}
+.carte-photo:hover{transform:translateY(-8px) rotate(-1deg)}
+.carte-css{display:block;width:min(340px,78vw);margin:0 auto}
+/* Tuile porcelaine en CSS */
+.tuile-miroir{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;aspect-ratio:2/3;width:100%;border-radius:14px;background:radial-gradient(circle at 50% 35%,#FFFFFF 0%,#F8F4EA 70%,#F1EAD6 100%);box-shadow:inset 0 0 0 7px #FFFFFF,inset 0 0 0 8.5px var(--or-clair),inset 0 0 0 13px #FFFFFF,inset 0 0 0 14px var(--filet),0 18px 30px -18px rgba(28,26,23,.25);font-family:var(--caps);font-weight:500;color:var(--or);font-size:clamp(46px,6vw,66px);letter-spacing:.04em;line-height:1}
+.tuile-miroir .tm-haut{background:linear-gradient(180deg,#C9A54A,#8A6A22);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tuile-miroir .tm-bas{transform:scaleY(-1);opacity:.28;background:linear-gradient(0deg,#C9A54A,#8A6A22 70%,transparent);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tuile-miroir .tm-ligne{display:block;width:62%;height:1.5px;background:linear-gradient(90deg,transparent,var(--or-clair),transparent);margin:6px 0}
+.tuile-miroir.petite{font-size:24px;border-radius:9px;box-shadow:inset 0 0 0 4px #FFFFFF,inset 0 0 0 5px var(--or-clair),inset 0 0 0 8px #FFFFFF,inset 0 0 0 9px var(--filet),0 10px 18px -12px rgba(28,26,23,.25)}
+.tuile-miroir.petite .tm-ligne{margin:3px 0}
+.grille-heures{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:30px 22px}
+.grille-heures a{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.grille-heures .tuile-miroir{width:min(116px,100%);transition:transform .5s cubic-bezier(.2,.8,.25,1.25)}
+.grille-heures a:hover .tuile-miroir,.grille-heures a[aria-current] .tuile-miroir{transform:translateY(-6px) scale(1.06)}
+.grille-heures a[aria-current] .gh-t{color:var(--or)}
+.gh-t{font-size:16px;font-style:italic;line-height:1.3;color:var(--encre-2)}
+/* Nombres angéliques */
+.grille-nombres{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+.grille-nombres a{display:flex;flex-direction:column;align-items:center;min-width:92px;padding:12px 14px;border:1px solid var(--filet);border-radius:999px;transition:border-color .3s,transform .4s}
+.grille-nombres a:hover,.grille-nombres a[aria-current]{border-color:var(--or-clair);transform:translateY(-3px)}
+.gn-n{font-family:var(--caps);font-size:22px;color:var(--or);letter-spacing:.06em}
+.gn-t{display:none}
+.grille-nombres.large{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px}
+.grille-nombres.large a{border-radius:16px;padding:22px 16px;gap:6px}
+.grille-nombres.large .gn-n{font-size:34px}
+.grille-nombres.large .gn-t{display:block;font-size:17px;font-style:italic;text-align:center;color:var(--encre-2)}
+.medaillon-css{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:3/4;border-radius:50%;background:radial-gradient(circle at 50% 35%,#FFFFFF,#F4EEDF);box-shadow:inset 0 0 0 8px #FFFFFF,inset 0 0 0 10px var(--or-clair),inset 0 0 0 16px #FFFFFF,inset 0 0 0 17px var(--filet),0 18px 30px -18px rgba(28,26,23,.25)}
+.medaillon-css .mc-n{font-family:var(--caps);font-size:clamp(56px,8vw,84px);background:linear-gradient(180deg,#C9A54A,#8A6A22);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.04em}
+/* Cartes du tarot (faces dessinées en CSS) */
+.carte-tarot{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-between;aspect-ratio:2/3;width:100%;padding:12% 8%;border-radius:14px;background:radial-gradient(circle at 50% 40%,#FFFFFF,#F6F0E2 80%);box-shadow:inset 0 0 0 7px #FFFFFF,inset 0 0 0 8.5px var(--or-clair),inset 0 0 0 13px #FFFFFF,inset 0 0 0 14px var(--filet),0 18px 30px -18px rgba(28,26,23,.25);text-align:center}
+.ct-num{font-family:var(--caps);font-size:clamp(18px,2.4vw,26px);color:var(--or);letter-spacing:.1em;min-height:1em}
+.ct-sym{display:block;width:44%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#E9CF86 0 30%,transparent 31%),repeating-conic-gradient(from 0deg,#C9A54A 0 4deg,transparent 4deg 15deg);-webkit-mask:radial-gradient(circle,#000 0 70%,transparent 71%);mask:radial-gradient(circle,#000 0 70%,transparent 71%);opacity:.9}
+.ct-nom{font-family:var(--caps);font-size:clamp(13px,1.6vw,17px);letter-spacing:.14em;text-transform:uppercase;color:var(--encre);line-height:1.3}
+.carte-tarot.petite{border-radius:9px;box-shadow:inset 0 0 0 4px #FFFFFF,inset 0 0 0 5px var(--or-clair),inset 0 0 0 8px #FFFFFF,inset 0 0 0 9px var(--filet),0 10px 18px -12px rgba(28,26,23,.25)}
+.carte-tarot.petite .ct-num{font-size:14px}
+.carte-tarot.petite .ct-nom{font-size:10px;letter-spacing:.1em}
+.grille-arcanes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:30px 20px}
+.grille-arcanes a{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.grille-arcanes .carte-tarot{width:min(110px,100%);transition:transform .5s cubic-bezier(.2,.8,.25,1.25)}
+.grille-arcanes a:hover .carte-tarot,.grille-arcanes a[aria-current] .carte-tarot{transform:translateY(-6px) scale(1.06)}
+.ga-k{font-size:15px;font-style:italic;line-height:1.3;color:var(--encre-2)}
+/* Le tirage */
+.tirage-modes{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.tm-mode{font:inherit;font-family:var(--caps);font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:14px 22px;border:1px solid var(--filet);background:#FFFFFF;color:var(--encre-2);cursor:pointer;border-radius:999px;transition:all .3s}
+.tm-mode[aria-pressed="true"]{border-color:var(--or);color:var(--or);background:var(--survol)}
+.tirage-consigne{margin:0}
+.tirage-jeu{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;perspective:1400px;padding:10px 0 20px}
+.tj-carte{position:relative;width:118px;aspect-ratio:720/1047;padding:0;border:0;background:none;cursor:pointer;transform:rotate(calc((var(--i) - 3) * 3deg)) translateY(calc((var(--i) - 3) * (var(--i) - 3) * 2px));transition:transform .5s cubic-bezier(.2,.8,.25,1.25),opacity .5s}
+.tj-carte:hover:not(.retournee){transform:translateY(-16px) scale(1.05)}
+.tj-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.3,.7,.2,1)}
+.tj-carte.retournee{transform:translateY(-18px) scale(1.08);z-index:2}
+.tj-carte.retournee .tj-inner{transform:rotateY(180deg)}
+.tj-dos,.tj-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.tj-dos img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(28,26,23,.15))}
+.tj-face{transform:rotateY(180deg);display:flex}
+.tj-face .carte-tarot{height:100%;width:100%;padding:16% 8%}
+.tj-face .ct-num{font-size:16px}
+.tj-face .ct-nom{font-size:10px}
+.tirage-jeu.fini .tj-carte:not(.retournee){opacity:.25;pointer-events:none}
+.tirage-resultat:empty{display:none}
+.tr-un{max-width:680px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;padding:34px 24px;border-top:1px solid var(--or-clair);border-bottom:1px solid var(--or-clair)}
+.tr-un p{margin:0;color:var(--encre-2)}
+.tr-oui{font-family:var(--caps);font-size:clamp(28px,4vw,40px);letter-spacing:.08em;color:var(--or) !important}
+.tr-k{font-style:italic;color:var(--or) !important}
+.tr-trois{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px;border-top:1px solid var(--or-clair);padding-top:30px}
+.tr-pos{display:flex;flex-direction:column;gap:8px}
+.tr-pos p{margin:0;color:var(--encre-2)}
+@media (max-width:640px){.tj-carte{width:84px}.tirage-jeu{gap:10px}}
