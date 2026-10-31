@@ -789,55 +789,6 @@
         "salve": 1
     },
     {
-        "slug": "heures-miroirs-signification",
-        "titre": "Heures miroirs : signification de toutes les heures doubles",
-        "sujet": "Pourquoi on remarque les heures miroirs (attention sélective, synchronicité selon Jung) puis la lecture symbolique : une signification courte pour chaque heure double de 00h00 à 23h23 en se basant sur la numérologie du nombre (pas de liste d'anges inventée). Ce qu'il faut faire quand on en voit souvent (noter, observer ses pensées du moment). Préciser que c'est une lecture symbolique.",
-        "categorie": "NOMBRES & SYMBOLES",
-        "liens": [
-            "11h11-signification.html",
-            "22h22-signification.html",
-            "nombres-angeliques.html",
-            "numerologie-chemin-de-vie.html"
-        ],
-        "salve": 1
-    },
-    {
-        "slug": "11h11-signification",
-        "titre": "11h11 : signification en amour, au travail et en spiritualité",
-        "sujet": "11h11 est l'heure miroir la plus recherchée en France. Le 11 est un nombre maître en numérologie (intuition, inspiration, éveil). Signification générale, en amour (célibataire, en couple), au travail et argent, spirituelle. Pourquoi on fait un vœu à 11h11. Rester dans le symbolique.",
-        "categorie": "NOMBRES & SYMBOLES",
-        "liens": [
-            "heures-miroirs-signification.html",
-            "nombre-maitre-11-22-33.html",
-            "nombres-angeliques.html"
-        ],
-        "salve": 1
-    },
-    {
-        "slug": "22h22-signification",
-        "titre": "22h22 : signification de l'heure miroir en amour et au travail",
-        "sujet": "Le 22 est le nombre maître du « maître bâtisseur » : concrétiser de grands projets, harmonie à deux (2 + 2). Signification générale, amour, travail, spirituelle. Différence avec 11h11. Rester dans le symbolique.",
-        "categorie": "NOMBRES & SYMBOLES",
-        "liens": [
-            "heures-miroirs-signification.html",
-            "nombre-maitre-11-22-33.html",
-            "11h11-signification.html"
-        ],
-        "salve": 1
-    },
-    {
-        "slug": "nombres-angeliques",
-        "titre": "Nombres angéliques : signification de 111, 222, 333 jusqu'à 999",
-        "sujet": "Les suites de chiffres répétés (111, 222… 999, 1111, 1212) vues sur des plaques, tickets, horloges. Pour chacune, une signification symbolique fondée sur la numérologie du chiffre (1 : départ, 2 : couple et équilibre, 3 : expression, 4 : stabilité, 5 : changement, 6 : amour et foyer, 7 : spiritualité, 8 : abondance, 9 : fin de cycle). Présenter comme une tradition moderne, sans promesse.",
-        "categorie": "NOMBRES & SYMBOLES",
-        "liens": [
-            "heures-miroirs-signification.html",
-            "numerologie-chemin-de-vie.html",
-            "annee-personnelle-numerologie.html"
-        ],
-        "salve": 1
-    },
-    {
         "slug": "annee-personnelle-numerologie",
         "titre": "Année personnelle en numérologie : calcul et signification de 1 à 9",
         "sujet": "Calcul : jour + mois de naissance + année en cours, réduits à un chiffre (exemple : né le 14 mars, en 2027 : 1+4+3+2+0+2+7 = 19 → 1+9 = 10 → 1). L'année personnelle va d'un anniversaire à l'autre selon certains numérologues, du 1er janvier au 31 décembre selon d'autres : mentionner les deux. Signification de chaque année de 1 à 9 (amour, travail, conseils). Lien avec le chemin de vie.",
@@ -878,31 +829,8 @@
         "sujet": "Composition : 78 cartes, 22 arcanes majeurs et 56 arcanes mineurs (4 couleurs : bâtons, coupes, épées, deniers). Histoire en quelques lignes, sans dates inventées. Comment poser une question, tirages simples (une carte, trois cartes passé-présent-futur, croix en cinq cartes), lecture intuitive. Usage comme outil de réflexion, pas comme prédiction certaine.",
         "categorie": "NOMBRES & SYMBOLES",
         "liens": [
-            "arcanes-majeurs-signification.html",
-            "tarot-planetes.html",
-            "tirage-tarot-oui-non.html"
-        ],
-        "salve": 1
-    },
-    {
-        "slug": "arcanes-majeurs-signification",
-        "titre": "Les 22 arcanes majeurs du tarot : signification de chaque carte",
-        "sujet": "Les 22 arcanes majeurs du Tarot de Marseille dans l'ordre (Le Mat, Le Bateleur, La Papesse, L'Impératrice, L'Empereur, Le Pape, L'Amoureux, Le Chariot, La Justice, L'Hermite, La Roue de Fortune, La Force, Le Pendu, l'arcane sans nom XIII, Tempérance, Le Diable, La Maison Dieu, L'Étoile, La Lune, Le Soleil, Le Jugement, Le Monde). Pour chacun : symbole, sens à l'endroit, en amour, conseil.",
-        "categorie": "NOMBRES & SYMBOLES",
-        "liens": [
-            "tarot-de-marseille-debutant.html",
+            "tirage-tarot-gratuit.html",
             "tarot-planetes.html"
-        ],
-        "salve": 1
-    },
-    {
-        "slug": "tirage-tarot-oui-non",
-        "titre": "Tirage du tarot oui ou non : comment bien poser sa question",
-        "sujet": "Le principe du tirage oui/non en une ou trois cartes, comment formuler une question claire, quelles cartes sont traditionnellement plutôt « oui » (Le Soleil, Le Monde, L'Étoile, L'Amoureux…), plutôt « non » (La Maison Dieu, l'arcane XIII, Le Diable…) ou « peut-être ». Limites : outil de réflexion, ne pas prendre de décision importante seulement sur un tirage.",
-        "categorie": "NOMBRES & SYMBOLES",
-        "liens": [
-            "tarot-de-marseille-debutant.html",
-            "arcanes-majeurs-signification.html"
         ],
         "salve": 1
     },
