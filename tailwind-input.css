@@ -507,3 +507,12 @@ html,body{overflow-x:clip}
 .tr-pos{display:flex;flex-direction:column;gap:8px}
 .tr-pos p{margin:0;color:var(--encre-2)}
 @media (max-width:640px){.tj-carte{width:84px}.tirage-jeu{gap:10px}}
+
+/* Articles : pour aller plus loin */
+.plus-loin{margin-top:36px;padding:26px 0;border-top:1px solid var(--or-clair);border-bottom:1px solid var(--or-clair)}
+.plus-loin .eyebrow{margin:0 0 14px}
+.plus-loin ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px 24px}
+.plus-loin a{display:flex;flex-direction:column;gap:2px;text-decoration:none}
+.plus-loin .pl-t{font-size:21px;color:var(--encre);transition:color .3s}
+.plus-loin a:hover .pl-t{color:var(--or)}
+.plus-loin .pl-d{font-size:15px;font-style:italic;color:var(--gris)}

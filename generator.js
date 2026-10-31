@@ -355,6 +355,19 @@ ${L.bridge({ eyebrow: 'Et pourtant…', title: 'Ces défauts sont-ils rédhibito
     }
     console.log('✅ 24 pages compatibilité & red flags');
 
+    // Encadré « Pour aller plus loin » : quelques portes vers le reste du site, selon le sujet
+    const plusLoin = (a) => {
+        const lot = {
+            'LA LUNE AU QUOTIDIEN': [['calendrier-lunaire.html', 'Le calendrier lunaire', 'pleines et nouvelles lunes à l’heure près'], ['horoscope.html', 'Votre horoscope du jour', 'calculé sur le ciel de ce soir'], ['theme-astral.html', 'Votre thème astral', 'gratuit, avec votre Lune de naissance']],
+            'NOMBRES & SYMBOLES': [['heures-miroirs.html', 'Les heures miroirs', 'de 00h00 à 23h23'], ['tirage-tarot-gratuit.html', 'Un tirage du tarot', 'gratuit, oui ou non'], ['numerologie-chemin-de-vie.html', 'Votre chemin de vie', 'calculé en un clic']]
+        }[a.categorie] || [['horoscope.html', 'Votre horoscope du jour', 'amour, travail, bien-être'], ['horoscope-2027.html', 'Votre année 2027', 'signe par signe'], ['theme-astral.html', 'Votre thème astral', 'gratuit, ascendant compris']];
+        return `<aside class="plus-loin" aria-label="Pour aller plus loin"><p class="eyebrow">Pour aller plus loin</p><ul>${lot.map(([h, t, d]) => `<li><a href="${h}"><span class="pl-t">${t}</span><span class="pl-d">${d}</span></a></li>`).join('')}</ul></aside>`;
+    };
+    // Une invitation douce au Cabinet privé, un article sur deux, sur les sujets qui s'y prêtent
+    const cabinetArticle = (a, pos) => (['LES GRANDES QUESTIONS', 'BIBLIOTHÈQUE INTERDITE'].includes(a.categorie) && pos % 2 === 0)
+        ? U.bandeauCabinet('Envie d’une lecture qui ne parle que de vous ?', 'Votre signe n’est qu’une partie de l’histoire. Confiez votre date, votre heure et votre lieu de naissance : Madeleine étudie votre thème complet et vous répond personnellement.', 'Découvrir le Cabinet privé')
+        : '';
+
     // ---------- 8. Articles ----------
     for (const a of articlesPrets) {
         const c = articlesLib.cat(a.categorie);
@@ -380,10 +393,12 @@ ${toc.length > 1 ? `<aside class="toc" aria-label="Sommaire"><p class="eyebrow" 
 <div class="prose">
 ${enBref || extraBref ? `<section class="enbref" aria-label="En bref"><p class="eyebrow">En bref</p>${enBref ? `<p class="tx">${esc(enBref)}</p>` : ''}${extraBref ? `<p class="muted" style="margin:0;font-size:19px">${esc(extraBref)}</p>` : ''}</section>` : ''}
 ${html}
+${plusLoin(a)}
 <aside class="author" aria-label="L'autrice"><img class="portrait" src="./assets/madeleine.webp" alt="Madeleine" width="720" height="720" loading="lazy"><div class="stack" style="gap:4px"><p class="eyebrow">L'autrice</p><p style="margin:0;font-size:27px">Madeleine</p><p style="margin:0;font-size:18px;color:var(--encre-2)">Voix de la Maison Authentique, spécialisée en astrologie karmique et transgénérationnelle. Elle reçoit au <a class="inlink" href="etude-karmique.html">Cabinet privé</a>.</p></div></aside>
 </div>
 </div>
 </article>
+${cabinetArticle(a, pos)}
 ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class="wrap stack gap-l"><h2 id="h-suite" class="h2 center">Poursuivre la lecture</h2><div class="related">${suite.map((x) => `<a href="${x.slug}.html">${IMG.obj(articlesLib.cat(x.categorie).image)}<span class="eyebrow">${esc(articlesLib.cat(x.categorie).label)}</span><span class="t">${esc(x.titre)}</span></a>`).join('')}</div></div></section>` : ''}`;
         const desc = enBref || a.sujet;
         // FAQ de fin d'article → données structurées FAQPage
