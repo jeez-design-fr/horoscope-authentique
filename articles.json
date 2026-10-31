@@ -287,5 +287,704 @@
         "sujet": "Article pratique et récurrent : explique l'énergie de la pleine lune (aboutissement, libération, ce qui doit partir) par opposition à la nouvelle lune (intentions, débuts). Donne un rituel simple et reproductible chaque mois : écrire ce dont on veut se libérer, le brûler ou le jeter, le lien avec le signe astrologique où tombe la pleine lune du mois.",
         "image": "cosmos.webp",
         "categorie": "L'OBSERVATOIRE"
+    },
+    {
+        "slug": "signe-le-plus-fidele",
+        "titre": "Quel est le signe le plus fidèle du zodiaque ?",
+        "sujet": "Classement des 12 signes (Bélier, Taureau, Gémeaux, Cancer, Lion, Vierge, Balance, Scorpion, Sagittaire, Capricorne, Verseau, Poissons) selon la fidélité en amour et en amitié. Les signes fixes (Taureau, Lion, Scorpion, Verseau) et le Cancer sont réputés les plus loyaux ; les signes doubles (Gémeaux, Sagittaire, Poissons) ont besoin de liberté sans être forcément infidèles. Donne un podium argumenté (les 3 premiers, chacun avec un paragraphe détaillé qui explique le pourquoi par l'élément, le mode et la planète maîtresse), puis un passage rapide sur chacun des autres signes, du plus au moins concerné. Termine par une nuance : l'ascendant, la Lune et Vénus comptent autant que le signe solaire. Ton bienveillant et un peu drôle, jamais méchant envers un signe.",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html",
+            "signe-lion.html",
+            "signe-vierge.html",
+            "signe-balance.html",
+            "signe-scorpion.html",
+            "signe-sagittaire.html",
+            "signe-capricorne.html",
+            "signe-verseau.html",
+            "signe-poissons.html",
+            "compatibilite-amoureuse.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "signe-le-plus-intelligent",
+        "titre": "Quel est le signe le plus intelligent du zodiaque ?",
+        "sujet": "Classement des 12 signes (Bélier, Taureau, Gémeaux, Cancer, Lion, Vierge, Balance, Scorpion, Sagittaire, Capricorne, Verseau, Poissons) selon les différentes formes d'intelligence (logique, émotionnelle, créative, pratique, sociale). Explique qu'il n'y a pas une seule intelligence : Verseau et Gémeaux pour l'esprit vif, Vierge et Capricorne pour l'analyse, Scorpion pour la psychologie, Poissons pour l'intuition. Donne un podium argumenté (les 3 premiers, chacun avec un paragraphe détaillé qui explique le pourquoi par l'élément, le mode et la planète maîtresse), puis un passage rapide sur chacun des autres signes, du plus au moins concerné. Termine par une nuance : l'ascendant, la Lune et Vénus comptent autant que le signe solaire. Ton bienveillant et un peu drôle, jamais méchant envers un signe.",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html",
+            "signe-lion.html",
+            "signe-vierge.html",
+            "signe-balance.html",
+            "signe-scorpion.html",
+            "signe-sagittaire.html",
+            "signe-capricorne.html",
+            "signe-verseau.html",
+            "signe-poissons.html",
+            "compatibilite-amoureuse.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "signe-le-plus-gentil",
+        "titre": "Quel est le signe le plus gentil du zodiaque ?",
+        "sujet": "Classement des 12 signes (Bélier, Taureau, Gémeaux, Cancer, Lion, Vierge, Balance, Scorpion, Sagittaire, Capricorne, Verseau, Poissons) selon la gentillesse, la douceur et la générosité. Poissons, Cancer et Balance sont souvent cités en tête ; distingue la gentillesse sincère de la gentillesse pour éviter le conflit. Donne un podium argumenté (les 3 premiers, chacun avec un paragraphe détaillé qui explique le pourquoi par l'élément, le mode et la planète maîtresse), puis un passage rapide sur chacun des autres signes, du plus au moins concerné. Termine par une nuance : l'ascendant, la Lune et Vénus comptent autant que le signe solaire. Ton bienveillant et un peu drôle, jamais méchant envers un signe.",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html",
+            "signe-lion.html",
+            "signe-vierge.html",
+            "signe-balance.html",
+            "signe-scorpion.html",
+            "signe-sagittaire.html",
+            "signe-capricorne.html",
+            "signe-verseau.html",
+            "signe-poissons.html",
+            "compatibilite-amoureuse.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "signe-le-plus-jaloux",
+        "titre": "Quel est le signe le plus jaloux du zodiaque ?",
+        "sujet": "Classement des 12 signes (Bélier, Taureau, Gémeaux, Cancer, Lion, Vierge, Balance, Scorpion, Sagittaire, Capricorne, Verseau, Poissons) selon la jalousie et la possessivité en amour. Scorpion, Taureau et Cancer en tête, Lion pour la fierté blessée ; donne pour chacun un conseil pour apaiser sa jalousie. Donne un podium argumenté (les 3 premiers, chacun avec un paragraphe détaillé qui explique le pourquoi par l'élément, le mode et la planète maîtresse), puis un passage rapide sur chacun des autres signes, du plus au moins concerné. Termine par une nuance : l'ascendant, la Lune et Vénus comptent autant que le signe solaire. Ton bienveillant et un peu drôle, jamais méchant envers un signe.",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html",
+            "signe-lion.html",
+            "signe-vierge.html",
+            "signe-balance.html",
+            "signe-scorpion.html",
+            "signe-sagittaire.html",
+            "signe-capricorne.html",
+            "signe-verseau.html",
+            "signe-poissons.html",
+            "compatibilite-amoureuse.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "signe-le-plus-rancunier",
+        "titre": "Quel est le signe le plus rancunier du zodiaque ?",
+        "sujet": "Classement des 12 signes (Bélier, Taureau, Gémeaux, Cancer, Lion, Vierge, Balance, Scorpion, Sagittaire, Capricorne, Verseau, Poissons) selon la rancune et la capacité à pardonner. Scorpion, Taureau et Capricorne retiennent longtemps ; Sagittaire, Gémeaux et Poissons pardonnent vite. Ajoute comment se réconcilier avec chacun. Donne un podium argumenté (les 3 premiers, chacun avec un paragraphe détaillé qui explique le pourquoi par l'élément, le mode et la planète maîtresse), puis un passage rapide sur chacun des autres signes, du plus au moins concerné. Termine par une nuance : l'ascendant, la Lune et Vénus comptent autant que le signe solaire. Ton bienveillant et un peu drôle, jamais méchant envers un signe.",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html",
+            "signe-lion.html",
+            "signe-vierge.html",
+            "signe-balance.html",
+            "signe-scorpion.html",
+            "signe-sagittaire.html",
+            "signe-capricorne.html",
+            "signe-verseau.html",
+            "signe-poissons.html",
+            "compatibilite-amoureuse.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "signe-le-plus-dangereux",
+        "titre": "Quel est le signe le plus redoutable du zodiaque ?",
+        "sujet": "Classement des 12 signes (Bélier, Taureau, Gémeaux, Cancer, Lion, Vierge, Balance, Scorpion, Sagittaire, Capricorne, Verseau, Poissons) selon le caractère redoutable quand on le pousse à bout (colère, stratégie, froideur). Formule avec humour : Scorpion, Bélier, Capricorne ; explique ce qui les fâche et comment éviter de les contrarier. Donne un podium argumenté (les 3 premiers, chacun avec un paragraphe détaillé qui explique le pourquoi par l'élément, le mode et la planète maîtresse), puis un passage rapide sur chacun des autres signes, du plus au moins concerné. Termine par une nuance : l'ascendant, la Lune et Vénus comptent autant que le signe solaire. Ton bienveillant et un peu drôle, jamais méchant envers un signe.",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html",
+            "signe-lion.html",
+            "signe-vierge.html",
+            "signe-balance.html",
+            "signe-scorpion.html",
+            "signe-sagittaire.html",
+            "signe-capricorne.html",
+            "signe-verseau.html",
+            "signe-poissons.html",
+            "compatibilite-amoureuse.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "signe-le-plus-drole",
+        "titre": "Quel est le signe le plus drôle du zodiaque ?",
+        "sujet": "Classement des 12 signes (Bélier, Taureau, Gémeaux, Cancer, Lion, Vierge, Balance, Scorpion, Sagittaire, Capricorne, Verseau, Poissons) selon l'humour et le sens de la répartie. Sagittaire, Gémeaux et Lion en tête ; décris le style d'humour de chaque signe (absurde, pince-sans-rire, autodérision…). Donne un podium argumenté (les 3 premiers, chacun avec un paragraphe détaillé qui explique le pourquoi par l'élément, le mode et la planète maîtresse), puis un passage rapide sur chacun des autres signes, du plus au moins concerné. Termine par une nuance : l'ascendant, la Lune et Vénus comptent autant que le signe solaire. Ton bienveillant et un peu drôle, jamais méchant envers un signe.",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html",
+            "signe-lion.html",
+            "signe-vierge.html",
+            "signe-balance.html",
+            "signe-scorpion.html",
+            "signe-sagittaire.html",
+            "signe-capricorne.html",
+            "signe-verseau.html",
+            "signe-poissons.html",
+            "compatibilite-amoureuse.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "signe-le-plus-romantique",
+        "titre": "Quel est le signe le plus romantique du zodiaque ?",
+        "sujet": "Classement des 12 signes (Bélier, Taureau, Gémeaux, Cancer, Lion, Vierge, Balance, Scorpion, Sagittaire, Capricorne, Verseau, Poissons) selon le romantisme et l'art de déclarer sa flamme. Poissons, Balance, Cancer et Taureau en tête ; donne l'idée de rendez-vous rêvé pour chaque signe. Donne un podium argumenté (les 3 premiers, chacun avec un paragraphe détaillé qui explique le pourquoi par l'élément, le mode et la planète maîtresse), puis un passage rapide sur chacun des autres signes, du plus au moins concerné. Termine par une nuance : l'ascendant, la Lune et Vénus comptent autant que le signe solaire. Ton bienveillant et un peu drôle, jamais méchant envers un signe.",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html",
+            "signe-lion.html",
+            "signe-vierge.html",
+            "signe-balance.html",
+            "signe-scorpion.html",
+            "signe-sagittaire.html",
+            "signe-capricorne.html",
+            "signe-verseau.html",
+            "signe-poissons.html",
+            "compatibilite-amoureuse.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "signe-le-plus-chanceux-2027",
+        "titre": "Quel signe aura le plus de chance en 2027 ?",
+        "sujet": "Les signes favorisés en 2027 d'après les vrais mouvements des planètes lentes. FAITS EXACTS À RESPECTER (n'en invente aucun autre) : Jupiter, planète de la chance, est en Lion jusqu'au 26 juillet 2027 (rétrograde jusqu'au 12 avril), puis entre en Vierge le 26 juillet 2027. Saturne reste en Bélier toute l'année (rétrograde du 9 août au 23 décembre). Uranus est en Gémeaux, Neptune en Bélier, Pluton en Verseau. Mars est rétrograde du 10 janvier au 1er avril 2027 (en Vierge puis en Lion). Donc : Lion favorisé jusqu'à l'été, puis Vierge ; les signes de Feu (Bélier, Sagittaire) profitent du trigone de Jupiter en Lion au premier semestre ; les signes de Terre (Taureau, Capricorne) profitent de Jupiter en Vierge au second semestre. Présente un podium, puis un mot pour chaque signe. Rappelle que la chance se construit.",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "horoscope-2027.html",
+            "ciel-2027.html",
+            "lion-2027.html",
+            "vierge-2027.html",
+            "belier-2027.html",
+            "sagittaire-2027.html",
+            "taureau-2027.html",
+            "capricorne-2027.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "signe-lunaire",
+        "titre": "Signe lunaire : c'est quoi et comment connaître le sien ?",
+        "sujet": "Le signe lunaire est le signe où se trouvait la Lune à la naissance. Il parle des émotions, des besoins intimes, de ce qui rassure. La Lune change de signe environ tous les deux jours et demi, donc il faut la date, l'heure et le lieu de naissance (le calculateur de thème astral du site le donne gratuitement). Décris en 2 phrases chacun des 12 signes lunaires. Explique la différence avec le signe solaire et l'ascendant.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "theme-astral.html",
+            "calcul-ascendant.html",
+            "difference-signe-solaire-lunaire-ascendant.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "difference-signe-solaire-lunaire-ascendant",
+        "titre": "Signe solaire, signe lunaire et ascendant : quelle différence ?",
+        "sujet": "Le trio de base d'un thème. Signe solaire : position du Soleil, identité et élan vital (dépend de la date). Signe lunaire : position de la Lune, émotions et besoins (date et heure). Ascendant : signe qui se levait à l'horizon est au moment de la naissance, image donnée aux autres et manière d'aborder la vie (heure précise et lieu ; il change environ toutes les deux heures). Donne une image parlante (la maison : le Soleil est le propriétaire, la Lune la chambre, l'ascendant la porte d'entrée) et deux exemples de combinaisons.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "theme-astral.html",
+            "calcul-ascendant.html",
+            "signe-lunaire.html",
+            "ascendant-masque.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "decan-astrologie",
+        "titre": "Décan : comment connaître le sien et ce qu'il change",
+        "sujet": "Chaque signe de 30° est divisé en trois décans de 10°. Dans la méthode des triplicités (celle du site), le 1er décan est gouverné par le signe lui-même, le 2e par le signe suivant du même élément, le 3e par le dernier signe de l'élément. Exemple : Bélier 1er décan Bélier/Mars, 2e décan Lion/Soleil, 3e décan Sagittaire/Jupiter. Explique comment trouver son décan avec sa date de naissance (environ du 1er au 10e jour du signe, du 11e au 20e, du 21e à la fin), et les nuances que cela apporte. Mentionne qu'il existe une autre méthode (chaldéenne).",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html",
+            "signe-lion.html",
+            "signe-vierge.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "descendant-astrologie",
+        "titre": "Le descendant en astrologie : ce qu'il dit de vos relations",
+        "sujet": "Le descendant est le point opposé à l'ascendant, début de la maison 7 (couple, associations, contrats). Il décrit ce que l'on recherche chez l'autre et ce que l'on projette. Il est toujours dans le signe opposé à l'ascendant (ascendant Bélier = descendant Balance, etc.). Donne les 6 axes ascendant/descendant avec ce qu'ils racontent du couple.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "theme-astral.html",
+            "calcul-ascendant.html",
+            "maison-7-astrologie.html",
+            "maisons-astrologiques.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "milieu-du-ciel",
+        "titre": "Milieu du Ciel : votre vocation dans le thème astral",
+        "sujet": "Le Milieu du Ciel (MC) est le point le plus haut du thème, début de la maison 10 : carrière, réputation, vocation, place dans la société. Il dépend de l'heure de naissance. Décris le MC dans chacun des 12 signes avec des exemples de métiers ou de façons de réussir, sans promesse. Le calculateur de thème astral du site le donne.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "theme-astral.html",
+            "maisons-astrologiques.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "maison-7-astrologie",
+        "titre": "Maison 7 en astrologie : le couple et les associations",
+        "sujet": "La maison 7 commence au descendant : mariage, couple durable, associés, ennemis déclarés, contrats. Explique comment lire le signe sur sa pointe, les planètes qui s'y trouvent (Vénus, Saturne, Mars… en quelques lignes chacune) et une maison 7 vide (ce n'est pas grave : on regarde son maître).",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "maisons-astrologiques.html",
+            "descendant-astrologie.html",
+            "synastrie-ames-soeurs.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "maison-8-astrologie",
+        "titre": "Maison 8 en astrologie : argent partagé, intimité et transformations",
+        "sujet": "La maison 8 : l'argent des autres et partagé (héritages, crédits, conjoint), la sexualité et l'intimité profonde, les crises et renaissances, l'occulte. Planètes en maison 8 (quelques lignes chacune), maison 8 vide.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "maisons-astrologiques.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "maison-12-astrologie",
+        "titre": "Maison 12 en astrologie : l'inconscient et la vie intérieure",
+        "sujet": "La maison 12 : l'inconscient, la retraite, la spiritualité, les épreuves cachées, le dévouement, les lieux clos (hôpitaux, monastères). Planètes en maison 12, maison 12 vide, lien avec le karma dans l'astrologie karmique.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "maisons-astrologiques.html",
+            "astrologie-karmique.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "comment-lire-son-theme-astral",
+        "titre": "Comment lire son thème astral : le guide pas à pas",
+        "sujet": "Guide débutant en 7 étapes : 1) obtenir sa carte (date, heure, lieu ; calculateur gratuit du site), 2) le trio Soleil-Lune-ascendant, 3) les planètes personnelles (Mercure, Vénus, Mars), 4) les maisons, 5) les éléments et modes dominants, 6) les aspects principaux (conjonction, opposition, carré, trigone, sextile), 7) la synthèse. Erreurs fréquentes de débutant.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "theme-astral.html",
+            "calcul-ascendant.html",
+            "maisons-astrologiques.html",
+            "aspects-astrologiques.html",
+            "signe-lunaire.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "aspects-astrologiques",
+        "titre": "Les aspects en astrologie : conjonction, carré, trigone, opposition",
+        "sujet": "Les aspects majeurs et leurs angles : conjonction 0° (fusion), sextile 60° (opportunité), carré 90° (tension motrice), trigone 120° (fluidité), opposition 180° (polarité). Notion d'orbe (quelques degrés de tolérance). Exemples concrets (Vénus carré Mars, Lune trigone Jupiter…). Pourquoi un carré n'est pas « mauvais ».",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "comment-lire-son-theme-astral.html",
+            "theme-astral.html",
+            "synastrie-ames-soeurs.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "venus-en-astrologie",
+        "titre": "Vénus dans votre thème : votre façon d'aimer, signe par signe",
+        "sujet": "Vénus = façon d'aimer, de séduire, ce qu'on trouve beau, rapport à l'argent et au plaisir. Elle n'est jamais à plus de 47° du Soleil, donc souvent dans le même signe ou un signe voisin. Décris Vénus dans chacun des 12 signes (un paragraphe chacun : style amoureux, ce qui séduit, ce qui fait fuir).",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "theme-astral.html",
+            "venus-retrograde-amour.html",
+            "compatibilite-amoureuse.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "mars-en-astrologie",
+        "titre": "Mars dans votre thème : énergie, colère et désir, signe par signe",
+        "sujet": "Mars = énergie, action, courage, colère, désir. Il reste environ 6 à 7 semaines dans un signe (plus longtemps quand il est rétrograde). Décris Mars dans chacun des 12 signes (façon d'agir, de se mettre en colère, de désirer).",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "theme-astral.html",
+            "comment-lire-son-theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "planetes-generationnelles",
+        "titre": "Uranus, Neptune, Pluton : les planètes qui marquent les générations",
+        "sujet": "Les planètes lentes restent des années dans un signe : Uranus environ 7 ans, Neptune environ 14 ans, Pluton de 12 à 30 ans. Elles marquent une génération plus qu'un individu, sauf quand elles touchent un point personnel. Positions actuelles (FAITS) : Uranus en Gémeaux, Neptune en Bélier, Pluton en Verseau. Ce que ces passages racontent de l'époque.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "ciel-2027.html",
+            "retour-de-saturne.html",
+            "chiron-blessure-sacree.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "cuspide-astrologie",
+        "titre": "Né entre deux signes : la vérité sur les cuspides",
+        "sujet": "Les dates des signes varient d'un ou deux jours selon les années, car l'entrée du Soleil dans un signe ne tombe pas toujours le même jour. On n'est jamais « à moitié » d'un signe : à l'heure près, le Soleil est dans l'un ou l'autre. Pour savoir, il faut calculer avec l'heure et le lieu de naissance (calculateur gratuit du site). Décris ensuite les 12 cuspides et leurs « mélanges » populaires (Bélier-Taureau, etc.) en les présentant comme une tradition.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "theme-astral.html",
+            "decan-astrologie.html",
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "elements-astrologie",
+        "titre": "Feu, Terre, Air, Eau : les 4 éléments de l'astrologie",
+        "sujet": "Les 4 éléments et leurs signes : Feu (Bélier, Lion, Sagittaire), Terre (Taureau, Vierge, Capricorne), Air (Gémeaux, Balance, Verseau), Eau (Cancer, Scorpion, Poissons). Caractère de chaque élément, compatibilités entre éléments, que faire si un élément manque ou domine dans son thème.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html",
+            "compatibilite-amoureuse.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "signes-cardinaux-fixes-mutables",
+        "titre": "Signes cardinaux, fixes et mutables : la clé de votre tempérament",
+        "sujet": "Les 3 modes : cardinaux (Bélier, Cancer, Balance, Capricorne : ils lancent, ils ouvrent les saisons), fixes (Taureau, Lion, Scorpion, Verseau : ils stabilisent), mutables (Gémeaux, Vierge, Sagittaire, Poissons : ils s'adaptent, ils terminent les saisons). Croisement avec les éléments.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "elements-astrologie.html",
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "astrologie-karmique",
+        "titre": "L'astrologie karmique : comprendre ce que l'on vient réparer",
+        "sujet": "Spécialité de la Maison. Les points clés : Nœud Nord et Nœud Sud (direction et acquis), Saturne (leçons), Chiron (blessure), maison 12, planètes rétrogrades à la naissance. Approche transgénérationnelle : les schémas familiaux qui se répètent. Présenter comme une lecture symbolique et un outil de connaissance de soi, pas une certitude. Mentionner le Cabinet privé de façon discrète en fin d'article.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "noeud-nord-mission-de-vie.html",
+            "chiron-blessure-sacree.html",
+            "retour-de-saturne.html",
+            "maison-12-astrologie.html",
+            "etude-karmique.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "transits-astrologie",
+        "titre": "Les transits en astrologie : comment le ciel du moment vous touche",
+        "sujet": "Un transit = position actuelle d'une planète comparée à son thème de naissance. Transits rapides (Lune, Soleil, Mercure, Vénus, Mars) et lents (Jupiter, Saturne, Uranus, Neptune, Pluton). Les grands rendez-vous de la vie : retour de Jupiter (environ 12 ans), retour de Saturne (environ 29 ans), opposition d'Uranus (environ 42 ans). Comment l'horoscope quotidien du site utilise les transits.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "retour-de-saturne.html",
+            "horoscope.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "revolution-solaire",
+        "titre": "La révolution solaire : votre année d'anniversaire en astrologie",
+        "sujet": "Thème dressé pour le moment exact où le Soleil revient à sa position de naissance, autour de l'anniversaire. Il donne les tendances de l'année qui commence. Importance du lieu où l'on se trouve ce jour-là, ascendant de révolution solaire, maisons activées.",
+        "categorie": "BIBLIOTHÈQUE INTERDITE",
+        "liens": [
+            "theme-astral.html",
+            "transits-astrologie.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "pleine-lune-sommeil",
+        "titre": "Pleine lune et sommeil : pourquoi dort-on moins bien ?",
+        "sujet": "Ce que dit la science avec prudence : une étude suisse de 2013 (Cajochen et al., Current Biology) a observé en laboratoire un sommeil un peu plus court et un endormissement plus long autour de la pleine lune ; d'autres études ont trouvé des effets plus faibles ou nuls, le sujet reste débattu. Ne cite pas d'autres chiffres. Puis la lecture symbolique et des conseils concrets pour mieux dormir ces nuits-là (rideaux, écrans, rituel du soir).",
+        "categorie": "LA LUNE AU QUOTIDIEN",
+        "liens": [
+            "calendrier-lunaire.html",
+            "pleine-lune-rituel-lacher-prise.html",
+            "amethyste-sommeil.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "calendrier-lunaire-cheveux",
+        "titre": "Couper ses cheveux selon la lune : la tradition expliquée",
+        "sujet": "La tradition populaire : couper en lune croissante pour que les cheveux repoussent plus vite et plus forts, en lune décroissante pour espacer les coupes ; jours « fruits » (Lune en Bélier, Lion, Sagittaire) réputés pour la vigueur, etc. Aucune preuve scientifique : présenter comme une tradition et un rituel de soin. Comment savoir si la lune est croissante (calendrier lunaire du site).",
+        "categorie": "LA LUNE AU QUOTIDIEN",
+        "liens": [
+            "calendrier-lunaire.html",
+            "lune-montante-descendante.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "jardiner-avec-la-lune",
+        "titre": "Jardiner avec la lune : le guide simple pour débuter",
+        "sujet": "Les bases du jardinage lunaire traditionnel : lune croissante/décroissante, lune montante/descendante (à ne pas confondre), jours racines (Lune en Taureau, Vierge, Capricorne), feuilles (Cancer, Scorpion, Poissons), fleurs (Gémeaux, Balance, Verseau), fruits (Bélier, Lion, Sagittaire). Exemples de semis et récoltes. Préciser que les effets ne sont pas démontrés scientifiquement, mais que la méthode structure le calendrier du jardinier.",
+        "categorie": "LA LUNE AU QUOTIDIEN",
+        "liens": [
+            "calendrier-lunaire.html",
+            "lune-montante-descendante.html",
+            "jardin-zen-terre.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "lune-montante-descendante",
+        "titre": "Lune montante et lune descendante : quelle différence ?",
+        "sujet": "Lune croissante/décroissante = sa phase (éclairage). Lune montante/descendante = sa hauteur dans le ciel d'un jour à l'autre, cycle d'environ 27 jours : montante quand elle va du Sagittaire aux Gémeaux, descendante des Gémeaux au Sagittaire. Usages traditionnels au jardin (sève qui monte, greffes, plantations) et pour le bien-être.",
+        "categorie": "LA LUNE AU QUOTIDIEN",
+        "liens": [
+            "jardiner-avec-la-lune.html",
+            "calendrier-lunaire.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "lune-rousse",
+        "titre": "La lune rousse : mythe ou réalité pour le jardin ?",
+        "sujet": "La lune rousse est la lunaison qui commence après Pâques (en avril-mai) : la tradition dit qu'elle « roussit » les jeunes pousses. Explication : ce sont les gelées nocturnes de printemps par nuit claire, pas la Lune elle-même. Conseils pour protéger le jardin. La Lune n'est pas rousse ce mois-là : ne pas confondre avec la lune de sang des éclipses totales.",
+        "categorie": "LA LUNE AU QUOTIDIEN",
+        "liens": [
+            "jardiner-avec-la-lune.html",
+            "calendrier-lunaire.html",
+            "eclipse-ombre.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "heures-miroirs-signification",
+        "titre": "Heures miroirs : signification de toutes les heures doubles",
+        "sujet": "Pourquoi on remarque les heures miroirs (attention sélective, synchronicité selon Jung) puis la lecture symbolique : une signification courte pour chaque heure double de 00h00 à 23h23 en se basant sur la numérologie du nombre (pas de liste d'anges inventée). Ce qu'il faut faire quand on en voit souvent (noter, observer ses pensées du moment). Préciser que c'est une lecture symbolique.",
+        "categorie": "NOMBRES & SYMBOLES",
+        "liens": [
+            "11h11-signification.html",
+            "22h22-signification.html",
+            "nombres-angeliques.html",
+            "numerologie-chemin-de-vie.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "11h11-signification",
+        "titre": "11h11 : signification en amour, au travail et en spiritualité",
+        "sujet": "11h11 est l'heure miroir la plus recherchée en France. Le 11 est un nombre maître en numérologie (intuition, inspiration, éveil). Signification générale, en amour (célibataire, en couple), au travail et argent, spirituelle. Pourquoi on fait un vœu à 11h11. Rester dans le symbolique.",
+        "categorie": "NOMBRES & SYMBOLES",
+        "liens": [
+            "heures-miroirs-signification.html",
+            "nombre-maitre-11-22-33.html",
+            "nombres-angeliques.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "22h22-signification",
+        "titre": "22h22 : signification de l'heure miroir en amour et au travail",
+        "sujet": "Le 22 est le nombre maître du « maître bâtisseur » : concrétiser de grands projets, harmonie à deux (2 + 2). Signification générale, amour, travail, spirituelle. Différence avec 11h11. Rester dans le symbolique.",
+        "categorie": "NOMBRES & SYMBOLES",
+        "liens": [
+            "heures-miroirs-signification.html",
+            "nombre-maitre-11-22-33.html",
+            "11h11-signification.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "nombres-angeliques",
+        "titre": "Nombres angéliques : signification de 111, 222, 333 jusqu'à 999",
+        "sujet": "Les suites de chiffres répétés (111, 222… 999, 1111, 1212) vues sur des plaques, tickets, horloges. Pour chacune, une signification symbolique fondée sur la numérologie du chiffre (1 : départ, 2 : couple et équilibre, 3 : expression, 4 : stabilité, 5 : changement, 6 : amour et foyer, 7 : spiritualité, 8 : abondance, 9 : fin de cycle). Présenter comme une tradition moderne, sans promesse.",
+        "categorie": "NOMBRES & SYMBOLES",
+        "liens": [
+            "heures-miroirs-signification.html",
+            "numerologie-chemin-de-vie.html",
+            "annee-personnelle-numerologie.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "annee-personnelle-numerologie",
+        "titre": "Année personnelle en numérologie : calcul et signification de 1 à 9",
+        "sujet": "Calcul : jour + mois de naissance + année en cours, réduits à un chiffre (exemple : né le 14 mars, en 2027 : 1+4+3+2+0+2+7 = 19 → 1+9 = 10 → 1). L'année personnelle va d'un anniversaire à l'autre selon certains numérologues, du 1er janvier au 31 décembre selon d'autres : mentionner les deux. Signification de chaque année de 1 à 9 (amour, travail, conseils). Lien avec le chemin de vie.",
+        "categorie": "NOMBRES & SYMBOLES",
+        "liens": [
+            "numerologie-chemin-de-vie.html",
+            "nombre-maitre-11-22-33.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "nombre-maitre-11-22-33",
+        "titre": "Nombres maîtres 11, 22 et 33 : que signifient-ils ?",
+        "sujet": "En numérologie, 11, 22 et 33 ne se réduisent pas : ce sont des nombres maîtres. 11 : intuition et inspiration, 22 : bâtisseur, 33 : guérison et dévouement. Comment savoir si on a un nombre maître (chemin de vie). Le revers : exigence et tension.",
+        "categorie": "NOMBRES & SYMBOLES",
+        "liens": [
+            "chemin-de-vie-11.html",
+            "chemin-de-vie-22.html",
+            "chemin-de-vie-33.html",
+            "numerologie-chemin-de-vie.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "numerologie-prenom",
+        "titre": "Numérologie du prénom : calculer son nombre d'expression",
+        "sujet": "Table de correspondance de Pythagore (A, J, S = 1 ; B, K, T = 2 ; C, L, U = 3 ; D, M, V = 4 ; E, N, W = 5 ; F, O, X = 6 ; G, P, Y = 7 ; H, Q, Z = 8 ; I, R = 9). Nombre d'expression (toutes les lettres des prénoms et du nom), nombre intime (voyelles), nombre de réalisation (consonnes). Exemple complet calculé avec soin et vérifié. Signification courte de 1 à 9, 11 et 22.",
+        "categorie": "NOMBRES & SYMBOLES",
+        "liens": [
+            "numerologie-chemin-de-vie.html",
+            "nombre-maitre-11-22-33.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "tarot-de-marseille-debutant",
+        "titre": "Tarot de Marseille : le guide pour débuter",
+        "sujet": "Composition : 78 cartes, 22 arcanes majeurs et 56 arcanes mineurs (4 couleurs : bâtons, coupes, épées, deniers). Histoire en quelques lignes, sans dates inventées. Comment poser une question, tirages simples (une carte, trois cartes passé-présent-futur, croix en cinq cartes), lecture intuitive. Usage comme outil de réflexion, pas comme prédiction certaine.",
+        "categorie": "NOMBRES & SYMBOLES",
+        "liens": [
+            "arcanes-majeurs-signification.html",
+            "tarot-planetes.html",
+            "tirage-tarot-oui-non.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "arcanes-majeurs-signification",
+        "titre": "Les 22 arcanes majeurs du tarot : signification de chaque carte",
+        "sujet": "Les 22 arcanes majeurs du Tarot de Marseille dans l'ordre (Le Mat, Le Bateleur, La Papesse, L'Impératrice, L'Empereur, Le Pape, L'Amoureux, Le Chariot, La Justice, L'Hermite, La Roue de Fortune, La Force, Le Pendu, l'arcane sans nom XIII, Tempérance, Le Diable, La Maison Dieu, L'Étoile, La Lune, Le Soleil, Le Jugement, Le Monde). Pour chacun : symbole, sens à l'endroit, en amour, conseil.",
+        "categorie": "NOMBRES & SYMBOLES",
+        "liens": [
+            "tarot-de-marseille-debutant.html",
+            "tarot-planetes.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "tirage-tarot-oui-non",
+        "titre": "Tirage du tarot oui ou non : comment bien poser sa question",
+        "sujet": "Le principe du tirage oui/non en une ou trois cartes, comment formuler une question claire, quelles cartes sont traditionnellement plutôt « oui » (Le Soleil, Le Monde, L'Étoile, L'Amoureux…), plutôt « non » (La Maison Dieu, l'arcane XIII, Le Diable…) ou « peut-être ». Limites : outil de réflexion, ne pas prendre de décision importante seulement sur un tirage.",
+        "categorie": "NOMBRES & SYMBOLES",
+        "liens": [
+            "tarot-de-marseille-debutant.html",
+            "arcanes-majeurs-signification.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "signe-astrologique-date",
+        "titre": "Quel est mon signe astrologique ? Les dates exactes des 12 signes",
+        "sujet": "Les dates des 12 signes (approximatives, elles varient d'un jour selon les années) : Bélier 21 mars-19 avril, Taureau 20 avril-20 mai, Gémeaux 21 mai-20 juin, Cancer 21 juin-22 juillet, Lion 23 juillet-22 août, Vierge 23 août-22 septembre, Balance 23 septembre-22 octobre, Scorpion 23 octobre-21 novembre, Sagittaire 22 novembre-21 décembre, Capricorne 22 décembre-19 janvier, Verseau 20 janvier-18 février, Poissons 19 février-20 mars. Pour chaque signe : élément, planète, 3 traits. Que faire si on est né un jour de changement de signe (calcul à l'heure près).",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html",
+            "signe-lion.html",
+            "signe-vierge.html",
+            "signe-balance.html",
+            "signe-scorpion.html",
+            "signe-sagittaire.html",
+            "signe-capricorne.html",
+            "signe-verseau.html",
+            "signe-poissons.html",
+            "cuspide-astrologie.html",
+            "theme-astral.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "signe-compatible-amour",
+        "titre": "Quel signe est le plus compatible avec le vôtre en amour ?",
+        "sujet": "Pour chacun des 12 signes : les 2 ou 3 signes les plus compatibles et pourquoi (même élément, éléments complémentaires Feu-Air et Terre-Eau, signe opposé qui attire), et le signe le plus délicat. Rappeler que la synastrie complète (Vénus, Mars, Lune) compte plus que le seul signe solaire.",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "compatibilite-amoureuse.html",
+            "synastrie-ames-soeurs.html",
+            "venus-en-astrologie.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "homme-scorpion-amour",
+        "titre": "L'homme Scorpion en amour : comment le comprendre et le séduire",
+        "sujet": "Recherche très fréquente. Portrait amoureux de l'homme Scorpion : intensité, loyauté, jalousie, besoin de confiance, comportement quand il est amoureux, quand il est distant, comment savoir si on lui plaît, compatibilité avec chaque signe féminin en quelques lignes. Éviter les clichés blessants, rester nuancé (l'ascendant et Vénus comptent).",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "signe-scorpion.html",
+            "compatibilite-scorpion.html",
+            "scorpion.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "femme-belier-amour",
+        "titre": "La femme Bélier en amour : caractère, séduction et compatibilités",
+        "sujet": "Portrait amoureux de la femme Bélier : franchise, passion, besoin d'indépendance, coups de cœur rapides, ce qui la fait fuir, comment la séduire, compatibilité avec chaque signe masculin en quelques lignes. Nuancer avec l'ascendant et Vénus.",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "signe-belier.html",
+            "compatibilite-belier.html",
+            "belier.html"
+        ],
+        "salve": 1
+    },
+    {
+        "slug": "saisons-astrologiques",
+        "titre": "Les saisons astrologiques : ce que chaque mois de l'année vous apporte",
+        "sujet": "Le Soleil traverse un signe environ chaque mois : décrire l'énergie collective de chaque saison astrologique (saison du Bélier vers le 20 mars, du Taureau vers le 20 avril, etc.) et comment en profiter quel que soit son signe.",
+        "categorie": "LES GRANDES QUESTIONS",
+        "liens": [
+            "signe-belier.html",
+            "signe-taureau.html",
+            "signe-gemeaux.html",
+            "signe-cancer.html",
+            "signe-lion.html",
+            "signe-vierge.html",
+            "signe-balance.html",
+            "signe-scorpion.html",
+            "signe-sagittaire.html",
+            "signe-capricorne.html",
+            "signe-verseau.html",
+            "signe-poissons.html",
+            "horoscope-mois.html"
+        ],
+        "salve": 1
     }
 ]

@@ -383,13 +383,17 @@ ${html}
 </article>
 ${suite.length ? `<section class="section" aria-labelledby="h-suite"><div class="wrap stack gap-l"><h2 id="h-suite" class="h2 center">Poursuivre la lecture</h2><div class="related">${suite.map((x) => `<a href="${x.slug}.html">${IMG.obj(articlesLib.cat(x.categorie).image)}<span class="eyebrow">${esc(articlesLib.cat(x.categorie).label)}</span><span class="t">${esc(x.titre)}</span></a>`).join('')}</div></div></section>` : ''}`;
         const desc = enBref || a.sujet;
+        // FAQ de fin d'article → données structurées FAQPage
+        const blocFaq = (html.split(/<h2[^>]*>\s*Questions fréquentes\s*<\/h2>/i)[1] || '').split(/<h2/i)[0];
+        const faqArt = [...blocFaq.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>\s*<p[^>]*>([\s\S]*?)<\/p>/gi)]
+            .map((m) => ({ q: m[1].replace(/<[^>]+>/g, '').trim(), a: m[2].replace(/<[^>]+>/g, '').trim() })).filter((f) => f.q && f.a);
         write(`${a.slug}.html`, L.page({
             ...ctx, main, crumbs, active: 'encyclo', compact: true,
             head: {
                 title: `${a.titre} · Horoscope Authentique`,
                 description: tronquer(desc),
                 file: `${a.slug}.html`, ogType: 'article', ogImage: c.image,
-                jsonld: [{ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: a.titre, description: tronquer(desc, 300), image: L.SITE + 'assets/' + c.image, author: auteur, publisher: editeur, ...(maj ? { dateModified: maj } : {}), inLanguage: 'fr-FR', mainEntityOfPage: L.SITE + a.slug + '.html', articleSection: c.label }, L.crumbsSchema(crumbs)]
+                jsonld: [faqArt.length ? faqSchema(faqArt) : null, { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: a.titre, description: tronquer(desc, 300), image: L.SITE + 'assets/' + c.image, author: auteur, publisher: editeur, ...(maj ? { dateModified: maj } : {}), inLanguage: 'fr-FR', mainEntityOfPage: L.SITE + a.slug + '.html', articleSection: c.label }, L.crumbsSchema(crumbs)]
             }
         }));
     }
