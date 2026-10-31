@@ -485,19 +485,34 @@ html,body{overflow-x:clip}
 .tm-mode{font:inherit;font-family:var(--caps);font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:14px 22px;border:1px solid var(--filet);background:#FFFFFF;color:var(--encre-2);cursor:pointer;border-radius:999px;transition:all .3s}
 .tm-mode[aria-pressed="true"]{border-color:var(--or);color:var(--or);background:var(--survol)}
 .tirage-consigne{margin:0}
-.tirage-jeu{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;perspective:1400px;padding:10px 0 20px}
-.tj-carte{position:relative;width:118px;aspect-ratio:720/1047;padding:0;border:0;background:none;cursor:pointer;transform:rotate(calc((var(--i) - 3) * 3deg)) translateY(calc((var(--i) - 3) * (var(--i) - 3) * 2px));transition:transform .5s cubic-bezier(.2,.8,.25,1.25),opacity .5s}
-.tj-carte:hover:not(.retournee){transform:translateY(-16px) scale(1.05)}
-.tj-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.3,.7,.2,1)}
-.tj-carte.retournee{transform:translateY(-18px) scale(1.08);z-index:2}
-.tj-carte.retournee .tj-inner{transform:rotateY(180deg)}
-.tj-dos,.tj-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.tj-dos img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(28,26,23,.15))}
-.tj-face{transform:rotateY(180deg);display:flex}
+/* Tirage du tarot : la scène du rituel */
+.tirage-jeu{position:relative;display:block;width:100%;height:340px;margin:8px 0 6px;overflow:visible}
+.tj-carte{position:absolute;left:0;top:0;width:120px;aspect-ratio:720/1047;padding:0;border:0;background:none;cursor:pointer;transform-origin:50% 100%;transition:opacity .9s ease,filter .9s ease;will-change:transform;-webkit-tap-highlight-color:transparent}
+.tj-carte:focus-visible{outline:none}
+.tj-carte:focus-visible .tj-dos img{filter:drop-shadow(0 0 8px var(--or-clair))}
+.tj-lift{position:absolute;inset:0;transition:transform .7s cubic-bezier(.2,.8,.25,1.15)}
+.tj-flotte{position:absolute;inset:0;perspective:1100px}
+.pret .tj-flotte{animation:carte-respire 4.8s ease-in-out infinite;animation-delay:calc(var(--i) * -.7s)}
+@keyframes carte-respire{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.tj-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.45,.05,.15,1)}
+.tj-dos,.tj-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex}
+.tj-dos img,.tj-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(28,26,23,.14));transition:filter .6s ease}
+.tj-face{transform:rotateY(180deg)}
 .tj-face .carte-tarot{height:100%;width:100%;padding:16% 8%}
+.pret .tj-carte:not(.retournee):hover .tj-lift{transform:translateY(-18px) scale(1.04)}
+.pret .tj-carte:not(.retournee):hover .tj-dos img{filter:drop-shadow(0 0 10px rgba(233,207,134,.95)) drop-shadow(0 0 22px rgba(201,165,74,.55)) drop-shadow(0 16px 18px rgba(28,26,23,.16))}
+.tj-carte.retournee .tj-lift{transform:translateY(-26px) scale(1.06)}
+.tj-carte.retournee .tj-inner{transform:rotateY(180deg)}
+.tj-carte.retournee .tj-img{animation:carte-lueur 1.8s ease-out .5s both}
+@keyframes carte-lueur{0%{filter:drop-shadow(0 0 0 rgba(233,207,134,0)) drop-shadow(0 10px 14px rgba(28,26,23,.14))}35%{filter:drop-shadow(0 0 18px rgba(233,207,134,1)) drop-shadow(0 0 40px rgba(201,165,74,.7)) drop-shadow(0 14px 18px rgba(28,26,23,.16))}100%{filter:drop-shadow(0 0 6px rgba(233,207,134,.45)) drop-shadow(0 14px 18px rgba(28,26,23,.16))}}
+.fini .tj-carte:not(.retournee){opacity:0;filter:blur(3px);pointer-events:none}
+.fini .tj-carte.retournee .tj-lift{transform:none}
+.poussiere{position:absolute;border-radius:50%;pointer-events:none;z-index:60;background:radial-gradient(circle,#FFFBEA 0,#F3DE9C 35%,rgba(201,165,74,.0) 72%);box-shadow:0 0 6px rgba(233,207,134,.8)}
+.tirage-resultat .apparait > *{animation:resultat-apparait .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--d, 0) * 110ms + 150ms)}
+@keyframes resultat-apparait{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.pret .tj-flotte,.tj-carte.retournee .tj-img,.tirage-resultat .apparait > *{animation:none}}
 .tj-face .ct-num{font-size:16px}
 .tj-face .ct-nom{font-size:10px}
-.tirage-jeu.fini .tj-carte:not(.retournee){opacity:.25;pointer-events:none}
 .tirage-resultat:empty{display:none}
 .tr-un{max-width:680px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;padding:34px 24px;border-top:1px solid var(--or-clair);border-bottom:1px solid var(--or-clair)}
 .tr-un p{margin:0;color:var(--encre-2)}
@@ -506,7 +521,6 @@ html,body{overflow-x:clip}
 .tr-trois{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px;border-top:1px solid var(--or-clair);padding-top:30px}
 .tr-pos{display:flex;flex-direction:column;gap:8px}
 .tr-pos p{margin:0;color:var(--encre-2)}
-@media (max-width:640px){.tj-carte{width:84px}.tirage-jeu{gap:10px}}
 
 /* Articles : pour aller plus loin */
 .plus-loin{margin-top:36px;padding:26px 0;border-top:1px solid var(--or-clair);border-bottom:1px solid var(--or-clair)}
@@ -522,7 +536,6 @@ html,body{overflow-x:clip}
 .grille-arcanes a:hover .carte-img,.grille-arcanes a[aria-current] .carte-img{transform:translateY(-6px) scale(1.06)}
 .gn-img{display:block;width:110px;height:auto;margin-bottom:6px;transition:transform .5s cubic-bezier(.2,.8,.25,1.25)}
 .grille-nombres.large a:hover .gn-img{transform:translateY(-4px) scale(1.05)}
-.tj-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(28,26,23,.15))}
 .tr-img{width:min(240px,60vw);height:auto;margin-bottom:8px;filter:drop-shadow(0 16px 22px rgba(28,26,23,.14))}
 .tr-img.petite{width:140px;margin:0 0 6px}
 .tr-pos{align-items:flex-start}
