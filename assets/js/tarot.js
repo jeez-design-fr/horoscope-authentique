@@ -177,6 +177,9 @@
   scene.addEventListener('click', function (e) {
     var b = e.target.closest('.tj-carte');
     if (!b || occupe || !distribue || b.classList.contains('retournee') || choisies.length >= mode) return;
+    // Version haute définition de la face, chargée au moment du retournement
+    var fi = b.querySelector('.tj-img');
+    if (fi && /-mini\.webp$/.test(fi.src)) { var hd = new Image(); hd.onload = function () { fi.src = hd.src; }; hd.src = fi.src.replace('-mini.webp', '.webp'); }
     b.classList.add('retournee');
     choisies.push(b._i);
     setTimeout(function () { poussiere(b); }, calme ? 0 : 420);

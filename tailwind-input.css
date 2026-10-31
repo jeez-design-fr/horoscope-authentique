@@ -440,6 +440,7 @@ html,body{overflow-x:clip}
    ===================================================================== */
 .esot-hero{padding-top:48px;padding-bottom:80px}
 .carte-photo{display:block;width:min(400px,100%);height:auto;margin:0 auto;filter:drop-shadow(0 22px 30px rgba(28,26,23,.10));transition:transform .8s cubic-bezier(.2,.8,.25,1.2)}
+.carte-photo[src*="arcane-"],.carte-photo[src*="tarot-dos"]{filter:drop-shadow(0 1px 2px rgba(28,26,23,.2)) drop-shadow(0 12px 18px rgba(28,26,23,.12))}
 .carte-photo:hover{transform:translateY(-8px) rotate(-1deg)}
 .carte-css{display:block;width:min(340px,78vw);margin:0 auto}
 /* Tuile porcelaine en CSS */
@@ -496,15 +497,15 @@ html,body{overflow-x:clip}
 @keyframes carte-respire{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 .tj-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.45,.05,.15,1)}
 .tj-dos,.tj-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex}
-.tj-dos img,.tj-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(28,26,23,.14));transition:filter .6s ease}
+.tj-dos img,.tj-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 1px 1.5px rgba(28,26,23,.22)) drop-shadow(0 6px 9px rgba(28,26,23,.13));transition:filter .6s ease}
 .tj-face{transform:rotateY(180deg)}
 .tj-face .carte-tarot{height:100%;width:100%;padding:16% 8%}
 .pret .tj-carte:not(.retournee):hover .tj-lift{transform:translateY(-18px) scale(1.04)}
-.pret .tj-carte:not(.retournee):hover .tj-dos img{filter:drop-shadow(0 0 10px rgba(233,207,134,.95)) drop-shadow(0 0 22px rgba(201,165,74,.55)) drop-shadow(0 16px 18px rgba(28,26,23,.16))}
+.pret .tj-carte:not(.retournee):hover .tj-dos img{filter:drop-shadow(0 1px 1.5px rgba(28,26,23,.2)) drop-shadow(0 0 10px rgba(233,207,134,.95)) drop-shadow(0 0 22px rgba(201,165,74,.5))}
 .tj-carte.retournee .tj-lift{transform:translateY(-26px) scale(1.06)}
 .tj-carte.retournee .tj-inner{transform:rotateY(180deg)}
 .tj-carte.retournee .tj-img{animation:carte-lueur 1.8s ease-out .5s both}
-@keyframes carte-lueur{0%{filter:drop-shadow(0 0 0 rgba(233,207,134,0)) drop-shadow(0 10px 14px rgba(28,26,23,.14))}35%{filter:drop-shadow(0 0 18px rgba(233,207,134,1)) drop-shadow(0 0 40px rgba(201,165,74,.7)) drop-shadow(0 14px 18px rgba(28,26,23,.16))}100%{filter:drop-shadow(0 0 6px rgba(233,207,134,.45)) drop-shadow(0 14px 18px rgba(28,26,23,.16))}}
+@keyframes carte-lueur{0%{filter:drop-shadow(0 1px 1.5px rgba(28,26,23,.22)) drop-shadow(0 0 0 rgba(233,207,134,0))}35%{filter:drop-shadow(0 1px 1.5px rgba(28,26,23,.22)) drop-shadow(0 0 18px rgba(233,207,134,1))}100%{filter:drop-shadow(0 1px 1.5px rgba(28,26,23,.22)) drop-shadow(0 6px 9px rgba(28,26,23,.13))}}
 .fini .tj-carte:not(.retournee){opacity:0;filter:blur(3px);pointer-events:none}
 .fini .tj-carte.retournee .tj-lift{transform:none}
 .poussiere{position:absolute;border-radius:50%;pointer-events:none;z-index:60;background:radial-gradient(circle,#FFFBEA 0,#F3DE9C 35%,rgba(201,165,74,.0) 72%);box-shadow:0 0 6px rgba(233,207,134,.8)}
@@ -532,7 +533,7 @@ html,body{overflow-x:clip}
 .plus-loin .pl-d{font-size:15px;font-style:italic;color:var(--gris)}
 
 /* Visuels porcelaine des nombres et des arcanes */
-.carte-img{display:block;width:min(110px,100%);height:auto;filter:drop-shadow(0 8px 12px rgba(28,26,23,.12));transition:transform .5s cubic-bezier(.2,.8,.25,1.25)}
+.carte-img{display:block;width:min(110px,100%);height:auto;filter:drop-shadow(0 1px 1.5px rgba(28,26,23,.22)) drop-shadow(0 6px 9px rgba(28,26,23,.13));transition:transform .5s cubic-bezier(.2,.8,.25,1.25)}
 .grille-arcanes a:hover .carte-img,.grille-arcanes a[aria-current] .carte-img{transform:translateY(-6px) scale(1.06)}
 .gn-img{display:block;width:110px;height:auto;margin-bottom:6px;transition:transform .5s cubic-bezier(.2,.8,.25,1.25)}
 .grille-nombres.large a:hover .gn-img{transform:translateY(-4px) scale(1.05)}
